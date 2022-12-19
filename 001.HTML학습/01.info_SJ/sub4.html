@@ -23,8 +23,7 @@
 
             <nav id="gnb">
                 <a href="index.html">
-                    <img
-                        src="images/logo.png"
+                    <img src="images/logo.png"
                         alt="네이버로고"
                         style="width: 20px" />
                 </a>
@@ -128,8 +127,10 @@
                 </figcaption>
                 <section class="arti">
                   <p>
-                    이처럼 달 궤도 진입기동은 굉장한 고난이도의 작업이지만, 이 또한 임무
-                    성공 가능성을 최대한 높이기 위한 항우연의 계산·분석의 산물이다.
+                    항우연 수선연구원 공유씨가 이렇게 말했다. <q>
+                      이처럼 달 궤도 진입기동은 굉장한 고난이도의 작업이지만, 이 또한 임무
+                      성공 가능성을 최대한 높이기 위한 항우연의 계산·분석의 산물이다!
+                    </q>
                   </p>
           
                   <p>
@@ -146,7 +147,7 @@
                   </p>
           
                   <p>
-                    당초 항우연은 다누리를 달까지 약 1~2개월이 소요되는 '위상전이궤적'
+                    당초 항우연은 다누리를 달까지 약 1~2개월이 소요되는 <abbr title="위상전이궤적">'위적'</abbr>
                     방식을 사용하려 했으나 준비 과정에서 다누리 설계 중량이 늘어나면서
                     불가피하게 속도가 더 느리고 연료를 더 적게 소모하는 BLT 궤적으로
                     방식을 바꾸게 됐다. 다누리의 속도가 더 느린 BLT 궤적을 선택했음에도
@@ -209,6 +210,15 @@
                   <!-- break 요소 : 인라인 줄바꿈요소 -->
                   ② 달의 반지름은 지구 반지름의 약 4분의 1이며, 질량은 지구 질량의 1/81.3이고, 달과 지구의 공통 중심은 지구 내부에 있다. 달 궤도의 반지름은 38만 4,400km이며, 이것이 달과의 평균 거리가 된다.
                 </article>
+                
+                <hr>
+
+                <!-- 인용블록 영역 -->
+                <article class="qb">
+                <h5>한국우주연구원 소개 인용</h5>
+                <blockquote cite="https://ko.wikipedia.org/wiki/%ED%95%9C%EA%B5%AD%ED%95%AD%EA%B3%B5%EC%9A%B0%EC%A3%BC%EC%97%B0%EA%B5%AC%EC%9B%90">한국항공우주연구원(韓國航空宇宙硏究院, 영어: Korea Aerospace Research Institute, KARI), 약자로 항우연은 대전광역시 유성구 어은동에 위치하는 과학기술정보통신부 산하 항공우주 과학기술 관련 기타공공기관 재단법인이다.
+                <br><br>'과학기술분야 정부출연 연구기관 등의 설립ㆍ운영 및 육성에 관한 법률'에 근거하여 1989년 10월 10일 설립되었다. 설립 목적은 우주항공기술 개발, 항공공학의 발전과 기술 개발 및 보급 등을 통한 경제 발전과 국민생활 향상이다.</blockquote>
+                </article>
                 <hr>
 
                 <!-- 2-5.기자정보 -->
@@ -222,6 +232,27 @@
                     기사원문
                   </a>
                 </h5>
+
+                <hr>
+
+                <!-- 오늘의 작품 & 느낌 -->
+                <article class="work">
+                  <h3>오늘의 작품 &amp; 느낌</h3>
+                  <figure>
+                    <img src="./images/img_the_screem.jpg" alt="뭉크의 절규">
+                    <figcaption>
+                      뭉크의 <cite>&lt;절규&gt;</cite>
+                    </figcaption>
+                  </figure>
+                </article>
+
+                <!-- 
+                  [ html 요소에서 특수문자 처리 ]
+                  & 엔퍼센트 &amp;
+                  < 여는꺽쇠 &lt; (lt는 less than ~ 보다 작은)
+                  > 닫는꺽쇠 &gt; (gt는 greather than ~ 보다 큰)
+                 -->
+
         </main>
         <!-- 3.하단영역 -->
         <footer class="info bx">
@@ -233,44 +264,73 @@
             </address>
         </footer>
 
-        <!-- 
-          [1. 서식 관련 태그들 ]
-          1. 두꺼운 글자
-          <b>- 단순히 글자 두꺼움(Bold text)
-          <strong>- 중요함의 의미(Important text)
+        <!-- [ 1. 서식 관련 태그들 ]
+        1. 두꺼운글자
+        <b> - 단순히 글자두꺼움(Bold text) 
+        <strong> - 중요함의 의미(Important text)
 
-          2. 이탤릭 글자
-          <i>- 단순히 이탤릭체(Italic text)
-          <em>- 강조의 의미(Emphasized text)
+        2. 이탤릭글자
+        <i> - 단순히 이탤릭체(Italic text)
+        <em> - 강조의 의미(Emphasized text)
 
-          <mark>- Marked text
-          <small>- Smaller text
-          
-          3. 색상표시
-          <mark> - 표시글자(Marked text)
+        3. 색상표시
+        <mark> - 표시글자(Marked text)
 
-          4. 작은글자
-          <small> - 좀더 작은글자(Smaller text)
-          -> h5 요소의 글자와 같은 크기임
-          -> 상속된 글자 크기에 대한 상대적인 크기이므로
-          브라우저에서 소수점으로 표시될 수 있다 !
+        4. 작은글자
+        <small> - 좀더작은글자(Smaller text)
+            -> h5 요소의 글자와 같은 크기임
+            -> 상속된 글자 크기에 대한 상대적인
+            크기이므로 브라우저에서 소수점으로 표시
+            될 수 있다!
 
-          5. 삭제된 글자표시
-          <del>- 중간지움표시글자(Deledted text)
-          -> text-decordation : line-through 
+        5. 삭제된 글자표시
+        <del> - 중간지움표시글자(Deleted text)
+            -> text-decoration: line-through
 
-          6. 삽입된 글자표시
-          <ins>- 밑줄표시로 삽입글자(Inserted text)
-            -> text-decoration : underline
-   
-          7. 첨자표시
-          1) 아랫첨자 <sub>
+        6. 삽입된 글자표시
+        <ins> - 밑줄표시로 삽입글자(Inserted text)
+            -> text-decoration: underline
+
+        7. 첨자표시
+        1) 아랫첨자 <sub> 
             - 약간아랫쪽 작은글자(Subscript text)
-            - 병행표시글자(영문,글자)
-
-          2) 윗첨자 <sup>
-            - 약간위쪽 작은글자(Superscript text)
+            - 병행표시글자(영문,한문 등
+        2) 윗첨자 <sup> 
+            - 약간윗쪽 작은글자(Superscript text)
             - 주석표시숫자(숫자와 설명을 연결함)
+
+            
+
+          [ 2. 인용관련요소 ]
+          1. 블록인용요소
+          <blockquote>	 
+              - 블록요소로 별도의 인용구를 구분하는 박스
+              - 주의: 내부에 p요소와 같은 다른블록 쓰면 안됨!
+              - cite 속성 : 출처표시
+              (필수속성은 아니면 url주소가 들어가기 때문에 링크로
+              오해될 수 있으나 아님! 단순 출처정보)
+
+          2. 인라인인용요소
+          <q> 
+              - 작은 인용구(쌍따옴표가 자동생성) 
+              - 주의: 인라인요소임(blockquote와 구분할것!)
+
+          3. 줄임말 인용
+          <abbr>	
+              - 줄임말의 원래 뜻을 표시하는 요소
+              - 필수속성 ->> title 속성으로 툴팁을 띄운다(원래뜻)
+          (참고: title속성은 툴팁을 띄우고자 하는 어떤 요소에도 사용할 수 있다!)
+
+          4. 주소인용
+          <address>
+              - 주소, 대표자, 전화번호 등 사이트 정보표시
+          
+          5. 작품명 인용
+          <cite>
+              - 인용하고 있는 작품명을 표시하기 위한 요소
+
+
+          <bdo>	Defines the text direction
 
          [ 시맨틱 태그란? ]
          - sementic (의미론적인, 의미있는)
@@ -282,7 +342,7 @@
          - 시멘틱태그를 쓰면 검색을 더욱 정교하게 분석적으로
          수행할 수 있는 바탕이 마련된다!(검색최적화)
 
-          -->
+          --> 
          
 </body>
 </html>
