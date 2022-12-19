@@ -1,7 +1,20 @@
 @charset "utf-8";
 /* 서브페이지 공통 CSS - sub.css */
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .prlogo img {
     width: 85px;
     height: 40px;
+}
+
+.afig img {
+    width: 100%;
+}
+
+.afig figcaption {
+    text-align: center;
 }
