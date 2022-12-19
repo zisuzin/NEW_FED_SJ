@@ -18,3 +18,9 @@ body {
 .afig figcaption {
     text-align: center;
 }
+
+h5 > a {
+    width: 600px;
+    padding: 10px;
+    border: 1px dotted grey;
+}
