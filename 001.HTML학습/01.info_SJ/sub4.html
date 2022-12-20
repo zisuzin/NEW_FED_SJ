@@ -257,9 +257,15 @@
                  <!-- 
                   [ 순서 없는 리스트 : ul ]
                   unordered list 
+                  (참고: 블릿옵션
+                  https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css)
 
                   [ 순서 있는 리스트: ol ]
                   ordered list 
+                  (참고: 순서표시옵션
+                  https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css)
+                  - start 속성 : 시작번호
+                  - reverse 속성 : 일련번호를 거꾸로
 
                   [ ul/ol 공통사항 ]
                   - 하위필수요소: li (개별리스트)
@@ -310,22 +316,81 @@
                 <h3>분야별 뉴스</h3>
                 <dl>
                   <dt>경제</dt>
-                  <dd>
-                  <a href="https://n.news.naver.com/mnews/article/366/0000863553?sid=101" target="_blank">지난해 대기업 된 중견기업 205개…실적·고용·투자 증가</a>
-                  </dd>
+                  <dd><a href="https://n.news.naver.com/mnews/article/366/0000863553?sid=101" target="_blank">지난해 대기업 된 중견기업 205개…실적·고용·투자 증가</a></dd>
+                  <dd><a href="https://n.news.naver.com/mnews/article/003/0011600279?sid=101">기업 1인당 노동비용 월 585만원…전년대비 8.2% 증가</a></dd>
                   
                   <dt>사회</dt>
-                  <dd>
-                  <a href="https://n.news.naver.com/mnews/article/056/0011395427?sid=102" target="_blank">가수 이루, 강변북로서 음주운전 사고</a>
-                  </dd>
+                  <dd><a href="https://n.news.naver.com/mnews/article/056/0011395427?sid=102" target="_blank">가수 이루, 강변북로서 음주운전 사고</a></dd>
+                  <dd><a href="https://n.news.naver.com/mnews/article/018/0005390101?sid=102">대구발 대형마트 의무휴업 평일 전환, 전국으로 확산될까</a></dd>
                   
                   <dt>TV/연예</dt>
-                  <dd>
-                  <a href="https://entertain.naver.com/read?oid=408&aid=0000175503&cid=1073787" target="_blank">'더 글로리' 송혜교 "기존 모습과 달라 낯설수 있지만 즐거운 연기였다"</a>
-                  </dd>
-                </dl>
+                  <dd><a href="https://entertain.naver.com/read?oid=408&aid=0000175503&cid=1073787" target="_blank">'더 글로리' 송혜교 "기존 모습과 달라 낯설수 있지만 즐거운 연기였다"</a></dd>
+                  <dd><a href="https://entertain.naver.com/read?oid=112&aid=0003605690">[종합]"건강? 고비 있었지만"..'컬투쇼' 신구X손병호, 연극으로 전한 따뜻함</a></dd>
+                 </dl>
               </article>
 
+              <!-- [ dl 에밋코딩 참고 ]
+              dl>(dt+dd*2>a[target=_blank])*3 -->
+
+              <!-- 
+                [ 테이블 요소 : table ]
+                table > tr > td 
+                ________________________
+
+                table : 테이블 박스 부모요소
+                tr : 테이블 행 요소(table row)
+                td : 테이블 데이터요소(table data)
+                th : 
+               -->
+
+               <!-- 사진뉴스 : table -->
+               <article class="pnews">
+                <h3>사진뉴스</h3>
+                <table border="1">
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600319" target="_blank">
+                                與, 노조회계 투명성 위한 법률 개정… <br>
+                                "깜깜한 어둠 속에서 나와야"
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600319" target="_blank">
+                                <img src="./images/tbody1.jpg" alt="사진뉴스1이미지">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600269" target="_blank">
+                                중·장년층 소득 115만원 '찔끔' <br>
+                                 늘 때 대출 604만원 불었다
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600269" target="_blank">
+                                <img src="./images/tbody2.jpg" alt="사진뉴스2이미지">  
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600772" target="_blank">
+                                美 F-22 전투기·B-52H 전략폭격기 <br>
+                                한반도 전개…한미연합공중훈련
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://n.news.naver.com/mnews/article/003/0011600772" target="_blank">
+                                <img src="./images/tbody3.jpg" alt="사진뉴스3이미지">  
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+             </article>
         </main>
         <!-- 3.하단영역 -->
         <footer class="info bx">

@@ -24,3 +24,7 @@ h5 > a {
     padding: 10px;
     border: 1px dotted grey;
 }
+
+.pnews a img {
+    width: 400px;
+}
