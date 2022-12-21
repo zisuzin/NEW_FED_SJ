@@ -41,12 +41,6 @@ body {
     text-align: center;
 }
 
-h5 > a {
-    width: 600px;
-    padding: 10px;
-    border: 1px dotted grey;
-}
-
 .pnews a img {
     width: 300px;
 }
@@ -114,7 +108,7 @@ figcaption {
     /* 글자체 : ff */
     font-family: 'GangwonEdu_OTFBoldA';
     /* 글자크기 : fz
-    - 글자크기 최전 한계는 10px임 */
+    - 글자크기 최저 한계는 10px임 */
     font-size: 12px;
     /* 글자색 : c */
     color: #333;
@@ -163,5 +157,71 @@ figcaption {
         margin: 15px 0;
     }
 
+    /* p요소 아래 em요소 디자인 변경 */
+    .arti p em {
+        /* 글자 그림자 : text-shadow
+        값: x축 y축 블러 색 
+        블러는 그림자 경계흐림 정도 */
+        text-shadow: 2px 2px 2px rgb(255, 33, 126);
+        /* 이탤릭 해제 : fsn */
+        font-style: normal;
+        /* 글자색 */
+        color: darkmagenta;
+        /* 글자두껍게 : fwb */
+        font-weight: bold;
+    }
+
 /* 2-5.기자정보 --> */
-/* 2-6.기사원문 -->  */
+.rpt {
+    /* display 출신 변경하기 
+    디자인 적용과 동시에 인라인 특성인 글자만큼만 크기가 잡히도록 인라인 블록으로 변경함 */
+    display: inline-block;
+    font-size: 14px;
+    /* 배경색 bgc */
+    background-color: rgb(226, 222, 222);
+    /* 패딩 */
+    padding: 5px;
+    /* 마진 */
+    margin: 15px 0;
+    }
+
+/* 2-6.기사원문 -->  
+별도의 이름없이 구조로만
+기사원문을 선택한다! 직계자식! */
+.cont > h5 {
+    /* 내부의 인라인요소 오른쪽 정렬 */
+    text-align: right;
+}
+
+h5 > a {
+    /* 디자인 적용위해 display 변경 */
+    display: inline-block;
+    /* 기본없애기 */
+    margin: 0;
+    padding: 0;
+    /* 가로,세로 지정 */
+    height: 70px;
+    width: 70px;
+    /* 테두리 bd */
+    border: 2px dotted rgb(190, 189, 189);
+    color: black;
+    /* 글자중앙 */
+    text-align: center;
+    /* 세로중앙 : 줄간격으로! */
+    line-height: 70px;
+    /* 모서리 둥글게하기 border-radius
+    brad -> 50%는 원 */
+    border-radius: 50%;
+    /* 배경색 bgc */
+    background-color: lightsteelblue;
+}
+
+/* 가상클래스로 오버시 박스그림자 넣기 */
+.cont > h5:hover {
+    /* 박스그림자
+    box-shadow: x y blur spread 색;
+    (내부 그림자는 inset씀)
+    - spread 박스그림자 크기(필요시 씀)
+     */
+    box-shadow: 0 0 5px darkblue;
+}
