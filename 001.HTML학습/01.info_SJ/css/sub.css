@@ -37,10 +37,6 @@ body {
     width: 85px;
 }
 
-.afig img {
-    width: 100%;
-}
-
 .afig figcaption {
     text-align: center;
 }
@@ -65,17 +61,81 @@ h5 > a {
 .atit {
     /* 글자크기 fz30 */
     font-size: 30px;
+
     /* 글자두께 보통 fwn */
     font-weight: normal;
-    font-family: 'Gaegu', cursive;
+    font-family: 'ONE-Mobile-POP';
+
     /* 글자간격(자간) letter-spacing : ls
     기본값 0(normal), 양수는 멀어짐, 음수는 가까워짐 */
-    letter-spacing: -2px;
-    /* 단어간격 word-spacing */
+    letter-spacing: -1px;
+
+    /* 단어간격 word-spacing : ws 
+    기본값 0(normal), 양수는 멀어짐, 음수는 가까워짐*/
     word-spacing: 1px;
+
+    /*  줄바꿈 방지 : 공백-> 백공-> white-space
+    값-> nowrap 박스끝에서 줄바꿈 안되고 계속감
+         normal(기본값) 박스끝에서 줄바꿈
+    [ 언제쓰나? ]
+    -> 줄바꿈이 되면 안될때
+    (예: 한주에 오는 버튼글자, 한줄에 말줄임표)
+    */
+    /* white-space: nowrap; */
+} 
+
+figcaption {
+    font-family: 'GangwonEdu_OTFBoldA';
+    text-align: center;
 }
 
-/* 2-3.기사사진(+사진설명) -->
-<!-- 2-4.기사내용 -->
-<!-- 2-5.기자정보 -->
-<!-- 2-6.기사원문 --> */
+.work figcaption {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 130px;
+}
+
+/* 2-3.기사사진(+사진설명) */ 
+/* 마진 m : 2개값 -> 위아래 양쪽 */
+.afig {
+    margin: 15px 0;
+    /* 인라인 가로중앙 : tac */
+    text-align: center;
+    width: 100%;
+}
+
+/* 기사이미지 */
+.afig img {
+    width: 100%;
+}
+
+/* 기사이미지 설명글 */
+.afig small {
+    /* 글자체 : ff */
+    font-family: 'GangwonEdu_OTFBoldA';
+    /* 글자크기 : fz
+    - 글자크기 최전 한계는 10px임 */
+    font-size: 12px;
+    /* 글자색 : c */
+    color: #333;
+}
+/* 2-4.기사내용 --> */
+.arti p {
+    /* 글자크기 : fz */
+    font-size: 18px;
+    /* 줄간격 : 1h
+    -> 주의: 단위가 없으면 배수임
+    기준은 글자크기임! */
+    line-height: 1.7;
+    font-family: 'GangwonEdu_OTFBoldA';
+    /* 양쪽패딩 : 위아래 양쪽 */
+    padding: 0 10px;
+    /* 자간 : ls */
+    letter-spacing: 1px;
+    /* 글자 들여쓰기 ti
+    값: 양수는 들여쓰기, 음수는 내어쓰기 */
+    /* text-indent: 20px; */
+}
+
+/* 2-5.기자정보 --> */
+/* 2-6.기사원문 -->  */
