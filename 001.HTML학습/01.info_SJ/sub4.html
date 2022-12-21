@@ -10,7 +10,7 @@
         <!-- title: 탭에 표시 타이틀 -->
         <title>네이버 요약 뉴스 - IT/과학</title>
         <!-- 익스터널 스타일시트 요소 -->
-        <link rel="stylesheet" href="./css/common.css" />
+        <!-- common.css는 웹요청을 줄이기 위해 sub.css에서 import한다! -->
         <link rel="stylesheet" href="./css/sub.css" />
     </head>
     <body>
@@ -34,7 +34,7 @@
         </header>
         <!-- 2.메인영역 -->
         <main class="cont bx">
-            <!-- 2-1.언론사로고 -->
+          <!-- 2-1.언론사로고 -->
             <div class="prlogo">
                 <a href="http://www.newsis.com/" target="_blank">
                     <img src="./images/pr4.jpg" alt="newsis" />
@@ -45,11 +45,11 @@
                     (hyper text reference)
                     target 속성 : 새창일 경우 "_blank"셋팅
                  -->
-            </div>
-            <!-- 2-2.기사제목 -->
+                </div>
+                <!-- 2-2.기사제목 -->
             <h2 class="atit">
                 <h2 class="atit">다누리, 넉달 여행 끝 '달나라'로…"이제 총알을 잡아라"
-            </h2>
+                </h2>
                 <!-- 2-3.기사사진(+사진설명) -->
             <div class="arti">
                 <mark>
@@ -70,8 +70,8 @@
                 <!-- 
                           figure 요소 : 이미지나 표를 넣는 박스
                           -> figcaption 하위요소는 필요시 사용(필수아님)
-                       -->
-                <!-- 2-4.기사내용 -->
+                        -->
+                        <!-- 2-4.기사내용 -->
                 <section class="arti">
                   <p>
                     [서울=뉴시스]윤현성 기자 = 우리나라의 첫 달 궤도선 '다누리'<sup>①</sup>가 지난 8월
@@ -221,11 +221,11 @@
                 <br><br>'과학기술분야 정부출연 연구기관 등의 설립ㆍ운영 및 육성에 관한 법률'에 근거하여 1989년 10월 10일 설립되었다. 설립 목적은 우주항공기술 개발, 항공공학의 발전과 기술 개발 및 보급 등을 통한 경제 발전과 국민생활 향상이다.</blockquote>
                 </article>
                 <hr>
-
+                
                 <!-- 2-5.기자정보 -->
                 <div class="rpt">
-                윤현성 기자(hsyhs@newsis.com)</div>
-                <!-- 2-6.기사원문 -->
+                  윤현성 기자(hsyhs@newsis.com)</div>
+                  <!-- 2-6.기사원문 -->
                 <h5>
                   <a
                     href="https://n.news.naver.com/mnews/article/003/0011594397?sid=105"
