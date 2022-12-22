@@ -465,11 +465,6 @@ type < class < id < inline < !important
     margin-left: 100px;
 }
 
-/* 블로터 주요뉴스 */
-.cnews h3::before {
-    content: '블로터 ';
-}
-
 /* 사진뉴스 타이틀 가상요소 아이콘 넣기 */
 /* 맨 앞 가상요소 ::before */
 .pnews h3::before {
@@ -547,7 +542,6 @@ type < class < id < inline < !important
 
 .pnews td img {
     width: 120px;
-    margin-left: 10px;
 }
 
 /* 말줄임 표시 셋팅하기! */
