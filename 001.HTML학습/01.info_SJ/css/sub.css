@@ -415,3 +415,54 @@ type < class < id < inline < !important
 있는 것이 더 쎄다!
 예) #
 */
+
+/* 분야별 뉴스 */
+/* 각 분야명 dt 공통 디자인 */
+.senews dt {
+    /* 글자체 : 웹폰트 */
+    font-family: "ONE-Mobile-POP";
+    /* 글자 크기만큼 디자인 적용 위해 dib */
+    display: inline-block;
+    /* 보더 bd */
+    border: 3px dotted darkseagreen;
+    /* 패딩 p */
+    padding: 10px;
+    /* 둥근모서리 : 원 50% */
+    border-radius: 50%;
+    /* 글자크기 : fz */
+    font-size: 20px;
+    /* 왼쪽 마진으로 이동하기 */
+    margin-left: 20px;
+    /* 박스그림자 bsh
+    (inset) x y blur spread 색 */
+    box-shadow: 0 0 5px 5px rgb(248, 145, 184);
+    /* 마진탑 밀기 */
+    margin-top: 15px;
+}
+
+/* 앞에 dd가 있는 dt만 마진탑 밀기 */
+.senews dd+dt {
+    margin-top: 20px;
+}
+
+/* [ 자식요소 선택 가상클래스 : 자식요소 종류가 같아야함!] 
+요소: first-of-tye -> 같은 요소 중 첫번째
+요소: nth-of-type(n) -> 같은 요소 중 n번째
+요소: last-of-type -> 같은 요소 중 마지막째 */
+
+/* dt별 글자색 다르게 하기 */
+.senews dt:first-of-type {
+    color: blue;
+}
+.senews dt:nth-of-type(2) {
+    color: red;
+}
+.senews dt:last-of-type {
+    color: green;
+}
+
+/* dd 공통 */
+.senews dd {
+    /* 왼쪽 마진 ml */
+    margin-left: 100px;
+}
