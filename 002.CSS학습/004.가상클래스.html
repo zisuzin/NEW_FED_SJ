@@ -136,7 +136,8 @@
         /* 내부 인라인요소 오른쪽 정렬 */
         text-align: right;
         outline: 1px solid red;
-
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     /* 
@@ -146,9 +147,9 @@
         2. 같은 클래스를 다르게 셋팅할때 */
 
     /* ul 기본 리셋하기 */
-    ul.part1 {
+    ul.part1, div.part2 {
         /* 3가지 없애기! 3無 */
-        margin: 0; /* m0 */
+        margin: 30px auto; /* m30 */
         padding: 0; /* p0 */
         list-style: none; /* lin */
 
@@ -283,6 +284,56 @@
         상위요소를 써주면 된다!
         (!important는 되도록 쓰지말것!!! <<-- js를 에러나게하는 원인 )
      */
+
+     /* 두번째 파트
+     -> 여러 종류의 요소가 섞여 있으면
+     first-of-type
+     nth-of-type(n)
+     last-of-type
+      */
+
+     /* 두번째 div
+     font - 30px 궁서
+     글자색 - blueviolet */
+    .part2 div:nth-of-type(2) {
+        font: 30px "궁서";
+        color: blueviolet;
+    }
+
+    /* 첫번째 i
+    font - bold 20px
+    글자색 - palevioletred  */
+    .part2 i:first-of-type {
+        /* 
+        font 한번에 쓸 경우 글자체 지정 필수!!
+        ->> 안넣으면 적용안됨!
+        ->> 2개 이상 셋팅 필수!
+        */
+        font: bold 20px "궁서";
+        font-weight: 20px;
+        color: palevioletred;
+    }
+
+    /* 3번째 div이후 div형제요소 모두
+    font - 궁서체, 글자색 - red */
+    .part2 div:nth-of-type(3) ~ div {
+        font-family: "궁서";
+        color: red;
+    }
+
+    /* 3번째 div이후 i형제요소 모두
+    font - 궁서체, 글자색 - red */
+    .part2 div:nth-of-type(3) ~ i {
+        font-family: "궁서";
+        color: red;
+    }
+    
+    /* 3번째 div이후 모든 형제요소(*)
+    font - 궁서체, 글자색 - red */
+    .part2 div:nth-of-type(3) ~ * {
+        font-family: "궁서";
+        color: red;
+    }
 
     /* 
         [ CSS 선택자 우선순위 ]
