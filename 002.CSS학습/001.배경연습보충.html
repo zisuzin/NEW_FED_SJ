@@ -7,7 +7,8 @@
         .tit {
             text-align: center;
         }
-        .wrap {
+        /* 부모박스 */
+        .wrap{
             padding: 20px;
         }
         /* 하위 div */
@@ -19,6 +20,7 @@
             background-repeat: no-repeat;
             /* 배경위치 중앙 bgp 가로 세로 */
             background-position: center;
+
             width: 50%;
             height: 400px;
             border: 1px dashed hotpink;
@@ -28,6 +30,10 @@
             /* 둥근모서리 brad */
             border-radius: 20px;
         }
+
+        /* 종류가 섞인 div 순서대로 선택하기
+        -> :nth-of-type(n) n은 순번(1부터) */
+
         /* 1. 가로채움: 뒤에 auto는 생략가능
         -> 비율유지(세로부분이 잘릴 수 있음) */
          .wrap>div:nth-of-type(1) {
@@ -39,7 +45,8 @@
         .wrap>div:nth-of-type(2) {
             background-size: auto 100%; /* 비율 뒤 auto 생략 가능 */
         }
-        /* 3. -> 이미지변형됨 */
+        /* 3. 가로,세로 모두 채움 
+        -> 이미지가 모두 보이지만 변형됨(안좋음!!!) */
         .wrap>div:nth-of-type(3) {
             background-size: 100% 100%; /* 비율 뒤 auto 생략 가능 */
         }
@@ -60,17 +67,15 @@
 <body>
     <h1 class="tit">배경연습 - background-size</h1>
     <div class="wrap">
-        <h2 class="tit">background-size:100% auto</h2>
+        <h2 class="tit">background-size: 100% auto</h2>
         <div></div>
-        <h2 class="tit">background-size:auto</h2>
+        <h2 class="tit">background-size: auto 100%</h2>
         <div></div>
-        <h2 class="tit">background-size:auto 100%</h2>
+        <h2 class="tit">background-size: 100% 100%</h2>
         <div></div>
-        <h2 class="tit">background-size:100% 100%</h2>
+        <h2 class="tit">background-size: contains</h2>
         <div></div>
-        <h2 class="tit">background-size:contains</h2>
-        <div></div>
-        <h2 class="tit">background-size:cover</h2>
+        <h2 class="tit">background-size: cover</h2>
         <div></div>
     </div>
 </body>
