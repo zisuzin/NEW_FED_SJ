@@ -9,7 +9,7 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 1px dotted gray;
+    outline: 1px dotted red;
 }
 
 /* 컨텐츠파트 최상위부모 */
@@ -25,4 +25,78 @@ body{
     -> CSS파일 위치에서 이미지를 찾아가야함! */
     /* fixed 인 배경이미지는 body의 높이값과 상관없이
     보이는 화면을 기준하여 그 크기를 잡는다! */
+}  
+    /**************** 메인영역 ****************/
+
+/* 메인영역 속박스 */
+.cont{
+    overflow: hidden;
+    /* 자식요소 위,아래 마진 포함 */
+}
+
+/* 전체 캐릭터 박스 */
+.cbx{
+    /* 가로크기 w */
+    width: 90%;
+    /* 마영오! */
+    margin: 0 auto;
+    /* 상단마진-> 부모박스 oh! 설정 */
+    margin-top: 470px;
+}
+
+/* 자식요소의 float해제 clear설정 가상요소로하기 */
+.cbx::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 캐릭터 각 박스 공통 */
+.cat{
+    /* 블록박스 옆으로 흐르게 */
+    float: left;
+    /* 4등분할 가로크기 -> 25% */
+    width: 25%;
+}
+
+/* 캐릭터 이미지 (.ci직계 img만 적용) */
+.ci > img{
+    /* 이미지 가로크기 박스채움 */
+    width: 100%;
+    /* 이미지 높이값은 자동(비율유지) */
+}
+
+/* 캐릭터 이름 이미지 박스 */
+.ci figcaption {
+    /* 포지션 셋팅없이 박스를 일반적으로 이동하는 방법은
+    마진을 이용한 이동이다(margin-top, margin-left)
+    %단위일 경우 margin-top은 height, margin-left는 width값을
+    기준하여 상대적인 단위를 잡는다 */
+    margin-top: -21%; /* -mt21p */
+    /* 글자중앙정렬(인라인요소 모두 적용) */
+    text-align: center;
+}
+
+/* 캐릭터 이름 이미지 */
+.ci figcaption img {
+    width: 40%;
+    /* 단위가 %이면 질문을 하라!
+    무엇을 기준한 %인가?
+    -> 여기서 기준은 싸고있는 부모박스
+    즉, figcation 요소박스의 가로 크기가 기준임! */
+}
+
+/* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기 */
+.ci figcaption img:first-child{
+    display: none;
+}
+
+/* .cat박스에 마우스 오버시 진한 이미지 보이기 */
+.cat:hover .ci figcaption img:first-child{
+    display: inline;
+}
+
+/* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기  */
+.cat:hover .ci figcaption img:last-child {
+    display: none;
 }
