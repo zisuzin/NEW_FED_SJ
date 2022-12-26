@@ -1,4 +1,4 @@
-@charset "UTF-8"
+@charset "UTF-8";
 /* 웹폰트, 공통클래스 셋팅 css - core.css  */
 /* 웹폰트 CDN */
 
@@ -17,4 +17,10 @@
 /* 전체 웹폰트 적용하기 */
 body {
     font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 중앙 속 박스 클래스 */
+.ibx {
+    width: 1200px;
+    margin: 0 auto;
 }
