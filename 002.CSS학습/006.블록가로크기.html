@@ -1,49 +1,103 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>블록요소 가로크기 설정</title>
+        <meta charset="utf-8">
+        <title>블록요소 세로크기 설정</title>
         <style>
-            .bx{
-                border: 5px dashed blue;
-                padding: 15px;
-                margin: 15px;
-                /* 글자:스두크/줄체 */
-                font: bold 24px "맑은 고딕","굴림";
+            /* 콤마는 그룹선택자 */
+            h1,h2{
                 text-align: center;
+                clear: both;
+                /* float해제 */
             }
-            /* 가로600px */
-            .bx1{
+    
+            /* body의 맨끝에 가상요소로 float해제하기 */
+            body::after{
+                content: '';
+                display: block;
+                clear: both;
             }
-            /* 최대가로크기 1000px */
-            .bx2{
+    
+            .bx{
+                width: 18%;
+                margin: 1%;
+                padding: 15px;
+                border: 5px dotted purple;
+                font: 12px/25px "굴림";
+                float: left;
+                /* 블록요소 옆으로 흐르게 */
             }
-            /* 최소가로크기 700px */
-            .bx3{
-            }
-            /* 최대가로크기 1200px,
-            최소가로크기 800px */
-            .bx4{
-            }
-            /* 가로크기 800px, 최대가로크기 80% */
-            .bx5{
-            }
-            /* 
-                [ 최대가로크기 / 최소가로크기 설정 정리! ]
-
-                1. max-width : 최대가로크기 제한
-                -> 최대크기보다 작아지면 auto전환
-                -> 값을 %로 줄경우 화면크기를 기준하여
-                박스크기보다 작아질 경우 %가 적용된다!
-                이때 보통 width크기가 설정되어 있다(.bx5예)
-
-                2. min-width : 최소가로크기 제한
-                -> 최소크기보다 커지면 auto전환
-
-
-            */
-
             
+             /* 높이값 300px */
+             .bx1{
+                height: 300px;
+             }
+             /* 최대높이 600px */
+             .bx2{
+                max-height: 600px;/* mah */
+                /* 600px을 유지하다가 넘치면 안커짐 */
+             }
+             /* 최소높이 700px */
+             .bx3{
+                 min-height: 700px;/* mh */
+                 /* 최소 높이 700px 유지하다가 내용이 넘치면
+                 자동으로 늘어남 -> 웹 사이트 컨텐츠 높이설정에 쓰임! */
+             }
+             /* 최소 높이 700px, 최대 높이 800px */
+             .bx4{
+                min-height: 700px;
+                max-height: 800px;
+                /* 700px과 800px 사이는 auto */
+             }
+    
+             /* 
+                [ 최대높이값 / 최소높이값 설정에 대하여 ]
+                1. max-height: 최대높이값 설정으로 제한함
+                -> 최대높이보다 내용이 적으면 auto(내용만큼 늘어남)
+                2. min-height: 최소높이값 설정으로 제한함
+                -> 최소높이보다 내용이 많으면 auto(내용만큼 늘어남)
+             */
+    
+             /* 
+                overflow 속성은 넘치는 컨텐츠를 어떻게 
+                보이게 할 것인가를 지정하는 속성
+              */
+              /* overflow:visible */
+              .ov1{
+                overflow: visible;/* ovv */
+                  /* 
+                    visible 은 기본값 - 박스보다 내용이 많으면
+                    나간상태 그대로 보임!
+                  */
+              }
+              /* overflow:hidden */
+              .ov2{
+                    overflow: hidden;/* oh */
+                  /* 
+                    hidden은 넘치는 자식요소 숨기기
+                    -> 추가적으로 자식요소의 위아래 마진이
+                    부모박스 바깥에 나가는 것을 막고 부모박스
+                    안쪽에 마진이 적용되게 할때도 이것을 사용!
+                  */
+              }
+              /* overflow-y:scroll */
+              .ov3{
+                    overflow-y: scroll;
+                  /* 
+                    y축만 스크롤바 트랙이 처음부터 보이며
+                    내용이 많아지면 스크롤바가 생성됨!
+                    (유의: overflow: scroll 할경우 가로스크롤바
+                    가 같이 생성되어 불편함!)
+                  */
+              }
+    
+              /* overflow:auto */
+              .ov4{
+                overflow: auto;
+                  /* 내용이 넘칠경우에 자동으로 스크롤바 트랙과
+                  스크롤바가 생성됨! */              
+              }
+    
         </style>
     </head>
     <body>
