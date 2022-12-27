@@ -33,7 +33,6 @@
             .bx3{
                 text-align: center;
                 height: 200px;
-                line-height: 200px;
             }
             /* 인라인 요소의 세로정렬은 일반적으로 line-height를 사용한다! */
             /* 4번박스 - 글자정중앙 */
@@ -43,11 +42,11 @@
                 이미 셋팅되어서 max-width가 적용안되므로
                 이것을 auto로 전환해줘야한다! */
                 max-width: 400px;
-                line-height: 400px;
-                text-align: center;
                 height: 400px;
                 /* 박스자식요소 인라인 가로중앙 - text-align */
+                text-align: center;
                 /* 박스자식요소 인라인 세로중앙 - line-height */
+                line-height: 400px;
                 /* 
                     세로중앙은 높이값과 같은 값으로 설정!
                     -> 단, 한줄짜리 글자일때만 적용
@@ -55,6 +54,7 @@
                     방지하기 위해 white-space: nowrap;
                     줄바꿈방지 설정을 함!
                  */
+
                  /* 글자내용 넘칠때 말줄임표... 셋팅 */
                  /* 1. 한줄짜리 글자 줄바꿈방지 */
                  white-space: nowrap;
@@ -85,8 +85,8 @@
             }
             .bx6 strong{
                 /* 마진: 위 오른 아래 왼 */
-                margin: 0 50px 0 80px;
-                /* 인라인요소의 위아래 마진은 적용되지 않는다! */
+                margin: 1000px 50px 0 80px;
+                /* 인라인요소의 위아래 마진은 적용되지 않는다! 그래서 1000px은 적용안된다! */
             }
 
         </style>
@@ -101,7 +101,7 @@
 
         <h2>박스안의 b태그 - 오른쪽정렬</h2>
         <div class="bx bx2">
-            <b>나는 김수현이 좋다!</b>
+            <b>나는 김수현이다!</b>
         </div>
 
         <h2>박스안의 img태그 - 중앙정렬</h2>
