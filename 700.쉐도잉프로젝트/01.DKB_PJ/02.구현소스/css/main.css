@@ -55,8 +55,21 @@ body{
 .cat{
     /* 블록박스 옆으로 흐르게 */
     float: left;
-    /* 4등분할 가로크기 -> 25% */
-    width: 25%;
+    /* 4등분할 가로크기 
+    -> 25% - 1%(마진) = 24% */
+    width: 24%;
+    /* 마진 : 위아래 0, 양쪽 0.5% */
+    margin: 0 .5%;
+}
+
+/* 캐릭터 이미지박스 */
+.cat .ci {
+    /* 트랜지션 : 속시이지 trs */
+    transition: margin-top .4s;
+}
+
+.cat:hover .ci {
+    margin-top: -55%;
 }
 
 /* 캐릭터 이미지 (.ci직계 img만 적용) */
@@ -99,4 +112,55 @@ body{
 /* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기  */
 .cat:hover .ci figcaption img:last-child {
     display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cd {
+    /* 전체 높이설정 */
+    height: 0;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
+    /* 넘치는 자식요소 y축 스크롤셋팅
+        overflow-y:scroll 또는
+        oerflow:auto -> 자동으로 y스크롤
+    */
+
+    /* 배경넣기 */
+    background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+    
+    /* 트랜지션
+    - 두가지 변화상태를 애니메이션해주는 속성
+    transition: 속성 시간 이징 지연 */
+    transition: height .4s; /* 소수점에서 0은 생략 가능함! 0.4s -> .4s */
+    overflow-y: scroll;
+}
+
+/* .cat에 마우스 오버시 .cd높이값 늘리기 */
+.cat:hover .cd {
+    height: 250px;
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3 {
+    font-family: 'Gugi', cursive;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 15px 10px 5px;
+    letter-spacing: -1px;
+}
+
+/* 캐릭터 설명문단 */
+.cd p {
+    font-family: 'Single Day','ZCOOL KuaiLe', cursive;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 10px;
+    /* 양쪽정렬 justify */
+    text-align: justify;
+}
+
+.cd p::first-letter {
+    color: red;
+    font-size: 40px;
+    border: 1px slid black;
 }
