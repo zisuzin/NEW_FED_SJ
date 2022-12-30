@@ -74,8 +74,7 @@
             position: relative;
             top: 0;
             left: 0;
-            /* 현재위치로 부터 이동! 
-            트랜지션에 초기값이 있어야 나오는 경우가 있음
+            /* 트랜지션에 초기값이 있어야 나오는 경우가 있음
             초기값이 없으면 변경 애니가 적용되지 않음!!! */
             display: block;
             width: 200px;
@@ -122,6 +121,8 @@
 
         /* #tr2에 트랜지션 설정을 하지 않음! */
         #tr2 span{
+            
+            
             width: 100px;
             height: 100px;
 
@@ -143,20 +144,23 @@
         /* #tr3에 트랜지션 설정 */
         #tr3 span{
             /* 위치이동 */
-            left: -10%;
+            left: -2%;
             /* 크기변경 */
             width: 50px;
             height: 50px;
             /* 배경색변경 */
             background-color: palevioletred;
             /* 트랜지션 원본(양방향/돌아올때) */
-            transition: 2s, background-color 5s 2s;
+            transition: 
+            all 2s, 
+            background-color 5s 2s;
             /* 전체 2초가 애니, 배경만 2초후 5초간 애니 */
+            
         }
         /* 오버시 트랜지션 별도 설정하기! */
         #tr3:hover span{
             /* 위치이동 */
-            top: -20px;
+            top: -1200px;
             left: 70%;
             /* 크기변경 */
             width: 400px;
@@ -165,9 +169,9 @@
             background-color: lightgreen;
 
             /* 오버시 트랜지션 별도로 지정하기 */
-            transition:
-            all 5s,
-            top 1s eas 4s;
+            transition: 
+            all 5s, 
+            top 1s ease-out 4s;
             /* 전체는 5초간 애니, top속성만 4초후 1초간 마지막에 천천히 애니 */
         }
         

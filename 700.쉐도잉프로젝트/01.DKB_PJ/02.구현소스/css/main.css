@@ -8,9 +8,9 @@
 @import url(common.css);
 
 /* 공사중 표시 */
-body * {
+/* body * {
     outline: 1px dotted red;
-}
+} */
 
 /* 컨텐츠파트 최상위부모 */
 body{
@@ -25,9 +25,9 @@ body{
     -> CSS파일 위치에서 이미지를 찾아가야함! */
     /* fixed 인 배경이미지는 body의 높이값과 상관없이
     보이는 화면을 기준하여 그 크기를 잡는다! */
-}  
-    /**************** 메인영역 ****************/
+}
 
+/**************** 메인영역 ****************/
 /* 메인영역 속박스 */
 .cont{
     overflow: hidden;
@@ -40,7 +40,7 @@ body{
     width: 90%;
     /* 마영오! */
     margin: 0 auto;
-    /* 상단마진-> 부모박스 oh! 설정 */
+    /* 상단마진 -> 부모박스에 oh! 설정 */
     margin-top: 470px;
 }
 
@@ -58,7 +58,7 @@ body{
     /* 4등분할 가로크기 
     -> 25% - 1%(마진) = 24% */
     width: 24%;
-    /* 마진 : 위아래 0, 양쪽 0.5% */
+    /* 마진: 위아래 0 , 양쪽 0.5% */
     margin: 0 .5%;
 }
 
@@ -67,12 +67,12 @@ body{
     /* 트랜지션 : 속시이지 trs */
     transition: margin-top .4s;
 }
-
+/* .cat에 오버시 .ci박스 마진탑 변경하기 */
 .cat:hover .ci {
     margin-top: -55%;
 }
 
-/* 캐릭터 이미지 (.ci직계 img만 적용) */
+/* 캐릭터 이미지 (.ci직계 img만적용) */
 .ci > img{
     /* 이미지 가로크기 박스채움 */
     width: 100%;
@@ -80,87 +80,144 @@ body{
 }
 
 /* 캐릭터 이름 이미지 박스 */
-.ci figcaption {
+.ci figcaption{
     /* 포지션 셋팅없이 박스를 일반적으로 이동하는 방법은
     마진을 이용한 이동이다(margin-top, margin-left)
     %단위일 경우 margin-top은 height, margin-left는 width값을
-    기준하여 상대적인 단위를 잡는다 */
-    margin-top: -21%; /* -mt21p */
+    기준하여 상대적인 단위를 잡는다! */
+    margin-top: -21%;
     /* 글자중앙정렬(인라인요소 모두 적용) */
     text-align: center;
 }
-
 /* 캐릭터 이름 이미지 */
-.ci figcaption img {
+.ci figcaption img{
     width: 40%;
     /* 단위가 %이면 질문을 하라!
     무엇을 기준한 %인가?
     -> 여기서 기준은 싸고있는 부모박스
     즉, figcation 요소박스의 가로 크기가 기준임! */
 }
-
 /* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기 */
 .ci figcaption img:first-child{
     display: none;
 }
-
 /* .cat박스에 마우스 오버시 진한 이미지 보이기 */
 .cat:hover .ci figcaption img:first-child{
     display: inline;
 }
-
-/* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기  */
-.cat:hover .ci figcaption img:last-child {
+/* .cat박스에 마우스 오버시 흐린 이미지 숨기기 */
+.cat:hover .ci figcaption img:last-child{
     display: none;
 }
 
 /* 캐릭터 설명박스 */
-.cd {
+.cd{
     /* 전체 높이설정 */
-    height: 0;
-    /* 넘치는 자식요소 숨기기 */
-    overflow: hidden;
+    height: 0px;
     /* 넘치는 자식요소 y축 스크롤셋팅
         overflow-y:scroll 또는
-        oerflow:auto -> 자동으로 y스크롤
-    */
+        overflow:auto -> 자동으로 y스크롤
+    */    
+    overflow: auto;
 
     /* 배경넣기 */
     background: url(../images/eachBG.jpg) no-repeat bottom/cover;
-    
-    /* 트랜지션
-    - 두가지 변화상태를 애니메이션해주는 속성
-    transition: 속성 시간 이징 지연 */
-    transition: height .4s; /* 소수점에서 0은 생략 가능함! 0.4s -> .4s */
-    overflow-y: scroll;
-}
 
-/* .cat에 마우스 오버시 .cd높이값 늘리기 */
-.cat:hover .cd {
+    /* 둥근모서리 : 왼쪽위 부터 시계방향 */
+    border-radius: 20px 5px 5px 20px;
+
+    /* 윗쪽여백 */
+    margin-top: 20px;
+
+    /* 트랜지션 
+    - 두가지변화상태를 애니메이션해주는 속성 
+    transition: 속성 시간 이징 지연 */
+    transition: height .4s;
+}
+/* .cat에 마우스 오버시 .cd 높이값 늘리기 */
+.cat:hover .cd{
     height: 250px;
 }
 
 /* 캐릭터 설명 타이틀 */
-.cd h3 {
+.cd h3{
     font-family: 'Gugi', cursive;
     font-size: 24px;
     font-weight: normal;
     padding: 15px 10px 5px;
     letter-spacing: -1px;
 }
+/* 캐릭터 타이틀 앞 아이콘 가상요소로 넣기 */
+.cd h3::before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 35px;
+    vertical-align: -6px;
+    margin-right: 5px;
+    background: url(../images/bg_logo_a_01.png) no-repeat -144px  -181px;
+    /* 배경이미지위치값은 본 이미지를 그림판으로 열어서
+    마우스 커서 위치에 따라 표시되는 x,y축 좌표값을
+    마이너스 기호를 붙여서 가로, 세로순으로 써주면 정확한 위치가 된다! */
+}
 
 /* 캐릭터 설명문단 */
-.cd p {
+.cd p{
     font-family: 'Single Day','ZCOOL KuaiLe', cursive;
     font-size: 18px;
     line-height: 1.6;
     padding: 10px;
-    /* 양쪽정렬 justify */
+    /* 양쪽정렬 justify - taj */
     text-align: justify;
 }
 
-.cd p::first-letter {
-    color: red;
-    font-size: 40px;
-    border: 1px slid black;
+
+/* 캐릭터 첫번째 문단 첫글자 가상요소로 디자인 변경하기! */
+.cd p:first-child::first-letter {
+    font-size: 50px;
+    color: cyan;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 -1px #000,
+    0 -1px #000;
+}
+
+/* 각 캐릭터 박스별 첫글자 색 변경 */
+.cat:nth-child(2) .cd p:first-child::first-letter {
+    font-size: 50px;
+    color: palevioletred;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 -1px #000,
+    0 -1px #000;
+}
+
+.cat:nth-child(3) .cd p:first-child::first-letter {
+    font-size: 50px;
+    color: brown;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 -1px #000,
+    0 -1px #000;
+}
+
+.cat:nth-child(4) .cd p:first-child::first-letter {
+    font-size: 50px;
+    color: yellowgreen;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 -1px #000,
+    0 -1px #000;
 }
