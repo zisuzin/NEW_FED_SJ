@@ -2,12 +2,9 @@
 /* 어벤저스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
-/* 
-    font-family: 'Monoton', cursive;
-    font-family: 'Single Day', cursive;
-*/
+/* font-family: 'Kaushan Script', cursive; */
 
 html{
     scroll-behavior: smooth;
@@ -27,7 +24,7 @@ a{
 }
 body{
     /* 배경이미지 채우기 */
-    background: url(../ab_img/poter_bg.jpg) no-repeat fixed center/cover;
+    background: url(../ab_img/bg_1.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
@@ -49,8 +46,8 @@ html,body{
     */
 }
 
-#top_logo > img {
-    margin: 0 auto;
+.tit {
+    font-size: 30px;
 }
 
 /* 0. 전체 타이틀 */
@@ -60,7 +57,7 @@ html,body{
     width: 100%;
     z-index: 999999;/* 제일위! */
 
-    font-family: 'Monoton', cursive;
+    font-family: 'Kaushan Script', cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
@@ -98,7 +95,7 @@ html,body{
     width: 300px;
     height: 400px;
     /* 배경이미지 */
-    background: url(../ab_img/minimi.jpg) no-repeat center/cover;
+    background: url(../ab_img/mini_bg1.jpg) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50% */
     border-radius: 50%;
     /* 마영오! */
