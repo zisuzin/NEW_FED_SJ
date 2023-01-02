@@ -19,7 +19,6 @@ html,body,h1,h2,ul,ol{
     margin: 0;
     padding: 0;
 }
-
 /* 초기셋팅 */
 a{
     color: #fff;
@@ -27,7 +26,7 @@ a{
 }
 body{
     /* 배경이미지 채우기 */
-    background: url(../ab_img/poter_bg.jpg) no-repeat fixed center/cover;
+    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
@@ -49,16 +48,12 @@ html,body{
     */
 }
 
-#top_logo > img {
-    margin: 0 auto;
-}
-
 /* 0. 전체 타이틀 */
 .tit{
     /* 고정 포지션 */
     position: fixed;
     width: 100%;
-    z-index: 999999;/* 제일위! */
+    z-index: 9999;/* 가장위 */
 
     font-family: 'Monoton', cursive;
     color: #fff;
@@ -68,19 +63,6 @@ html,body{
     text-align: center;
     /* 위아래 패딩 */
     padding: 50px 0;
-}
-
-/* 가상클래스로 화살표모양 넣기 */
-#pg1 .gobtn::after {
-    content: '👇';
-}
-
-#pg2 .gobtn::after {
-    content: '👆';
-}
-
-#pg2 .gobtn {
-    top: 2%;
 }
 
 /* 1. 페이지박스 공통 */
@@ -98,7 +80,7 @@ html,body{
     width: 300px;
     height: 400px;
     /* 배경이미지 */
-    background: url(../ab_img/minimi.jpg) no-repeat center/cover;
+    background: url(../ab_img/ab0.jpg) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50% */
     border-radius: 50%;
     /* 마영오! */
@@ -304,19 +286,36 @@ padding과 border 때문에 숨겨지지 않음!
     이것을 없앰! */
 }
 
+.page{
+    position: relative;
+    /* 부모자격 - .gobtn의 부모 */
+}
+
+/* 이동버튼 디자인 */
+.gobtn{
+    position: absolute;
+    right: 3%;
+    /* 부모는? .page */
+    font-size: 30px;
+    z-index: 99999;/* 제일위! */
+}
+/* 가상클래스로 화살표모양 넣기 */
+#pg1 .gobtn::after{
+    content: '👇';
+}
+#pg2 .gobtn::after{
+    content: '👆';
+}
+/* 개별위치 */
+#pg1 .gobtn{
+    bottom: 2%;
+}
+#pg2 .gobtn{
+    top: 2%;
+}
 /* 오버시 a변경 */
-.gobtn:hover {
+.gobtn:hover{
     color: hotpink;
     text-decoration: overline;
     text-decoration-style: wavy;
-}
-
-#pg1 .gobtn {
-    font-size: 30px;
-    margin-left: 80px;
-}
-#pg2 .gobtn {
-    font-size: 30px;
-    margin-left: 1200px;
-    
 }
