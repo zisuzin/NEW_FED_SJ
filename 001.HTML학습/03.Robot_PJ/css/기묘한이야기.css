@@ -60,15 +60,22 @@ html,body{
 }
 
 /* 0. 전체 타이틀 */
-body > img {
+.logo  {
     /* 고정 포지션 */
     position: fixed;
     top: 0;
-    width: 400px;
-    
+    left: 0;
+    width: 100%;
+    text-align: center;
     z-index: 9999;/* 가장위 */
+    padding: 50px 20px;
+}
+.logo > img {
+    margin-left: 50px;
+    width: 400px;
     /* 위아래 패딩 */
-    padding: 50px 600px;
+    /* padding: 50px 790px; */
+    
 }
 
 /* 1. 페이지박스 공통 */
@@ -284,7 +291,7 @@ padding과 border 때문에 숨겨지지 않음!
     width: 1000px;
     height: 600px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 /* 아이프레임 */
 .mvbx iframe{
@@ -339,4 +346,16 @@ padding과 border 때문에 숨겨지지 않음!
 
 .cd h2 {
     text-align: left;
+}
+
+.section-header {
+    color: #fff;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.section-header img {
+    width: 400px;
 }
