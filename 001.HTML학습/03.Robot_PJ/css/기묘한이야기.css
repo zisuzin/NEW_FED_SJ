@@ -2,9 +2,23 @@
 /* 어벤저스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@font-face {
+    font-family: 'NEXEN_TIRE_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* font-family: 'Kaushan Script', cursive; */
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+font-family: 'NEXEN_TIRE_Bold';
+*/
 
 html{
     scroll-behavior: smooth;
@@ -16,7 +30,6 @@ html,body,h1,h2,ul,ol{
     margin: 0;
     padding: 0;
 }
-
 /* 초기셋팅 */
 a{
     color: #fff;
@@ -24,7 +37,7 @@ a{
 }
 body{
     /* 배경이미지 채우기 */
-    background: url(../ab_img/bg_1.jpg) no-repeat fixed center/cover;
+    background: url(../ab_img/bg_story.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
@@ -46,38 +59,16 @@ html,body{
     */
 }
 
-.tit {
-    font-size: 30px;
-}
-
 /* 0. 전체 타이틀 */
-.tit{
+body > img {
     /* 고정 포지션 */
     position: fixed;
-    width: 100%;
-    z-index: 999999;/* 제일위! */
-
-    font-family: 'Kaushan Script', cursive;
-    color: #fff;
-    font-size: 70px;
-    /* 글자두께 보통 */
-    font-weight: normal;
-    text-align: center;
+    top: 0;
+    width: 400px;
+    
+    z-index: 9999;/* 가장위 */
     /* 위아래 패딩 */
-    padding: 50px 0;
-}
-
-/* 가상클래스로 화살표모양 넣기 */
-#pg1 .gobtn::after {
-    content: '👇';
-}
-
-#pg2 .gobtn::after {
-    content: '👆';
-}
-
-#pg2 .gobtn {
-    top: 2%;
+    padding: 50px 600px;
 }
 
 /* 1. 페이지박스 공통 */
@@ -95,17 +86,17 @@ html,body{
     width: 300px;
     height: 400px;
     /* 배경이미지 */
-    background: url(../ab_img/mini_bg1.jpg) no-repeat center/cover;
+    background: url(../ab_img/main_image.PNG) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50% */
-    border-radius: 50%;
+    border-radius: 30%;
     /* 마영오! */
     margin: 0 auto;
     /* 글러우 효과 : 박스그림자 응용 
     box-shadow: x y blur spread 색
     inset은 내부그림자 */
     box-shadow: 
-    0 0 50px 10px cyan,
-    inset 0 0 30px lightgreen;
+    0 0 50px 10px red,
+    inset 0 0 60px black;
 }
 
 /* 캐릭터박스 */
@@ -167,7 +158,8 @@ html,body{
     border-radius: 50%;
 
     /* 글로우효과 */
-    box-shadow: 0 0 30px 10px lightgreen;
+    box-shadow: 0 0 30px 10px red,
+    inset 0 0 40px blue;
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
@@ -175,29 +167,29 @@ body:hover .cbx{
     opacity: 1;
 }
 
-/* 2-1. 아이언맨 */
+/* 2-1. 일레븐 */
 body:hover .cbx:nth-child(1){
     top: -9%;
     left: -81%;
 }
-/* 2-2.타노스 */
+/* 2-2. 맥스 */
 body:hover .cbx:nth-child(2){
     top: -9%;
     left: 121%;
 }
-/* 2-3.토르 */
+/* 2-3. 루카스 */
 body:hover .cbx:nth-child(3){
     top: 82%;
     left: -81%;
 }
-/* 2-4.닥스 */
+/* 2-4.마이크 */
 body:hover .cbx:nth-child(4){
     top: 82%;
     left: 121%;
 }
-/* 2-5.스타로드 */
+/* 2-5. 윌 */
 body:hover .cbx:nth-child(5){
-    top: 130%;
+    top: 125%;
     /* left는 중앙위치이므로
     셋팅하지 않음! */
 }
@@ -222,16 +214,16 @@ body:hover .cbx:nth-child(5){
     
 
     /* 글자셋팅 */
-    font-family: 'Single Day', cursive;
+    font-family: 'NEXON Lv2 Gothic';
     color: #fff;
     text-shadow: 1px 1px 1px #000;
+    text-align: justify;
 
     /* 처음에 투명하게 */
-    opacity: 0;
+    opacity: 1;
 
     /* 트랜지션: 속시이지 */
     transition: .4s ease-out;
-
 }
 
 /* .cd 직계 하위 div로 디자인 이전하기
@@ -239,10 +231,12 @@ body:hover .cbx:nth-child(5){
 padding과 border 때문에 숨겨지지 않음!
 따라서 이것을 직계하위 div로 이전함! */
 .cd > div {
-    border: 2px solid #fff;
+    border: 2px solid rgb(252, 217, 217);
     padding: 15px;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.4);
+    line-height: 1.3;
+    word-spacing: 3px;
+    background-color: rgba(50, 49, 49, 0.4);
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
@@ -282,6 +276,7 @@ padding과 border 때문에 숨겨지지 않음!
     padding: 50px 0;
     text-align: center;
     color: #fff;
+    margin-top: 50px;
 }
 
 /* 동영상박스 */
@@ -301,19 +296,47 @@ padding과 border 때문에 숨겨지지 않음!
     이것을 없앰! */
 }
 
-/* 오버시 a변경 */
-.gobtn:hover {
-    color: hotpink;
-    text-decoration: overline;
-    text-decoration-style: wavy;
+.page{
+    position: relative;
+    /* 부모자격 - .gobtn의 부모 */
 }
 
-#pg1 .gobtn {
-    font-size: 30px;
-    margin-left: 80px;
-}
-#pg2 .gobtn {
-    font-size: 30px;
-    margin-left: 1200px;
+/* 이동버튼 디자인 */
+.gobtn{
+    font-weight: normal;
+    position: absolute;
+    right: 3%;
+    /* 부모는? .page */
+    z-index: 99999;/* 제일위! */
+    border: 1px solid black;
+    background-color: #818181;
     
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'NEXON Lv2 Gothic';
+}
+
+/* 개별위치 */
+#pg1 .gobtn{
+    padding: 10px;
+    top: 450px;
+}
+#pg2 .gobtn{
+    padding: 10px;
+    bottom: 180px;
+}
+
+/* 오버시 a변경 */
+.gobtn:hover {
+    color: #000;
+    background-color: #5e5c5c;
+    box-shadow: 1px 1px 1px 1px ;
+}
+
+#pg2 {
+    margin-top: 200px;
+}
+
+.cd h2 {
+    text-align: left;
 }
