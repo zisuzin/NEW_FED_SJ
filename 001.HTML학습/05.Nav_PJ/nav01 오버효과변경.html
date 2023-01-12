@@ -85,7 +85,7 @@
 
             /* 변경속성 - 바가 중앙에 있음! */
             width: 0%;
-            margin-left: 100%;
+            margin-left: 50%;
 
             height: 2px;
             margin-top: 5px;
@@ -93,16 +93,11 @@
             /* 트랜지션: 속시이지 trs */
             transition: all .3s;
         }
-        /* 오버시 바 보이기 - 중앙에서 펼쳐짐! */
+        /* 오버시 바 보이기 - 중앙에서 펼져짐! */
         .gnb>ul>li:hover>a::after,
         .tmenu>ul>li:hover>a::after {
             width: 100%;
             margin-left: 0%;
-            /* 마진left값은 트랜지션 안되고 
-            width만 돼야한다! */
-            transition-property: width;
-            /* 오버시 트랜지션 속성을 width만 적용! */
-
         }
 
         /* 마지막 사이드메뉴 li 바 제외하기 */
@@ -172,6 +167,12 @@
             padding: 8px 0;
             font-size: 16px;
             font-weight: normal;
+        }
+
+        /* 서브메뉴 a오버시 확대 */
+        .smenu a:hover{
+            transform: scale(1.2);
+            color: orange;
         }
 
 
