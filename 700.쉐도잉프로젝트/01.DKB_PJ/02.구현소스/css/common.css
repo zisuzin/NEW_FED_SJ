@@ -2,18 +2,173 @@
 /* 공통모듈 디자인 CSS - common.css
 -> 상단영역, 하단영역 디자인 */
 
-/************************** 1. 상단영역 **************************/
-.top {
-    height: 128px;
-
+/****************** 1.상단영역 ******************/
+/* 겉박스 */
+#top{
+    background-color: #fff;
 }
-/************************** 2. 메인영역 **************************/
-.cont {
+/* 속박스 */
+.top{
+    /* position: relative; */
+    /* 부모자격 - .tmenu */
+    height: 128px;
+}
+/* 1-1.로고 */
+h1.logo{
+    width: 100px;
+    margin: 0 auto;
+    padding-top: 20px;
+    outline: 1px solid red;
+}
+/* 로고 이미지 */
+.logo img{
+    width: 100px;
+}
+/* 1-2.GNB메뉴 */
+nav.gnb ul{
+    /* 플렉스박스 : 흐르게할 요소의 직계부모 */
+    display: flex;
+    /* 진행방향 정렬 */
+    justify-content: center;
+    /* 마진탑은 부모인 nav.gnb 바깥으로
+    나가서 위의 박스를 밀고 있다! */
+    margin-top: 10px;
+}
+/* GNB a요소 */
+.gnb>ul>li>a{
+    color: #222;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 4rem;
+    margin: 0 10px;
+}
+
+/* GNB 서브메뉴 배경 
+상위메뉴 li에 가상요소로 만들기
+서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
+.gnb>ul>li.sm::before{
+    content: '';
+    position: absolute;
+    top: 128px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    /* 부모는? */
+    height: 0;
+    background-color: #fff;
+    /* 트랜지션 */
+    transition: .6s ease-out;
+}
+/* 상위메뉴 오버시 서브배경보이기 */
+.gnb>ul>li.sm:hover::before{
+    height: 200px;
+    border-bottom: 2px solid red;
+}
+
+
+
+/* GNB 서브메뉴 */
+.smenu{
+    text-align: center;
+    background-color: #fff;
+    /* 숨기기 */
+    /* height: 0;
+    overflow: hidden; */
+    /* 트랜지션 */
+    transition: .4s ease-out;
+}
+/* 상위메뉴 오버시 하위메뉴 보이기 */
+.gnb>ul>li:hover .smenu{
+    height: 120px;
+}
+.smenu a{
+    font-size: 1rem;
+    line-height: 2;
+    color: #222;
+    text-decoration: none;
+}
+
+
+/* 1-3.탑메뉴 */
+aside.tmenu{
+    position: absolute;
+    top: 25px;
+    right: 0;
+    /* 부모는? .top */
+}
+/* 회원가입 등 메뉴 박스 */
+.tmenu ul{
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
+    display: flex;
+    /* 수직방향 정렬 : 중앙 */
+    align-items: center;
+}
+.tmenu>ul>li+li{
+    margin-left: 10px;
+}
+/* 탑메뉴 a */
+.tmenu>ul>li>a{
+    color: #222;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* sns 메뉴 박스 */
+.tmenu ol{
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
+    display: flex;
+}
+/* sns li박스 */
+.sns li{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: url(../images/icons.png) no-repeat;
+    /* 트랜지션 */
+    transition: .2s;
+}
+
+/* 스프라이츠(Sprites)로 배경이미지 넣기! */
+/* 트위터 */
+.sns li:nth-child(1){
+    background-position: 0px 0px;
+}
+/* 트위터 오버시 */
+.sns li:nth-child(1):hover{
+    background-position: 0px -30px;
+}
+/* 인스타그램 */
+.sns li:nth-child(2){
+    background-position: -30px 0px;
+}
+/* 인스타그램 오버시 */
+.sns li:nth-child(2):hover{
+    background-position: -30px -30px;
+}
+/* 페이스북 */
+.sns li:nth-child(3){
+    background-position: -60px 0px;
+}
+/* 페이스북 오버시 */
+.sns li:nth-child(3):hover{
+    background-position: -60px -30px;
+}
+
+/* a요소 확장 */
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/****************** 2.메인영역 ******************/
+.cont{
     min-height: 800px;
     /* 자식 요소가 많아지면 자동으로 늘어남! */
 }
 
-/************************** 3. 하단영역 **************************/
-.info {
+/****************** 3.하단영역 ******************/
+.info{
     height: 241px;
 }
