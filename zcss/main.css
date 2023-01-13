@@ -4,6 +4,13 @@
 html {
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
+    font-size: 10px;
+    /* rem계산시 쉽도록 10px */
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 /* 상단영역 */
@@ -107,10 +114,13 @@ body {
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
     position: relative;
+    width: 90%;
     top: 300px;
     height: calc(100% - 350px);
     /* 부모높이값 보다 300px만큼 조금더 그 크기를 뺀
     높이값은 calc()로 계산한다! */
+
+    display: flex;
     
     background-color: rgba(255, 255, 255, 0.525);
     /* 둥근모서리 brad */
@@ -121,6 +131,19 @@ body {
     /* 양쪽 마진이 auto이면 양쪽을 등분해서 가로 중앙이 된다! */
 
     
+}
+
+/* .pwrap 하위 .part박스 */
+.part {
+    flex: 1;
+    /* 1:1 비율로 등분할! */
+    padding: 50px;
+}
+/* part a요소 */
+.part a {
+    color: #222;
+    text-decoration: none;
+    font-style: 3.3rem;
 }
 
 /* h1요소 */
