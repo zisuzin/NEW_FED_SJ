@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2. 가로네비 서브별 드롭다운 가로형</title>
     <style>
-
         /* 초기화 */
-        html,body {
+        html,body{
             margin: 0;
             padding: 0;
         }
@@ -21,6 +20,8 @@
             padding: 0;
             list-style: none;
         }
+
+        /* GNB메뉴 */
         .gnb{
             border-top: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
@@ -32,10 +33,18 @@
             justify-content: center;
 
         }
-        .gnb>ul>li{
+
+        /* 상위메뉴 하단보더 셋팅 */
+        .gnb>ul>li>a{
             /* 투명하단보더 */
             border-bottom: 3px solid transparent;
         }
+        /* li오버시 */
+        .gnb>ul>li:hover>a{
+            /* 하단보더색넣기 */
+            border-bottom-color: darkblue;
+        }
+
         /* 상위li에 서브메뉴 배경넣기 */
         .gnb>ul>li::after{
             content: '';
@@ -47,9 +56,9 @@
             /* top값은 안줘서 젠틀함! */
             height: 80px;
             /* 앱솔루트 Y축 위치미세조정 */
-            margin-top: 4px;
-            background-color: lightgray;
-            border-bottom: blue;
+            margin-top: 1px;
+            background-color: #ececec;
+            border-bottom: 5px solid darkblue;
             
             /* 처음에 안보임 */
             display: none;
@@ -60,14 +69,9 @@
             display: block;
         }
 
-        /* 두번째 li부터 - 패딩으로! */
-        .gnb>ul>li+li{
+        /* 두번째 li부터 사이간격 : 패딩으로! */
+        .gnb>ul>li~li{
             padding-left: 10px;
-        }
-        /* li오버시 */
-        .gnb>ul>li:hover{
-            /* 하단보더색넣기 */
-            border-bottom-color: darkblue;
         }
         /* li오버시 a */
         .gnb>ul>li:hover>a{
@@ -84,6 +88,7 @@
             font-weight: bold;
             line-height: 56px;
             padding: 0 25px;
+            /* outline: 1px dashed red; */
         }
 
         /* 서브메뉴 */
@@ -91,7 +96,7 @@
             position: absolute;
             z-index: 1;
             padding: 25px 20px;
-            outline: 1px dashed gray;
+            /* outline: 1px dashed gray; */
             /* 처음에 안보임! */
             display: none;
         }
@@ -103,7 +108,7 @@
             display: flex;
 
         }
-        .smenu li+li{
+        .smenu li~li{
             margin-left: 20px;
         }
         .smenu a{
@@ -124,23 +129,12 @@
 
         /* 서브메뉴 위치이동 6,7,8 */
         .gnb>ul>li:nth-child(6) .smenu{
-            margin-left: -221px;
-        }
-        .gnb>ul>li:nth-child(7) .smenu{
-            margin-left: -671px;
-        }
-        .gnb>ul>li:nth-child(8) .smenu{
-            margin-left: -274px;
-        }
-
-        /* 서브메뉴 위치이동 6,7,8 */
-        .gnb>ul>li:nth-child(6).smenu {
             margin-left: -215px;
         }
-        .gnb>ul>li:nth-child(7).smenu {
+        .gnb>ul>li:nth-child(7) .smenu{
             margin-left: -672px;
         }
-        .gnb>ul>li:nth-child(8).smenu {
+        .gnb>ul>li:nth-child(8) .smenu{
             margin-left: -275px;
         }
 
