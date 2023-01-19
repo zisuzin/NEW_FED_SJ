@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
         }
-
         h1{
             text-align: center;
         }
@@ -70,7 +69,7 @@
         }
 
         /* 두번째 li부터 사이간격 : 패딩으로! */
-        .gnb>ul>li~li{
+        .gnb>ul>li+li{
             padding-left: 10px;
         }
         /* li오버시 a */
@@ -108,7 +107,7 @@
             display: flex;
 
         }
-        .smenu li~li{
+        .smenu li+li{
             margin-left: 20px;
         }
         .smenu a{

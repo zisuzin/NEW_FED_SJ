@@ -42,6 +42,11 @@
             border-bottom-color: darkblue;
         }
 
+        /* span태그앞 무조건 인접한 div가 있어야함(없으면 선택x) */
+        /* Ex) .gnb>ul>li>div:nth-child(3)+span */
+        /* 3번째 div요소 하위에 있는 span태그들 전체를 선택함 */
+        /* Ex) .gnb>ul>li>div:nth-child(3)~span  */
+        
         /* 두번째 li부터 나머지 li들에 사이간격 */
         .gnb>ul>li+li {
             padding-left: 10px;
