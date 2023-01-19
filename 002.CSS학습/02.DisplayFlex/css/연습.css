@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/* 초기화설정 */
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+.cont>ul {
+    display: flex;
+    /* 보이는 화면을 모두 차지하도록! */
+    height: 100vh;
+}
+.cont>ul>li {
+    /* 부모자격 - 하위img */
+    position: relative;
+    flex: 1;
+}
+
+/* 화면에 배경이미지 넣기 */
+.cont>ul>li:first-child {
+    background: url(../images/m01_bg.jpg) no-repeat center/cover;
+}
+.cont>ul>li:nth-child(2) {
+    background: url(../images/m02_bg.jpg) no-repeat center/cover;
+}
+.cont>ul>li:nth-child(3) {
+    background: url(../images/m03_bg.jpg) no-repeat center/cover;
+}
+.cont>ul>li:nth-child(4) {
+    background: url(../images/m04_bg.jpg) no-repeat center/cover;
+}
+.cont>ul>li:nth-child(5) {
+    background: url(../images/m05_bg.jpg) no-repeat center/cover;
+}
+
+/* 타이틀+로고 이미지 공통셋팅 */
+.cont>ul>li>img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: min(70%,250px);
+}
+
+/* 로고이미지만 재배치 */
+.cont>ul>li>img:last-child {
+    top: 80%;
+    width: auto;
+}
+
+/* 배경 암전 효과주기 */
+.cont>ul>li::before {
+    content: '';
+    display: block;
+    /* 위에 li태그에 부모요소 줬으니까 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+/* 배경 오버시 밝게보이기 */
+.cont>ul>li:hover::before {
+    opacity: 0;
+}
+
+/*  */
+.cont>ul>li:hover {
+    flex: 1.3;
+    transition: all .4s ease-in-out;
+}
+
+/* 하단롯데로고 */
+.info {
+    background-color: #da041c;
+    text-align: center;
+    /* 보이는 화면을 기준으로 위에 둥 뜨게 */
+    position: absolute;
+    /* 너비값 모두 차지하도록! */
+    width: 100%;
+    /* 바닥에 딱 붙게 */
+    bottom: 0;
+    padding: 7px 0;
+}

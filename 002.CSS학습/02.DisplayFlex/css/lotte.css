@@ -91,7 +91,7 @@
 }
 
 /* 파티션 li박스 가상요소로 오버레이 효과주기 */
-.cont>ul>li::before { /* 가상요소 after가 아닌 before주는 이유? */
+.cont>ul>li::before { 
     content: '';
     display: block;
     position: absolute;
@@ -172,8 +172,4 @@
     text-align: center;
     padding: 7px 0;
     background-color: #da041c;
-}
-
-.info img {
-    
 }
