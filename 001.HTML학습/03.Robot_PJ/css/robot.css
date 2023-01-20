@@ -209,11 +209,11 @@ body{
     height: 386px;
     background: url(../images/hair3.png) no-repeat 0/100% 100%; */
 
-    top: -109px;
-    left: -73px;
-    width: 402px;
+    top: -159px;
+    left: -148px;
+    width: 550px;
     height: 483px;
-    background: url(../images/hair2.png) no-repeat 0/100% 100%;
+    background: url(../images/hair00.png) no-repeat 0/100% 100%;
 
     /* 가발1 */
     /* top: -73px;
@@ -228,7 +228,7 @@ body{
 /* 머리박스에 오버시 가상요소 가발변경하기 */
 .head:hover::before{
     top: -183px;
-    left: -137px;
+    left: -147px;
     width: 548px;
     height: 386px;
     background: url(../images/hair3.png) no-repeat 0/100% 100%;
@@ -366,7 +366,7 @@ body{
     height: 200px;
     /* 그라데이션 */
     background-image: 
-    linear-gradient(-25deg,#eee, #818181,#e2e2e2,#acacac);
+    linear-gradient(-25deg,rgb(147, 255, 156), #ff9c7e,#ff68bb,#a36aff);
     /* 몸깍기 */
     clip-path: 
     polygon(0 0,10% 100%,90% 100%,100% 0);
@@ -383,7 +383,7 @@ body{
     background-color: #fff;
     /* 그라데이션 */
     background-image: 
-    linear-gradient(-25deg,rgb(0, 217, 255), #4feaff,#038ef8,#02e6ff);
+    linear-gradient(-25deg,rgb(147, 255, 156), #ff9c7e,#ff68bb,#a36aff);
     
     /* 몸깍기 */
     clip-path: 
@@ -400,6 +400,8 @@ body{
     /* 하단보더 */
     border-bottom: 20px ridge goldenrod;
 }
+
+
 /* 팔공통 */
 .arm{
     top: 20px;
