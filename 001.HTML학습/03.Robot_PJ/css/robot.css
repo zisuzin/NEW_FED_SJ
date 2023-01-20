@@ -97,11 +97,7 @@ body{
     /* font: 스두크/줄체; */
     text-shadow: 2px 2px 5px #000;
 
-} /* 키프레임 */
-
-/* 4-2. 로고애니 호출 */
-
-
+}
 /* 1-2.링크타이틀 */
 .link{
     position: absolute;
@@ -746,6 +742,9 @@ body{
     color: orange;
 }
 
+
+
+
 /***************** 3. 하단영역 *****************/
 #info{
     /* 글자셋팅 */
@@ -759,7 +758,6 @@ body{
     padding: 50px;
 
 }
-
 /* 속박스 가상요소로 아이콘 모양 넣기 */
 .info::before{
     content: '';
