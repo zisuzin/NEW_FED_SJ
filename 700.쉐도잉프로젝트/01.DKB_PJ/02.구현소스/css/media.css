@@ -65,6 +65,9 @@
     html,body{
         width: 100vw;
         overflow-x: hidden;
+        position: relative;
+        width: 100vw;
+        overflow-x: hidden;
     }
     /* 디스플레이 없애기 */
     .tmenu, .gnb{
