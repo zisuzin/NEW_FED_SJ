@@ -84,9 +84,8 @@
 
             /* 3. 하단영역 */
             .info > .pbx {
-                width: 50%;
                 /* 2등분 */
-                height: 200px;
+                height: 400px;
             }
 
             .info1 {
@@ -125,10 +124,28 @@
 
             /*************** 800px 이하 ***************/
             @media screen and (max-width: 800px) {
+                /* 2. 메인영역 */
+                .cont > .pbx {
+                    width: 50%;
+                    height: 300px;
+                }
+                /* .cont > .cont4 {
+                    width: 100%;
+                    height: 600px;
+                } */
             }
             /* 800px 이하 */
 
             /**************** 500px 이하 ****************/
+            @media screen and (max-width:500px) {
+                /* 파티션박스 전체적용 */
+                /* 더 작은 사이즈가 없어 최종적용이므로
+                !important를 사용하여 강제적용한다! */
+                .pbx {
+                    width: 100% !important; 
+                    height: 400px !important;
+                }
+            }
             /* 500px 이하 */
         </style>
     </head>
