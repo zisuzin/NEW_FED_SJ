@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>레이아웃 미디어쿼리1</title>
+        <title>레이아웃 미디어쿼리2 - 비율유지박스 적용</title>
         <style>
             html,
             body {
@@ -38,24 +38,63 @@
                 outline: 1px dotted lime;
             }
 
+            /* 4.비율유지박스 시스템화 */
+            /* rbx -> ratio box */
+            .rbx{
+                position: relative;
+                /* 부모자격 필수!!! */
+            }
+            .rbx::before{
+                content: '';
+                display: block;
+                /* padding-top: 56.25%; */
+            }
+            /* 비율유지 속박스
+            - 겉박스 밀착 앱솔루트 속박스
+            -> 전체조건: rbx가 최소한 relative
+            -> 목적: 내용요소를 비율유지박스안에 
+            넣을 공간을 확보해 준다! */
+            .rbxIn{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            /* 영역별 비율변경 */
+            /* 상단영역 */
+            .rx1::before {
+                padding-top: 20%;
+            }
+            /* 메인영역 */
+            .rx2::before {
+                padding-top: 40%;
+            }
+            
+            /* 하단영역 */
+            .rx3::before {
+                padding-top: 30%;
+            }
+
             /* 개별 디자인 */
 
             /* 1. 상단영역 */
-            .top > .pbx {
+            .top .pbx {
                 width: 33.33%;
                 /* 3등분 */
-                height: 120px;
+                /* height: 100%; */
             }
 
-            .top1 {
+            .pbx .top1 {
                 background: url(./images/jeong1.jpg) no-repeat top/cover;
             }
 
-            .top2 {
+            .pbx .top2 {
                 background: url(./images/jeong2.jpg) no-repeat top/cover;
             }
 
-            .top3 {
+            .pbx .top3 {
                 background: url(./images/jeong3.jpg) no-repeat top/cover;
             }
 
@@ -63,7 +102,7 @@
             .cont > .pbx {
                 width: 25%;
                 /* 4등분 */
-                height: 300px;
+                /* height: 300px; */
             }
 
             .cont1 {
@@ -84,8 +123,9 @@
 
             /* 3. 하단영역 */
             .info > .pbx {
+                width: 50%;
                 /* 2등분 */
-                height: 400px;
+                /* height: 200px; */
             }
 
             .info1 {
@@ -103,12 +143,12 @@
                 /* 1.상단영역 */
                 .top > .pbx {
                     width: 50%;
-                    height: 180px;
+                    /* height: 180px; */
                 }
                 /* 마지막 박스변경 */
                 .top > .top3 {
                     width: 100%;
-                    height: 300px;
+                    /* height: 300px; */
                 }
 
                 /* 2.메인영역 */
@@ -117,33 +157,34 @@
                 }
                 .cont > .cont4 {
                     width: 100%;
-                    height: 600px;
+                    /* height: 600px; */
+                }
+
+                /* 3.하단영역 */
+                .info > .pbx {
+                    /* height: 400px; */
                 }
             }
             /* 1024px 이하 */
 
             /*************** 800px 이하 ***************/
             @media screen and (max-width: 800px) {
-                /* 2. 메인영역 */
+                /* 2.메인영역 */
                 .cont > .pbx {
                     width: 50%;
-                    height: 300px;
+                    /* height: 300px; */
                 }
-                /* .cont > .cont4 {
-                    width: 100%;
-                    height: 600px;
-                } */
             }
             /* 800px 이하 */
 
             /**************** 500px 이하 ****************/
-            @media screen and (max-width:500px) {
+            @media screen and (max-width: 500px) {
                 /* 파티션박스 전체적용 */
-                /* 더 작은 사이즈가 없어 최종적용이므로
+                /* 더 작은 사이즈가 없이 최종적용이므로
                 !important를 사용하여 강제적용한다! */
-                .pbx {
-                    width: 100% !important; 
-                    height: 400px !important;
+                .pbx{
+                    width: 100% !important;
+                    /* height: 400px !important; */
                 }
             }
             /* 500px 이하 */
@@ -153,26 +194,32 @@
     <body>
         <!-- 1. 상단영역 -->
         <div>
-            <header class="ibx top">
-                <div class="pbx top1"></div>
-                <div class="pbx top2"></div>
-                <div class="pbx top3"></div>
+            <header class="ibx top rbx rx1">
+                <div class="rbxIn">
+                    <div class="pbx top1"></div>
+                    <div class="pbx top2"></div>
+                    <div class="pbx top3"></div>
+                </div>
             </header>
         </div>
         <!-- 2. 중앙영역 -->
         <div>
-            <main class="ibx cont">
-                <div class="pbx cont1"></div>
-                <div class="pbx cont2"></div>
-                <div class="pbx cont3"></div>
-                <div class="pbx cont4"></div>
+            <main class="ibx cont rbx rx2">
+                <div class="rbxIn fbx">
+                    <div class="pbx cont1"></div>
+                    <div class="pbx cont2"></div>
+                    <div class="pbx cont3"></div>
+                    <div class="pbx cont4"></div>
+                </div>
             </main>
         </div>
         <!-- 3. 하단영역 -->
         <div>
-            <footer class="ibx info">
-                <div class="pbx info1"></div>
-                <div class="pbx info2"></div>
+            <footer class="ibx info rbx rx3">
+                <div class="rbxIn fbx">
+                    <div class="pbx info1"></div>
+                    <div class="pbx info2"></div>
+                </div>
             </footer>
         </div>
     </body>
