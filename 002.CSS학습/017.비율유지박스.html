@@ -100,7 +100,15 @@
             .rbx::before{
                 content: '';
                 display: block;
-                padding-top: 56.25%;
+                padding-top: calc(100% / 16 * 9);
+                /* 
+                    [ 비율을 만들어 보자! calc()사용법 ]
+
+                    calc(100% / 가로비율 * 세로비율)
+
+                    예) 
+                    padding-top: calc(100% / 16 * 9)
+                */
             }
             /* 비율유지 속박스
             - 겉박스 밀착 앱솔루트 속박스
@@ -138,6 +146,32 @@
                 4. 앱솔루트 속박스를 만들어 컨텐츠 공간확보
                 (단, 비율유지박스에 부모자격필수!)
             ************************************************/
+
+            /* 5. 비율유지박스 :aspect-ratio 속성사용 */
+            .arbx {
+                aspect-ratio: 16 / 9;
+                /* 
+                    [ aspect-ratio 속성 사용하기 ]
+                    aspect-ratio: 가로비 / 세로비
+
+                    -> width값은 셋팅하고 height값은 auto임!
+                    -> 값을 하나만 쓰면 가로비만 세로를 1로볼때 설정됨
+
+                    예)
+                    1:1비율
+                    aspect-ratio: 1 / 1 ;
+                    aspect-ratio: 1;
+
+                    16:9비율
+                    aspect-ratio: 16 / 9 ;
+                    
+                    세로에 대한 가로 80%비율
+                    aspect-ratio: .8;
+
+                    세로에 대한 가로 200%비율
+                    aspect-ratio: 2;
+                */
+            }
         </style>
     </head>
     <body>
@@ -154,10 +188,8 @@
             <!-- <div class="test"></div> -->
         </div>
         
-        <h2>4.비율유지박스 시스템화</h2>
-        <div class="bx rbx">
-            <!-- 비율유지속박스 -->
-            <div class="rbxIn">
+        <h2>5.비율유지박스 : aspect-ratio 속성사용</h2>
+        <div class="bx arbx">
                 <!-- 컨텐츠 넣기 -->
                 <dl class="cat">
                    <dt>출연진</dt>
@@ -165,8 +197,6 @@
                    <dd>이솜(강하나역)</dd>
                    <dd>김의성(장성철역)</dd>
                </dl>
-                
-            </div>
         </div>
     </body>
 </html>
