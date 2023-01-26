@@ -5,6 +5,10 @@ html,body {
     padding: 0;
 }
 
+body * {
+    border: 1px dashed red;
+}
+
 ul {
     margin: 0;
     padding: 0;
