@@ -27,20 +27,26 @@ ul {
 
 .headerInner {
     position: relative;
-    height: 100%;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
-    padding: 0 30px;
+    /* left: -100px; */
+    /* padding: 0 114px; */
+    width: 90%;
+    height: 100px;
 }
 
 .tlogo {
-    position: relative;
-    float: left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .tlogo img {
     position: absolute;
-    z-index: 1;
-    top: 30px;
+    float: left;
+    left: 0;
+    top: 20px;
 }
 
 /* .gnb {
@@ -50,7 +56,9 @@ ul {
 
 .util-bx {
     position: absolute;
-    z-index: 1;
     display: flex;
-    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+    right: 0;
 }
