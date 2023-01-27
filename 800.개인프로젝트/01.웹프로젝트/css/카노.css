@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+body * {
+    border: 1px dashed red;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#header {
+    position: fixed;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    border: none;
+}
+
+.headerInner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+}
+
+.tlogo {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+    left: 0;
+    background-color: rgb(253, 136, 136);
+}
+
+/* .tlogo>img {
+    
+} */
+
+.gnb {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(253, 136, 136);
+}
+
+.gnb>ul {
+    display: flex;
+}
+
+.gnb>ul>li>a {
+    /* a태그 변경 3요소 - 밑줄, 색상, 두께 */
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.gnb>ul>li+li {
+    margin-left: 150px;
+}
+
+.util-bx {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    top: 20px;
+    right: 0;
+    background-color: rgb(253, 136, 136);
+}
+
+.topVideo {
+    width: 1000px;
+    height: 500px;
+    background-color: red;
+}
