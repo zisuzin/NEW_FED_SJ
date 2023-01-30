@@ -51,13 +51,18 @@ ul {
 } */
 
 .gnb {
-    position: absolute;
-    z-index: 1;
+    /* position: absolute; */
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100%;
-    background-color: rgb(253, 136, 136);
+    background-color: #fff;
 }
+
+/* .gnb>ul>li~li {
+    z-index: 1;
+} */
 
 .gnb>ul {
     display: flex;
@@ -75,6 +80,18 @@ ul {
     margin-left: 150px;
 }
 
+.gnb>ul>li::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-color: red;
+    top: 0;
+    z-index: -1;
+}
+
 .util-bx {
     position: absolute;
     display: flex;
@@ -86,7 +103,40 @@ ul {
 }
 
 .topVideo {
-    width: 1000px;
-    height: 500px;
-    background-color: red;
+    width: 100vw;
+    height: 1000px;
+    /* background-color: red; */
 }
+
+.smenu {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.smenu>ul>li {
+    padding-top: 10px;
+}
+
+/* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
+.gnb>ul>li:nth-child(1) .smenu {
+    margin-left: -10px;
+}
+.gnb>ul>li:nth-child(2) .smenu {
+    margin-left: -50px;
+}
+.gnb>ul>li:nth-child(3) .smenu {
+    margin-left: -10px;
+}
+.gnb>ul>li:nth-child(4) .smenu {
+    margin-left: 3px;
+}
+.gnb>ul>li:nth-child(5) .smenu {
+    margin-left: 10px;
+}
+
+/* .smenu>ul {
+    display: flex;
+}
+ */
