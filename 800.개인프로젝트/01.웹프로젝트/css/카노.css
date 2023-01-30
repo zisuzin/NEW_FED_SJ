@@ -80,16 +80,31 @@ ul {
     margin-left: 150px;
 }
 
-.gnb>ul>li::after {
+.gnb>ul>li:hover::after {
     content: '';
     display: block;
     position: absolute;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background-color: red;
-    top: 0;
     z-index: -1;
+    top: 0;
+    left: 0;
+    margin-left: -100vw;
+    width: 1000vw;
+    height: 40vh;
+    /* background-color: red; */
+    /* background: url(../00.자료수집/02.이미지데이터/gnb_bg.jpg) no-repeat; */
+    background-size: 100%/contain;
+    background-color: rgb(233, 138, 138);
+    animation: topAni 3s ease-out 2s;
+    transition: 0.5s ease-out;
+}
+
+@keyframes topAni {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(20%);
+    }
 }
 
 .util-bx {
@@ -118,19 +133,22 @@ ul {
 .smenu>ul>li {
     padding-top: 10px;
 }
+.smenu>ul>li>a {
+    font-size: 17px;
+}
 
 /* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
 .gnb>ul>li:nth-child(1) .smenu {
-    margin-left: -10px;
+    margin-left: -15px;
 }
 .gnb>ul>li:nth-child(2) .smenu {
-    margin-left: -50px;
+    margin-left: -60px;
 }
 .gnb>ul>li:nth-child(3) .smenu {
-    margin-left: -10px;
+    margin-left: -15px;
 }
 .gnb>ul>li:nth-child(4) .smenu {
-    margin-left: 3px;
+    margin-left: 2px;
 }
 .gnb>ul>li:nth-child(5) .smenu {
     margin-left: 10px;
