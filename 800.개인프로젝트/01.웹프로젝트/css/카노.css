@@ -1,12 +1,19 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: 'Happiness-Sans-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 html,body {
     margin: 0;
     padding: 0;
 }
 
 body * {
-    border: 1px dashed red;
+    /* border: 1px dashed red; */
 }
 
 ul {
@@ -24,6 +31,7 @@ ul {
     width: 100%;
     height: 80px;
     border: none;
+    margin-top: 50px;
 }
 
 .headerInner {
@@ -46,10 +54,6 @@ ul {
     background-color: rgb(253, 136, 136);
 }
 
-/* .tlogo>img {
-    
-} */
-
 .gnb {
     /* position: absolute; */
     display: flex;
@@ -59,10 +63,6 @@ ul {
     height: 100%;
     background-color: #fff;
 }
-
-/* .gnb>ul>li~li {
-    z-index: 1;
-} */
 
 .gnb>ul {
     display: flex;
@@ -74,6 +74,7 @@ ul {
     color: #000;
     font-weight: bold;
     font-size: 18px;
+    font-family: 'Happiness-Sans-Bold';
 }
 
 .gnb>ul>li+li {
@@ -89,24 +90,11 @@ ul {
     left: 0;
     margin-left: -100vw;
     width: 1000vw;
-    height: 40vh;
-    /* background-color: red; */
-    /* background: url(../00.자료수집/02.이미지데이터/gnb_bg.jpg) no-repeat; */
+    height: 45vh;
     background-size: 100%/contain;
-    background-color: rgb(233, 138, 138);
-    animation: topAni 3s ease-out 2s;
-    transition: 0.5s ease-out;
 }
 
-@keyframes topAni {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(20%);
-    }
-}
-
+/* 언어선택토글 & 사이트맵 메뉴바 */
 .util-bx {
     position: absolute;
     display: flex;
@@ -117,24 +105,31 @@ ul {
     background-color: rgb(253, 136, 136);
 }
 
+.util-bx > button :nth-child(1) {
+    font-family: 'Happiness-Sans-Bold';
+}
+
 .topVideo {
     width: 100vw;
     height: 1000px;
-    /* background-color: red; */
 }
 
 .smenu {
     position: absolute;
     z-index: 1;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .smenu>ul>li {
-    padding-top: 10px;
+    padding-top: 20px;
 }
+
 .smenu>ul>li>a {
     font-size: 17px;
+    text-decoration: none;
+    color: #939393;
+    font-family: 'Happiness-Sans-Bold';
 }
 
 /* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
@@ -154,7 +149,8 @@ ul {
     margin-left: 10px;
 }
 
-/* .smenu>ul {
-    display: flex;
+/* .smenu li오버시 a 색상변경 */
+.smenu li:hover a {
+    color: #bf1e2e;
 }
- */
+
