@@ -7,6 +7,12 @@
     font-style: normal;
 }
 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
 html,body {
     margin: 0;
     padding: 0;
@@ -46,7 +52,7 @@ ul {
 .tlogo {
     position: absolute;
     display: flex;
-    z-index: 1;
+    z-index: 999;
     align-items: center;
     width: 200px;
     height: 100%;
@@ -55,17 +61,21 @@ ul {
 }
 
 .gnb {
-    /* position: absolute; */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* float: left; */
     height: 100%;
     background-color: #fff;
+    z-index: 99;
 }
 
 .gnb>ul {
     display: flex;
+    height: 50%;
+    align-items: center;
+    line-height: 20px;
 }
 
 .gnb>ul>li>a {
@@ -73,8 +83,10 @@ ul {
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Happiness-Sans-Bold';
+    display: block;
+    height: 100%;
 }
 
 .gnb>ul>li+li {
@@ -98,8 +110,9 @@ ul {
 .util-bx {
     position: absolute;
     display: flex;
+    justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 9999999999999;
     top: 20px;
     right: 0;
     background-color: rgb(253, 136, 136);
@@ -107,11 +120,36 @@ ul {
 
 .util-bx > button :nth-child(1) {
     font-family: 'Happiness-Sans-Bold';
+    font-size: 10px;
+}
+
+/* .lang-open-btn > .arrow::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 10px;
+    height: 100%;
+    margin-left: 20px;
+    background-color: black;
+} */
+
+.lang-open-btn::after {
+    font-family: "FontAwesome";
+    content: "\f078";
+    /* position: absolute;
+    width: 100px;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    font-size: 12px;
+    color: #000; */
+    /* background-color: red; */
 }
 
 .topVideo {
-    width: 100vw;
-    height: 1000px;
+    width: 300px;
+    height: 100%;
 }
 
 .smenu {
@@ -122,35 +160,36 @@ ul {
 }
 
 .smenu>ul>li {
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
 .smenu>ul>li>a {
-    font-size: 17px;
+    font-size: 14px;
     text-decoration: none;
     color: #939393;
-    font-family: 'Happiness-Sans-Bold';
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
 .gnb>ul>li:nth-child(1) .smenu {
-    margin-left: -15px;
+    margin-left: -10px;
 }
 .gnb>ul>li:nth-child(2) .smenu {
-    margin-left: -60px;
+    margin-left: -40px;
 }
 .gnb>ul>li:nth-child(3) .smenu {
-    margin-left: -15px;
+    margin-left: -8px;
 }
 .gnb>ul>li:nth-child(4) .smenu {
     margin-left: 2px;
 }
 .gnb>ul>li:nth-child(5) .smenu {
-    margin-left: 10px;
+    margin-left: 6px;
 }
 
 /* .smenu li오버시 a 색상변경 */
 .smenu li:hover a {
     color: #bf1e2e;
+    font-weight: bold;
 }
 

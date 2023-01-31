@@ -83,3 +83,47 @@ html,body{
     text-decoration: underline;
     text-decoration-style: double;
 }
+
+/* 구분테이블 박스 */
+.gubun {
+    width: 1000px;
+    margin: 0 auto;
+    /* outline: 1px dashed red; */
+    margin-bottom: 100px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+table#gubun {
+    font-size: 20px;
+    border: 1px solid #999;
+    /* 오른쪽 끝으로 보내기 */
+    float: right;
+
+    /* td(테이블셀)에 사이간격주기 */
+    border-collapse: separate;
+    border-spacing: 20px 10px;
+
+}
+
+/* 구분테이블 td */
+#gubun td {
+    padding: 10px;
+}
+
+/* 구분테이블 첫번째 tr의 첫번째
+td의 오른쪽 점선넣기 */
+#gubun tr:first-child td:first-child {
+border-right: 1px dotted #999;
+}
+
+/* 구분테이블의 두번째 tr부터
+끝까지 td 위쪽점선보더 넣기 */
+#gubun tr+tr td {
+    border-top: 4px dotted #999;
+}
+
+#gubun th {
+    border-right: 1px dotted #999;
+}
+
