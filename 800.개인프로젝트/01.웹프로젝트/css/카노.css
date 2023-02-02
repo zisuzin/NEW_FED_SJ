@@ -7,10 +7,18 @@
     font-style: normal;
 }
 
+<<<<<<< Updated upstream
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
+=======
+@font-face {
+    font-family: 'GothicA1-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GothicA1-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+>>>>>>> Stashed changes
 }
 
 html,body {
@@ -19,8 +27,12 @@ html,body {
 }
 
 body * {
+<<<<<<< Updated upstream
     /* border: 1px dashed red; */
     background: url(../00.자료수집/03.동영상데이터/KANO\(카노\)\ Brand\ film\ \(Kor.ver\).mp4);
+=======
+    border: 1px dashed red;
+>>>>>>> Stashed changes
 }
 
 ul {
@@ -33,9 +45,9 @@ ul {
     position: fixed;
     position: relative;
     top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
+    /* right: 0;
+    left: 0; */
+    /* width: 100%; */
     height: 80px;
     border: none;
     margin-top: 50px;
@@ -43,7 +55,6 @@ ul {
 
 .headerInner {
     position: relative;
-    display: flex;
     justify-content: center;
     margin: 0 auto;
     width: 90%;
@@ -62,11 +73,19 @@ ul {
 }
 
 .gnb {
+<<<<<<< Updated upstream
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     /* float: left; */
+=======
+    position: absolute;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 100%;
+>>>>>>> Stashed changes
     height: 100%;
     background-color: #fff;
     z-index: 99;
@@ -79,6 +98,11 @@ ul {
     line-height: 20px;
 }
 
+.gnb>ul>.bx {
+    /* display: flex; */
+    background-color: red;
+}
+
 .gnb>ul>li>a {
     /* a태그 변경 3요소 - 밑줄, 색상, 두께 */
     text-decoration: none;
@@ -86,8 +110,13 @@ ul {
     font-weight: bold;
     font-size: 15px;
     font-family: 'Happiness-Sans-Bold';
+<<<<<<< Updated upstream
     display: block;
     height: 100%;
+=======
+    height: 100%;
+    display: block;
+>>>>>>> Stashed changes
 }
 
 .gnb>ul>li+li {
@@ -161,19 +190,33 @@ ul {
 }
 
 .smenu>ul>li {
+<<<<<<< Updated upstream
     padding-top: 15px;
+=======
+    padding-top: 20px;
+    display: block;
+>>>>>>> Stashed changes
 }
 
 .smenu>ul>li>a {
     font-size: 14px;
     text-decoration: none;
     color: #939393;
+<<<<<<< Updated upstream
     font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
 .gnb>ul>li:nth-child(1) .smenu {
     margin-left: -10px;
+=======
+    font-family: 'GothicA1-Light';
+}
+
+/* 부모 .gnb li에 맞춰 .smenu li중앙정렬 */
+/* .gnb>ul>li:nth-child(1) .smenu {
+    margin-left: -15px;
+>>>>>>> Stashed changes
 }
 .gnb>ul>li:nth-child(2) .smenu {
     margin-left: -40px;
@@ -185,12 +228,22 @@ ul {
     margin-left: 2px;
 }
 .gnb>ul>li:nth-child(5) .smenu {
+<<<<<<< Updated upstream
     margin-left: 6px;
 }
+=======
+    margin-left: 10px;
+} */
+>>>>>>> Stashed changes
 
 /* .smenu li오버시 a 색상변경 */
 .smenu li:hover a {
-    color: #bf1e2e;
     font-weight: bold;
+    color: #bf1e2e;
+<<<<<<< Updated upstream
+    font-weight: bold;
+=======
+    font-style: 20px;
+>>>>>>> Stashed changes
 }
 
