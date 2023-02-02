@@ -337,6 +337,9 @@
                     tg[i].onmouseout = function(){
                         // 원본이미지경로 확인
                         console.log("아웃시확인:",csrc);
+
+                        // 원본이미지로 변경하기
+                        this.setAttribute("src",csrc);
                     }; ///////// mouseout 이벤트함수 ///////
 
 
