@@ -1,0 +1,178 @@
+@charset "utf-8";
+
+/* 초기화 */
+html,body,h1,ul,li,dl,dt,dd,footer,article,button {
+    margin: 0;
+    padding: 0;
+}
+
+/* 브라우저 셋팅 */
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* a 공통요소 */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+#top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* padding: 0 79px; */
+    z-index: 999;
+    background-color: transparent;
+}
+
+.top {
+    /* 겉을 싸고있는 부모박스에 flex 줘서 자식요소 흘러가게 */
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.gnb {
+    display: flex;
+    /* position: absolute; */
+    /* position: relative; */
+    z-index: 1;
+    height: 100px;
+    overflow: hidden;
+}
+
+/* #top오버시 GNB메뉴 보임 */
+.gnb:hover .top::after{
+    content: '';
+    display: block;
+    height: 400px;
+    top: 100px;
+    z-index: 0;
+    background: url(../00.자료수집/02.이미지데이터/gnb_bg.jpg) no-repeat center 100%/cover;
+}
+
+.gnb>dl {
+    z-index: 999;
+    text-align: center;
+}
+
+.gnb>dl+dl {
+    margin-left: 90px;
+}
+
+.gnb>dl>dt {
+    line-height: 120px;
+    margin-bottom: -10px;
+
+}
+.gnb>dl>dt>a {
+    font-weight: bold;
+    font-size: 19px;
+    color: #fff;
+    transition: .1s ease-in;
+}
+
+/* .gnb오버시 상단 글자색 변경 */
+.gnb:hover>dl>dt>a {
+    color: #000;
+}
+.gnb>dl>dd>a {
+    font-size: 18px;
+    color: #939393;
+}
+
+.gnb>dl>dd {
+    margin-top: 15px;
+}
+
+.logo {
+    position: relative;
+    z-index: 999;
+    top: 50px;
+}
+
+
+/* 로고 두번째 이미지 처음에 숨김 */
+/* #top오버시 첫번째 로고 이미지 숨김 */
+.logo img:last-child,
+.etc li:nth-of-type(2)>a>img,
+#top:hover .etc li:nth-of-type(1)>a>img,
+#top:hover .logo>a>img:first-child {
+    display: none;
+}
+
+/* #top오버시 두번째 로고 이미지 보이기 */
+#top:hover .logo img:last-child,
+#top:hover .etc li:nth-of-type(2)>a>img {
+    display: inline;
+}
+
+.etc {
+    position: relative;
+    z-index: 999;
+    top: 50px;
+    list-style: none;
+    display: flex;
+}
+
+.lang-drop-btn {
+    font-size: 13px;
+}
+
+
+/* 2. 메인영역 */
+#scroll>span {
+    width: 16px;
+    height: 124px;
+    background: url(./00.자료수집/02.이미지데이터/sub_scroll_down.png) no-repeat center/contain;
+    top: 50%;
+    left: 130px;
+    z-index: 999;
+    position: fixed;
+}
+
+/* 3. 하단영역 */
+.to-top-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    z-index: 999;
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+}
+
+.to-top-btn::after {
+    content: '↑';
+    display: block;
+    transform: translate(30%,40%);
+}
+
+
+.cont {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cont > .screen {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; 
+    background-color: #000;
+}
+
+.cont > .screen #ifr {
+    width: 100%;
+	height: 100%;
+	position: absolute;
+    object-fit: cover;
+}
