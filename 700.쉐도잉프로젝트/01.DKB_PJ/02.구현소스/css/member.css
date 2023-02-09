@@ -36,3 +36,100 @@
     /* 박스크기 유지 : 보더, 패딩포함 */
     box-sizing: border-box;
 }
+
+/* 리스트 ul */
+.scont ul {
+    font-size: 2rem; 
+    /* html 10px * 2 = 20px */
+    font-weight: bold;
+    color: #333;
+}
+
+/* 리스트 li */
+.scont li {
+    position: relative;
+    /* 부모자격 - .msg */
+    height: 50px;
+    line-height: 50px; /* 높이값의 정중앙 */
+    /* outline: 2px dotted red; */
+}
+
+/* 라벨공통 타이틀(.itit) */
+.itit {
+    display: inline-block;
+    width: 200px;
+}
+
+/* 메시지박스 */
+.msg {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    /* 부모는? .15px */
+    height: 15px;
+    line-height: 15px;
+    white-space: nowrap;
+    color: red;
+    font-size: 15px;
+}
+
+/* 메시지 글자색 변경 클래스 */
+.msg.on {
+    color: green;
+}
+
+/* 입력박스 공통 */
+.scont input[type=text],
+.scont input[type=password] {
+    width: 340px;
+    height: 36px;
+    font-size: 2rem;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+/* 라디오버튼 */
+.scont input[type=radio] {
+    width: 20px;
+    height: 20px;
+    /* 인라인요소간 세로정렬 */
+    vertical-align: -4px;
+}
+
+/* 이메일 앞주소 */
+#email1 {
+    width: 170px;
+}
+
+/* 이메일 선택박스 드롭다운박스==콤보박스 */
+#selem1 {
+    width: 145px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+#email2 {
+    width: 136px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 137px;
+    display: none;
+}
+
+button , a{
+    display: none;
+}
+
+#submit {
+    width: 120px;
+    height: 40px;
+    font-size: 2rem;
+    line-height: 40px;
+    background: linear-gradient(to bottom, #fff, #999, #777);
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    margin-right: 110px;
+}
