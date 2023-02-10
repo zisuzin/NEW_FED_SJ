@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cube.css">
     <title>Rolling Cube 3D Animation</title>
+    <style>
+        /* 작동버튼 */
+        .btngo {
+            position: fixed;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            border-radius: 10px;
+        }
+        
+    </style>
+    <script src="./js/cube.js"></script>
 </head>
 <body>
     <!-- 큐브 : 정육면체 -->
@@ -15,6 +28,8 @@
         <span></span>
         <span></span>
         <span></span>
+    </div>
+    <button class="btngo">돌아!</button>
     </div>
 </body>
 </html>
