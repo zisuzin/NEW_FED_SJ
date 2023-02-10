@@ -4,6 +4,26 @@
 @import url(./reset.css);
 @import url(./common.css);
 
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* 브라우저 셋팅 */
 body {
@@ -11,16 +31,12 @@ body {
     height: 100vh;
 }
 
-
-
 #top {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 28px;
     width: 100%;
-    /* padding: 0 79px; */
     z-index: 99999;
-    background-color: transparent;
+    background-color: transparent; /* 배경 투명! */
 }
 
 .top {
@@ -33,7 +49,7 @@ body {
     display: flex;
     left: 0;
     z-index: 999;
-
+    border: 1px dashed red; /* 삭제 */
 }
 
 
@@ -49,13 +65,14 @@ body {
 .gnb>dl>dt {
     line-height: 120px;
     margin-bottom: -10px;
-
+    border: 1px dashed red; /* 삭제 */
 }
 .gnb>dl>dt>a {
     font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
     color: #fff;
-    transition: .1s ease-in;
+    transition: .2s ease-in;
+    font-family: 'IBMPlexSansKR-Regular';
 }
 
 /* .gnb오버시 상단 글자색 변경 */
@@ -63,42 +80,48 @@ body {
     color: #000;
 }
 .gnb>dl>dd>a {
-    font-size: 18px;
+    font-size: 19px;
     color: #939393;
+    font-family: 'IBMPlexSansKR-Regular';
+    
 }
 
 .gnb>dl>dd {
     margin-top: 15px;
 }
 
-.logo {
-    position: relative;
+#logo {
     z-index: 999;
-    top: 50px;
+    position: relative;
 }
 
+.logo {
+    border: 1px dashed red; /* 삭제 */
+    position: absolute;
+    width: 174px;
+    height: 45px;
+    top: 35px;
+}
 
 /* 로고 두번째 이미지 처음에 숨김 */
 /* #top오버시 첫번째 로고 이미지 숨김 */
 .logo img:last-child,
-.etc li:nth-of-type(2)>a>img,
-#top:hover .etc li:nth-of-type(1)>a>img,
+.stmap li:nth-of-type(2)>a>img,
+#top:hover .stmap li:nth-of-type(1)>a>img,
 #top:hover .logo>a>img:first-child {
     display: none;
 }
 
 /* #top오버시 두번째 로고 이미지 보이기 */
 #top:hover .logo img:last-child,
-#top:hover .etc li:nth-of-type(2)>a>img {
+#top:hover .stmap li:nth-of-type(2)>a>img {
     display: inline;
 }
 
-.etc {
-    position: relative;
+.stmap {
     z-index: 999;
-    top: 50px;
     list-style: none;
-    display: flex;
+    padding-left: 30px;;
 }
 
 .lang-drop-btn {
@@ -106,15 +129,34 @@ body {
 }
 
 
-/* 2. 메인영역 */
-#scroll>span {
+#scroll {
+    position: relative;
+    position: fixed;
     width: 16px;
     height: 124px;
-    background: url(./00.자료수집/02.이미지데이터/sub_scroll_down.png) no-repeat center/contain;
-    top: 50%;
-    left: 130px;
-    z-index: 999;
-    position: fixed;
+    left: 239px;
+    bottom: calc(100% - 50%);
+    top: calc(100% - 50%);
+    border: 1px dashed red;
+    background-color: red;
+}
+
+/* 2. 메인영역 */
+#scroll>span {
+    z-index: 99999;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: url(../00.자료수집/02.이미지데이터/sub_scroll_down.png) no-repeat center/cover 100%;
+}
+
+
+.scroll-down > span > img:nth-child(1){
+    opacity: 1;
+}
+.scroll-down > span > img:nth-child(2){
+    opacity: 0;
 }
 
 /* 3. 하단영역 */
@@ -158,3 +200,32 @@ body {
 	position: absolute;
     object-fit: cover;
 }
+
+#etc {
+    display: flex;
+    border: 1px dashed red;
+    align-items: center;
+    margin-bottom: 288px;
+}
+
+#etc select {
+    border: 1px dashed red; /* 삭제 */
+}
+
+.stmap img{
+    border: 1px dashed red; /* 삭제 */
+
+}
+
+/* .btn::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    border-top: transparent;
+
+} */
