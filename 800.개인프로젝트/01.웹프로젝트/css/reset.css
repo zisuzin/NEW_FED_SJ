@@ -4,6 +4,7 @@
 html,body,h1,ul,li,dl,dt,dd,footer,article,button {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 /* a 공통요소 */

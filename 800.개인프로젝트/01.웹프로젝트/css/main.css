@@ -1,29 +1,11 @@
 @charset "utf-8";
 
+
 /* 공통 css 셋팅 */
 @import url(./reset.css);
 @import url(./common.css);
+@import url(./core.css);
 
-@font-face {
-    font-family: 'ONE-Mobile-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* 브라우저 셋팅 */
 body {
@@ -31,10 +13,6 @@ body {
     height: 100vh;
 }
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 #top {
     position: fixed;
     top: 28px;
@@ -49,10 +27,9 @@ body {
     justify-content: space-around;
 }
 
+
 .gnb {
     display: flex;
-    left: 0;
-    z-index: 999;
     border: 1px dashed red; /* 삭제 */
 }
 
@@ -63,17 +40,15 @@ body {
 }
 
 .gnb>dl+dl {
-    margin-left: 90px;
+    padding-left: 70px;
 }
 
 .gnb>dl>dt {
-    line-height: 120px;
-    margin-bottom: -10px;
     border: 1px dashed red; /* 삭제 */
 }
 .gnb>dl>dt>a {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 12px;
     color: #fff;
     transition: .2s ease-in;
     font-family: 'IBMPlexSansKR-Regular';
@@ -84,24 +59,26 @@ body {
     color: #000;
 }
 .gnb>dl>dd>a {
-    font-size: 19px;
+    font-size: 12px;
     color: #939393;
     font-family: 'IBMPlexSansKR-Regular';
     
 }
 
 .gnb>dl>dd {
-    margin-top: 15px;
+    padding-top: 2px;
+}
+
+.gnb>dl>dt+dd{
+    padding-top: 20px;
 }
 
 #logo {
     z-index: 999;
-    position: relative;
 }
 
 .logo {
     border: 1px dashed red; /* 삭제 */
-    position: absolute;
     width: 174px;
     height: 45px;
     top: 35px;
@@ -125,7 +102,7 @@ body {
 .stmap {
     z-index: 999;
     list-style: none;
-    padding-left: 30px;;
+    padding-left: 20px;
 }
 
 .lang-drop-btn {
@@ -182,23 +159,19 @@ body {
 }
 
 
-.cont {
+/* .cont {
     position: relative;
     width: 100vw;
     height: 100vh;
-}
+} */
 
-.cont > .screen {
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0; 
-    background-color: #000;
+.scr {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #000; */
 }
-
-.cont > .screen #ifr {
+.scr #ifr {
     width: 100%;
 	height: 100%;
 	position: absolute;
@@ -207,29 +180,15 @@ body {
 
 #etc {
     display: flex;
-    border: 1px dashed red;
     align-items: center;
     margin-bottom: 288px;
 }
 
 #etc select {
-    border: 1px dashed red; /* 삭제 */
+    border: 1px dashed red; 
 }
 
 .stmap img{
-    border: 1px dashed red; /* 삭제 */
+    border: 1px dashed red; 
 
 }
-
-/* .btn::after {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    top: 50%;
-    left: 50%;
-    background-color: black;
-    transform: translate(-50%, -50%);
-    border-top: transparent;
-
-} */
