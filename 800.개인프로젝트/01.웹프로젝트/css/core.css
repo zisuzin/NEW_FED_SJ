@@ -13,7 +13,16 @@
     border: 1px dashed black;
 }
 
+.pt1 .cbx{
+    height: 100%;
+}
+
 .info {
     height: 700px;
     border: 1px dashed blue;
+}
+
+.info .cbx{
+    /* 부모박스 높이값에 맞춤! */
+    height: 100%;
 }

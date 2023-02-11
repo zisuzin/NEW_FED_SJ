@@ -7,10 +7,12 @@
 @import url(./core.css);
 
 
-/* 브라우저 셋팅 */
+/* 브라우저 공통 셋팅 */
 body {
     width: 100vw;
     height: 100vh;
+    color: #666;
+    font-family: 'IBMPlexSansKR-Regular';
 }
 
 #top {
@@ -191,4 +193,49 @@ body {
 .stmap img{
     border: 1px dashed red; 
 
+}
+
+
+.mbx1 {
+    background: url(../00.자료수집/02.이미지데이터/main_business_bg.jpg) no-repeat right/cover;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: normal;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.ctbx p:nth-of-type(2){
+    font-size: 13px;
+    color: #939393;
+}
+
+.ctbx p:nth-of-type(3){
+    font-weight: bold;
+    font-size: 11px;
+    margin-top: 30px;
+}
+
+.mbu {
+    position: relative;
+}
+
+.mbc {
+    display: flex;
+    margin-top: 200px;
+    justify-content: space-around;
+    padding: 0 200px;
+    margin-bottom: 20px;
+}
+
+.ic1 {
+    width: 100%;
+    height: 100%;
+}
+
+.ic1 img {
+    width: 30px;
+    height: 30px;
 }
