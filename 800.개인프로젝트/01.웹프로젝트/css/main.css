@@ -11,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    color: #666;
+    /* color: #666; */
     font-family: 'IBMPlexSansKR-Regular';
 }
 
@@ -115,9 +115,9 @@ body {
 #scroll {
     position: relative;
     position: fixed;
-    width: 16px;
-    height: 124px;
-    left: 239px;
+    width: 15px;
+    height: 100px;
+    left: 130px;
     bottom: calc(100% - 50%);
     top: calc(100% - 50%);
     border: 1px dashed red;
@@ -217,7 +217,7 @@ h2 {
 
 .mbc {
     display: flex;
-    margin-top: 200px;
+    margin-top: 251px;
     justify-content: space-around;
     padding: 0 200px;
     margin-bottom: 20px;
@@ -243,23 +243,24 @@ h2 {
 
 .gobtn {
     position: fixed;
-    width: 30px;
-    height: 30px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background-color: #fff;
     border: 1px solid #dad9d9;;
     right: 10px;
     bottom: 10px;
     box-sizing: border-box;
+    z-index: 999;
 }
 
 .gobtn::before {
     display: block;
     font-family: "FontAwesome";
     content: "\f062";
-    font-size: 10px;
-    line-height: 30px;
-    margin-left: 10px;
+    font-size: 13px;
+    line-height: 45px;
+    margin-left: 17px;
 }
 
 .cbx2 img {
@@ -268,16 +269,33 @@ h2 {
     object-fit: cover;
 }
 
-.cbx1 {
+.mtit1 {
+    display: flex;
     position: relative;
 }
 
-.cbx1 .mtit {
+.mtit1 > p {
     position: absolute;
-    top: -60px;
-    left: -35px;
     color: #000;
     font-weight: normal;
+    font-size: 30px;
+    margin-left: 250px;
+    top: 85px;
+}
+
+.mtit2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.cbx1 .mtit2 > p{
+    position: absolute;
+    color: #000;
+    font-weight: normal;
+    font-size: 30px;
+    padding: 10px 0;
+    margin-left: -20px;
 }
 
 .list-bx {
@@ -285,6 +303,7 @@ h2 {
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-left: 112px;
 }
 
 .list-bx dt {
