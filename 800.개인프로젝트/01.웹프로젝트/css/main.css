@@ -160,13 +160,6 @@ body {
     transform: translate(30%,40%);
 }
 
-
-/* .cont {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-} */
-
 .scr {
     position: relative;
     width: 100vw;
@@ -238,4 +231,16 @@ h2 {
 .ic1 img {
     width: 30px;
     height: 30px;
+}
+
+.gobtn {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #dad9d9;;
+    right: 10px;
+    bottom: 10px;
+    box-sizing: border-box;
 }
