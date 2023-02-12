@@ -233,6 +233,14 @@ h2 {
     height: 30px;
 }
 
+#gobtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    right: 10px;
+    bottom: 10px;
+}
+
 .gobtn {
     position: fixed;
     width: 30px;
@@ -243,4 +251,13 @@ h2 {
     right: 10px;
     bottom: 10px;
     box-sizing: border-box;
+}
+
+.gobtn::before {
+    display: block;
+    font-family: "FontAwesome";
+    content: "\f062";
+    font-size: 10px;
+    line-height: 30px;
+    margin-left: 10px;
 }
