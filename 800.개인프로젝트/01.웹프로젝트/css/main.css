@@ -264,16 +264,11 @@ h2 {
 
 .cbx2 {
     position: relative;
-    display: flex;
+    width: 650px;
+    height: 100%;
 }
 
-.scbx2 {
-    position: absolute;
-    width: 711px;
-    height: 638px;
-}
-
-.scbx2 img {
+.cbx2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
