@@ -50,7 +50,7 @@ body {
 }
 .gnb>dl>dt>a {
     font-weight: bold;
-    font-size: 12px;
+    font-size: 20px;
     color: #fff;
     transition: .2s ease-in;
     font-family: 'IBMPlexSansKR-Regular';
@@ -60,8 +60,9 @@ body {
 .gnb:hover>dl>dt>a {
     color: #000;
 }
+
 .gnb>dl>dd>a {
-    font-size: 12px;
+    font-size: 18px;
     color: #939393;
     font-family: 'IBMPlexSansKR-Regular';
     
@@ -117,7 +118,7 @@ body {
     position: fixed;
     width: 15px;
     height: 137px;
-    left: 130px;
+    left: 150px;
     bottom: calc(100% - 50%);
     top: calc(100% - 50%);
     border: 1px dashed red;
@@ -201,7 +202,7 @@ h2 {
 }
 
 .ctbx p:nth-of-type(1){
-    font-size: 23px;
+    font-size: 32px;
     color: #000;
 }
 
@@ -216,7 +217,7 @@ h2 {
     margin-top: 30px;
 }
 
-.mbu {
+.mbu { 
     position: relative;
 }
 
@@ -327,7 +328,7 @@ h2 {
 }
 
 .sl1 p:nth-child(2){
-    font-size: 17px;
+    font-size: 19px;
     color: #939393;
     margin-top: -15px;
 }
