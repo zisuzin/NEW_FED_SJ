@@ -178,6 +178,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 288px;
+    line-height: 15px;
 }
 
 #etc select {
