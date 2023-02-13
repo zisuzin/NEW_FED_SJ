@@ -15,6 +15,7 @@ body {
     font-family: 'IBMPlexSansKR-Regular';
 }
 
+/********************* 1. 상단영역 *********************/
 #top {
     position: fixed;
     top: 28px;
@@ -161,19 +162,6 @@ body {
     transform: translate(30%,40%);
 }
 
-.scr {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    /* background-color: #000; */
-}
-.scr #ifr {
-    width: 100%;
-	height: 100%;
-	position: absolute;
-    object-fit: cover;
-}
-
 #etc {
     display: flex;
     align-items: center;
@@ -190,103 +178,80 @@ body {
 
 }
 
+/********************* 2. 메인영역 *********************/
+.scr {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.scr #ifr {
+    width: 100%;
+	height: 100%;
+	position: absolute;
+    object-fit: cover;
+}
 
+/* cont1 배경넣기 */
 .mbx1 {
     background: url(../00.자료수집/02.이미지데이터/main_business_bg.jpg) no-repeat right/cover;
 }
 
-h2 {
-    font-size: 50px;
-    font-weight: normal;
-    margin-left: 200px;
-    margin-top: 194px;
+/* cont1 ul박스에 플렉스 정렬 */
+.main-cont-list {
+    display: flex;
 }
 
-.ctbx p:nth-of-type(1){
-    font-size: 32px;
-    color: #000;
+.main-cont-list li {
+    margin-left: 50px;
 }
 
-.ctbx p:nth-of-type(2){
-    font-size: 19px;
+.main-cont-area {
+    margin-top: 100px;
+}
+
+.main-tit-bx {
+    margin-left: 50px;
+}
+
+.main-tit-bx > h2 {
+    font-size: 3rem;
+    font-weight: 100;
+}
+ 
+.main-cont {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-cont-bx {
+    /* h2태그 포함 위/아래 패딩 */
+    padding: 175px 0 140px;
+}
+
+.main-cont-bx strong {
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.main-item-bx p {
+    margin: 30px 0;
     color: #939393;
 }
 
-.ctbx p:nth-of-type(3){
+.main-item-bx span {
+    font-size: 0.8rem;
     font-weight: bold;
-    font-size: 14px;
-    margin-top: 30px;
 }
 
-.mbu { 
-    position: relative;
+.ico-bx {
+    margin-bottom: 20px;
 }
 
-.mbc {
-    display: flex;
-    margin-top: 251px;
-    justify-content: space-around;
-    padding: 200px 200px;
-}
-
-/* .ic1 {
-    width: 100%;
-    height: 100%;
-} */
-
-.ic1 img {
-    width: 30px;
-    height: 30px;
-}
-
-#gobtn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    right: 10px;
-    bottom: 10px;
-}
-
-.gobtn {
-    position: fixed;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 1px solid #dad9d9;;
-    right: 10px;
-    bottom: 10px;
-    box-sizing: border-box;
-    z-index: 999;
-}
-
-.gobtn::before {
-    display: block;
-    font-family: "FontAwesome";
-    content: "\f062";
-    font-size: 13px;
-    line-height: 45px;
-    margin-left: 17px;
-}
 
 .cbx2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.mtit1 {
-    display: flex;
-    position: relative;
-}
-
-.mtit1 > p {
-    position: absolute;
-    color: #000;
-    font-weight: normal;
-    font-size: 50px;
-    margin-left: 250px;
-    top: 214px;
 }
 
 .mtit2 {
@@ -307,13 +272,10 @@ h2 {
 .list-bx {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
     margin-left: 155px;
 }
 
 .list-bx dt {
-    position: relative;
     width: 70px;
     height: 63px;
     margin-right: 20px;
@@ -344,4 +306,27 @@ h2 {
 
 .ml1 {
     margin-top: -10px;
+}
+
+/********************* 3. 하단영역 *********************/
+.gobtn {
+    position: fixed;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #dad9d9;;
+    right: 10px;
+    bottom: 10px;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.gobtn::before {
+    display: block;
+    font-family: "FontAwesome";
+    content: "\f062";
+    font-size: 13px;
+    line-height: 45px;
+    margin-left: 17px;
 }

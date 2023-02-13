@@ -2,6 +2,7 @@
 
 @media screen and (max-width: 996px) {
     .gnb {
-        flex-direction: column;
+        display: none;
+
     }
 }
