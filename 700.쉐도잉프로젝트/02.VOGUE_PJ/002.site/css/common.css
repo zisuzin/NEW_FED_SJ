@@ -1,20 +1,141 @@
 @charset "utf-8";
 
-/* 보그 PJ 공통 CSS - common.css */
+/* 보그 PJ 공통모듈 CSS - common.css */
 
-/************************* 1. 상단영역 *************************/
-.top {
+/**************** 1. 상단영역 ****************/
+.top{
     /* 최소높이 */
     min-height: 206px;
 }
-/************************* 2. 메인영역 *************************/
-.cont {
+/* 1-1.상단메뉴 */
+.tmenu{
+    /* 플렉스박스 */
+    display: flex;
+    max-width: 970px;
+    height: 44px;
+    margin: 0 auto;
+}
+/* 상단메뉴 하위 파티션박스 */
+.tmenu>div{
+    /* 플렉스 하위 등분할 */
+    flex: 1;
+    /* 
+        flex-shrink, flex-grow, flex-basis
+    */
+}
+/* 1-1-1.sns박스 */
+.sns a{
+    width: 16px;
+    height: 16px;
+    /* .fi에 inline-block이 셋팅됨 */
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+    vertical-align: top; /* 요소간 윗줄 맞춤 */
+
+    /* 마진으로 사이간격주기 */
+    margin-top: 14px;
+    margin-right: 17px;
+
+    /* 트랜지션: 속시이지 */
+    transition: opacity .2s;
+}
+/* a요소 마우스 오버시 */
+.sns a:hover{
+    opacity: 0.8;
+}
+/* 트위터 크기조정 */
+.sns a.fi-twitter{
+    font-size: 13px;
+}
+/* 유튜브 크기조정 */
+.sns a.fi-youtube-play{
+    font-size: 11px;
+}
+/* 카카오스토리 배경이미지 넣기 */
+.sns a.cas{
+    background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
+}
+
+
+/* 1-2.로고박스 */
+.logo{
+    height: 104px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/* 1-3.GNB박스 */
+.gnb{
+    min-height: 46px;
+    padding: 0 30px;
+}
+
+/* 1-1-2.사이드메뉴 */
+.smbx {
+    /* 플렉스박스 */
+    display: flex;
+    /* 플렉스 진행방향 정렬 - 오른쪽 끝 */
+    justify-content: flex-end;
+    /* 글자체: Roboto, 나눔바른고딕 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+/* 사이드메뉴 상위 a요소 */
+.smbx>li>a{
+    display: block;
+    padding: 0 13px;
+    line-height: 44px;
+    /* color: #747474; */
+}
+
+/* 사이드메뉴 상위 첫번째 a요소 커서 */
+.smbx > li:first-child > a {
+    cursor: text;
+}
+
+.smbx>li:hover .smsub {
+    display: block;
+    opacity: 1;
+    height: auto;
+}
+
+/* 사이드메뉴 상위메뉴 첫번째 li 사이구분선 */
+.smbx > li:first-child {
+    border-right: 1px solid #e5e5e5;
+}
+
+/* 사이드메뉴 서브박스 */
+.smsub {
+    position: absolute;
+    /* 트랜지션 */
+    transform: .5s;
+    border: 1px solid #e5e5e5;
+    /* 박스숨기기 */
+    overflow: hidden;
+    opacity: 0;
+    /* display: none; */
+}
+
+.smsub a {
+    display: block;
+    padding: 7px 10px;
+    padding-right: 19px;
+    color: #747474;
+}
+
+/* 서브메뉴 마우스 오버시 */
+.smsub a:hover {
+    background-color: #fafafa;
+    color: #333;
+}
+
+/**************** 2. 메인영역 ****************/
+.cont{
     /* 최소높이 */
     min-height: 600px;
 }
-
-/************************* 3. 하단영역 *************************/
-.info {
+/**************** 3. 하단영역 ****************/
+.info{
     /* 최소높이 */
-    min-height: 206px;
+    min-height: 286px;
 }

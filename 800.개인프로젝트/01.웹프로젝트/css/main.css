@@ -199,27 +199,26 @@ body {
 /* cont1 ul박스에 플렉스 정렬 */
 .main-cont-list {
     display: flex;
+    margin-left: 56px;
 }
 
 .main-cont-list li {
     margin-left: 50px;
+    width: 25%;
 }
 
 .main-cont-area {
     margin-top: 100px;
 }
 
-.main-tit-bx {
-    margin-left: 50px;
-}
-
 .main-tit-bx > h2 {
     font-size: 3rem;
     font-weight: 100;
+    padding-left: 100px;
 }
  
 .main-cont {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
