@@ -32,7 +32,7 @@ font-family: 'Roboto Condensed', sans-serif;
 
 /* 공사중 표시 */
 body * {
-    /* outline: 1px dashed gray; */
+    outline: 1px dashed gray;
 }
 
 /************* 2. 공통 class *************/
@@ -46,7 +46,11 @@ body * {
 /* 2-2. 컨텐츠 박스 유형별 클래스 */
 /* 유형1 - 1개박스구성 : .pt1 */
 .pt1{
-    height: 724px;
+    /* 비율 적용시 height값은 주지않는다! */
+    /* height: 724px; */
+
+    /* 1300 : 724 비율 */
+    aspect-ratio: 1300 / 724;
 }
 /* 유형1 컨텐츠박스 */
 .pt1 .cbx{
@@ -58,15 +62,17 @@ body * {
 .pt2{
     /* 플렉스박스 */
     display: flex;
-    /* 비율 적용시 height 값은 주지않는다! */
+    
+    /* 비율 적용시 height값은 주지않는다! */
     /* height: 650px; */
 
     /* 1300 : 650 비율 */
+    aspect-ratio: 1300 / 650;
 }
 /* 유형2 컨텐츠박스 : 등분할 가로정렬박스 */
 .pt2 .cbx{
     /* 플렉스 자식요소 동일분할 설정!
-    -> 높이값 100% 설정불필요! flex부모요소 크기만큼 자동맞춤된다! */
+    -> 높이값 100% 설정불필요! 자동맞춤된다! */
     flex: 1;
 }
 
@@ -75,6 +81,41 @@ body * {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* 컨텐츠박스 */
+.cbx{
+    position: relative;
+    /* 부모자격 */
+}
+/* 가상요소로 컨텐츠 박스 배경 그라데이션 넣기 */
+.cbx::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-image: 
+    linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+
+/* 3. 컨텐츠 타이틀 박스(h2) */
+.cbx h2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: min(50px,3.4vw);
+    box-sizing: border-box;
+
+    /* 글자설정 - 영문체, 한글체 */
+    font-family: pist, nbg;
+    font-size: min(33px,3vw);
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+}
+
+
+
 
 
 /* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */

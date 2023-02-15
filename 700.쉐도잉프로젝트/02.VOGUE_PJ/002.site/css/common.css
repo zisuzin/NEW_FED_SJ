@@ -31,7 +31,7 @@
     font-size: 16px;
     text-align: center;
     line-height: 16px;
-    vertical-align: top; /* 요소간 윗줄 맞춤 */
+    vertical-align: top;
 
     /* 마진으로 사이간격주기 */
     margin-top: 14px;
@@ -57,6 +57,64 @@
     background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
 }
 
+/* 1-1-2.사이드메뉴 */
+.smbx{
+    /* 플렉스박스 */
+    display: flex;
+    /* 플렉스 진행방향 정렬 - 오른쪽끝 */
+    justify-content: flex-end;
+
+    /* 글자체: Roboto, 나눔바른고딕 */
+    font-family: "Roboto", nbg;
+    font-size: 12px;
+}
+/* 사이드메뉴 상위 a요소 */
+.smbx>li>a{
+    display: block;
+    padding: 0 13px;
+    line-height: 44px;
+    color: #747474;
+}
+/* 사이드메뉴 상위메뉴 첫번째li 사이구분선 */
+.smbx > li:first-child{
+    border-right: 1px solid #e5e5e5;
+}
+/* 사이드 메뉴 서브박스 */
+.smsub{
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    /* 박스숨기기 */
+    height: 0;
+    overflow: hidden;
+    /* display: none; */
+    opacity: 0;
+    /* 트랜지션 */
+    transition: .5s;
+}
+/* 상위메뉴 오버시 서브박스 나타나기 */
+.smbx>li:hover .smsub{
+    /* display: block; */
+    opacity: 1;
+    height: auto;
+}
+.smsub a{
+    display: block;
+    padding: 7px 10px;
+    padding-right: 19px;
+    background-color: #fff;
+    color: #747474;
+}
+/* 서브메뉴 마우스 오버시 */
+.smsub a:hover{
+    background-color: #fafafa;
+    color: #333;
+}
+/* 사이드 메뉴 상위 첫번째 a요소 커서 */
+.smbx > li:first-child > a {
+    cursor: text;
+}
+/* 커서모양 참고:
+https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
 
 /* 1-2.로고박스 */
 .logo{
@@ -69,64 +127,44 @@
     min-height: 46px;
     padding: 0 30px;
 }
-
-/* 1-1-2.사이드메뉴 */
-.smbx {
+/* GNB ul박스 */
+.gnb ul{
     /* 플렉스박스 */
     display: flex;
-    /* 플렉스 진행방향 정렬 - 오른쪽 끝 */
-    justify-content: flex-end;
-    /* 글자체: Roboto, 나눔바른고딕 */
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
+    /* 플렉스진행방향 정렬 */
+    justify-content: center;
+    /* 플렉스 줄바꿈설정 */
+    flex-wrap: wrap;
+    /* 사이간격 속성 -> gap: 위아래 양쪽 (flex에서 사용함)
+        -> 숫자를 하나만 쓰면 양방향이 모두같은수치 셋팅 */
+    gap: 0 45px;
 }
-/* 사이드메뉴 상위 a요소 */
-.smbx>li>a{
-    display: block;
-    padding: 0 13px;
-    line-height: 44px;
-    /* color: #747474; */
-}
-
-/* 사이드메뉴 상위 첫번째 a요소 커서 */
-.smbx > li:first-child > a {
-    cursor: text;
+/* GNB li 리스트 */
+.gnb li{
+    /* padding-right: 45px; 
+    -> 사이간격을 li에 패딩으로 안주고
+    부모요소인 flex박스에서 gap속성으로 준다! */
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 40px;
 }
 
-.smbx>li:hover .smsub {
-    display: block;
-    opacity: 1;
-    height: auto;
+/* 마지막 li 돋보기 */
+.gnb li:last-child {
+    padding: 0;
+}
+.gnb li:last-child a {
+    font-weight: bold;
+    padding-top: 2px;
 }
 
-/* 사이드메뉴 상위메뉴 첫번째 li 사이구분선 */
-.smbx > li:first-child {
-    border-right: 1px solid #e5e5e5;
-}
-
-/* 사이드메뉴 서브박스 */
-.smsub {
-    position: absolute;
+/* GNB a요소 */
+.gnb a{
     /* 트랜지션 */
-    transform: .5s;
-    border: 1px solid #e5e5e5;
-    /* 박스숨기기 */
-    overflow: hidden;
-    opacity: 0;
-    /* display: none; */
+    transition: color .2s linear;
 }
-
-.smsub a {
-    display: block;
-    padding: 7px 10px;
-    padding-right: 19px;
-    color: #747474;
-}
-
-/* 서브메뉴 마우스 오버시 */
-.smsub a:hover {
-    background-color: #fafafa;
-    color: #333;
+/* 오버시 a요소 */
+.gnb a:hover{
+    color: red;
 }
 
 /**************** 2. 메인영역 ****************/

@@ -5,6 +5,7 @@ html,body,h2,ul,li,dl,dt,dd,a,section,footer,article,button,div,strong,p {
     margin: 0;
     padding: 0;
     list-style: none;
+    user-select: none;
 }
 
 /* a 공통요소 */
