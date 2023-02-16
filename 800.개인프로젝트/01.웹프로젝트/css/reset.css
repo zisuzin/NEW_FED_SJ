@@ -7,6 +7,9 @@ html,body,h2,ul,li,dl,dt,dd,a,section,footer,article,button,div,strong,p {
     list-style: none;
     user-select: none;
 }
+html,body{
+    overflow-x: hidden;
+}
 
 /* a 공통요소 */
 a {
