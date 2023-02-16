@@ -9,7 +9,6 @@
 
 /* 브라우저 공통 셋팅 */
 body {
-    width: 100vw;
     height: 100vh;
     /* color: #666; */
     font-family: 'IBMPlexSansKR-Regular';

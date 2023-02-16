@@ -7,7 +7,7 @@ html,body,h2,ul,li,dl,dt,dd,a,section,footer,article,button,div,strong,p {
     list-style: none;
     user-select: none;
 }
-html,body{
+body{
     overflow-x: hidden;
 }
 
