@@ -14,3 +14,32 @@
 .info {
     min-height: 700px;
 }
+
+#scroll {
+    animation: upDown 1.5s ease-in-out infinite;
+    z-index: 999;
+    position: fixed;
+    width: 15px;
+    height: 137px;
+    left: 150px;
+    bottom: calc(100% - 50%);
+    top: calc(100% - 50%);
+    background-color: red;
+}
+
+@keyframes upDown {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-5px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: translateY(-5px);
+    }
+}
