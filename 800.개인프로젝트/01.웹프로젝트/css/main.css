@@ -241,17 +241,15 @@ body {
 
 .mtit2 {
     display: flex;
-    position: relative;
     justify-content: center;
 }
 
 .cbx1 .mtit2 > p{
-    position: absolute;
     color: #000;
     font-weight: normal;
     font-size: 50px;
-    padding: 10px 0;
-    margin-left: 111px;
+    padding-top: 70px;
+    padding-left: 86px;
 }
 
 .list-bx {
