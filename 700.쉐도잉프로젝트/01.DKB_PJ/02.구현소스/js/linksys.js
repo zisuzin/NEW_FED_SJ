@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     console.log("로딩완료!");
 
     ////////////////////////////////////////////////
-    // 링크 시스템 : 메뉴의 a요소 링크를 셋업한다! ////
+    // 링크 시스템 : 메뉴의 a요소 링크를 셋업한다! ///
     ////////////////////////////////////////////////
 
     // 대상: .top a -> 상단영역의 모든 a요소
@@ -30,16 +30,19 @@ window.addEventListener("DOMContentLoaded",()=>{
                 case "": url = ""; break;
                 default: url = "esc";
 
-            } ///////// switch case문 /////
+            } /// switch case문 /////
 
-        }; //////// click 이벤트함수 ////
+        }; /// click 이벤트함수 ////
 
         // 3. 내용에 따른 처리
         if(url==="esc"){
             alert(`공사중입니다~!^^`);
         } //// if ////
         else {
-            location.href = url+".html";
+
+            // 메인페이지 이동일 경우 
+            // html?code=m을 보내주자 
+            location.href = url+".html"+(atxt==="tvN로고"?"?code=m":"");
            /*  [ 페이지 이동하기 ]
             ((현재창열기))
             window.location.href = 이동할주소
@@ -51,8 +54,8 @@ window.addEventListener("DOMContentLoaded",()=>{
             location.href = 이동할주소
             
             -> window.open()은
-
-            // a
+            
+            // 
             
             */
 
