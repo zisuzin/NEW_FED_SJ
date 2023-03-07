@@ -186,7 +186,7 @@
 .swrap dd a:hover::after{
     width: 100%;
 }
-/* 서브메뉴(dd) */
+/* 서브메뉴 */
 .swrap dd{
     font-size: 13px;
     line-height: 2.5;
