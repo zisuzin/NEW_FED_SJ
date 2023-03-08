@@ -231,7 +231,7 @@ function loadFn() {
    // 3. 함수만들기
    function initCSS(ele,seq){ // ele - 요소, seq - 순번
         // 1.함수호출확인
-        console.log("초기화!",seq);
+        // console.log("초기화!",seq);
 
         // 2.해당요소 스타일속성 선택
         let sty = ele.style;
@@ -256,15 +256,23 @@ function loadFn() {
         } ///// else if //////////
         else if(seq===3){ // 4번페이지
             // 중앙 스케일0
-            sty.transform = "scale(2)";
+            sty.transform = "translate(-50%, -50%) scale(0)";
         } ///// else if //////////
         else if(seq===4){ // 5번페이지
-            // 위로 올라가있음!
-            sty.top = "-20%";
+            // y축회전
+            sty.transform = "translate(-50%, -50%) rotateY(180deg)";
+            // 투명하게
+            sty.opacity = 0;
         } ///// else if //////////
         else if(seq===5){ // 6번페이지
-            // 중앙 스케일0
-            sty.top = "-20%";
+            // 스케일0, 평면회전
+            sty.transform = "translate(-50%, -50%) scale(0) rotate(720deg)";
+        } ///// else if //////////
+        else if(seq===6){ // 7번페이지
+            // x축확대
+            sty.transform = "translate(-50%, -50%) scaleX(10)";
+            // 투명하게
+            sty.opacity = 0;
         } ///// else if //////////
 
    } ///////////// initCSS 함수 ////////
@@ -304,28 +312,37 @@ function loadFn() {
         } ///// else if //////////
         else if(seq===3){ // 4번페이지
             // 중앙 스케일 복원
-            sty.top = "50%";
-            sty.left = "50%";
-            style.transform = "scale(5)";
-            sty.transition = "all 0.4s cubic-bezier(0.21, 0.78, 0.96, 1.39) 0s";
-            // sty.transition = "all transform .3s .1s"
+            sty.transform = "translate(-50%, -50%) scale(1)";
             // 트랜지션주기
-            // sty.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s";
+            sty.transition = "1s ease-in-out";
         } ///// else if //////////
         else if(seq===4){ // 5번페이지
-            // 위에서 중앙으로 이동!
-            sty.top = "50%";
+            // y축회전 원상복귀
+            sty.transform = "translate(-50%, -50%) rotateY(0deg)";
+            // 나타나게함
+            sty.opacity = 1;
             // 트랜지션주기
-            sty.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s";
+            sty.transition = "1s ease-in-out";
         } ///// else if //////////
         else if(seq===5){ // 6번페이지
-            // 중앙 스케일 복원
-            sty.transform = "scale(1)";
+            // 스케일0, 평면회전
+            sty.transform = "translate(-50%, -50%) scale(1) rotate(0deg)";
             // 트랜지션주기
-            sty.transition = "2s ease-in-out";
+            sty.transition = "1s ease-in-out";
+        } ///// else if //////////
+        else if(seq===6){ // 7번페이지
+            // x축확대
+            sty.transform = "translate(-50%, -50%) scaleX(1)";
+            // 투명하게
+            sty.opacity = 1;
+            // 트랜지션주기
+            sty.transition = "1s ease-in-out";
         } ///// else if //////////
 
    } /////////// pageAction 함수 /////////////
+
+   // 첫페이지 페이지액션 적용위해 최초호출하기
+   setTimeout(()=>pageAction(0),1000);
 
 
 
