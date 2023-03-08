@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS실험실 02 - 글자등장액션 1편</title>
+        <title>JS실험실 02 - 글자등장액션 2편</title>
         <script>
             ////// 로드구역 //////////
             window.addEventListener("DOMContentLoaded", () => {
@@ -13,7 +13,7 @@
                 // console.log(stage);
 
                 // 2.데이터 변수할당
-                const mytxt = "무궁화꽃이 피었습니다!";
+                const mytxt = "무궁화꽃이 피었습니다!*목련화도 피었습니다!";
 
                 // 3.데이터글자 한글자씩 태그싸기
                 // for of문사용!
@@ -25,6 +25,8 @@
                     // 띄어쓰기일 경우 특수문자처리!
                     if (x === " ") hcode += "&nbsp";
                     // 코드만들어 변수에 대입연산자로 넣기!
+                    else if(x === "*")
+                        hcode += `<div></div>`;
                     else
                         hcode += `<span style="transition-delay: ${idx * 0.2}s">
                     ${x}</span>`;
@@ -51,7 +53,8 @@
             /* 글자스테이지 */
             .stage {
                 position: fixed;
-                display: flex;
+                /* display: flex;
+                flex-wrap: wrap; */
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -66,7 +69,7 @@
             /* 글자개별박스 셋팅 */
             .stage span {
                 /* 트랜스폼 적용위해 */
-                display: block;
+                display: inline-block;
                 /* 현재위치로 부터 이동 */
                 transform: translate(500%, -300%);
                 /* 투명도 0 */

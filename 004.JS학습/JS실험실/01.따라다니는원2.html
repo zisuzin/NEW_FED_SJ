@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS실험실 1 : 따라다니는 원</title>
+        <title>JS실험실 1 : 따라다니는 원2 (개별박스용)</title>
         <style>
             /**************************************** 
             [ CSS에서 변수 사용하기 ]
@@ -25,46 +25,26 @@
 
         ****************************************/
             /* CSS변수처리 */
-            :root{
+            :root {
                 --msz: 50px;
             }
 
             body {
                 margin: 0;
                 width: 100vw;
-                height: 100vh;
+                height: 300vh;
+                /* 세로 스크롤 생기게함! */
             }
-            .mover {
-                position: fixed;
-                width: var(--msz);
-                height: var(--msz);
-                border-radius: 50%;
-                background-color: red;
-                z-index: 1;
+            
 
-                /* 
-                    [ z-index 무버에 주는 기준 ]
-                    -> 오버시 위에 와야 하므로 가장 높게준
-                    z-index보다 크게 준다! (맨 아래 코딩했으므로
-                    같아도 위에 올 수 있다) - 일반요소 0보다 크게함!
-                */
-
-                /* 겹치는 색상처리 블랜딩 모드 속성
-                [mix-blend-mode 속성]
-                - 겹쳐지는 요소의 색상을 섞어서 디스플레이해주는 */
-                mix-blend-mode: exclusion;
-
-                /* 트랜지션
-            - 이징을 반드시 ease-out을 준다
-            따라다니는 반응이 시작할때 바로 움직여야함 */
-                transition: 0.4s ease-out;
-            }
             /* 컨텐츠박스 */
             .cont {
                 position: relative;
-                /* z-index: 99999;
-                -> 무버와 z-index로 위치관계 비교를 내부의 요소와 하려면
-                부모박스에 z-index를 주지 않아야 비교할 수 있다! */
+                /* z-index: 99999; 
+                ((중요!!!))
+                -> 무버와 z-index로 위치관계 비교를 내부의 요소와
+                하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
+                */
                 display: flex;
             }
             .cont > div {
@@ -81,15 +61,16 @@
             .cont > div > a {
                 position: absolute;
                 /* 무버보다 위에 오도록 z-index주기
-                a요소는 포지션이 없으면 z-index가 적용안됨
-                만약 포지션이 없다면 relative라도 주도록한다!
-                무버가 z-index: 1 이므로 콘텐츠 요소에는 2를 준다! */
+                    a요소는 포지션이 없으면 z-index가 적용안됨
+                    만약 포지션이 없다면 relative라도 주도록한다!
+                    무버가 z-index:1 이므로 이것보다 크게함!
+                */
                 z-index: 2;
-                
+
                 bottom: 10%;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 100%;
+                /* 가로중앙이동 */
 
                 color: #fff;
                 text-decoration: none;
@@ -103,77 +84,92 @@
                 color: #f00;
             }
 
-            </style>
+            /* 중앙추가박스 */
+            .centerbx{
+                position: absolute;
+                top: 150vh;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40vw;
+                height: 40vw;
+                outline: 4px dashed darkmagenta;
+                background-color: lightskyblue;
+            }
+            
+            /* 두번째 무버는 앱솔루트! */
+            .mover2{
+                position: absolute;
+                z-index: 1;
+                width: var(--msz);
+                height: var(--msz);
+                border-radius: 50%;
+                background-color: aqua;
+                mix-blend-mode: exclusion;
+                transition: 0.4s ease-out;
+            }
+        </style>
         <!-- JS코드구역 -->
         <script>
             // 로딩구역
             window.addEventListener("load", function () {
                 console.log("로딩완료!");
-                
+
                 // 움직일 대상: 돌아다니는 원 .mover
-                var mover = document.querySelector(".mover");
-                
-                // 무버크기의 절반 계산
-                var gap = mover.clientWidth/2;
-                console.log("무버width:", gap);
-                
+                const mover2 = document.querySelector(".mover2");
+
+               
                 // [ 자바스크립트 요소의 크기구하기 (패딩포함) ]
                 // 가로크기 : 요소.clientWidth
                 // 세로크기 : 요소.clientHeight
+
                 
+
+                // 중앙박스 추가코드 /////////////////
+                // 중앙박스
+                const ctbx = document.querySelector(".centerbx");
+                // 갭                
+                let gap2 = mover2.clientWidth / 2;
+
                 // 이벤트 대상 : body
                 // 이벤트 종류 :
                 // mousemove - 마우스가 대상위에서 움직일때 발생
-                document.body.onmousemove = function () {
+                ctbx.onmousemove = function () {
+                    event.stopPropagation();
                     // 마우스 포인터 위치 알아내기
                     // x좌표 : event.pageX
                     // y좌표 : event.pageY
                     // console.log("x:",event.pageX,"\ny:",event.pageY);
+                    console.log("x:", event.clientX, "\ny:", event.clientY);
 
                     // 위치값 보정 (gap은 무버크기의 절반)
-                    var posx = event.pageX - gap;
-                    var posy = event.pageY - gap;
-                    
+                    var posx = event.offsetX - gap2;
+                    var posy = event.offsetY - gap2;
+                    // offsetX,offsetY는 부모자격요소에서의
+                    // 위치이므로 .mover가 absolute이며 
+                    // 부모자격요소 안에 있을때 사용된다!
+
+                    // var posx = event.pageX - gap;
+                    // var posy = event.pageY - gap;
+                    // -> pageX,pageY 는 전체 웹문서에서의
+                    // 위치이므로 .mover가 absolute이면 사용된다!
+
                     // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
-                    mover.style.top = posy + "px";
-                    mover.style.left = posx + "px";
+                    mover2.style.top = posy + "px";
+                    mover2.style.left = posx + "px";
                 }; //////////// mousemove 이벤트함수 //////
 
-                // a요소 오버시 원 크게하기! 
-                // 대상 : .cont a -> .pt 
-                var pt = document.querySelectorAll(".pt");
-                // console.log(pt);
-
-                // for문으로 모든 a요소 이벤트 설정하기!
-                // for(시;한;증){코드}
-                for(var i=0; i<pt.length; i++){
-                    // 마우스 오버시 -> mouseenter
-                    pt[i].onmouseenter = function(){
-                        // 무버가 커지게함
-                        mover.style.transform ="scale(2)";
-                    }; ////// mouseenter 이벤트함수 ////
-                    
-                    // 마우스 아웃시 -> mouseleave 
-                    pt[i].onmouseleave = function(){
-                        // 무버가 원래크기로 변경
-                        mover.style.transform ="scale(1)";
-
-                    }; ////// mouseleave 이벤트함수 ////
-
-                } ///////////// for문 ///////////////
-
-                /************************************* 
-                    [ 마우스 오버/아웃 이벤트 ]
-                    1. 오버시 이벤트 
-                    1) mouseover -> 요소 위에 올라갈때 발생 
-                    2) mouseenter -> 요소 경계면으로 들어갈때 발생
-
-                    2. 아웃시 이벤트 
-                    1) mouseout -> 요소를 벗어날때 발생 
-                    2) mouseleave -> 요소 경계면 밖으로 나갈때 발생
+                /// body영역 바깥으로 나가면 사라지고 들어오면 나타남///
+                ctbx.onmouseenter = () => {
+                    // 들어오면 나타남
+                    mover2.style.display = "block";
+                }; ///////// mouseenter /////////////////
+                ctbx.onmouseleave = () => {
+                    // 나가면 사라짐
+                    mover2.style.display = "none";
+                }; ///////// mouseleave /////////////////
 
 
-                *************************************/
+
 
             }); ///////////// 로드구역 ///////////////
         </script>
@@ -199,7 +195,10 @@
             </div>
         </section>
 
-        <!-- 돌아다니는 원 -->
-        <div class="mover"></div>
+        <!-- 중앙개별박스 -->
+        <div class="centerbx">
+            <!-- 돌아다니는 원 -->
+            <div class="mover2"></div>
+        </div>
     </body>
 </html>

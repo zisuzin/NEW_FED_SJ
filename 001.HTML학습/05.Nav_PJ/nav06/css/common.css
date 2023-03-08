@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-@import url(./reset.css);
 /* 웹폰트 CDN */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR&display=swap');
 /* font-family: 'Noto Sans KR', sans-serif; */
@@ -24,10 +23,12 @@
     /* 부모자격 - .smenu */
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
+    z-index: 999;
 }
-.top{
+/* .top{
     min-height: 350px;
-}
+} */
+
 /* 1-1.탑메뉴영역 */
 .tmenu{
     height: 80px;
@@ -186,7 +187,7 @@
 .swrap dd a:hover::after{
     width: 100%;
 }
-/* 서브메뉴 */
+/* 서브메뉴(dd) */
 .swrap dd{
     font-size: 13px;
     line-height: 2.5;
