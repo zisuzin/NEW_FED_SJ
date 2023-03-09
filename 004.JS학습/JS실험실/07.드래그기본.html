@@ -67,14 +67,24 @@
                 mvx = event.pageX;
                 mvy = event.pageY;
 
-                console.log(`fx:${fx}/fy:${fy}`);
-                console.log(`mvx:${fx}/mvy:${fy}`);
+                // 움직일때 위치값 - 처음 위치값 : rx, ry
+                // x축값은 left값, y축값은 top값 이동이다!
+                rx = mvx - fx;
+                ry = mvy - fy;
+
+                console.log(`fx:${fx} | fy:${fy}`);
+                console.log(`mvx:${fx} | mvy:${fy}`);
+                console.log(`mvx:${rx} | ry:${ry}`);
             } // if : 드래그일때 // 
 
         }; // dMove 
 
         // (4) 첫번째 위치포인트 셋팅함수
         const firstPoint = () => {fx=event.pageX; fy=event.pageY};
+
+        // (5) 마지막 위치포인트 셋팅함수
+        const lastPoint = () => {lx+=rx; ly+=ry};
+        // 최종 이동결과 값인 rx,ry를 항상 대입연산하여 값을 업데이트한다!
 
         // 이벤트 등록하기 //
         // (1) 마우스 눌렀을때 : 드래그true + 첫번째 위치값 
