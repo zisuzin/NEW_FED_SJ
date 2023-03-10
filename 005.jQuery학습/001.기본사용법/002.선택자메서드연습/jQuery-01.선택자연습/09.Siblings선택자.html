@@ -17,11 +17,24 @@ $("li").click(function(){
 	// $("~li",this)
 	// 틸드(~) 다음형제들 선택자
 
-	$(this).nextAll()
+	// $(this).nextAll()
 	// nextAll() - 다음형제들 선택 트래버싱 메서드 
 
 	// $("~li",this).css({
-	$(this).nextAll().css({
+	// 틸드(~) 다음형제들 선택자 
+
+	// li중 클릭된 요소 다음 형제요소 특정순번번까지만
+	// 선택하는 방법은?
+	// li:nth-child(-n+순번)
+	// $("li:nth-child(-n+5)",this)
+
+	// $(this).nextUntil("li:nth-child(5)")
+	// nextUntil(선택자) - 다음형제들중 특정순번까지만 선택
+	// -> 선택자순번은 빠진다! 그 앞까지만 선택!
+
+
+	$("~li:nth-child(-n+5)",this).css({
+	// $(this).nextAll().css({
 		width:"500px",
 		height:"300px",
 		transition: "all 2s",
