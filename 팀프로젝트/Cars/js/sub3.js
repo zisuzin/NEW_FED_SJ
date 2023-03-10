@@ -77,17 +77,17 @@ function setBan(){
             // }
             // for(let x of arr){
             //     // console.log(x);
-                
             // }
 
-            for(let x of videos){
-                // console.log(x);
-                for(let y of arr)
+            videos.forEach((ele,idx)=>{
+                ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
+            });
 
-                x.innerHTML = `<iframe src="https://www.youtube.com/embed/${y}"></iframe>`
-            }
+            
+            
 
-        }); // click 
+
+        }); // click 구역 
 
         // console.log(mainImg);
         // for(let i=0; i<7; i++){
@@ -102,10 +102,9 @@ function setBan(){
     // console.log(btns);
     btns.forEach((ele,idx)=>{
         // console.log("ele는?",ele,idx); 
-        ele.onclick =(event)=>{
-            event.preventDefault();
-        
-            let slide = document.querySelectorAll(".poster");
+        ele.onclick =()=>{
+            
+        let slide = document.querySelectorAll(".poster");
         
         if(idx === 0){
             posterWrap.style.left = "16%";
@@ -113,6 +112,12 @@ function setBan(){
                 posterWrap.appendChild(slide[0]);
                 posterWrap.style.left = "50%";
 
+                if(slide[4]){
+                    videos.innerHTML = ;
+                } else {    
+                    videos.innerHTML = "";
+                }
+                
         }, 0); // setTimeout 함수
         } // if 문
 
