@@ -8,11 +8,39 @@ function setBan(){
     
     const posterWrap = document.querySelector(".posterWrap");
     let bannerWrap = document.querySelectorAll(".poster");
+    const videos = document.querySelectorAll(".trackVideo");
     // console.log(bannerWrap);
+
+    const arr = 
+    ["ZzMkc0W42nA","v0yilQVQ8Ew","1nswG0Bfaoc","UHbYQU_YHdQ","i2RiRx5K-Uk","xl55n1oO1sY"];
+
+    // mvi 객체 
+    // const mvi = {
+    //     //"../Cars/image/c4_teaser_poster.jpg": {
+    //     "mImg": {
+    //         first: "https://www.youtube.com/embed/ZzMkc0W42nA",
+    //         "2": "https://www.youtube.com/embed/v0yilQVQ8Ew",
+    //         "3": "https://www.youtube.com/embed/1nswG0Bfaoc",
+    //         "4": "https://www.youtube.com/embed/UHbYQU_YHdQ",
+    //         "5": "https://www.youtube.com/embed/i2RiRx5K-Uk",
+    //         "6": "https://www.youtube.com/embed/xl55n1oO1sY",
+    //     },
+        // "시즌2": {
+        //     "iframe": "",
+        //     "iframe": "",
+        //     "iframe": "",
+        //     "iframe": "",
+        //     "iframe": "",
+        //     "iframe": "",
+
+        // }
+
+    // }; // mvi 객체 
     
     bannerWrap.forEach((ele,idx)=>{
         // console.log(ele,idx);
       
+        // 가운데 이미지 요소만 (1.3) 적용
         // if(idx === 3/*  && idx === */ ) {
         //     const ele_class_name = ele.getAttribute('class').split(' ')[1];
         //     document.querySelector('.'+ele_class_name)
@@ -34,10 +62,38 @@ function setBan(){
         //     ele.style.overflow = "hidden";
         // } // if 문 
 
+
+        
         ele.innerHTML =
         `<li>
             <img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">
         </li>`;
+
+        // let mainImg = ele.querySelectorAll("li img");
+        ele.addEventListener("click", ()=> {
+            // (2) 아이프레임 for문으로 자동 넣기
+            // for(let x in mvi) {
+            //     console.log(x[0]);
+            // }
+            // for(let x of arr){
+            //     // console.log(x);
+                
+            // }
+
+            for(let x of videos){
+                // console.log(x);
+                for(let y of arr)
+
+                x.innerHTML = `<iframe src="https://www.youtube.com/embed/${y}"></iframe>`
+            }
+
+        }); // click 
+
+        // console.log(mainImg);
+        // for(let i=0; i<7; i++){
+        //     let property = mainImg.alt;
+        //     console.log(property);
+        // }
 
         
     });
@@ -71,4 +127,7 @@ function setBan(){
         
     }; // click 이벤트 
 }); // btns forEach 문 
-} // setBan 함수 
+
+
+
+} // 로딩구역 함수 

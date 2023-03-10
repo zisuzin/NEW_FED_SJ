@@ -81,6 +81,12 @@ body {
     background: url(../image/main.jpg) no-repeat  center 80%/cover;
 }
 
+@media(max-width:1024px){
+    .cont > div > a {
+        font-size: 4vw;
+    }
+}
+
 @media(max-width:750px){
     .bg_con {
         height: calc(100vh - 160px);

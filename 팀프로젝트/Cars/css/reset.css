@@ -17,3 +17,19 @@ a {
 ul, ol {
     list-style: none;
 }
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+    /* 전체 스크롤바 크기변경 */
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    /* 스크롤바 */
+    background-color: #ddd;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    /* 스크롤바 트랙 배경 */
+    background-color: #555;
+    border-radius: 5px;
+}
