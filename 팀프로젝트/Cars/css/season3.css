@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+body {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --soundTrack-width: 1008px;
+    --h1-font: "neutraltextbook";
+    --main-font: "dominikth";
+    --footer-font: 'Itim', cursive;
+    --light-gray-color: #555;
+    --arrow-position: 32%;
+    --arrow-size: 50px;
+}
+
+
+/******************** A. 상단부분(season3) ********************/
+#subTop {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: transparent;
+}
+
+#subTop > .subTop {
+    padding: 2vh 0;
+    text-align: center;
+}
+
+/* 1. 페이지타이틀 */
+.subTit{
+    width: 200px;
+    height: 100px;
+}
+
+
+/******************** B. 메인부분(season3) ********************/
+.main {
+    max-width: 1008px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#sub_bg {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 50vh);
+    background: url(../image/car3_keyvisual12.jpg) no-repeat center/cover;
+    filter: brightness(60%);
+}
+
+.track {
+    display: flex;
+}
+
+.track>dt,
+.track dd {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.track dd:last-child {
+    padding-top: 10px;
+    padding-bottom: 40px;
+    font-size: 18px;
+    color: var(--light-gray-color);
+}
+
+dl dd {
+    padding-left: 85px;
+    font-size: 20px;
+}
+
+#soundTrack {
+    min-height: 620px;
+    width: var(--soundTrack-width);
+    margin: 0 auto;
+}
+
+.trackVideo {
+    width: 820px;
+    height: 442px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+.trackVideo iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pageHeader {
+    width: var(--soundTrack-width);
+    margin: 0 auto;
+}
+
+.pageHeader h1 {
+    padding: 72px 0 60px 0;
+    font-family: var(--h1-font);
+    font-weight: 400;
+    font-style: normal;
+}
+
+#posterWrap {
+    position: absolute;
+    top: 17%;
+    height: 29vh;
+    width: 588px;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* 포스터 넣기 */
+.posterWrap {
+    width: 1179px;
+    height: 31vh;
+    margin: 0 auto;
+    display: flex;
+    /* justify-content: space-evenly; */
+    left: 50%;
+    top: 25%;
+    transform: translate(-58.6%, -27%);
+    position: absolute;
+    gap: 0 44px;
+}
+
+.poster {
+    filter: brightness(90%);
+    width: 100%;
+    height: 100%;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: -1px 2px 20px #131313;
+}
+
+.poster li {
+    list-style: none;
+}
+
+/* 3번째가 주인공이므로 원래밝기로 조금 크게변경! */
+.poster > li:nth-child(3) {
+    filter: brightness(100%);
+    transform: scale(2);
+    border: 5px solid red;
+}
+
+/* 1. 스크롤시 상단메뉴바 색 변경 셋업 */
+#subTop.active {
+    background-color: #fff;
+    box-shadow: 2px 2px 20px #131313;
+    padding: 10px 0;
+    transition: .3s ease-in-out;
+}
+
+/* 2. 상단이동 버튼 */
+.gobtn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 20px;
+    bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    z-index: 999;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gobtn:hover {
+    background-color: #000;
+}
+
+.gobtn img {
+    width: 60%;
+}
+
+.gobtn:hover img {
+    filter: brightness(100);
+}
+
+/* 화살표 이동버튼 */
+.arrow_nav {
+    position: absolute;
+    width: 24px;
+    height: 50px;
+    transform: translateY(-50%);
+    background-image: url(../image/arrow.png);
+    cursor: pointer;
+}
+
+.left {
+    position: absolute;
+    top: var(--arrow-position);
+    left: 25%;
+    background-position: -26px -125px;
+}
+
+.right {
+    background-position: -165px -228px;
+    top: var(--arrow-position);
+    right: 25%;
+}
+
+/* IR(배경이미지 설명 숨기기) */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    
+}
+
+/******************** C. 하단영역(season3) ********************/
+#bottomInfo {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: #000;
+}
+
+#bottomInfo > .bottomInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 5. 제작사 로고 */
+#bottomInfo .copyLogo img {
+    height: 60px;
+}
+
+/* 6. 하단정보 */
+#bottomInfo address {
+    font-family: var(--footer-font);
+    font-style: normal;
+    color: rgb(243, 242, 242);
+    font-size: 20px;
+    line-height: 100px;
+}
+
+/******************** 미디어쿼리(season3) ********************/
+@media screen and (max-width:1403px) {
+    .right {
+        right: 20vw;
+    }
+
+    .left {
+        left: 20vw;
+    }
+
+}
+
+@media screen and (max-width:1145px) {
+    .right {
+        right: 17vw;
+    }
+
+    .left {
+        left: 17vw;
+    }
+}
+
+@media screen and (max-width: 1028px) {
+    .right {
+        right: 14vw;
+    }
+
+    .left {
+        left: 14vw;
+    }
+}
+
+@media screen and (max-width:1040px) {
+    .main h1 {
+        padding: 72px 40px 60px 40px;
+    }
+
+    .track {
+        padding: 0 40px;
+    }
+
+    .trackVideo {
+        padding: 0 40px;
+        background-color: transparent;
+        width: 72%;
+    }
+
+    .gobtn {
+        display: none;
+    }
+}
