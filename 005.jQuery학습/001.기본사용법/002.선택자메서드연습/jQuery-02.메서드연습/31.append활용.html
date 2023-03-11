@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title> append()활용  </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 	<script>
 	$(function(){// jQB //////////////////////////
 	// 미션: 추가버튼을 클릭하면 이미지가 랜덤하게 #container에 추가되게하시오.
@@ -14,44 +14,53 @@
 	const tg = $("#container");
 	const addbtn = $("#append");
 
-	$("#append").click(()=>{
-		// 1~5 사이의 랜덤수 만들기
-		let rdm = Math.ceil(Math.random()*5);
-		// console.log("랜덤수",rdm);
+		addbtn.click(()=>{
 
-		// 새로운 이미지 추가 
+		// 1~5사이의 랜덤수 만들기 
+		let rdm = Math.ceil(Math.random()*5);
+		console.log("랜덤수:",rdm);
+
+
+		// 새로운 이미지 추가
 		tg.append(`
-		<img src="th_pic1.jpg" alt="이미지">
-		`); // append 
+		<img src="th_pic${rdm}.jpg" alt="이미지">`);
+	}); // #append click 
 
 	// 추가미션 : 자동버튼(#auto)클릭시 인터발함수로
 	// 랜덤수 이미지 계속 추가하기 기능만들기 + 멈춤버튼(#stop)
 	// 클릭시 인터발함수 멈추기!
-	}); // click 
 
-	let autoI; 
-	// 인터발관련 JS내장함수 : 
-	// setInterval(함수,시간) / clearsetInterval(변수)
+	// 인터발용 변수
+	let autoI;
+	// 인터발관련 JS내장함수 :
+	// setInterval(함수,시간) / clearInternal(변수)
+
+	// 자동버튼 클릭시
 	$("#auto").click(()=>{
-		
-		// 인터발 중복실행방지
-		if(autoI) return;
-		// autoI가 할당되면 true로 처리
-		// 할당전에는 undefined 이므로 false처리 
-		// **if문에서 undefined 상태는 false!
 
-		autoI = Math.ceil(Math.random()*5);
-		// console.log(autoI);
-		tg.append(`<img src="th_pic1.jpg" alt="이미지">`);
+		// 인터발 중복실행방지
+		if(autoI) return;     //true면 종료
+		// autoI가 할당되면 true로 처리
+		// 할당전에는 undefined이므로 false로 처리
+
 		autoI = setInterval(()=>{
-			addbtn.trigger
+
+			// 1~5사이의 랜덤수 만들기 
+			addbtn.trigger("click");
+			// trigger(이벤트명) 메서드
+			// -> 선택요소에 이벤트를 강제발생 시키는 메서드임!
 		},200);
 	});
-	
+
+	// 멈춤버튼 클릭시
 	$("#stop").click(()=>{
-		autoI= "";
+		// 인터발멈추기
+		clearInterval(autoI);
+		
+		// 다시 인터발 처리하도록 autoI값 설정 
+		autoI = false;
+		
 	});
-	// 인터발멈추기
 
 		
 	});/// jQB ////////////////////////////////////
