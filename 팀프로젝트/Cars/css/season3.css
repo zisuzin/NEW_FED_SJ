@@ -261,7 +261,6 @@ dl dd {
     .left {
         left: 20vw;
     }
-
 }
 
 @media screen and (max-width:1145px) {
@@ -287,6 +286,7 @@ dl dd {
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
+        font-size: 2.5rem;
     }
 
     .track {
@@ -295,7 +295,7 @@ dl dd {
 
     .trackVideo {
         padding: 0 40px;
-        background-color: transparent;
+        /* background-color: transparent; */
         width: 72%;
     }
 

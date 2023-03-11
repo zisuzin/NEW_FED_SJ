@@ -71,13 +71,6 @@ function setBan(){
 
         // let mainImg = ele.querySelectorAll("li img");
         ele.addEventListener("click", ()=> {
-            // (2) 아이프레임 for문으로 자동 넣기
-            // for(let x in mvi) {
-            //     console.log(x[0]);
-            // }
-            // for(let x of arr){
-            //     // console.log(x);
-            // }
 
             videos.forEach((ele,idx)=>{
                 ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
@@ -106,20 +99,20 @@ function setBan(){
             
         let slide = document.querySelectorAll(".poster");
         
-        if(idx === 0){
-            posterWrap.style.left = "16%";
-        setTimeout(() => {
-                posterWrap.appendChild(slide[0]);
-                posterWrap.style.left = "50%";
+        // if(idx === 0){
+        //     posterWrap.style.left = "16%";
+        // setTimeout(() => {
+        //         posterWrap.appendChild(slide[0]);
+        //         posterWrap.style.left = "50%";
 
-                if(slide[4]){
-                    videos.innerHTML = ;
-                } else {    
-                    videos.innerHTML = "";
-                }
+        //         if(slide[4]){
+        //             videos.innerHTML = ;
+        //         } else {    
+        //             videos.innerHTML = "";
+        //         }
                 
-        }, 0); // setTimeout 함수
-        } // if 문
+        // }, 0); // setTimeout 함수
+        // } // if 문
 
         if(idx === 1){
             posterWrap.style.left = "16%";
