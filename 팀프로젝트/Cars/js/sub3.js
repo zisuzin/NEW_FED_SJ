@@ -22,32 +22,23 @@ function setBan(){
         ];
 
     const title = [
-        ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)',
-        'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'],
-        ['You Might Think (From "Cars 2"/Soundtrack Version)','Collision of Worlds (From "Cars 2"/Soundtrack Version)',"Nobody's Fool (From 'Cars 2'/Soundtrack Version)",
-        'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'],
-        ["Storm's Winning Streak (From '\Cars 3\'/Score)","Fireball Beach (From '\Cars 3\'/Score)","Smokey Starts Training / A Blaze of Glory (From '\Cars 3\'/Score)",
-        "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"],
-        ];
+    ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)',
+    'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'],
+    ['You Might Think (From "Cars 2"/Soundtrack Version)','Collision of Worlds (From "Cars 2"/Soundtrack Version)',"Nobody's Fool (From 'Cars 2'/Soundtrack Version)",
+    'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'],
+    ["Storm's Winning Streak (From '\Cars 3\'/Score)","Fireball Beach (From '\Cars 3\'/Score)","Smokey Starts Training / A Blaze of Glory (From '\Cars 3\'/Score)",
+    "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"],
+    ];
 
     const singer = [
-        ["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"],
-        ["Weezer","Robbie Williams, Brad Paisley","Michael Giacchino","Michael Giacchino","Michael Giacchino"],
-        ["Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman"],
-        ];
+    ["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"],
+    ["Weezer","Robbie Williams, Brad Paisley","Michael Giacchino","Michael Giacchino","Michael Giacchino"],
+    ["Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman"],
+    ];
     
     bannerWrap.forEach((ele,idx)=>{
         console.log(ele,idx);
-        // 태그변수
-        let hcode = `<ul class="slide">`; 
-        for(let i=0; i<6; i++){
-            // ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
-        hcode += `<li>
-            <img src="../Cars/image/c${i+1}_teaser_poster.jpg" alt="포스터${i+1}이미지">
-            </li>`;
-        }
-        hcode += `</ul>`;
-        ele.innerHTML = hcode;
+            ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
 
         ele.addEventListener("click", ()=> {
             // 시즌1
@@ -99,34 +90,29 @@ function setBan(){
 
     
     const btns = document.querySelectorAll(".arrow_nav");
-    console.log(btns);
+    // console.log(btns);
     btns.forEach((ele,idx)=>{
         // console.log("ele는?",ele,idx); 
         ele.onclick =()=>{
             
-        // let slide = document.querySelectorAll(".poster");
-        let slide = document.querySelector(".poster");
-        slide.forEach((ele,idx)=>{
-            console.log(ele,idx);
-        });
+        let slide = document.querySelectorAll(".poster");
             // console.log(idx);
         if(idx === 0){
-            // posterWrap.style.left = "85%";
-            posterWrap.style.left = "116%";
+            posterWrap.style.left = "85%";
         setTimeout(() => {
             posterWrap.prepend(slide[5]);
             // console.log(slide[5]);
-            posterWrap.style.left = "83%";
+            posterWrap.style.left = "50%";
         }, 0); // setTimeout 함수
 
         } // if 문
         
         if(idx === 1){
-           posterWrap.style.left = "50%";
+           posterWrap.style.left = "16%";
         setTimeout(() => {
             posterWrap.appendChild(slide[0]);
             // console.log(slide[0]);
-            posterWrap.style.left = "83%";
+            posterWrap.style.left = "50%";
 
         }, 0); // setTimeout 함수
         } // if 문
