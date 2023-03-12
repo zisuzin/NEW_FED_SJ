@@ -8,13 +8,13 @@ const arr = [
     ];
 
 const title = [
-['Real Gone','Life is a Highway','Our Town','Sh-Boom (『カーズ』より)',
-'Goodbye','Behind the Clouds'],
-['You Might Think','Collision of Worlds ',"Nobody's Fool",
-'Going To The Backup Plan','The Other Shoot','The Radiator Springs Gran Prix'],
-["Storm's Winning Streak","Fireball Beach","Smokey Starts Training / A Blaze of Glory",
-"Drip Pan","McQueen's Wild Ride","Temple of Rust-eze"],
-];
+    ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)',
+    'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'],
+    ['You Might Think (From "Cars 2"/Soundtrack Version)','Collision of Worlds (From "Cars 2"/Soundtrack Version)',"Nobody's Fool (From 'Cars 2'/Soundtrack Version)",
+    'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'],
+    ["Storm's Winning Streak (From '\Cars 3\'/Score)","Fireball Beach (From '\Cars 3\'/Score)","Smokey Starts Training / A Blaze of Glory (From '\Cars 3\'/Score)",
+    "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"],
+    ];
 
 const singer = [
 ["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"],
