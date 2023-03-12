@@ -9,87 +9,93 @@ function setBan(){
     const posterWrap = document.querySelector(".posterWrap");
     let bannerWrap = document.querySelectorAll(".poster");
     const videos = document.querySelectorAll(".trackVideo");
+    const soundTitle = document.querySelectorAll(".track div>dd:nth-child(1)");
+    const soundSinger = document.querySelectorAll(".track div>dd:nth-child(2)");
     // console.log(bannerWrap);
+    // console.log(soundTitle);
+    // console.log(soundSinger);
 
-    const arr = 
-    ["ZzMkc0W42nA","v0yilQVQ8Ew","1nswG0Bfaoc","UHbYQU_YHdQ","i2RiRx5K-Uk","xl55n1oO1sY"];
+    const arr = [
+        ["ZzMkc0W42nA","v0yilQVQ8Ew","1nswG0Bfaoc","UHbYQU_YHdQ","i2RiRx5K-Uk","xl55n1oO1sY"], //시즌1
+        ["tdHx3ZYyQnc","DPl2F_EeHL0","j8FnlHz6NhI","IH5b_78vgdA","_iYUIlEqdZU","QMFRPMi1sbE"], //시즌2
+        ["gllOGckFl4g","fh3jQ0hIGf0","V3lispzqU-g","DHL2KplwXHE","SDaLgm4pjN4","eWZYdSIo3k4"], //시즌3
+        ];
 
-    // mvi 객체 
-    // const mvi = {
-    //     //"../Cars/image/c4_teaser_poster.jpg": {
-    //     "mImg": {
-    //         first: "https://www.youtube.com/embed/ZzMkc0W42nA",
-    //         "2": "https://www.youtube.com/embed/v0yilQVQ8Ew",
-    //         "3": "https://www.youtube.com/embed/1nswG0Bfaoc",
-    //         "4": "https://www.youtube.com/embed/UHbYQU_YHdQ",
-    //         "5": "https://www.youtube.com/embed/i2RiRx5K-Uk",
-    //         "6": "https://www.youtube.com/embed/xl55n1oO1sY",
-    //     },
-        // "시즌2": {
-        //     "iframe": "",
-        //     "iframe": "",
-        //     "iframe": "",
-        //     "iframe": "",
-        //     "iframe": "",
-        //     "iframe": "",
+    const title = [
+    ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)',
+    'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'],
+    ['You Might Think (From "Cars 2"/Soundtrack Version)','Collision of Worlds (From "Cars 2"/Soundtrack Version)',"Nobody's Fool (From 'Cars 2'/Soundtrack Version)",
+    'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'],
+    ["Storm's Winning Streak (From '\Cars 3\'/Score)","Fireball Beach (From '\Cars 3\'/Score)","Smokey Starts Training / A Blaze of Glory (From '\Cars 3\'/Score)",
+    "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"],
+    ];
 
-        // }
-
-    // }; // mvi 객체 
+    const singer = [
+    ["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"],
+    ["Weezer","Robbie Williams, Brad Paisley","Michael Giacchino","Michael Giacchino","Michael Giacchino"],
+    ["Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman"],
+    ];
     
-    bannerWrap.forEach((ele,idx)=>{
-        // console.log(ele,idx);
-      
-        // 가운데 이미지 요소만 (1.3) 적용
-        // if(idx === 3/*  && idx === */ ) {
-        //     const ele_class_name = ele.getAttribute('class').split(' ')[1];
-        //     document.querySelector('.'+ele_class_name)
-        //     .style.transform = "scale(1.3)";
+    bannerWrap.forEach((ele,idx,obj)=>{
+        console.log(ele,idx,obj);
+        hcode = `<ul class=slide>`;
+        for(let i=0; i<obj.length; i++){
+            // ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
+        hcode += `<li>`;
+        hcode.appendChild(img);
+            // ele.innerHTML =`<img src="../Cars/image/c${i}_teaser_poster.jpg" alt="포스터${i}이미지">`;
+            img =`<img src="../Cars/image/c${i}_teaser_poster.jpg" alt="포스터${i}이미지">`;
+        }
+        hcode = `</ul>`;
 
-        //     console.log('.'+ele_class_name);
-        // } else {
-        //     ele.style.overflow = "hidden";
-        // } // if 문 
-
-        // if(idx === 4) {
-        //     const ele_class_name = ele.getAttribute('class').split(' ')[1];
-        //     document.querySelector('.'+ele_class_name)
-        //     .style.transform = "scale(1.3)";
-
-        //     console.log('.'+ele_class_name);
-            
-        // } else {
-        //     ele.style.overflow = "hidden";
-        // } // if 문 
-
-
-        
-        ele.innerHTML =
-        `<li>
-            <img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">
-        </li>`;
-
-        // let mainImg = ele.querySelectorAll("li img");
         ele.addEventListener("click", ()=> {
+            // 시즌1
+            if(idx===3 || idx===6){
+                videos.forEach((ele,idx)=>{
+                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
+                    ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[0][idx]}"></iframe>`
+                    soundTitle.forEach((ele,idx)=>{
+                        ele.innerText = title[0][idx];
+                    });
+                    soundSinger.forEach((ele,idx)=>{
+                        ele.innerText = singer[0][idx];
+                    });
+                }); // videos forEach 
+            // }); // click 구역 
+            }
 
-            videos.forEach((ele,idx)=>{
-                ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
-            });
+            // 시즌2
+            if(idx===1 || idx===4){
+                videos.forEach((ele,idx)=>{
+                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
+                    ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][idx]}"></iframe>`
+                    soundTitle.forEach((ele,idx)=>{
+                        ele.innerText = title[1][idx];
+                    });
+                    soundSinger.forEach((ele,idx)=>{
+                        ele.innerText = singer[1][idx];
+                    });
+                }); // videos forEach 
+            // }); // click 구역 
+            }
 
-            
-            
-
-
+            // 시즌3
+            if(idx===2 || idx===5){
+                videos.forEach((ele,idx)=>{
+                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
+                    ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[2][idx]}"></iframe>`
+                    soundTitle.forEach((ele,idx)=>{
+                        ele.innerText = title[2][idx];
+                    });
+                    soundSinger.forEach((ele,idx)=>{
+                        ele.innerText = singer[2][idx];
+                    });
+                }); // videos forEach 
+            } 
         }); // click 구역 
 
-        // console.log(mainImg);
-        // for(let i=0; i<7; i++){
-        //     let property = mainImg.alt;
-        //     console.log(property);
-        // }
+    }); // bannerWrap forEach 
 
-        
-    });
     
     const btns = document.querySelectorAll(".arrow_nav");
     // console.log(btns);
@@ -98,27 +104,23 @@ function setBan(){
         ele.onclick =()=>{
             
         let slide = document.querySelectorAll(".poster");
-        
-        // if(idx === 0){
-        //     posterWrap.style.left = "16%";
-        // setTimeout(() => {
-        //         posterWrap.appendChild(slide[0]);
-        //         posterWrap.style.left = "50%";
-
-        //         if(slide[4]){
-        //             videos.innerHTML = ;
-        //         } else {    
-        //             videos.innerHTML = "";
-        //         }
-                
-        // }, 0); // setTimeout 함수
-        // } // if 문
-
-        if(idx === 1){
-            posterWrap.style.left = "16%";
+            // console.log(idx);
+        if(idx === 0){
+            posterWrap.style.left = "85%";
         setTimeout(() => {
-                posterWrap.appendChild(slide[0]);
-                posterWrap.style.left = "50%";
+            posterWrap.prepend(slide[5]);
+            // console.log(slide[5]);
+            posterWrap.style.left = "50%";
+        }, 0); // setTimeout 함수
+
+        } // if 문
+        
+        if(idx === 1){
+           posterWrap.style.left = "16%";
+        setTimeout(() => {
+            posterWrap.appendChild(slide[0]);
+            // console.log(slide[0]);
+            posterWrap.style.left = "50%";
 
         }, 0); // setTimeout 함수
         } // if 문
