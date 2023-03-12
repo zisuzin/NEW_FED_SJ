@@ -13,6 +13,7 @@
         body{
             background-image: linear-gradient(to bottom,lightgreen,lightpink,lightblue);
         }
+        
         /* 로고 */
         .mvlogo{
             position: fixed;
@@ -24,10 +25,8 @@
             /* 크기지정하기 */
             width: 400px;
         }
-
         .mvlogo>svg{
             width: 100%;
-            height: 100%;
             /* 부모박스의 크기를 따라감 */
         }
 
@@ -64,16 +63,18 @@
             width: 100%;
             height: 100%;
         }
+        
 
         /* 1. 아이언맨 */
         .svg1 {
             background: url(./images/man.jpg) no-repeat top/cover;
             /* 원형박스 */
             border-radius: 50%;
+            
         }
         .svg1>svg{            
             /* 트랜지션 회전 (-90도) */
-            transform: rotate(-90deg);
+            transform: rotate(90deg);
             /* svg내부요소에 트랜지션은 
             적용되지 않는다!(별도의 속성이 따로있다!)
             svg요소까지는 일반html요소 속성이 적용된다! */
@@ -85,14 +86,13 @@
                 투명(transparent)
                 없음(none) - 뚫린상태
             */
-            fill: none;
+            fill:none;
             /* 선색 - 기본은 안나옴 */
             stroke: red;
-
+            stroke-width: 20;
             /* 선두께 - 기본은 1px 
             단위안쓰면 기본적으로 px
             선두께는 선중앙으로부터 생김*/
-            stroke-width: 20;
 
             /* 선끝처리 : stroke-linecap 
                 1) butt : 끝에 중심선이 보임(기본값)
@@ -101,13 +101,11 @@
             */
             stroke-linecap: round;
 
-
             /* [데쉬선 속성 : stroke-dasharray ]
             - 선,공백 순으로 데쉬선 셋팅함
             -> 50%를 써본다!
             -> 6조각 이니까 6배한다!
             50% * 6 = 300%
-            
             */
             stroke-dasharray: 300%;
 
@@ -116,7 +114,7 @@
             stroke-dasharray값과 같은
             값을 주면 공백부터 시작함!
              */
-            stroke-dashoffset: 300%;
+             stroke-dashoffset: 300%;
 
             /* 트랜지션:속시이지 */
             transition: stroke-dashoffset .8s ease-in-out;
@@ -127,72 +125,35 @@
             stroke-dashoffset: 0;
         }
 
-        
-
         /* 2. 블랙위도우 */
         .svg2 {
-            background: url(./images/black.jpg) no-repeat top/cover;
         }
         /* 사각형 svg - rect */
         .rt1{
-            fill:none;
-            stroke: black;
-            stroke-width: 20;
-            stroke-linecap: round;
-            /* 데쉬선 */
-            stroke-dasharray: 15%;
-            stroke-dashoffset: 102%;
-            /* 트랜지션 */
-            transition: .6s;
         }
         .svg2:hover .rt1{
-            stroke-dashoffset: 0;
         }
 
         /* 3. 닥스박스 : 다각형(6각형) */
         .svg3{
-            background: url(./images/doc.jpg) no-repeat top/cover;
-            /* 다각형 클리핑 적용하기!
-            clip-path: polygon(x1 y1,x2 y2,...) */
-            clip-path: polygon(150px 0px,300px 100px,300px 200px, 150px 300px,0px 200px,0px 100px);
         }
 
         /* 다각형 */
         .pg1{
-            fill:none;
-            stroke: lightgreen;
-            stroke-width: 20;
-            stroke-linecap: round;
-            /* 데쉬선 */
-            stroke-dasharray: 300%;
-            stroke-dashoffset: 300%;
-            /* 트랜지션 */
-            transition: .6s;
         }
         .svg3:hover .pg1{
-            stroke-dashoffset: 0;
         }
         
 
         /* 4. 완다 : path */
-        .svg4 svg {
-            background: url(./images/svg1.svg);
-        }
-
-        .svg4 { 
-            background: url(./images/wan.jpg);
-        }
 
         /* 미디어쿼리 */
         @media screen and (max-width:1000px) {
             /* 로고박스 */
             .mvlogo {
-                width: 250px;
             }
             /* 컨텐츠박스 */
             .cbx {
-                width: 200px;
-                height: 200px;
             }
             /* 클리핑 svg path 크기변경 */
             .clipSVG {
@@ -217,32 +178,23 @@
         <section>
             <div class="cbx svg1">
                 <svg>
-                    <circle class="c1" cx="150" cy="150" r="140" transform=""></circle>
-
-                    <!-- <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle> -->
+                    <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle>
                 </svg>
             </div>
         </section>
         <!-- 2. 블랙위도우 : 사각형 -->
         <section>
             <div class="cbx svg2">
-                <svg viewBox="0 0 300 300">
-                    <rect class="rt1" width="280" height="280" x="10" y="10"></rect>
-                </svg>
             </div>
         </section>
         <!-- 3.닥스박스 : 다각형(6각형) -->
         <section>
             <div class="cbx svg3">
-                <svg>
-                    <polygon class="pg1" points="150,10 290,100 290,200 150,290 10,200 10,100"></polygon>
-                </svg>
             </div>
         </section>
         <section>
             <!-- 4. 완다박스 -->
             <div class="cbx svg4">
-               <svg></svg>
             </div>
         </section>
     </div>
@@ -250,9 +202,6 @@
 
 
 <!-- 클리핑용 svg -->
-
-
-
 
     <!-- 
         [ SVG란? ]
