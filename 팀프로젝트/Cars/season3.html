@@ -28,6 +28,49 @@
                     </a>
                 </div>
             </div>
+            <div id="nav_bg" onclick="nav();"></div>
+        <nav id="nav">
+            <div class="contents_con">
+                <div class="left_con left_nav" onclick="nav();"></div>
+                <div class="right_con right_nav">
+                    <div class="contents_con">
+                        <div class="close_btn">
+                            <a href="#" onclick="nav();">
+                                CLOSE
+                            </a>
+                        </div>
+
+                        <div class="list_con">
+                            <ul>
+                                <li>
+                                    <a href="season1.html">
+                                        Season 1
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="season2.html">
+                                        Season 2
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="season3.html">
+                                        Season 3
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="characters.html">
+                                        Characters
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
             
         </header>
         <div id="sub_bg"></div>
@@ -218,11 +261,14 @@
             const pgnum = 0; 
                 if($(window).scrollTop()){
                     $('#subTop').addClass('active');
-                    $('btn_con a').css.({
-                        
+                    $(".btn_con a").css({
+                        color: "black",
                     });
                 }else{
                     $('#subTop').removeClass('active');
+                    $(".btn_con a").css({
+                        color: "white",
+                    });
                 }
             });
     </script>

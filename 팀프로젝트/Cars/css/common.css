@@ -26,8 +26,6 @@
 
 /* nav */
 #top .btn_con {
-    /* width: 50px;
-    height: auto; */
     position: absolute;
     top: 50%;
     right: 5vw;
@@ -44,11 +42,6 @@
 .top .btn_con a.black {
     color:#000000;
 }
-
-/* .top .btn_con img {
-    width: 100%;
-    height: 100%;
-} */
 
 #nav_bg {
     display: none;
@@ -219,13 +212,20 @@
 
 @media(max-width:750px){
     .top > a {
-        width: 150px;
+        width: 100px;
+    }
+
+    .top .btn_con a {
+        font-size: min(20px, 6vw);
+        color:#ffffff;
+        font-weight: bold;
+        font-family: dominikth;
     }
 
     .tit {
         left: calc(50% - 75px);
-        width: 150px;
-        height: 75px;
+        width: 100px;
+        height: 50px;
     }
 
     #nav > .contents_con > .left_nav {
@@ -236,8 +236,16 @@
         width: 70%;
     }
 
+    #nav > .contents_con > .right_nav .close_btn a {
+        font-size: min(20px, 6vw);
+        color: #000000;
+        font-weight: bold;
+        font-family: dominikth;
+    }
+
     #info {
         margin: 0 auto;
+        height: 140px;
     }
 
     #info > .info {
@@ -246,17 +254,18 @@
         text-align: center;
     }
 
+    #info .copyLogo img {
+        height: 50px;
+    }
+
     #info address {
-        line-height: 40px;
+        font-size: 12px;
+        line-height: 20px;
     }
 
     .sns {
         width: 152px;
-        margin: 5px auto 0;
-    }
-
-    #info {
-        height: 160px;
+        margin: 10px auto 0;
     }
 }
 

@@ -51,6 +51,21 @@ function setBan(){
             if(ele.dataset.video_gubun==3 || ele.dataset.video_gubun==6){
                 videos.forEach((ele1,idx)=>{
                     // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
+                    ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[2][idx]}"></iframe>`
+                    soundTitle.forEach((ele2,idx)=>{
+                        ele2.innerText = title[2][idx];
+                    });
+                    soundSinger.forEach((ele2,idx)=>{
+                        ele2.innerText = singer[2][idx];
+                    });
+                }); // videos forEach 
+            // }); // CLICK AREA
+            } // IF문
+
+            // 시즌2
+            if(ele.dataset.video_gubun==1 || ele.dataset.video_gubun==4){
+                videos.forEach((ele1,idx)=>{
+                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
                     ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[0][idx]}"></iframe>`
                     soundTitle.forEach((ele2,idx)=>{
                         ele2.innerText = title[0][idx];
@@ -60,10 +75,10 @@ function setBan(){
                     });
                 }); // videos forEach 
             // }); // CLICK AREA
-            }
+            } // IF문
 
-            // 시즌2
-            if(ele.dataset.video_gubun==1 || ele.dataset.video_gubun==4){
+            // 시즌3
+            if(ele.dataset.video_gubun==2 || ele.dataset.video_gubun==5){
                 videos.forEach((ele1,idx)=>{
                     // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
                     ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][idx]}"></iframe>`
@@ -72,21 +87,6 @@ function setBan(){
                     });
                     soundSinger.forEach((ele2,idx)=>{
                         ele2.innerText = singer[1][idx];
-                    });
-                }); // videos forEach 
-            // }); // CLICK AREA
-            } // IF문
-
-            // 시즌3
-            if(ele.dataset.video_gubun==2 || ele.dataset.video_gubun==5){
-                videos.forEach((ele1,idx)=>{
-                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
-                    ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[2][idx]}"></iframe>`
-                    soundTitle.forEach((ele2,idx)=>{
-                        ele2.innerText = title[2][idx];
-                    });
-                    soundSinger.forEach((ele2,idx)=>{
-                        ele2.innerText = singer[2][idx];
                     });
                 }); // videos forEach 
             }  // IF문
@@ -146,22 +146,10 @@ function setBan(){
                 soundSinger[ix].innerText = singer[video_gubun-1][ix];
             }
         }, 0); // setTimeout 함수
-
-        // 왼쪽버튼 1클릭시 시즌1번 영상 재생
-
-           
-            
-        // 오른쪽버튼 2클릭시 시즌3번 영상 재생
-     
-        
    } // IF문
 
-   
-        
+
         if(idx === 1){
-            
-            
-            // console.log(video_gubun);
            posterWrap.style.left = "16%";
             setTimeout(() => {
                 posterWrap.appendChild(slide[0]);
@@ -177,12 +165,6 @@ function setBan(){
                   
                 }
             }, 0); // setTimeout 함수
-           
-            // 오른쪽버튼 1클릭시 시즌2번 영상 재생
-          //  var aa = '';
-            
-           
-           
         } // IF문
         
     }; // CLICK AREA
