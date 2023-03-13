@@ -97,7 +97,6 @@ dl dd {
     width: 820px;
     height: 442px;
     margin: 0 auto;
-    background-color: #000;
 }
 
 .trackVideo iframe {
@@ -150,8 +149,7 @@ dl dd {
 .poster img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    box-shadow: -1px 2px 20px #131313;
+    object-fit: contain;
 }
 
 /* 1. 스크롤시 상단메뉴바 색 변경 셋업 */
@@ -261,6 +259,9 @@ dl dd {
     .left {
         left: 20vw;
     }
+    #contWrap {
+        width: 1403px;
+    }
 }
 
 @media screen and (max-width:1145px) {
@@ -271,16 +272,10 @@ dl dd {
     .left {
         left: 17vw;
     }
-}
 
-@media screen and (max-width: 1028px) {
-    .right {
-        right: 14vw;
-    }
-
-    .left {
-        left: 14vw;
-    }
+    #contWrap {
+        width: 1405px;
+    } 
 }
 
 @media screen and (max-width:1040px) {
@@ -294,12 +289,54 @@ dl dd {
     }
 
     .trackVideo {
-        padding: 0 40px;
-        /* background-color: transparent; */
-        width: 72%;
+        width: 750px;
     }
 
     .gobtn {
         display: none;
+    }
+
+    #contWrap {
+        width: 1040px;
+    }
+}
+
+
+@media screen and (max-width: 1028px) {
+    .right {
+        right: 14vw;
+    }
+
+    .left {
+        left: 14vw;
+    }
+
+    #contWrap {
+        width: 1028px;
+    }
+
+    .trackVideo {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 888px) {
+    .posterWrap {
+        flex-wrap: wrap;
+        top: 10%;
+        width: 222px;
+        height: 26.5vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .posterWrap img {
+        object-fit: contain;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .bottomInfo {
+        flex-wrap: wrap;
     }
 }
