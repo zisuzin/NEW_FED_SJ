@@ -21,7 +21,14 @@
                 <a href="index.html">
                     <img class="subTit" src="image/logo.png" alt="Cars 로고 타이틀">
                 </a>
+
+                <div class="btn_con">
+                    <a href="#" onclick="nav();">
+                        MENU
+                    </a>
+                </div>
             </div>
+            
         </header>
         <div id="sub_bg"></div>
         <!-- 2. 포스터 시리즈 -->
@@ -211,6 +218,9 @@
             const pgnum = 0; 
                 if($(window).scrollTop()){
                     $('#subTop').addClass('active');
+                    $('btn_con a').css.({
+                        
+                    });
                 }else{
                     $('#subTop').removeClass('active');
                 }
