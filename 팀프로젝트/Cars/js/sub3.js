@@ -38,20 +38,17 @@ function setBan(){
 
     
 
-    /*************** 이미지데이터 ***************/
+    /*************** 이미지클릭시 음원트랙 변경 ***************/
     bannerWrap.forEach((ele,idx)=>{
         // console.log(ele,idx);
             ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
-            // const alt = ele.getAttribute(alt);
-            // console.log(alt);
 
         ele.addEventListener("click", ()=> {
             console.log(ele.dataset.video_gubun);
             // 시즌1
             if(ele.dataset.video_gubun==3 || ele.dataset.video_gubun==6){
-                videos.forEach((ele1,idx)=>{
-                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
-                    ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[2][idx]}"></iframe>`
+                videos.forEach((ele2,idx)=>{
+                    ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[2][idx]}"></iframe>`
                     soundTitle.forEach((ele2,idx)=>{
                         ele2.innerText = title[2][idx];
                     });
@@ -64,9 +61,8 @@ function setBan(){
 
             // 시즌2
             if(ele.dataset.video_gubun==1 || ele.dataset.video_gubun==4){
-                videos.forEach((ele1,idx)=>{
-                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
-                    ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[0][idx]}"></iframe>`
+                videos.forEach((ele2,idx)=>{
+                    ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[0][idx]}"></iframe>`
                     soundTitle.forEach((ele2,idx)=>{
                         ele2.innerText = title[0][idx];
                     });
@@ -79,9 +75,8 @@ function setBan(){
 
             // 시즌3
             if(ele.dataset.video_gubun==2 || ele.dataset.video_gubun==5){
-                videos.forEach((ele1,idx)=>{
-                    // ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[idx]}"></iframe>`
-                    ele1.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][idx]}"></iframe>`
+                videos.forEach((ele2,idx)=>{
+                    ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][idx]}"></iframe>`
                     soundTitle.forEach((ele2,idx)=>{
                         ele2.innerText = title[1][idx];
                     });
@@ -95,7 +90,7 @@ function setBan(){
     }); // bannerWrap forEach 
 
 
-    /*************** 3번째 이미지 위치에 따라 영상 변경 ***************/
+    /*************** 새로고침시 화면 초기화 ***************/
     const btns = document.querySelectorAll(".arrow_nav");
     let slide = document.querySelectorAll(".poster");
 
@@ -112,24 +107,22 @@ function setBan(){
                 soundSinger.forEach((ele,idx)=>{
                     ele.innerText = singer[1][idx];
                 });
-                //  console.log(arr[ii][idx]);
             } // IF문
         };  // FOR문
     }); //forEach문 
         
     } // init함수
     
-    /*************** 캐러셀슬라이드 ***************/
+    /*************** 화살표버튼 클릭시 슬라이드 롤링 ***************/
     btns.forEach((ele,idx)=>{
-        // console.log("ele는?",ele,idx); 
         ele.onclick =()=>{
             
         let slide = document.querySelectorAll(".poster");
     
-        videos.forEach((ele2,seq)=>{
-            ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
+        // videos.forEach((ele2,seq)=>{
+        //     ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
            
-        }); //forEach문 
+        // }); //forEach문 
 
         if(idx === 0){
             
@@ -153,7 +146,6 @@ function setBan(){
            posterWrap.style.left = "16%";
             setTimeout(() => {
                 posterWrap.appendChild(slide[0]);
-                // console.log(slide[0]);
                 posterWrap.style.left = "50%";
 
                 get_video_gubun();
