@@ -264,7 +264,7 @@ dl dd {
     }
 }
 
-@media screen and (max-width:1145px) {
+@media screen and (max-width:1148px) {
     .right {
         right: 17vw;
     }
@@ -273,15 +273,31 @@ dl dd {
         left: 17vw;
     }
 
+    .trackVideo {
+        margin: 0 95px;
+        width: 650px;
+    }
+
     #contWrap {
         width: 1405px;
+    } 
+}
+
+@media screen and (max-width:1125px) {
+    .trackVideo {
+        margin: 0 95px;
+        width: 650px;
+    }
+
+    #contWrap {
+        width: 1125px;
     } 
 }
 
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .track {
@@ -289,38 +305,20 @@ dl dd {
     }
 
     .trackVideo {
-        width: 750px;
-    }
-
-    .gobtn {
-        display: none;
+        margin: 0 110px;
+        width: 600px;
     }
 
     #contWrap {
         width: 1040px;
     }
-}
 
-
-@media screen and (max-width: 1028px) {
-    .right {
-        right: 14vw;
-    }
-
-    .left {
-        left: 14vw;
-    }
-
-    #contWrap {
-        width: 1028px;
-    }
-
-    .trackVideo {
-        width: 650px;
+    .main dd {
+        padding: 0 60px;
     }
 }
 
-@media screen and (max-width: 888px) {
+@media screen and (max-width: 916px) {
     .posterWrap {
         flex-wrap: wrap;
         top: 10%;
@@ -333,10 +331,84 @@ dl dd {
         object-fit: contain;
         box-shadow: none;
     }
+
+    .trackVideo {
+        margin: 0 105px;
+        width: 550px;
+    }
+    #contWrap {
+        width: 888px;
+    }
+
+    .main dd {
+        padding: 0 55px;
+    }
+}
+
+@media screen and (max-width: 852px) {
+    .trackVideo {
+        margin: 0 100px;
+        width: 500px;
+    }
+    #contWrap {
+        width: 852px;
+    }
+
+    .main dd {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 687px) {
+    .trackVideo {
+        width: 430px;
+    }
+    #contWrap {
+        width: 687px;
+    }
 }
 
 @media screen and (max-width: 610px) {
     .bottomInfo {
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .trackVideo {
+        margin: 0 90px;
+        width: 330px;
+    }
+    #contWrap {
+        width: 585px;
+    }
+
+    .main dd {
+        font-size: 1.1rem;
+        padding: 0 40px;
+    }
+
+    .main h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 530px){
+    #contWrap {
+        width: 530px;
+    }
+
+    .main dd {
+        font-size: .90rem;
+        padding: 0 40px;
+    }
+
+    .trackVideo {
+        margin: 0 90px;
+        width: 280px;
+    }
+
+    .main h1 {
+        font-size: 2rem;
     }
 }
