@@ -416,6 +416,10 @@ dl dd {
     .main dd {
         font-size: 1.10rem;
     }
+
+    .bottomInfo {
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: 600px){
