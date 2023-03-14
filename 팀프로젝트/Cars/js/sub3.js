@@ -154,7 +154,6 @@ function setBan(){
                     videos[ix].innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[video_gubun-1][ix]}"></iframe>`
                     soundTitle[ix].innerText = title[(video_gubun-1)][ix];
                     soundSinger[ix].innerText = singer[(video_gubun-1)][ix];
-                  
                 }
             }, 0); // setTimeout 함수
         } // IF문

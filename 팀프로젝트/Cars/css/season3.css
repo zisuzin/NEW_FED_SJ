@@ -119,19 +119,19 @@ dl dd {
 
 #posterWrap {
     position: absolute;
-    top: 17%;
+    top: 19%;
     height: 29vh;
-    width: 588px;
-    overflow: hidden;
+    width: 509px;
     left: 50%;
+    overflow: hidden;
     transform: translateX(-50%);
 }
 
 /* 포스터 넣기 */
 .posterWrap {
-    width: 1179px;
-    height: 31vh;
+    width: 1058px;
     margin: 0 auto;
+    bottom: 0;
     display: flex;
     left: 50%;
     top: 25%;
@@ -140,10 +140,24 @@ dl dd {
     gap: 0 44px;
 }
 
-.poster {
-    filter: brightness(90%);
+.posterWrap > div {
+    box-shadow: 3px 3px 15px #000;
+    transition: all.2s cubic-bezier(1, -0.01, 0, 1.47);
+    filter: brightness(75%);
     width: 100%;
     height: 100%;
+}
+
+.posterWrap > div:nth-child(1),
+.posterWrap > div:nth-child(2),
+.posterWrap > div:nth-child(6) {
+    opacity: 0;
+} 
+
+
+.posterWrap > div:nth-child(4) {
+    transform: scale(1.20);
+    filter: brightness(100%);
 }
 
 .poster img {
@@ -196,6 +210,7 @@ dl dd {
     position: absolute;
     width: 24px;
     height: 50px;
+    top: var(--arrow-position);
     transform: translateY(-50%);
     background-image: url(../image/arrow.png);
     cursor: pointer;
@@ -203,13 +218,11 @@ dl dd {
 
 .left {
     background-position: -26px -125px;
-    top: var(--arrow-position);
     left: 25%;
 }
 
 .right {
     background-position: -165px -228px;
-    top: var(--arrow-position);
     right: 25%;
 }
 
@@ -252,26 +265,26 @@ dl dd {
 
 /******************** 미디어쿼리(season3) ********************/
 @media screen and (max-width:1403px) {
-    .right {
+    /* .right {
         right: 20vw;
     }
 
     .left {
         left: 20vw;
-    }
+    } */
     #contWrap {
         width: 1403px;
     }
 }
 
 @media screen and (max-width:1148px) {
-    .right {
+    /* .right {
         right: 17vw;
     }
 
     .left {
         left: 17vw;
-    }
+    } */
 
     .trackVideo {
         margin: 0 95px;
@@ -319,19 +332,6 @@ dl dd {
 }
 
 @media screen and (max-width: 916px) {
-    .posterWrap {
-        flex-wrap: wrap;
-        top: 10%;
-        width: 222px;
-        height: 26.5vh;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .posterWrap img {
-        object-fit: contain;
-        box-shadow: none;
-    }
-
     .trackVideo {
         margin: 0 105px;
         width: 550px;
