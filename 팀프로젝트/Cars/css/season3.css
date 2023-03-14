@@ -16,6 +16,19 @@ body {
 
 
 /******************** A. 상단부분(season3) ********************/
+#sub_bg {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 50vh);
+}
+
+#sub_bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
 #subTop {
     width: 100%;
     position: fixed;
@@ -54,18 +67,6 @@ body {
     max-width: 1008px;
     width: 100%;
     margin: 0 auto;
-}
-
-#sub_bg {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh - 50vh);
-    /* background-color: red; */
-    background-image: url(../image/car3_keyvisual12.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    /* filter: brightness(60%); */
 }
 
 .track {
@@ -120,15 +121,20 @@ dl dd {
     font-weight: 400;
     font-style: normal;
 }
-
-#posterWrap {
+.sldbx {
     position: absolute;
     top: 19%;
     height: 29vh;
     width: 509px;
     left: 50%;
-    overflow: hidden;
     transform: translateX(-50%);
+}
+
+#posterWrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* 포스터 넣기 */
@@ -208,26 +214,25 @@ dl dd {
     filter: brightness(100);
 } */
 
-
 /* 화살표 이동버튼 */
 .arrow_nav {
     position: absolute;
     width: 24px;
     height: 50px;
     top: var(--arrow-position);
-    transform: translateY(-50%);
+    transform: translateY(-10%);
     background-image: url(../image/arrow.png);
     cursor: pointer;
 }
 
 .left {
     background-position: -26px -125px;
-    left: 25%;
+    left: -40px;
 }
 
 .right {
     background-position: -165px -228px;
-    right: 25%;
+    right: -40px;
 }
 
 /* IR(배경이미지 설명 숨기기) */
@@ -268,27 +273,27 @@ dl dd {
 }
 
 /******************** 미디어쿼리(season3) ********************/
-@media screen and (max-width:1403px) {
-    .right {
+@media screen and (max-width:1514px) {
+    /* .right {
+        right: 25vw;
+    }
+
+    .left {
+        left: 25vw;
+    } */
+    #contWrap {
+        width: 1514px;
+    }
+}
+
+@media screen and (max-width:1161px) {
+    /* .right {
         right: 20vw;
     }
 
     .left {
         left: 20vw;
-    }
-    #contWrap {
-        width: 1403px;
-    }
-}
-
-@media screen and (max-width:1148px) {
-    .right {
-        right: 17vw;
-    }
-
-    .left {
-        left: 17vw;
-    }
+    } */
 
     .trackVideo {
         margin: 0 95px;
@@ -335,6 +340,16 @@ dl dd {
     }
 }
 
+@media screen and (max-width: 970px) {
+    /* .right {
+        right: 15vw;
+    }
+
+    .left {
+        left: 15vw;
+    } */
+}
+
 @media screen and (max-width: 916px) {
     .trackVideo {
         margin: 0 105px;
@@ -361,6 +376,16 @@ dl dd {
     .main dd {
         padding: 0 50px;
     }
+}
+
+@media screen and (max-width: 834px) {
+    /* .right {
+        right: 12vw;
+    }
+
+    .left {
+        left: 12vw;
+    } */
 }
 
 @media screen and (max-width: 687px) {
