@@ -262,11 +262,13 @@
                 </ul>
             </div>
         </footer>
-        <!-- <a href="#sub_bg" class="gobtn">
+        <a href="#sub_bg" class="gobtn">
             <img src="./image/scroll-top-aw.svg" alt="상단이동버튼">
-        </a> -->
+        </a>
 
+    <!-- 제이쿼리 구역 -->
     <script type="text/javascript">
+        // 1. 스크롤시 상단 top영역 내려오기
          $(window).on('scroll',function(){
             const pgnum = 0; 
                 if($(window).scrollTop()){
@@ -281,6 +283,39 @@
                     });
                 }
             });
+
+            let totLen = $("body").innerHeight() - $(window).innerHeight();
+            console.log("tot:",totLen-20);
+        
+        // 2. 스크롤시 상단이동버튼 보이기/숨기기
+        $(window).scroll(()=>{
+            let scrollValue = $(window).scrollTop();
+
+            
+            console.log(scrollValue);
+            if(scrollValue > 200){
+                $('.gobtn').fadeIn();
+            } else {
+                $('.gobtn').fadeOut();
+            }
+
+            if(scrollValue > totLen-20){
+                $('.gobtn').addClass("mttop");
+            }
+            else{
+                $('.gobtn').removeClass("mttop");
+            }
+        });
+
+        // 3. 버튼클릭시 상단이동 
+        $('.gobtn').click(()=>{
+            scrollTo({top:0});
+            return false;
+        });
+
+        const innerH = $('.bottomInfo').innerHeight();
+        // console.log(innerH);
+
     </script>
 </body>
 </html>

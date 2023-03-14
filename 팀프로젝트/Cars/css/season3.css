@@ -186,7 +186,11 @@ dl dd {
 }
 
 /* 2. 상단이동 버튼 */
-/* .gobtn {
+.gobtn.mttop {
+    margin-bottom: 100px;
+}
+
+.gobtn {
     position: fixed;
     width: 60px;
     height: 60px;
@@ -213,7 +217,7 @@ dl dd {
 
 .gobtn:hover img {
     filter: brightness(100);
-} */
+}
 
 /* 화살표 이동버튼 */
 .arrow_nav {
@@ -247,9 +251,9 @@ dl dd {
 
 /******************** C. 하단영역(season3) ********************/
 #bottomInfo {
-    position: absolute;
+    /* position: absolute;
     width: 100%;
-    left: 0;
+    left: 0; */
     background-color: #000;
 }
 
