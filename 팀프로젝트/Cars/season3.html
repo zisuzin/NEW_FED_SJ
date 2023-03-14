@@ -285,14 +285,14 @@
             });
 
             let totLen = $("body").innerHeight() - $(window).innerHeight();
-            console.log("tot:",totLen-20);
+            // console.log("tot:",totLen-20);
         
         // 2. 스크롤시 상단이동버튼 보이기/숨기기
         $(window).scroll(()=>{
             let scrollValue = $(window).scrollTop();
 
             
-            console.log(scrollValue);
+            // console.log(scrollValue);
             if(scrollValue > 200){
                 $('.gobtn').fadeIn();
             } else {
