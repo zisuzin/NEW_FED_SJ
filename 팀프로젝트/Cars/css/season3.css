@@ -2,6 +2,7 @@
 
 body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 :root {
@@ -273,39 +274,14 @@ dl dd {
 }
 
 /******************** 미디어쿼리(season3) ********************/
-@media screen and (max-width:1514px) {
-    /* .right {
-        right: 25vw;
-    }
-
-    .left {
-        left: 25vw;
-    } */
-    #contWrap {
-        width: 1514px;
-    }
-}
-
-@media screen and (max-width:1161px) {
-    /* .right {
-        right: 20vw;
-    }
-
-    .left {
-        left: 20vw;
-    } */
-
+/* @media screen and (max-width:1161px) {
     .trackVideo {
         margin: 0 95px;
         width: 650px;
     }
+} */
 
-    #contWrap {
-        width: 1405px;
-    } 
-}
-
-@media screen and (max-width:1125px) {
+/* @media screen and (max-width:1125px) {
     .trackVideo {
         margin: 0 95px;
         width: 650px;
@@ -314,130 +290,179 @@ dl dd {
     #contWrap {
         width: 1125px;
     } 
-}
+} */
 
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
-        font-size: 2.3rem;
+        font-size: 2rem;
+    }
+
+    .track {
+        padding: 0 50px;
+    }
+
+    .trackVideo {
+        margin: 0 110px;
+        width: 650px;
     }
 
     .track {
         padding: 0 40px;
     }
 
-    .trackVideo {
-        margin: 0 110px;
-        width: 600px;
+    .main dd {
+        padding: 0 60px;
     }
 
-    #contWrap {
-        width: 1040px;
+}
+
+@media screen and (max-width: 837px) {
+    .trackVideo {
+        margin: 0 110px;
+        width: 630px;
     }
 
     .main dd {
         padding: 0 60px;
     }
+
+    .track {
+        padding: 0 40px;
+    }
 }
 
-@media screen and (max-width: 970px) {
-    /* .right {
-        right: 15vw;
+@media screen and (max-width: 753px) {
+    .trackVideo {
+        margin: 0 110px;
+        width: 600px;
     }
 
-    .left {
-        left: 15vw;
-    } */
+    .main dd {
+        padding: 0 60px;
+    }
+
+    .track {
+        padding: 0 40px;
+    }
 }
 
-@media screen and (max-width: 916px) {
+@media screen and (max-width: 727px) {
     .trackVideo {
-        margin: 0 105px;
+        margin: 0 110px;
         width: 550px;
     }
-    #contWrap {
-        width: 888px;
-    }
 
     .main dd {
-        padding: 0 55px;
+        padding: 0 60px;
+    }
+
+    .track {
+        padding: 0 40px;
     }
 }
 
-@media screen and (max-width: 852px) {
+@media screen and (max-width: 682px) {
     .trackVideo {
-        margin: 0 100px;
+        margin: 0 110px;
+        width: 520px;
+    }
+
+    .main dd {
+        padding: 0 60px;
+    }
+
+    .track {
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 652px){
+    .trackVideo {
+        margin: 0 90px;
         width: 500px;
     }
-    #contWrap {
-        width: 852px;
-    }
 
-    .main dd {
-        padding: 0 50px;
+    .track {
+        padding: 0 40px;
     }
 }
 
-@media screen and (max-width: 834px) {
-    /* .right {
-        right: 12vw;
+@media screen and (max-width: 620px){
+    .trackVideo {
+        width: 460px;
+    }
+
+    .posterWrap > div:nth-child(1),
+    .posterWrap > div:nth-child(2),
+    .posterWrap > div:nth-child(3),
+    .posterWrap > div:nth-child(5),
+    .posterWrap > div:nth-child(6) {
+        opacity: 0;
+    }
+
+    .right {
+        right: 92px;
     }
 
     .left {
-        left: 12vw;
-    } */
+        left: 92px;
+    }
+
+    .track {
+        padding: 0 25px;
+    }
+
+    .main dd {
+        font-size: 1.10rem;
+    }
 }
 
-@media screen and (max-width: 687px) {
+@media screen and (max-width: 600px){
     .trackVideo {
-        width: 430px;
+        margin: 0 70px;
+        width: 420px;
     }
-    #contWrap {
-        width: 687px;
+
+    .track {
+        padding: 0 30px;
+    }
+
+    .main dd {
+        padding: 0 30px;
     }
 }
 
-@media screen and (max-width: 610px) {
-    .bottomInfo {
-        flex-wrap: wrap;
-    }
-}
-
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 552px) {
     .trackVideo {
-        margin: 0 90px;
+        margin: 0 70px; 
+        width: 350px;
+    }
+
+    .track {
+        padding: 0 30px;
+    }
+
+    .main dd {
+        padding: 0 30px;
+        font-size: 1rem;
+    }
+
+    .main dd:nth-child(2){
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .main dd {
+        font-size: 1rem;
+    }
+
+    .main dd:nth-child(2){
+        font-size: 0.95rem;
+    }
+
+    .trackVideo {
         width: 330px;
-    }
-    #contWrap {
-        width: 585px;
-    }
-
-    .main dd {
-        font-size: 1.1rem;
-        padding: 0 40px;
-    }
-
-    .main h1 {
-        font-size: 2.2rem;
-    }
-}
-
-@media screen and (max-width: 530px){
-    #contWrap {
-        width: 530px;
-    }
-
-    .main dd {
-        font-size: .90rem;
-        padding: 0 40px;
-    }
-
-    .trackVideo {
-        margin: 0 90px;
-        width: 280px;
-    }
-
-    .main h1 {
-        font-size: 2rem;
     }
 }
