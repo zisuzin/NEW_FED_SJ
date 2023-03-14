@@ -60,8 +60,12 @@ body {
     position: relative;
     width: 100vw;
     height: calc(100vh - 50vh);
-    background: url(../image/car3_keyvisual12.jpg) no-repeat center/cover;
-    filter: brightness(60%);
+    /* background-color: red; */
+    background-image: url(../image/car3_keyvisual12.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    /* filter: brightness(60%); */
 }
 
 .track {
@@ -265,26 +269,26 @@ dl dd {
 
 /******************** 미디어쿼리(season3) ********************/
 @media screen and (max-width:1403px) {
-    /* .right {
+    .right {
         right: 20vw;
     }
 
     .left {
         left: 20vw;
-    } */
+    }
     #contWrap {
         width: 1403px;
     }
 }
 
 @media screen and (max-width:1148px) {
-    /* .right {
+    .right {
         right: 17vw;
     }
 
     .left {
         left: 17vw;
-    } */
+    }
 
     .trackVideo {
         margin: 0 95px;

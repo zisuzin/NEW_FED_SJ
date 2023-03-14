@@ -129,7 +129,6 @@ function setBan(){
             posterWrap.style.left = "85%";
         setTimeout(() => {
             posterWrap.prepend(slide[5]);
-            // console.log(slide[5]);
             posterWrap.style.left = "50%";
 
             get_video_gubun();
