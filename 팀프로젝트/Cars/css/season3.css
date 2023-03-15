@@ -199,13 +199,8 @@ dl dd {
     border: 1px solid #000;
     border-radius: 50%;
 
-<<<<<<< HEAD
     display: flex;
     justify-content: center;
-=======
-    line-height: 62px;
-    text-align: center;
->>>>>>> cb782d3ca8577d22445a079b32f15e56476be57d
 }
 
 .gobtn:hover {
@@ -278,10 +273,7 @@ dl dd {
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
-<<<<<<< HEAD
         /* font-size: 2rem; */
-=======
->>>>>>> cb782d3ca8577d22445a079b32f15e56476be57d
     }
 
     .track {
@@ -300,7 +292,6 @@ dl dd {
     .main dd {
         padding: 0 60px;
     }
-<<<<<<< HEAD
     
     a.gobtn {
         display: none;
@@ -308,16 +299,6 @@ dl dd {
 
 }
 
-=======
-}
-
-@media screen and (max-width: 930px) {
-    .gobtn, .mttop {
-        display: none !important;
-    }
-}
-
->>>>>>> cb782d3ca8577d22445a079b32f15e56476be57d
 @media screen and (max-width: 853px) {
     .trackVideo {
         margin: 0 110px;
