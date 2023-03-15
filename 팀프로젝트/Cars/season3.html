@@ -13,21 +13,20 @@
     <script src="./jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <!-- A. 상단영역 -->
-    <div id="contWrap">
-        <header id="subTop">
-            <!-- 1.페이지 타이틀 -->
-            <div class="subTop">
-                <a href="index.html">
-                    <img class="subTit" src="image/logo.png" alt="Cars 로고 타이틀">
-                </a>
-
-                <div class="btn_con">
-                    <a href="#" onclick="nav();">
-                        MENU
-                    </a>
-                </div>
+    <!-- 1. 상단영역 -->
+    <div id="top">
+        <!-- 페이지 타이틀 -->
+        <header class="top">
+            <a href="index.html">
+                <img class="tit" src="image/logo.png" alt="Cars 로고 타이틀" />
+            </a>
+            <!-- GNB 버튼 -->
+            <div class="btn_con">
+                <a href="#" onclick="nav();"> MENU </a>
             </div>
+        </header>
+    </div>
+    <!-- GNB 메뉴 -->
             <div id="nav_bg" onclick="nav();"></div>
         <nav id="nav">
             <div class="contents_con">
@@ -227,40 +226,41 @@
                 </div>
             </main>
                     
-        <!-- C. 하단영역 -->
-        <footer id="bottomInfo">
-            <div class="bottomInfo">
-                <div class="copyLogo">
-                    <img src="image/prd_logo.png" alt="제작사로고">
-                </div>
-        
-                <address>
-                    &copy; 1986 &#126; 2023 DISNEY &amp; PIXAR
-                </address>
-                <ul class="sns">
-                    <li>
-                        <a href="https://www.youtube.com/results?search_query=pixar+cars" target="_blank" title="유튜브 바로가기"><img src="" alt="">
-                            <span class="bld">유튜브 바로가기</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://ko-kr.facebook.com/PixarCars/" target="_blank" title="페이스북 바로가기"><img src="" alt="">
-                            <span class="bld">페이스북 바로가기</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/pixarcars" target="_blank" title="트위터 바로가기"><img src="" alt="">
-                            <span class="bld">트위터 바로가기</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/pixarcars/" target="_blank" title="인스타그램 바로가기"><img src="" alt="">
-                            <span class="bld">인스타그램 바로가기</span>
-                        </a>
-                    </li>
-                </ul>
+       <!-- 3. 하단부분 -->
+       <footer id="info">
+        <div class="info">
+            <div class="copyLogo">
+                <img src="image/prd_logo.png" alt="제작사로고">
             </div>
-        </footer>
+
+            <address>
+                &copy; 1986 &#126; 2021 DISNEY &amp; PIXAR
+            </address>
+
+            <ul class="sns">
+                <li>
+                    <a href="https://www.youtube.com/results?search_query=pixar+cars" target="_blank" title="유튜브 바로가기"><img src="" alt="">
+                        <span class="bld">유튜브 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ko-kr.facebook.com/PixarCars/" target="_blank" title="페이스북 바로가기"><img src="" alt="">
+                        <span class="bld">페이스북 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/pixarcars" target="_blank" title="트위터 바로가기"><img src="" alt="">
+                        <span class="bld">트위터 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/pixarcars/" target="_blank" title="인스타그램 바로가기"><img src="" alt="">
+                        <span class="bld">인스타그램 바로가기</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
         <a href="#sub_bg" class="gobtn">
             <img src="./image/scroll-top-aw.svg" alt="상단이동버튼">
         </a>

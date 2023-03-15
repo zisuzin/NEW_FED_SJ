@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+/* 외부CSS파일 합치기 */
+@import url(./reset.css);
+@import url(./common.css);
+@import url(./fonts.css);
+
 body {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -198,9 +203,9 @@ dl dd {
     bottom: 15px;
     border: 1px solid #000;
     border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
+    
+    line-height: 62px;
+    text-align: center;
 }
 
 .gobtn:hover {
@@ -244,36 +249,10 @@ dl dd {
     overflow: hidden;
 }
 
-/******************** C. 하단영역(season3) ********************/
-#bottomInfo {
-    background-color: #000;
-}
-
-#bottomInfo > .bottomInfo {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-/* 5. 제작사 로고 */
-#bottomInfo .copyLogo img {
-    height: 60px;
-}
-
-/* 6. 하단정보 */
-#bottomInfo address {
-    font-family: "dominikth";
-    font-style: normal;
-    color: rgb(243, 242, 242);
-    font-size: 20px;
-    line-height: 100px;
-}
-
 /******************** 미디어쿼리(season3) ********************/
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
-        /* font-size: 2rem; */
     }
 
     .track {
@@ -292,11 +271,12 @@ dl dd {
     .main dd {
         padding: 0 60px;
     }
-    
-    a.gobtn {
-        display: none;
-    }
+}
 
+@media screen and (max-width: 930px) {
+    .gobtn, .mttop {
+        display: none !important;
+    }
 }
 
 @media screen and (max-width: 853px) {
