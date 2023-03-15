@@ -25,7 +25,6 @@ const singer = [
 
 // movslide함수 구역 // 
 function setBan(){
-    // console.log("로딩완료");
     
     /*************** 전역변수 ***************/
     const posterWrap = document.querySelector(".posterWrap");
@@ -40,7 +39,6 @@ function setBan(){
 
     /*************** 이미지클릭시 음원트랙 변경 ***************/
     bannerWrap.forEach((ele,idx)=>{
-        // console.log(ele,idx);
             ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
 
         ele.addEventListener("click", ()=> {
@@ -119,13 +117,7 @@ function setBan(){
             
         let slide = document.querySelectorAll(".poster");
     
-        // videos.forEach((ele2,seq)=>{
-        //     ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
-           
-        // }); //forEach문 
-
         if(idx === 0){
-            
             posterWrap.style.left = "85%";
         setTimeout(() => {
             posterWrap.prepend(slide[5]);

@@ -174,7 +174,7 @@ dl dd {
 .poster img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 /* 1. 스크롤시 상단메뉴바 색 변경 셋업 */
@@ -196,15 +196,11 @@ dl dd {
     height: 60px;
     right: 20px;
     bottom: 15px;
-    background-color: #fff;
     border: 1px solid #000;
     border-radius: 50%;
-    z-index: 999;
-    cursor: pointer;
 
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .gobtn:hover {
@@ -278,28 +274,10 @@ dl dd {
 }
 
 /******************** 미디어쿼리(season3) ********************/
-/* @media screen and (max-width:1161px) {
-    .trackVideo {
-        margin: 0 95px;
-        width: 650px;
-    }
-} */
-
-/* @media screen and (max-width:1125px) {
-    .trackVideo {
-        margin: 0 95px;
-        width: 650px;
-    }
-
-    #contWrap {
-        width: 1125px;
-    } 
-} */
-
 @media screen and (max-width:1040px) {
     .main h1 {
         padding: 72px 40px 60px 40px;
-        font-size: 2rem;
+        /* font-size: 2rem; */
     }
 
     .track {
@@ -308,7 +286,7 @@ dl dd {
 
     .trackVideo {
         margin: 0 110px;
-        width: 650px;
+        width: 720px;
     }
 
     .track {
@@ -318,10 +296,14 @@ dl dd {
     .main dd {
         padding: 0 60px;
     }
+    
+    a.gobtn {
+        display: none;
+    }
 
 }
 
-@media screen and (max-width: 837px) {
+@media screen and (max-width: 853px) {
     .trackVideo {
         margin: 0 110px;
         width: 630px;
@@ -416,11 +398,9 @@ dl dd {
     .track {
         padding: 0 25px;
     }
+}
 
-    .main dd {
-        font-size: 1.10rem;
-    }
-
+@media screen and (max-width: 608px) {
     .bottomInfo {
         flex-wrap: wrap;
     }
@@ -453,11 +433,11 @@ dl dd {
 
     .main dd {
         padding: 0 30px;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .main dd:nth-child(2){
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -467,7 +447,7 @@ dl dd {
     }
 
     .main dd:nth-child(2){
-        font-size: 0.95rem;
+        font-size: 0.97rem;
     }
 
     .trackVideo {

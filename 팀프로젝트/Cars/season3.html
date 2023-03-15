@@ -11,7 +11,6 @@
     <script src="./js/sub3.js"></script>
     <script src="./js/nav.js"></script>
     <script src="./jquery-3.6.4.min.js"></script>
-    <!-- <script src="./jquery-ui.min.js"></script> -->
 </head>
 <body>
     <!-- A. 상단영역 -->
@@ -299,6 +298,7 @@
                 $('.gobtn').fadeOut();
             }
 
+            // 3. 스크롤시 하단푸터영역 위로 살짝 올라오기 
             if(scrollValue > totLen-20){
                 $('.gobtn').addClass("mttop");
             }
@@ -307,14 +307,11 @@
             }
         });
 
-        // 3. 버튼클릭시 상단이동 
+        // 4. 버튼클릭시 상단이동 
         $('.gobtn').click(()=>{
             scrollTo({top:0});
             return false;
         });
-
-        const innerH = $('.bottomInfo').innerHeight();
-        // console.log(innerH);
 
     </script>
 </body>
