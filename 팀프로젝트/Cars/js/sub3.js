@@ -42,7 +42,6 @@ function setBan(){
             ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
 
         ele.addEventListener("click", ()=> {
-            console.log(ele.dataset.video_gubun);
             // 시즌1
             if(ele.dataset.video_gubun==3 || ele.dataset.video_gubun==6){
                 videos.forEach((ele2,idx)=>{
