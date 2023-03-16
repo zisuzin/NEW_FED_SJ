@@ -118,7 +118,7 @@ function loadFn() {
    } ////////////// autoSlide함수 //////////
 
    // 자동넘김 최초호출!
-   autoSlide();
+//    autoSlide();
 
    /************************************ 
         함수명: clearAuto
@@ -138,7 +138,52 @@ function loadFn() {
     // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
     autoT = setTimeout(autoSlide,5000);
 
-   } ///////// clearAuto 함수 /////////////
+    /************************************* 
+        [ 블릿 클릭 이동 구현하기 ]
+        1. 오른쪽이동시 : 현재블릿보다 오른쪽클릭시
+            1) 기본형 : 오른쪽버튼 클릭구현
+            2) 유형 : 먼저 이동후 맨앞 요소 맨뒤로 이동
+            3) 원리 : 차이수만큼 %이동후 for문으로
+                순서대로 맨뒤이동
+
+        2. 왼쪽이동시 : 현재블릿보다 왼쪽클릭시
+            1) 기본형 : 오른쪽버튼 클릭구현
+            2) 유형 : 먼저 맨뒤요소 맨앞으로 이동후 들어오기
+            3) 원리 : 차이수만큼 앞에 for문으로 쌓은 후 이동함
+
+        3. 방향구분의 기준 : 클릭된 블릿순번 - 현재블릿순번
+            1) 양수면 오른쪽이동
+            2) 음수면 왼쪽이동
+    *************************************/
+
+    // 대상 : .indic li -> indic변수
+    // 이벤트 : click 
+    indic.forEach((ele,idx)=>{ // ele-요소, idx-순번
+        // 클릭이벤트 설정하기
+        ele.onclick = ()=>{
+            console.log("순번:",idx);
+            // 1. 클릭된 순번
+            let cseq = idx; 
+            // 2. 현재순번 - iseq
+            // 3. 순번차 : 클릭된 순번 - 현재 순번
+            let diff = cseq - iseq
+
+            console.log("클릭된순번:",cseq);
+            console.log("현재순번:",iseq);
+            console.log("순번차:",diff);
+
+            // 4. 현재블릿 초기화
+            indic[iseq].classList.remove("on");
+
+            // 5. 클릭된 순번으로 현재순번 변경
+            iseq = cseq;
+
+            // 6. 클릭된 블릿에 on넣기
+            indic[iseq].classList.add("on");
+        }; // click
+    }); // forEach 
+
+   } /// clearAuto 함수 ///
 
 
 
@@ -147,11 +192,15 @@ function loadFn() {
    ****************************************/
   // 이벤트 대상: .indic li -> indic변수
   // 이벤트 종류: click
+  // 순번변수 - 블릿순번 블릭li클릭함수에서 공유함
+  let iseq = 0;
+
   indic.forEach((ele,idx)=>{
+    // 클릭이벤트 설정하기
     ele.onclick = () => {
         // 1. 전역변수 snum 업데이트하기
         // 왜? 블릿순번===슬라이드순번 이므로!
-        snum = idx;
+        let snum = idx;
 
         // 2. 블릿변경
         chgSlide(indic);
@@ -160,12 +209,11 @@ function loadFn() {
         chgSlide(slide);
 
         // 5. 자동넘김멈춤 함수호출!
-        clearAuto();
+        // clearAuto();
 
-    }; /////////// click ///////////
+    }; /// click ///
 
   }); /////////// forEach /////////////////
-
 
 
   /*********************************** 
