@@ -8,18 +8,18 @@ const arr = [
     ];
 
 const title = [
-    ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)',
-    'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'],
+    ['Real Gone (From "Cars"/Soundtrack Version)','Life is a Highway (From "Cars"/Soundtrack Version)','Our Town (From "Cars"/Soundtrack Version)','Sh-Boom (『カーズ』より)', 
+    'Goodbye (From "Cars"/Score)','Behind the Clouds (From "Cars"/Soundtrack Version)'], //시즌1
     ['You Might Think (From "Cars 2"/Soundtrack Version)','Collision of Worlds (From "Cars 2"/Soundtrack Version)',"Nobody's Fool (From 'Cars 2'/Soundtrack Version)",
-    'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'],
+    'Going To The Backup Plan (From "Cars 2"/Score)','The Other Shoot (From "Cars 2"/Score)','The Radiator Springs Gran Prix (From "Cars 2"/Score)'], //시즌2
     ["Storm's Winning Streak (From '\Cars 3\'/Score)","Fireball Beach (From '\Cars 3\'/Score)","Smokey Starts Training (From '\Cars 3\'/Score)",
-    "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"],
+    "Drip Pan (From '\Cars 3\'/Score)","McQueen's Wild Ride (From '\Cars 3\'/Score)","Temple of Rust-eze (From '\Cars 3\'/Score)"], //시즌3
     ];
 
 const singer = [
-["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"],
-["Weezer","Robbie Williams, Brad Paisley","Michael Giacchino","Michael Giacchino","Michael Giacchino","Michael Giacchino"],
-["Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman"],
+["Sheryl Crow","Rascal Flatts","James Taylor","Chords","Randy Newman","Brad Paisley"], //시즌1
+["Weezer","Robbie Williams, Brad Paisley","Michael Giacchino","Michael Giacchino","Michael Giacchino","Michael Giacchino"], //시즌2
+["Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman","Randy Newman"], //시즌3
 ];
 
 
@@ -44,7 +44,6 @@ function setBan(){
             ele.innerHTML =`<img src="../Cars/image/c${idx+1}_teaser_poster.jpg" alt="포스터${idx+1}이미지">`;
 
         ele.addEventListener("click", ()=> {
-            // console.log(ele.dataset.video_gubun);
             // 시즌1
             if(ele.dataset.video_gubun==3 || ele.dataset.video_gubun==6){
                 videos.forEach((ele2,idx)=>{
@@ -98,7 +97,7 @@ function setBan(){
         videos.forEach((ele,seq)=>{
             var aa = '';
             ele.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
-            for(var iia=0; iia< slide2.length; iia++){
+            for(var iia = 0; iia < slide2.length; iia++) {
             if(iia == 3) {
                  aa = ele;
                  soundTitle.forEach((ele,idx)=>{
@@ -119,11 +118,6 @@ function setBan(){
             
         let slide = document.querySelectorAll(".poster");
     
-        // videos.forEach((ele2,seq)=>{
-        //     ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
-           
-        // }); //forEach문 
-
         if(idx === 0){
             
             posterWrap.style.left = "85%";
