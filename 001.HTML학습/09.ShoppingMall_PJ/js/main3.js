@@ -91,7 +91,7 @@ function loadFn() {
         chgSlide(indic);
     }; ////////// goSlide함수 ///////////
 
-    // 3. 대상에 이벤트 설정하기
+    // 3. 이동버튼대상에 이벤트 설정하기
     abtn.forEach((ele, idx) => {
         ele.onclick = () => {
             // 슬라이드함수 호출
@@ -139,8 +139,6 @@ function loadFn() {
     autoT = setTimeout(autoSlide,5000);
 
    } ///////// clearAuto 함수 /////////////
-
-
 
    /**************************************** 
         블릿클릭시 슬라이드 이동하기

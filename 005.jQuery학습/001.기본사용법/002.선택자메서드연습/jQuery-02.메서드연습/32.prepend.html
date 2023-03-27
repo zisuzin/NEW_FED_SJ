@@ -7,9 +7,28 @@
 <script src="jquery-1.7.2.min.js"></script>
 	<script>
 	$(function(){// jQB /////////////////////////////
+
+		// 웹이미지 경로 ///
+		let isrc = [
+         "https://pbs.twimg.com/profile_images/1283948126974308352/DZThCpB-_400x400.jpg",
+         "https://img.etoday.co.kr/pto_db/2020/06/600/20200610210200_1471006_646_672.jpg"
+     	]; ///// 배열 ////////////
 		
 		//미션: p태그의 글자를 클릭하면 #pic 요소의 내부에 자식요소로 웹 경로 이미지가 번갈아서 앞쪽에 추가되게하시오.
-	
+
+		// 배열순번변수
+		let seq = 0;
+
+		$("p").click(()=>{
+			// 이미지 넣기 : 대상 - #pic
+			$("#pic").prepend(`<img src="${isrc[seq]}" alt="이미지">`);
+
+		// 다음 번을 위해 배열순번 변경
+		seq === 0 ? (seq = 1) : (seq = 0);
+			
+			// 이미지크기조정
+			$("#pic img").css({height:"200px"});
+		}); // click
 		
 		
 	});/// jQB //////////////////////////////////////

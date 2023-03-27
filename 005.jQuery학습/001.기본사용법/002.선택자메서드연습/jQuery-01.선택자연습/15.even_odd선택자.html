@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <title>  even, odd 선택자 </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
 <script>
 $(document).ready(function(e) {
 	
@@ -14,7 +15,46 @@ $(document).ready(function(e) {
 	// 			넣으시오. 동시에 height값이 200px로 
 	//			애니메이션 시키시오.
 	//			(초기높이값을 40px로 설정)
-	
+
+  // 암기 방법 : 옆에 이분(even)이 계십니다. -> 짝수 / 혼자 오들(odd)오들 떨고 있다. -> 홀수
+	$(() => {
+    //////// jQB /////////////////////////////
+    /*********************************************** 
+      :even 짝수
+      :odd 홀수
+      짝수, 홀수는 우리가 아는 순서와 다름!
+      왜? 0부터 시작하니까! 
+      우리가 아는 짝수 홀수를 맞추려면?
+      :nth-child(even|odd)
+      자식요소를 1부터 세기때문에 짝수,홀수가 맞다!
+    ***********************************************/
+      // 초기 높이값 설정
+      $("li").css({ height: "40px" });
+
+      // 미션: #container를 클릭하면
+      // li의 짝수번째에 sample1.jpg를 배경으로
+      // li의 홀수번째에 sample2.jpg를 배경으로
+      // 넣으시오. 동시에 height값이 200px로
+      // 애니메이션 시키시오.
+      // (초기높이값을 40px로 설정)
+      $("#container").click(()=>{
+        $("li:nth-child(even)").css({
+        // $("li:even").css({
+          backgroundImage:"url(./images/sample1.jpg)",
+          height:"200px",
+          transition:".8s"
+        }); ///////// css ////////
+        $("li:nth-child(odd)").css({
+        // $("li:odd").css({
+          backgroundImage:"url(./images/sample2.jpg)",
+          height:"200px",
+          transition:".8s 1s" // 지연시간 1초줌!
+        }); ///////// css ////////
+
+      }); /////////// click ////////////
+
+
+    }); /////////// jQB /////////////////////////////
 	
 });//jQuery실행구역
 </script>
