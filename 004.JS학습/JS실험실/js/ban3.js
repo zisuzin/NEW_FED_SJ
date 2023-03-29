@@ -463,6 +463,7 @@ function goWhere(obj) {
     // obj - 드래그대상(슬라이드요소)
     // 1. 현재 드래그 대상 left위치값
     let tgLeft = obj.offsetLeft;
+    console.log(tgLeft);
 
     // 2. 부모박스를 기준한 -220% left 위치값 구하기
     let tgPoint = obj.parentElement.clientWidth * 2.2;
