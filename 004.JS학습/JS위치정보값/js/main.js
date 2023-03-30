@@ -76,133 +76,136 @@ const qsa = (x) => document.querySelectorAll(x);
 window.addEventListener("DOMContentLoaded", () => {
     console.log("로딩완료!");
 
-    // 1. 벌새
-    const bird = qs("#bird");
-    // 2. 내부박스
-    const ibx = qs(".inbox");
-    // 3. 내부박스 위치표시박스
-    const ibxWrap = qs(".inbox .wrap");
-    // 4. 전체 위치표시박스
-    const bd = qs("body>.wrap");
+ // 1. 벌새
+ const bird = qs("#bird");
+ // 2. 내부박스
+ const ibx = qs(".inbox");
+ // 3. 내부박스 위치표시박스
+ const ibxWrap = qs(".inbox .wrap");
+ // 4. 전체 위치표시박스
+ const bd = qs("body>.wrap");
 
-    // 위치표시하기 for문 /////////
+ // 위치표시하기 for문 //
 
-    // 1. 내부박스 가로기준선넣기
-    for (let i = 0; i < 20; i++) {
-        // console.log(i);
-        ibxWrap.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+ // 1. 내부박스 가로기준선넣기
+ for(let i=0; i < 20; i++){
+    // console.log(i);
+    ibxWrap.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`
+ }  
+
+ // 2. 내부박스 세로기준선넣기
+ for (let i = 0; i < 9; i++) {
+    // console.log(i);
+    ibxWrap.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+}
+
+// 3. 전체 가로기준선넣기
+for (let i = 0; i < 25; i++) {
+    // console.log(i);
+    bd.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+}
+
+// 4. 전체 세로기준선넣기
+for (let i = 0; i < 25; i++) {
+    // console.log(i);
+    bd.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+}
+
+ // 5. 내부박스에 임의의 박스 넣기
+ for (let i = 0; i < 5; i++) {
+    // console.log(i);
+    // 짝수일때
+    if (i % 2)
+        ibxWrap.innerHTML += `<div class="point" style="
+        top:${120 * (i + 1)}px;
+        left:${10 * (i + 1)}px">
+        ${i + 1}번째박스</div>`;
+
+    // 홀수일때
+    else
+        ibxWrap.innerHTML += `<div class="point" style="
+        top:${130 * (i + 1)}px;
+        right:${10 * (i + 1)}px">
+        ${i + 1}번째박스</div>`;
+}
+
+// 6. 내부 생성박스에 일부 패딩, 내용 넣기
+const pnt = qsa(".inbox .point");
+
+pnt.forEach((ele, idx) => {
+    if (idx === 2 || idx === 4) {
+        ele.innerHTML += `<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                     in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+                     sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
+                     laborum.`;
     }
-    
-    // 2. 내부박스 세로기준선넣기
-    for (let i = 0; i < 9; i++) {
-        // console.log(i);
-        ibxWrap.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+    if (idx === 1 || idx === 4) {
+        ele.style.padding = "2vw";
     }
-
-    // 3. 전체 가로기준선넣기
-    for (let i = 0; i < 25; i++) {
-        // console.log(i);
-        bd.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
-    }
-    
-    // 4. 전체 세로기준선넣기
-    for (let i = 0; i < 25; i++) {
-        // console.log(i);
-        bd.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
-    }
-
-    // 5. 내부박스에 임의의 박스 넣기
-    for (let i = 0; i < 5; i++) {
-        // console.log(i);
-        // 짝수일때
-        if (i % 2)
-            ibxWrap.innerHTML += `<div class="point" style="
-                        top:${120 * (i + 1)}px;
-                        left:${10 * (i + 1)}px">
-                        ${i + 1}번째박스</div>`;
-        // 홀수일때
-        else
-            ibxWrap.innerHTML += `<div class="point" style="
-                        top:${130 * (i + 1)}px;
-                        right:${10 * (i + 1)}px">
-                        ${i + 1}번째박스</div>`;
-    }
-
-    // 6. 내부 생성박스에 일부 패딩, 내용 넣기
-    const pnt = qsa(".inbox .point");
-
-    pnt.forEach((ele, idx) => {
-        if (idx === 2 || idx === 4) {
-            ele.innerHTML += `<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-                         sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                         laborum.`;
-        }
-        if (idx === 1 || idx === 4) {
-            ele.style.padding = "2vw";
-        }
-    }); /////////// forEach ///////////
+}); /////////// forEach ///////////
 
 
-    // [ 1. 벌새 위치 찍기 ]
-    setInterval(function () {
+// [ 1. 벌새 위치 찍기 ]
+setInterval(function () {
+    /// 화면표시 ////
+    qs(".i1").innerText = bird.offsetTop;
+    qs(".i2").innerText = bird.offsetLeft;
+    qs(".i3").innerText = bird.getBoundingClientRect().top;
+    qs(".i4").innerText = bird.getBoundingClientRect().left.toFixed(0);
+    qs(".i31").innerText = (bird.getBoundingClientRect().top + window.scrollY).toFixed(0);
+    qs(".i42").innerText = window.scrollY;
+}, 100); ///// setInterval //////
+
+
+// [ 2. 마우스 커서 이벤트 발생시 위치값 찍기 ]
+ibx.onmousemove = (e) => {
+    /// 화면표시 ////
+    qs(".i5").innerText = e.pageX;
+    qs(".i6").innerText = e.pageY;
+
+    qs(".i7").innerText = e.screenX;
+    qs(".i8").innerText = e.screenY;
+
+    qs(".i71").innerText = e.offsetX;
+    qs(".i82").innerText = e.offsetY;
+
+    qs(".i9").innerText = e.clientX;
+    qs(".i10").innerText = e.clientY;
+};
+
+// .inbox하위 .bird(벌새)위에서 마우스움직일때
+// 이벤트 버블링으로 offsetX,offsetY는 이벤트 대상의
+// 위치를 리턴하므로 벌새값이 .inbox이벤트찍기에 나타남!
+// .bird의 같은 이벤트를 버블링막기를 하면
+// 벌새위에서는 이벤트가 발생하지 않는다!(버블링되지 않는다!)
+
+// 이벤트버블링 막기를 할 수 있다~!
+// bird.onmousemove = (e)=>{
+//     e.stopPropagation();
+// }; /////// mousemove ///////
+
+// [3. 클릭된 박스요소의 크기,위치 찍어보기]
+for (let x of pnt) {
+    x.onclick = () => {
+        console.log("여기요!");
         /// 화면표시 ////
-        qs(".i1").innerText = bird.offsetTop;
-        qs(".i2").innerText = bird.offsetLeft;
-        qs(".i3").innerText = bird.getBoundingClientRect().top.toFixed(0);
-        qs(".i4").innerText = bird.getBoundingClientRect().left.toFixed(0);
-        qs(".i31").innerText = (bird.getBoundingClientRect().top + window.scrollY).toFixed(0);
-        qs(".i42").innerText = window.scrollY;
-    }, 100); ///// setInterval //////
+        qs(".i11").innerText = x.clientWidth;
+        qs(".i12").innerText = x.clientHeight;
 
+        qs(".i13").innerText = x.scrollWidth;
+        qs(".i14").innerText = x.scrollHeight;
 
-    // [ 2. 마우스 커서 이벤트 발생시 위치값 찍기 ]
-    ibx.onmousemove = (e) => {
-        /// 화면표시 ////
-        qs(".i5").innerText = e.pageX;
-        qs(".i6").innerText = e.pageY;
+        qs(".i15").innerText = x.offsetWidth;
+        qs(".i16").innerText = x.offsetHeight;
 
-        qs(".i7").innerText = e.screenX;
-        qs(".i8").innerText = e.screenY;
-
-        qs(".i71").innerText = e.offsetX;
-        qs(".i82").innerText = e.offsetY;
-
-        qs(".i9").innerText = e.clientX;
-        qs(".i10").innerText = e.clientY;
+        qs(".i17").innerText = x.offsetTop;
+        qs(".i18").innerText = x.offsetLeft;
     };
+} ////////// for of //////////////
 
-    // .inbox하위 .bird(벌새)위에서 마우스움직일때
-    // 이벤트 버블링으로 offsetX,offsetY는 이벤트 대상의
-    // 위치를 리턴하므로 벌새값이 .inbox이벤트찍기에 나타남!
-    // .bird의 같은 이벤트를 버블링막기를 하면
-    // 벌새위에서는 이벤트가 발생하지 않는다!(버블링되지 않는다!)
 
-    // 이벤트버블링 막기를 할 수 있다~!
-    // bird.onmousemove = (e)=>{
-    //     e.stopPropagation();
-    // }; /////// mousemove ///////
-
-    // [3. 클릭된 박스요소의 크기,위치 찍어보기]
-    for (let x of pnt) {
-        x.onclick = () => {
-            console.log("여기요!");
-            /// 화면표시 ////
-            qs(".i11").innerText = x.clientWidth;
-            qs(".i12").innerText = x.clientHeight;
-
-            qs(".i13").innerText = x.scrollWidth;
-            qs(".i14").innerText = x.scrollHeight;
-
-            qs(".i15").innerText = x.offsetWidth;
-            qs(".i16").innerText = x.offsetHeight;
-
-            qs(".i17").innerText = x.offsetTop;
-            qs(".i18").innerText = x.offsetLeft;
-        };
-    } ////////// for of //////////////
 
 
 }); //////////// 로드구역  ///////////////////////
