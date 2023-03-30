@@ -152,7 +152,7 @@ setInterval(function () {
     /// 화면표시 ////
     qs(".i1").innerText = bird.offsetTop;
     qs(".i2").innerText = bird.offsetLeft;
-    qs(".i3").innerText = bird.getBoundingClientRect().top;
+    qs(".i3").innerText = bird.getBoundingClientRect().top.toFixed(0);
     qs(".i4").innerText = bird.getBoundingClientRect().left.toFixed(0);
     qs(".i31").innerText = (bird.getBoundingClientRect().top + window.scrollY).toFixed(0);
     qs(".i42").innerText = window.scrollY;
