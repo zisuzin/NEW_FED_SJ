@@ -17,30 +17,25 @@
                 }, 100); // 0.1초정도는 줘야효과있음!
 
 
-
                 // 등장액션 대상: .setit
                 const setit = document.querySelectorAll(".setit");
-                // console.log(setit);
 
                 // 화면높이값의 2/3구하기
                 const hv = window.innerHeight/3*2;
-                // console.log("2/3높이:",hv);
+                console.log("2/3높이:",hv);
 
                 // 윈도우 높이값
                 const winH = window.innerHeight;
 
                 // 전체문서 높이값
                 const docH = document.body.clientHeight;
-                console.log("문서전체높이:",docH);
+                // console.log("문서전체높이:",docH);
 
                 // 스크롤한계값
                 const scLimit = docH - winH;
-                console.log("스크롤한계값:",scLimit);
+                // console.log("스크롤한계값:",scLimit);
                 // 스크롤한계값은 전체문서길이 - 윈도우높이
                 // 단, body에 기본마진 8px을 초기화해야 정확히 일치함!
-
-
-                
 
                 // 등장액션 대상 위치값 리턴함수/////
                 const retVal = 
@@ -91,6 +86,7 @@
                 window.addEventListener("scroll",()=>{
                     // 스크롤 이벤트 확인!
                     // console.log("스크롤중~~!");
+                    console.log("대상은?",retVal(setit[0]));
 
                     // 스크롤등장 요소 개수만큼 for문으로 돌리기
                     for(let x of setit) showIt(x);
@@ -101,8 +97,6 @@
                     // 4. showIt() 함수는 그 x의 위치값을 조사해서
                     // if문 구간에 해당하는지 검사후 해당요소에
                     // 클래스 "on"을 넣어준다!
-
-
 
 
                     // 스크롤시 스크롤 위치값  찍기
@@ -174,22 +168,13 @@
 
                    // 떨어지는 여자 top위치값 계산하기 : wtop
                    let wtop = winH * scTop / scLimit;
-                   console.log("w위치:",wtop);
+                //    console.log("w위치:",wtop);
 
                    // 떨어지는 여자의 top값에 적용하기
                    woman.style.top = wtop + "px";
 
                    // 맨위일때 위쪽으로 숨기기 
                    if(scTop === 0) woman.style.top = "-20%";
-
-
-
-
-
-
-
-
-
 
 
                     // 현재 첫번째 박스 위치값
@@ -201,7 +186,7 @@
                    
 
                     // if(bxpos < hv && bxpos > hv-10){
-                    //     // aaa=0;
+                    //     aaa=0;
                     //     console.log("작동!~~~~");
                     //     setit[0].classList.add("on");
                     // }
@@ -218,24 +203,6 @@
 
                     
                 }); /////////// scroll ////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 // 구현내용: 글자를 박스에 넣고 하나씩 날아오면서 등장
                 // 1.대상선정: .stage
