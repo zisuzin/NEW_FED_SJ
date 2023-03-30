@@ -116,16 +116,9 @@ function setBan(){
     /*************** 화살표버튼 클릭시 슬라이드 롤링 ***************/
     btns.forEach((ele,idx)=>{
         ele.onclick =()=>{
-            
         let slide = document.querySelectorAll(".poster");
     
-        // videos.forEach((ele2,seq)=>{
-        //     ele2.innerHTML = `<iframe src="https://www.youtube.com/embed/${arr[1][seq]}"></iframe>`
-           
-        // }); //forEach문 
-
         if(idx === 0){
-            
             posterWrap.style.left = "85%";
         setTimeout(() => {
             posterWrap.prepend(slide[5]);
