@@ -47,27 +47,30 @@
 
         *****************************************************/
 
-        // 변수에 제이슨 파싱후 할당!
-        let myjson = JSON.parse(JSON.stringify(jsonData))
-        console.log(myjson);
-        // shopping -> 메뉴 찍기
-        console.log(myjson.shopping.메뉴);
+            // 변수에 제이슨 파싱후 할당!
+            let myjson = JSON.parse(JSON.stringify(jsonData));
 
-        // "living" 속성의 데이터를 for in문으로 돌아 찍기!
-        let mydata = myjson["living"];
-        
-        for(let x in mydata){ // x는 속성명
-            document.write(`<h2>${x} : ${mydata[x]}</h2>`);
-        } /////////// for in ///////////////
+            // 제이슨 파싱 확인
+            console.log(myjson);
+            // shopping -> 메뉴 찍기
+            console.log(myjson.shopping.메뉴);
 
-        document.write("<hr>"); // 구분선
+            // "living" 속성의 데이터를 for in문으로 돌아 찍기!
+            let mydata = myjson["living"];
+            for (let x in mydata) {
+                // x는 속성명
+                document.write(`<h2>${x} : ${mydata[x]}</h2>`);
+            } /////////// for in ///////////////
 
-        // "fashion" 속성의 데이터를 for in문으로 돌아 찍기!
-        let mydata2 = myjson["fashion"];
-        for(let x in mydata2){ // x는 속성명
-            document.write(`<h2>${x} : ${mydata2[x]}</h2>`);
-        } /////////// for in ///////////////
- </script>
+            document.write("<hr>"); // 구분선
+
+            // "fashion" 속성의 데이터를 for in문으로 돌아 찍기!
+            let mydata2 = myjson["fashion"];
+            for (let x in mydata2) {
+                // x는 속성명
+                document.write(`<h2>${x} : ${mydata2[x]}</h2>`);
+            } /////////// for in ///////////////
+        </script>
     </head>
     <body></body>
 </html>

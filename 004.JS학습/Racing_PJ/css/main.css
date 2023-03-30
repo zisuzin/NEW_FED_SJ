@@ -94,15 +94,14 @@ body *{
     top: 600px;
     left: 0;
 }
+/* 토끼,거북 공통 class */
 .racer{
-    transform-origin: right;
     width: 200px;
+    transform-origin: right;
 }
-
-.racer img {
+.racer img{
     width: 100%;
 }
-
 .racer::after{
     content: '';
     display: block;

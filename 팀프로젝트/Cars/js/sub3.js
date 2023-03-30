@@ -115,11 +115,9 @@ function setBan(){
     /*************** 화살표버튼 클릭시 슬라이드 롤링 ***************/
     btns.forEach((ele,idx)=>{
         ele.onclick =()=>{
-            
         let slide = document.querySelectorAll(".poster");
     
         if(idx === 0){
-            
             posterWrap.style.left = "85%";
         setTimeout(() => {
             posterWrap.prepend(slide[5]);

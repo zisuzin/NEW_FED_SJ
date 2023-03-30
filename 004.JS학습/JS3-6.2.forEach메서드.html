@@ -63,14 +63,15 @@
                 // btngo.forEach((헐,할)=>{
                 //     console.log("버튼셋팅!",헐,할);
 
-                btngo.forEach((ele)=>{
+                btngo.forEach(ele=>{
                     // console.log("버튼셋팅!",ele);
 
-                    // 1. 클릭이벤트 설정 
+                    // 1. 클릭이벤트 설정
                     ele.onclick = () => {
+                        // 1. 버튼텍스트
                         let btxt = ele.innerText;
                         // console.log(btxt);
-                        
+
                         // 2. 버튼별 배열할당하기 : switch 사용
                         // 버튼에 따른 배열변수 할당할 변수
                         let data;
@@ -83,13 +84,13 @@
                             case "육사오(6/45)":
                                 data = mv5;
                                 break;
-                                case "조제":
+                            case "조제":
                                 data = mv1;
                                 break;
                             case "원더 우먼 1984":
                                 data = mv2;
                                 break;
-                                case "도굴":
+                            case "도굴":
                                 data = mv3;
                                 break;
                             case "더 퍼스트 슬램덩크":
@@ -101,7 +102,7 @@
                         } /////// switch case문 /////////
 
                         // 매칭 데이터 찍어보기
-                        // console.log(data);
+                        console.log(data);
 
                         // 3. 출력요소에 배열 데이터 찍기
                         // forEach메서드 사용!
@@ -115,6 +116,7 @@
                             // innerHTML로 출력한다!
                             minfo[idx].innerHTML = val;
 
+
                         }); ////// forEach메서드 /////
 
 
@@ -122,7 +124,10 @@
                         // data.forEach((val,idx)=>
                         //     minfo[idx].innerHTML = val);
 
-                    }; // onclick 이벤트
+
+
+
+                    }; ///// click이벤트 함수 ////
 
                 }); ///// forEach메서드 ///////
 
@@ -177,10 +182,7 @@
                 함수 중괄호안에 코딩하면 된다!
 
 
-                
-
-                */
-
+            ************************************/
                 
 
             }); //////////////// 로드구역 /////////////////////////////

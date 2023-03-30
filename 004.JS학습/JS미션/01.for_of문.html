@@ -14,8 +14,8 @@
 
             .minfo 하위 구조는 아래와 같다
             <div>
-                <img src...>
-                <h2>타이틀</h2>
+                <img src="배열[0]">
+                <h2>배열[1]</h2>
             </div>
 
             => 셈플주소
@@ -36,24 +36,49 @@
             window.addEventListener("DOMContentLoaded", () => {
                 // 로딩구역 확인
                 console.log("로딩완료!");
-            
+
+                // 1. 배열변수 -> mvinfo
+
+                // 2. 출력대상 : .minfo
                 const minfo = document.querySelector(".minfo");
-                console.log(minfo);        
-                        // 1. 배열변수
-                        
-                        // 2. 출력대상
-        
-                        // 3. 배열데이터만큼 태그만들기
-        
-                        // 4. 출력하기 
-                        
-                    ////////// 로드구역 /////////////////////////////
-                    //////////////////////////////////////////////////////////
-                    
-                });
-            
-            
-            
+                console.log(minfo);
+
+                // 3. 배열데이터만큼 태그만들기 : for of 사용!
+                // 힌트: 태그를 담을 변수를 만들고 for 문을 돌아서
+                // += 대입연산자로 태그를 모두 저장한다!
+
+                let hcode = ""; // String변수 초기화!
+
+                // for(let x of mvinfo){
+                //     // console.log("배열값:",x);
+                //     hcode += `
+                //         <div>
+                //             <img src="${x[1]}" alt="포스터">
+                //             <h2>${x[0]}</h2>
+                //         </div>
+                //     `;
+
+                // } ///////// for of문 //////////////
+
+                // forEach메서드 사용할 경우
+                mvinfo.forEach(
+                    val =>
+                        hcode += `
+                        <div>
+                            <img src="${val[1]}" alt="포스터">
+                            <h2>${val[0]}</h2>
+                        </div>
+                    `
+                ); ////////// forEach메서드 /////
+
+                console.log("hcode:",hcode);
+
+                // 4. 출력하기 : innerHTML 사용!
+                minfo.innerHTML = hcode;
+
+                
+            }); ////////// 로드구역 ////////////////////////
+            ///////////////////////////////////////////////
         </script>
         <style>
 
@@ -91,6 +116,15 @@
             .minfo > div{
                 flex: 1;
             }
+            
+            /* 추가CSS */
+            .minfo img{
+                width: 100%;
+                aspect-ratio: 1/1.5;
+            }
+            h2{
+                font-size: 12px;
+            }
         </style>
     </head>
 
@@ -99,9 +133,7 @@
         <div class="wrap">
             <h1>★관련추천영화★</h1>
             <!--출력박스-->
-            <div class="minfo">
-            </div>
-            
+            <div class="minfo"></div>
 
         </div>
     </body>
