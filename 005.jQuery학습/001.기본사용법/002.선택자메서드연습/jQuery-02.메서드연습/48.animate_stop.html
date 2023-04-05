@@ -19,7 +19,7 @@
 		
 		- 큐에 등록된 애니메이션을 실행 중간에 멈출때 사용하는 메서드
 		- 옵션: 
-			stop(큐비울래?, 끝으로 갈래?)
+			stop(큐비울래?, 끝으로 갈래?) stop(true,false) // 앞선 애니메이션 지우겠다, 위치이동 초기화
 			stop(true/false, true/false)
 	
 	*/
@@ -34,9 +34,8 @@
 			});/// click ////////////////////////////
 			/// 첫번째 박스 멈춤
 			$("#stopbtn1").click(function(){
-				$("#box1").stop();
+				$("#box1").stop(true,true);
 				// 큐비울래? 응(true), 끝으로갈래? 응(true)
-				
 			});////////// click /////////////////////
 			
 			
@@ -52,7 +51,7 @@
 			});/// click ////////////////////////////
 			/// 두번째 박스 멈춤
 			$("#stopbtn2").click(function(){
-				$("#box2").stop();
+				$("#box2").stop(true,false);
 				// 큐비울래? 응(true), 
 				// 끝으로갈래? 아니(false)
 				
@@ -69,7 +68,7 @@
 			});/// click ////////////////////////////
 			/// 세번째 박스 멈춤
 			$("#stopbtn3").click(function(){
-				$("#box3").stop();
+				$("#box3").stop(false,true);
 				// 큐비울래? 아니(fasle), 
 				// 끝으로갈래? 응(true)
 				
@@ -87,7 +86,7 @@
 			});/// click ////////////////////////////
 			/// 네번째 박스 멈춤
 			$("#stopbtn4").click(function(){
-				$("#box4").stop();
+				$("#box4").stop(false,false);
 				// 큐비울래? 아니(fasle), 
 				// 끝으로갈래? 아니(false)
 				
