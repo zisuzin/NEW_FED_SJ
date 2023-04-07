@@ -89,9 +89,9 @@ function SmoothScroll(target, speed, smooth) {
 
 // 상단이동버튼(.tbtn) 클릭시 상단이동하기
 // 부드러운 스크롤 pos 스크롤 위치값 업데이트필요!
-tbtn.onclick = (e) => {
-    e.preventDefault();
-    // 부드러운 스크롤 전역 스크롤값을
-    // 0으로 변경하여 최상단으로 이동함!
-    pos = 0;
-};
+// tbtn.onclick = (e) => {
+//     e.preventDefault();
+//     // 부드러운 스크롤 전역 스크롤값을
+//     // 0으로 변경하여 최상단으로 이동함!
+//     pos = 0;
+// };
