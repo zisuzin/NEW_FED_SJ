@@ -125,7 +125,7 @@ function MakeDallyeok() {
 
                     // 전달/다음달은 span태그가 있으므로 구분함!
                     let isSpan = ele.querySelector("span");
-                    cg(isSpan);
+                    // cg(isSpan);
                     // 없을 경우 null값이 나옴 -> if문에서 false처리됨!
                     if(isSpan){ // null이 아닐때만 true처리되어 들어감!
                         // span요소의 클래스가 "bm"이면 true
@@ -138,7 +138,7 @@ function MakeDallyeok() {
                             // 그러나 +연산은 문자 더하기 가능하므로
                             // 이것을 강제 형변환해야 안전하다!
                             cmonth = Number(cmonth) - 1;
-                            cg("이전달:"+cmonth);
+                            // cg("이전달:"+cmonth);
 
                             // 만약 1월이면 이전달은 0이 아니므로 12로처리
                             if(cmonth===0){ 
@@ -151,7 +151,7 @@ function MakeDallyeok() {
                         else{ ///// 다음달일 경우 ///////
                             // 월에서 1을 더한다!
                             cmonth = Number(cmonth) + 1;
-                            cg("다음달:"+cmonth);
+                            // cg("다음달:"+cmonth);
 
                             // 만약 12월이면 다음달은 13이 아니므로 1로처리
                             if(cmonth===13){ 
@@ -168,7 +168,7 @@ function MakeDallyeok() {
                     // 최종날짜 데이터
                     let comp = cyear + "-" + addZero(cmonth) + "-" + addZero(cdate);
 
-                    cg(comp);
+                    // cg(comp);
                 })
         );
     }; ///////// initDallyeok 함수 //////
