@@ -14,6 +14,11 @@
                 font-size: 14px;
             }
 
+            .draggable * {
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
             div.draggable img {
                 width: 130px;
                 height: 80px;
@@ -54,7 +59,24 @@
         <!-- 
 		미리보기:
 		https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/01_Postit/ready.html
+
+        draggable 옵션 설명: 
+        https://api.jqueryui.com/draggable/
 	 -->
+
+     <script>
+        $(function () { /// jQB ////////////////////////////////
+
+        // [ 드래그 기능 적용하기 ]
+        // 제이쿼리 UI의 draggable() 메서드를 호출함
+        // 대상: .draggable
+        $(".draggable").draggable({
+            cursor: "move", // 커서모양 "이동중"표시로 변경
+            stack: ".draggable", //드래그대상 상위처리(선택요소명)
+            opacity: 0.7 // 이동 충 투명도 설정
+        }); //////// draggable ////////////
+    });
+     </script>
         
     </head>
 
