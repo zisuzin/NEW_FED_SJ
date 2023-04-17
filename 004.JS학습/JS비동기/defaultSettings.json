@@ -1,46 +1,4 @@
-{
-	"powermode.enabled": false,
-
-	"powermode.presets": "particles",
-
-	"powermode.combo.counterEnabled": "default",
-
-	"powermode.combo.counterSize": 3,
-
-	"powermode.combo.location": "default",
-
-	"powermode.combo.threshold": 0,
-
-	"powermode.combo.timeout": 10,
-
-	"powermode.combo.timerEnabled": "default",
-
-	"powermode.shake.enabled": true,
-
-	"powermode.shake.intensity": 3,
-
-	"powermode.explosions.backgroundMode": "mask",
-
-	"powermode.explosions.customCss": {},
-
-	"powermode.explosions.customExplosions": [],
-
-	"powermode.explosions.duration": 1000,
-
-	"powermode.explosions.enabled": true,
-
-	"powermode.explosions.explosionOrder": "random",
-
-	"powermode.explosions.frequency": 2,
-
-	"powermode.explosions.gifMode": "continue",
-
-	"powermode.explosions.maxExplosions": 1,
-
-	"powermode.explosions.offset": 0.35,
-
-	"powermode.explosions.size": 6,
-
+[{
 	"scm.alwaysShowActions": false,
 
 	"scm.alwaysShowRepositories": false,
@@ -2684,57 +2642,6 @@
 
 	"simpleBrowser.focusLockIndicator.enabled": true,
 
-	"better-comments.highlightPlainText": false,
-
-	"better-comments.multilineComments": true,
-
-	"better-comments.tags": [
-		{
-			"tag": "!",
-			"color": "#FF2D00",
-			"strikethrough": false,
-			"underline": false,
-			"backgroundColor": "transparent",
-			"bold": false,
-			"italic": false
-		},
-		{
-			"tag": "?",
-			"color": "#3498DB",
-			"strikethrough": false,
-			"underline": false,
-			"backgroundColor": "transparent",
-			"bold": false,
-			"italic": false
-		},
-		{
-			"color": "#474747",
-			"strikethrough": true,
-			"underline": false,
-			"backgroundColor": "transparent",
-			"bold": false,
-			"italic": false
-		},
-		{
-			"tag": "todo",
-			"color": "#FF8C00",
-			"strikethrough": false,
-			"underline": false,
-			"backgroundColor": "transparent",
-			"bold": false,
-			"italic": false
-		},
-		{
-			"tag": "*",
-			"color": "#98C379",
-			"strikethrough": false,
-			"underline": false,
-			"backgroundColor": "transparent",
-			"bold": false,
-			"italic": false
-		}
-	],
-
 	"bookmarks.backgroundLineColor": "",
 
 	"bookmarks.experimental.enableNewStickyEngine": true,
@@ -2764,12 +2671,6 @@
 	"bookmarks.useWorkaroundForFormatters": false,
 
 	"bookmarks.wrapNavigation": true,
-
-	"css.enabledLanguages": [
-		"html"
-	],
-
-	"css.styleSheets": [],
 
 	"prettier.arrowParens": "always",
 
@@ -2835,121 +2736,6 @@
 
 	"prettier.withNodeModules": false,
 
-	"auto-rename-tag.activationOnLanguage": [
-		"*"
-	],
-
-	"powermode.backgroundMode": null,
-
-	"powermode.comboThreshold": null,
-
-	"powermode.comboTimeout": null,
-
-	"powermode.customCss": null,
-
-	"powermode.customExplosions": null,
-
-	"powermode.enableComboCounter": null,
-
-	"powermode.enableComboTimer": null,
-
-	"powermode.enableShake": null,
-
-	"powermode.enableStatusBarComboCounter": null,
-
-	"powermode.enableStatusBarComboTimer": null,
-
-	"powermode.explosionDuration": null,
-
-	"powermode.explosionFrequency": null,
-
-	"powermode.explosionOffset": null,
-
-	"powermode.explosionOrder": null,
-
-	"powermode.explosionSize": null,
-
-	"powermode.gifMode": null,
-
-	"powermode.shakeIntensity": null,
-
-	"fontAwesomeAutocomplete.disableTriggerWordAutoClearPatterns": [
-		"**/*.html"
-	],
-
-	"fontAwesomeAutocomplete.enableElevatedSortPriority": true,
-
-	"fontAwesomeAutocomplete.insertionTemplate": {
-		"**/*.html": "{style} {prefix}{name}"
-	},
-
-	"fontAwesomeAutocomplete.patterns": [
-		"**/*.html"
-	],
-
-	"fontAwesomeAutocomplete.preview.backgroundColor": "#ffffff",
-
-	"fontAwesomeAutocomplete.preview.foregroundColor": "#000000",
-
-	"fontAwesomeAutocomplete.triggerCharacters": [
-		"f"
-	],
-
-	"fontAwesomeAutocomplete.triggerWord": "fa-",
-
-	"fontAwesomeAutocomplete.version": "5",
-
-	"colorize.colorized_colors": [
-		"BROWSERS_COLORS",
-		"HEXA",
-		"RGB",
-		"HSL"
-	],
-
-	"colorize.colorized_variables": [
-		"CSS"
-	],
-
-	"colorize.decoration_type": "background",
-
-	"colorize.enable_search_variables": true,
-
-	"colorize.exclude": [
-		"**/.git",
-		"**/.svn",
-		"**/.hg",
-		"**/CVS",
-		"**/.DS_Store",
-		"**/.git",
-		"**/node_modules",
-		"**/bower_components",
-		"**/tmp",
-		"**/dist",
-		"**/tests"
-	],
-
-	"colorize.hide_current_line_decorations": true,
-
-	"colorize.include": [
-		"**/*.css",
-		"**/*.scss",
-		"**/*.sass",
-		"**/*.less",
-		"**/*.styl"
-	],
-
-	"colorize.languages": [
-		"css",
-		"sass",
-		"scss",
-		"less",
-		"postcss",
-		"sss",
-		"stylus",
-		"xml",
-		"svg"
-	],
-
 	"gutterpreview.currentColorForSVG": "white",
 
 	"gutterpreview.enableReferenceLookup": false,
@@ -2965,60 +2751,6 @@
 	"gutterpreview.showUnderline": true,
 
 	"gutterpreview.sourceFolder": "src",
-
-	"colorful-comments.highlightPlainText": false,
-
-	"colorful-comments.multilineComments": true,
-
-	"colorful-comments.tags": [
-		{
-			"tag": "!",
-			"color": "#FF2D00",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "?",
-			"color": "#0076FF",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"color": "#474747",
-			"strikethrough": true,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "^",
-			"color": "#EAF622",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "*",
-			"color": "#28FF00",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "&",
-			"color": "#FF06A0",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "~",
-			"color": "#BE00FF",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		},
-		{
-			"tag": "todo",
-			"color": "#FF8C00",
-			"strikethrough": false,
-			"backgroundColor": "transparent"
-		}
-	],
 
 	"material-icon-theme.activeIconPack": "angular",
 
@@ -3116,6 +2848,7 @@
 	"liveServer.settings.proxy": {
 		"enable": false,
 		"baseUri": "/",
+		"proxyUri": "http://127.0.0.1:80"
 	},
 
 	"liveServer.settings.root": "/",
@@ -3145,128 +2878,17 @@
 		"php"
 	],
 
-	"html-to-css-autocompletion.includePattern": "",
+	"멍뭉이이름": "코리올라누스",
+	"멍뭉이사는곳":"제주도",
+	"멍뭉이출신지":"이탈리아",
+	"멍뭉이간식":"사시미",
 
-	"html-to-css-autocompletion.triggerCharacters": false,
+	"html-to-css-autocompletion.triggerCharacters": false
 
-	"errorLens.addAnnotationTextPrefixes": false,
-
-	"errorLens.addNumberOfDiagnostics": false,
-
-	"errorLens.annotationPrefix": [
-		"ERROR: ",
-		"WARNING: ",
-		"INFO: ",
-		"HINT: "
-	],
-
-	"errorLens.borderRadius": "3px",
-
-	"errorLens.delay": 0,
-
-	"errorLens.enabled": true,
-
-	"errorLens.enabledDiagnosticLevels": [
-		"error",
-		"warning",
-		"info"
-	],
-
-	"errorLens.enabledInMergeConflict": true,
-
-	"errorLens.enableOnDiffView": false,
-
-	"errorLens.errorGutterIconColor": "#e45454",
-
-	"errorLens.errorGutterIconPath": "",
-
-	"errorLens.exclude": [],
-
-	"errorLens.excludeBySource": [],
-
-	"errorLens.excludePatterns": [],
-
-	"errorLens.followCursor": "allLines",
-
-	"errorLens.followCursorMore": 0,
-
-	"errorLens.fontFamily": "",
-
-	"errorLens.fontSize": "",
-
-	"errorLens.fontStyleItalic": false,
-
-	"errorLens.fontWeight": "normal",
-
-	"errorLens.gutterIconsEnabled": false,
-
-	"errorLens.gutterIconSet": "default",
-
-	"errorLens.gutterIconsFollowCursorOverride": true,
-
-	"errorLens.gutterIconSize": "100%",
-
-	"errorLens.infoGutterIconColor": "#00b7e4",
-
-	"errorLens.infoGutterIconPath": "",
-
-	"errorLens.light": {},
-
-	"errorLens.margin": "4ch",
-
-	"errorLens.messageBackgroundMode": "line",
-
-	"errorLens.messageEnabled": true,
-
-	"errorLens.messageMaxChars": 500,
-
-	"errorLens.messageTemplate": "$message",
-
-	"errorLens.onSave": false,
-
-	"errorLens.onSaveTimeout": 1000,
-
-	"errorLens.padding": "",
-
-	"errorLens.removeLinebreaks": true,
-
-	"errorLens.replaceLinebreaksSymbol": "⏎",
-
-	"errorLens.scrollbarHackEnabled": false,
-
-	"errorLens.severityText": [
-		"ERROR",
-		"WARNING",
-		"INFO",
-		"HINT"
-	],
-
-	"errorLens.statusBarColorsEnabled": false,
-
-	"errorLens.statusBarCommand": "goToProblem",
-
-	"errorLens.statusBarIconsAlignment": "left",
-
-	"errorLens.statusBarIconsAtZero": "removeBackground",
-
-	"errorLens.statusBarIconsEnabled": false,
-
-	"errorLens.statusBarIconsPriority": -9000,
-
-	"errorLens.statusBarIconsUseBackground": true,
-
-	"errorLens.statusBarMessageAlignment": "left",
-
-	"errorLens.statusBarMessageEnabled": false,
-
-	"errorLens.statusBarMessagePriority": -10000,
-
-	"errorLens.statusBarMessageTemplate": "",
-
-	"errorLens.statusBarMessageType": "activeLine",
-
-	"errorLens.warningGutterIconColor": "#ff942f",
-
-	"errorLens.warningGutterIconPath": "",
-
-}
+},
+{
+	"야웅이름": "먼치킨",
+	"야웅사는곳":"평택항",
+	"야웅출신지":"뉴올리언즈",
+	"야웅간식":"참치"
+}]
