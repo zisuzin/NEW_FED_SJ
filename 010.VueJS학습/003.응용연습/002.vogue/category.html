@@ -90,31 +90,54 @@
                     </a>
                 </h1>
                 <!-- 1-3.GNB박스 -->
-                <nav class="gnb">
+                <nav class="gnb" id="gnb">
                     <ul>
                         <li>
-                            <a href="#">FASHION</a>
+                            <a href="#" @click.prevent="chgMenu">FASHION</a>
+                            <!-- 
+                                [ v-on 이벤트 디렉티브 ]
+
+                                1. 기본형 
+                                    v-on:이벤트명=값
+
+                                2. 축약형
+                                    @이벤트명=값
+
+                                3. 추가옵션(장식자)
+
+                                    (1) @이벤트명.prevent=값
+                                    -> event.preventDefault() 설정
+                                    -> 기본기능막기
+
+                                    (2) @이벤트명.stop=값
+                                    -> event.stopPropergation() 설정
+                                    -> 이벤트버블링막기
+
+                                    (3) @이벤트명.once=값
+                                    -> 이벤트가 한번만 적용되게함
+
+                             -->
                         </li>
                         <li>
-                            <a href="#">BEAUTY</a>
+                            <a href="#" @click.prevent="chgMenu">BEAUTY</a>
                         </li>
                         <li>
-                            <a href="#">LIVING</a>
+                            <a href="#" @click.prevent="chgMenu">LIVING</a>
                         </li>
                         <li>
-                            <a href="#">PEOPLE</a>
+                            <a href="#" @click.prevent="chgMenu">PEOPLE</a>
                         </li>
                         <li>
-                            <a href="#">VIDEO</a>
+                            <a href="#" @click.prevent="chgMenu">VIDEO</a>
                         </li>
                         <li>
-                            <a href="#">RUNWAY</a>
+                            <a href="#" @click.prevent="chgMenu">RUNWAY</a>
                         </li>
                         <li>
-                            <a href="#">TIME &amp; GEM</a>
+                            <a href="#" @click.prevent="chgMenu">TIME &amp; GEM</a>
                         </li>
                         <li>
-                            <a href="#">SHOPPING</a>
+                            <a href="#" @click.prevent="chgMenu">SHOPPING</a>
                         </li>
                         <li>
                             <!-- 돋보기 검색버튼 -->
@@ -130,7 +153,10 @@
         <div id="cont" class="bgc">
             <main class="ibx cont" v-for="(v,i) in items.data" v-if="v.경로===catName" v-bind:class="catName">
                 <!-- 
-                    
+                    v-bind:class="catName"
+                    클래스명을 뷰JS 데이터변수 catName에 할당된
+                    값이 클래스명으로 들어감!
+                    -> 미리셋팅된 배경이미지가 모두 나온다!
                  -->
                 <!-- 2-1. 카테고리 페이지 상단영역 -->
                 <header class="ctop">
@@ -139,30 +165,43 @@
                         {{v.제목}}
                     </h2>
                     <!-- 2-1-2.서브메뉴(LNB:Local Navigation Bar) -->
-                    <nav class="lnb"></nav>
+                    <nav class="lnb" v-if="v.메뉴!=='없음'">
+                        <ul>
+                            <li v-for="(m,i) in v.메뉴">
+                                <a href="#">
+                                    {{m}}
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </header>
                 <!-- 2-2. 카테고리 페이지 컨텐츠영역 -->
                 <div class="icont">
                     <section class="pt2">
                         <div class="cbx bgi bg1-1">
-                            <h2></h2>
+                            <!-- 
+                                v-html은 html코드 디렉티브
+                                v-text은 문자데이터 디렉티브
+                            
+                            -->
+                            <h2 v-html="v.타이틀[0]"></h2>
                         </div>
                         <div class="cbx bgi bg1-2">
-                            <h2></h2>
+                            <h2 v-html="v.타이틀[1]"></h2>
                         </div>
                         <div class="cbx bgi bg1-3">
-                            <h2></h2>
+                            <h2 v-html="v.타이틀[2]"></h2>
                         </div>
                     </section>
                     <section class="pt2">
                         <div class="cbx bgi bg2-1">
-                            <h2></h2>
+                            <h2 v-html="v.타이틀[3]"></h2>
                         </div>
                         <div class="cbx bgi bg2-2">
-                            <h2></h2>
+                            <h2 v-html="v.타이틀[4]"></h2>
                         </div>
                         <div class="cbx bgi bg2-3">
-                            <h2></h2>
+                            <h2 v-html="v.타이틀[5]"></h2>
                         </div>
                     </section>
                 </div>

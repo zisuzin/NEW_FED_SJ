@@ -133,6 +133,10 @@ body * {
     color: #fff;
 }
 
+.cbx h2 > small {
+    font-size: 14px;
+}
+
 
 /* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
 .ir {
