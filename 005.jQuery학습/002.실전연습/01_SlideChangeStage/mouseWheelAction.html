@@ -12,18 +12,6 @@
         }
         body{
             transition: all .2s;
-            height: 100vh;
-            overflow: hidden;
-            background-color: darkblue;
-        }
-
-        /* 주인공 */
-        #mymy {
-            position: absolute;
-            top: 40%;
-            left: 100%;
-            border-radius: 50%;
-            transition: .4s;
         }
 
         ul#letterBox {
@@ -57,7 +45,7 @@
             transition: all .2s ease-out;
         }
 
-        등장class
+        /*등장class*/
         #letterBox li.on span {
             transform: translateY(0) scale(1);
             opacity: 1;
@@ -80,7 +68,7 @@
         ////////// jQB ///////////////////////////////////
         $(function() {
             /////// 마우스휠 이벤트 ////////////////////// 
-            $(document).on("mousewheel DOMMouseScroll",
+            $(document).on("wheel",
                 function(e) {
                     /////// 광스크롤 막기 //////////////////
                     if (psts === 1) return true; //돌아가!
@@ -110,20 +98,24 @@
 
                     console.log("순번: " + pno);
 
-                    //// 4. 내맘대로~!!! 
-                    if (pno===1) {
-                        my.css({
-                            top:"20%",
-                            left:"50%",
-                        });
-                    }
-
-                    // 대상선정 : #mymy
-                    const my = $("#mymy");
+                    //// 4. 해당순번 li에 class넣기/빼기
+                    if (letter === 0) {
+                        $("#letterBox li").eq(pno - 1).addClass("on");
+                    } //// if //////////////////
+                    else if (letter === 1) {
+                        $("#letterBox li").eq(pno).removeClass("on");
+                    } //// else if ////////////////////
                 
+                    // 배경색 변경하기
+                    $("body").css({backgroundColor:colors[pno-1]});
+
+
                 }); /////////// on 이벤트 함수 ///////////
             ///////////////////////////////////////////////////
             ///////////////////////////////////////////////////
+
+
+
 
 
         }); ////////////// jQB ///////////////////////////
