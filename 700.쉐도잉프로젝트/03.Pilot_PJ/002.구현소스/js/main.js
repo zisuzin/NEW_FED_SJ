@@ -202,4 +202,42 @@ function addOn(seq){ // seq - 읽을 슬라이드 순번
 
 } ///////// addOn 함수 /////////////
 
+/*********************************** 
+    함수명: showTit
+    기능: 각 배너 타이틀 보이기
+***********************************/
+function showTit() {
+    // 1. 배너이동후 호출하여
+    // 해당배너의 순번에 맞는 타이틀을
+    // 동적으로 생성하여 애니메이션 한다!
+
+    // 1. 항상 도착후엔 두번째 슬라이드가 주인공이다!
+    // 슬라이드 순번은 1번!
+    // 슬라이드 클래스명 읽어오기(타이틀이 클래스명과 연관됨!)
+    let clsnm = slide.find("li").eq(1).attr("class");
+    let bantit = bantit[clsnm];
+
+    // 호출확인
+    console.log("배너타이틀!",clsnm,bantit);
+
+    // 모든 추가 타이틀 지우기
+    $(".btit").remove();
+
+    // 3. 타이틀을 넣을 요소를 배너에 추가한다!
+    mainban.append(`<h2 class="btit"></h2>`);
+
+    // 4. h2태그에 배너 타이틀 넣기
+    $(".btit").html(bantit)
+    .css({
+        position:"absolute",
+        top:"55%",
+        left:"50%",
+        transform:"translate(-50%)",
+        color:"#fff",
+        textShadow:"1px 1px 3px #777",
+        whiteSpace:"nowrap",
+        opacity: 1
+    });
+} // showTit 함수 // 
+
 
