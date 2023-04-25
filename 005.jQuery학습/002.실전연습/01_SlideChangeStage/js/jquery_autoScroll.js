@@ -119,6 +119,11 @@ function chkCrazy() {
 } // chkCrazy 함수 // 
 
 function movePg() {
+    $(html,body)
+    .stop()
+    .animate({
+        
+    })
     
 } // movePg // 
 
