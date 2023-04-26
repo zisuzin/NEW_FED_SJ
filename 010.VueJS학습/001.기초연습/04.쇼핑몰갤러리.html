@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>04.쇼핑몰 갤러리</title>
+        <link rel="stylesheet" href="./css/small.css" />
+
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <script src="./js/small.js" type="module"></script>
+        <script>
+            Vue.component("tit-comp",{
+                template:`
+                    <strong>
+                        <span>다이아나 쇼핑몰</span><br>
+                        Diana Shopping Mall
+                    </strong>
+                `,
+            }); // Vue 인스턴스 // 
+
+            // 큰이미지 보기 배경박스 컴포넌트 // 
+            Vue.component("win-comp",{
+                template:`
+                <!-- 큰이미지 배경박스 -->
+                <div id="bgbx">
+                    <!-- 오른쪽버튼 -->
+                    <a href="#" class="abtn rb">
+                        <span class="ir">오른쪽버튼</span>
+                    </a>
+                    <!-- 왼쪽버튼 -->
+                    <a href="#" class="abtn lb">
+                        <span class="ir">왼쪽버튼</span>
+                    </a>
+                    <!-- 닫기버튼 -->
+                    <a href="#" class="cbtn">
+                        <span class="ir">닫기버튼</span>
+                    </a>
+                    
+                    <!-- 큰이미지 박스 -->
+                    <div id="imbx">
+                        <!-- 큰 이미지 -->
+                        <img src="img_gallery/50.jpg" alt="큰 이미지">
+                        <!-- 이미지 설명 -->
+                        <h4></h4>
+                    </div>
+                </div>
+                `,
+            }); // win-comp 컴포넌트 // 
+
+            // win-comp 뷰JS 인스턴스 생성 // 
+            new Vue({
+                el:"#pbg",
+                mounted:function(){
+                    // [ 제이쿼리 기능구현 ]
+                    // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
+                    $(".grid>div").click(function(e){
+                        e.preventDefault();
+
+                        // 클릭된 이미지 경로 읽어오기
+                        let isrc = $(this).find("img").attr("src");
+                        console.log(isrc);
+
+                        // 클릭된 이미지 경로를 큰 이미지에 src로 넣기
+                        $(".imbx img").attr("src",isrc);
+
+                        // 큰이미지박스 보이기
+                        $("#bgbx").show();
+                    }); // click // 
+
+                    // 3. 이전/다음버튼 클릭시 이미지변경하기
+                    $(".abtn").click(function(e){
+                        e.preventDefault();
+                        // 오른쪽버튼 여부
+                        let isB = $(this).is(".rb");
+                        // 분기하기
+                        if(isB){ // 오른쪽버튼
+                            noewNum++;
+                            if(nowNum===51) nowNum=1;
+                        }
+                        else { // 왼쪽버튼
+                            noewNum--;
+                            if(nowNum===0) nowNum=1;
+                        }
+
+                        // 4. 큰 이미지 변경하기
+                        $(".imbx img")
+                        .attr("src",`img_gallery/${nowNum}.jpg`);
+                    });
+                }
+            })
+
+            
+        </script>
+    </head>
+
+    <body>
+        <!-- 타이틀 -->
+        <h1 class="tit">
+            <tit-comp></tit-comp>
+        </h1>
+        <!-- 그리드 레이아웃 박스 -->
+        <div class="grid">
+            <!-- 여기가 부모입니다!!! -->
+            <list-comp
+                v-for="(n,i) in 50"
+                v-bind:key="n"
+                v-bind:haha="n"
+                v-bind:myseq="i"
+                v-bind:endlet="'WD'"
+                v-on:hull="goMsg"
+                v-on:gotkimchi="ovMsg">
+            </list-comp>
+        </div>
+
+        <!-- 큰이미지보기 박스 -->
+        <div id="pbg">
+            <win-comp></win-comp>
+        </div>
+
+        <h2 class="tit2">
+            <tit-comp></tit-comp>
+        </h2>
+
+    </body>
+</html>

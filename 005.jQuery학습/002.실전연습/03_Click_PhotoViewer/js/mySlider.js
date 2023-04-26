@@ -1,7 +1,6 @@
-// 무한이동 드래그&클릭형 배너 JS - drag.js
+// 슬라이드 공통 기능함수 ////
 
-// 제이쿼리 코드 블록 /////////////////////
-$(() => {
+function mySlider(ele){ // ele - 대상요소
 
     // 호출확인
     console.log("로딩완료!");
@@ -24,30 +23,31 @@ $(() => {
 
     ************************************/
 
-
-    // 이벤트 대상: .abtn
-    // 이벤트 : click() 메서드 사용
-    // 양쪽버튼 구분 : .lb(왼쪽버튼) / .rb(오른쪽버튼)
-    // 변경대상: #viewer ul
-    // 변경내용: 슬라이드의 left값을 이동하여 애니메이션함!
-    let slide = $("#viewer ul");
-
+   
+   // 이벤트 대상: .abtn
+   // 이벤트 : click() 메서드 사용
+   // 양쪽버튼 구분 : .lb(왼쪽버튼) / .rb(오른쪽버튼)
+   // 변경대상: #viewer ul
+   // 변경내용: 슬라이드의 left값을 이동하여 애니메이션함!
+    let slide = $(ele).find(".viewer ul");
+    
     // 변경에 사용할 제이쿼리 메서드: 
     // animate({CSS속성},시간,이징,함수)
 
     // 변경대상: 블릿 - #indic li
-    let indic = $("#indic li");
-
+    let indic = $(ele).find(".indic li");
+    
     // 광클 금지상태변수
     let prot = 0; // 1-불허용, 0-허용
-
+    
     // 애니메이션 시간 변수
     const aniT = 600;
-
+    
     // 애니메이션 이징 변수
     const aniE = "easeOutCubic";
 
-    $(".abtn").click(function () {
+    $(ele).find(".abtn").click(function (e) {
+        e.preventDefault();
 
         // console.log("진입:",prot);
 
@@ -255,9 +255,10 @@ $(() => {
          - 대상: #indic li -> indic변수
          - 이벤트: click -> click() 메서드
     ****************************************/
-         indic.click(function () {
+         indic.click(function (e) {
+            e.preventDefault();
 
-            /// 광클금지 ////////
+            /// 광클금지 //
             if (prot) return;
             prot = 1; //잠금!
             setTimeout(() => prot = 0, aniT);
@@ -420,20 +421,21 @@ $(() => {
      // 1. 드래그 설정하기 : x축고정
      slide.draggable({axis:"x"});
 
+     
      // 2. 가로크기 기준값 설정하기
      const sldW = $("#viewer").width();
-     console.log("슬라이드width:",sldW);
+     //  console.log("슬라이드width:",sldW);
 
      // 왼쪽으로 드래그시 튐현상방지 위해 위치보정값 공유하기!
     let spos = 0;// 클릭시엔 0이 필요하다!
-
-
-     // 3. 드래그 끝날때 방향설정하기
-     // 처음 left값은 0이다!
-     // 100px기준으로 방향을 결정한다!
-     // 드래그 멈춤 이벤트에서 함수설정
-     slide.on("dragstop",function(){
-
+    
+    
+    // 3. 드래그 끝날때 방향설정하기
+    // 처음 left값은 0이다!
+    // 100px기준으로 방향을 결정한다!
+    // 드래그 멈춤 이벤트에서 함수설정
+    slide.on("dragstop",function(){
+        
         // 슬라이드의 left값 (#viewer>ul의 left값)
         spos = slide.position().left;
         // offset().left 는 전체 화면을 기준한 left값
@@ -450,17 +452,17 @@ $(() => {
         }, aniT);
 
         // (1) 왼쪽방향일때 -> 오른쪽버튼 클릭시
-        if(spos < -50) $(".rb").trigger("click");
+        if(spos < -50) $(ele).find(".rb").trigger("click");
         // (2) 오른쪽방향일때 -> 왼쪽버튼 클릭시
-        else if(spos > 50) $(".lb").trigger("click");
+        else if(spos > 50) $(ele).find(".lb").trigger("click");
         // (3) 기타 제자리!
         else slide.animate({left:"0"},300);
 
      }); ////////// dragstop //////////////
 
 
+} ////////////////// mySlider 함수 ////////////////
 
 
-
-
-}); //////////////// jQB ////////////////////
+// 함수내보내기
+export default mySlider;
