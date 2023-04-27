@@ -15,10 +15,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script>
             $(() => {
-
-                console.log("로딩완료!");
-
-                
                 /////////// jQB //////////////////////
 
                 // 0. 상품정보생성을 위한 생성자함수
@@ -35,7 +31,7 @@
                 // 1. 뷰JS 인스턴스 생성하기
                 const vm = new Vue({
                     // 1. 대상선정
-                    // el: "#vapp",
+                    el: "#vapp",
                     // 대상은 꼭 아이디요소일 필요는 없다!
                     // 클래스나 일반요소로 쓰면 만나는 첫번째 대상만 적용함!
                     // 2. 데이터 설정
@@ -105,7 +101,7 @@
                         $(".tit").hide().delay(1000).slideDown(300);
 
                         // 2. 상품목록 숨겼다 보이기
-                        $(".glist").hide().delay(200).fadeIn(400);
+                        $(".glist").hide().delay(2000).fadeIn(400);
                     }, //////////// mounted ///////////
 
                     /// 뷰인스턴스 초기화 완료단계인 created
@@ -137,7 +133,7 @@
 
                 // 외부에서 el옵션 대상선정을 따로 할 수 있다!
                 // 단, 인스턴스 내부에 el이 없는 경우!
-                vm.$mount("#vapp");
+                // vm.$mount("#vapp");
 
             }); ////////////// jQB //////////////////////
         </script>
@@ -218,7 +214,7 @@
                     <li v-for="(a,b) in item" v-if="b==='name'">반스명:{{a}}</li>
 
                     <!-- 상품가격출력 -->
-                    <li v-for="(a,b) in item" v-if="b==='price'">가격:{{numberWithCommas(a)}}원</li>
+                    <li v-for="(a,b) in item" v-if="b==='price'">가격: {{numberWithCommas(a)}}원</li>
                 </ol>
             </div>
         </div>

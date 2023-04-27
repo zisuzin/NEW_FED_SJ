@@ -27,8 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
     // 3. 등장액션 대상 위치값 리턴함수/////
     const retVal = (ele) => ele.getBoundingClientRect().top;
 
-    // ***********************************
-
     /********************************** 
         스크롤 등장액션 기능구현하기
    **********************************/
