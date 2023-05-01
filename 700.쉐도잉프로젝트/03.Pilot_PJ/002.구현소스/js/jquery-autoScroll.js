@@ -46,6 +46,10 @@ function autoScroll() {
         -> 한페이지씩 자동스크롤 기능
     ****************************************/
     function wheelFn() {
+
+        // 모바일일때 작동정지
+        if(mob) return;
+
         // 광휠금지
         if (prot[0]) return;
         chkCrazy(0);
@@ -149,7 +153,7 @@ function autoScroll() {
         기능: 등장요소 처음상태 셋팅
     *******************************************/
     function initSet() {
-        // 1. 초기화하기 ///////////
+        // 1. 초기화하기 //
         // 대상: .imgc
         $(".imgc").css({
             transform: "rotate(45deg)",
@@ -168,8 +172,8 @@ function autoScroll() {
         }); /////////// css ///////////
     } ////////////// initSet 함수 //////////////
 
-    // 초기화함수 호출
-    initSet();
+    // 초기화함수 호출 -> 모바일이 아닐때만 호출!
+    if(!mob) initSet();
 
     /**************************************** 
         함수명: actPage
