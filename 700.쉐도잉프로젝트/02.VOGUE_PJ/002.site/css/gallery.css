@@ -19,7 +19,7 @@
     font-weight: normal;
     font-size: 50px;
     text-align: center;
-    padding: 40px 0 20px;    
+    padding: 40px 0 20px;
 }
 
 /* 2-2. 서브 컨텐츠 박스 */
@@ -35,9 +35,9 @@
     max-width: 1300px;
     height: 500px;
     margin: 0 auto;
-  }
+}
 
-/* 스와이퍼 리스트 */
+/* 스와이퍼 개별 슬라이드 리스트 */
 .swiper-slide {
     text-align: center;
     font-size: 18px;

@@ -6,7 +6,6 @@
 @import url(reset.css);
 @import url(core.css);
 @import url(common.css);
-@import url(ani.css);
 
 /* 공사중 표시 */
 /* body * {
@@ -20,7 +19,7 @@ body{
     /* 콤마로 구분하여 여러 배경이미지를 넣을 수 있고
     먼저쓴 이미지가 위에 온다! */
     background: 
-    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 20%/10%,
+    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 28%/10%,
     url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
     /* 외부CSS에서 이미지 경로를 잡을때 주의사항!
     -> CSS파일 위치에서 이미지를 찾아가야함! */
@@ -32,6 +31,7 @@ body{
 /* 메인영역 속박스 */
 .cont{
     position: relative;
+    /* 부모자격 - #mvtxt */
     overflow: hidden;
     /* 자식요소 위,아래 마진 포함 */
 }
@@ -141,7 +141,7 @@ body{
     height: 250px;
 }
 /* 중간 미디어쿼리에서 겹쳐질때 위로 올라오도록 설정추가 */
-.cat:hover {
+.cat:hover{
     z-index: 1;
 }
 
@@ -218,3 +218,4 @@ body{
     right: 5vw;
     width: min(20vw,327px);
 }
+

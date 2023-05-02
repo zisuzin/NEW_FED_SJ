@@ -31,10 +31,9 @@ font-family: 'Roboto Condensed', sans-serif;
 */
 
 /* 공사중 표시 */
-body * {
-    /* outline: 1px dashed gray; */
-    user-select: none;
-}
+/* body * {
+    outline: 1px dashed gray;
+} */
 
 /************* 2. 공통 class *************/
 
@@ -133,6 +132,21 @@ body * {
     color: #fff;
 }
 
+/* 4. 스크롤 등장액션 클래스 */
+.scAct {
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+}
+/* 등장클래스+.on */
+.scAct.on {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
 
 /* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
 .ir {
@@ -146,4 +160,5 @@ body * {
 .bgc{
     background-color: #f9f9f9;
 }
+
 

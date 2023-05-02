@@ -66,17 +66,24 @@ body.on #top{
 /* 키프레임 */
 
 /* 4. 애니메이션 진행중 오버시 이벤트 막아주는 가림막애니 */
-body.on::after {
+body.on::after{
     content: '';
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 99999;
     width: 100vw;
     height: 100vh;
-    z-index: 99999;
-    background-color: blue;
-    opacity: 0.5;
+    /* background-color: blue;
+    opacity: 0.5; */
 
-    /* 애니메이션: 이시이지반방마 */
+    /* 애니메이션: 이시지이반방마 */
     animation: cover .1s 6.5s forwards;
 }
+/* 가림막 키프레임 */
+@keyframes cover {
+    to{
+        height: 0;
+    }
+}
+/* 가림막 키프레임 */

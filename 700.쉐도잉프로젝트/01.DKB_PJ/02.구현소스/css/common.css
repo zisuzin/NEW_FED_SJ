@@ -85,7 +85,6 @@ nav.gnb ul {
         /* 트랜지션 */
         transition: 0.45s ease-out;
     }
-    
     /* 상위메뉴 오버시 서브배경보이기 */
     .gnb > ul > li.sm:hover::before {
         border-bottom: 2px solid red;

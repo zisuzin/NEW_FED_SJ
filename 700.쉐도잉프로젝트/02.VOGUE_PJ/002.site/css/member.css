@@ -7,12 +7,6 @@
 @import url(./core.css);
 @import url(./common.css);
 
-/* 가로스크롤 설정변경 
-- 부드러운스크롤시 문제발생했음 */
-/* html,body{
-    overflow-x: visible;
-} */
-
 /* 컨텐츠 영역 속박스 */
 .cont{
     min-height: 700px;
@@ -32,7 +26,7 @@
 
 /* 2-2. 서브 컨텐츠 박스 */
 .scont{
-    /* 처음에 안보임
+    /* 처음에 회원가입 박스안보임 
     -> 대신 동의박스가 보임 */
     display: none;
     max-width: 700px;
@@ -183,7 +177,7 @@ select:focus {
     box-sizing: border-box;
     background-color: #fff;
     padding: 15px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 /* 동의/비동의 버튼박스 */
@@ -197,7 +191,7 @@ select:focus {
     border: 1px solid #737373;
     border-radius: 5px;
     color: #fff;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     background-image: linear-gradient(to bottom, #ddd, #555);
     margin: 0 20px;
@@ -265,3 +259,4 @@ select:focus {
 }
 
 /* 미디어쿼리 690px 이하 끝 */
+

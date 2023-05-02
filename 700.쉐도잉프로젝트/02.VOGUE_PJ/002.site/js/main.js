@@ -73,16 +73,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // 스크롤 이벤트 셋팅하기 //////////
     window.addEventListener("scroll", () => {
+
         // 현재스크롤위치
         scTop = window.scrollY;
         // cg(scTop);
 
-        // 상단영역 슬림메뉴 적용하기 //
-        if (scTop >= 100) topA.classList.add("on");
+        // 상단영역 슬림메뉴 적용하기 + !mobsts -> 0일때(DT일때)만 적용 //
+        if (scTop >= 100 && !mobsts) topA.classList.add("on");
         else topA.classList.remove("on");
 
-        // 위로이동버튼 보이기/숨기기 //
-        if (scTop >= 300) tbtn.classList.add("on");
+        // 위로이동버튼 보이기/숨기기 + !mobsts -> 0일때(DT일때)만 적용 //
+        if (scTop >= 300 && !mobsts) tbtn.classList.add("on");
         else tbtn.classList.remove("on");
 
         // 값확인하기
@@ -99,8 +100,11 @@ window.addEventListener("DOMContentLoaded", () => {
         // 기본이동막기
         e.preventDefault();
         // 부드러운 스크롤 전역 스크롤값을
-        // 0으로 변경하여 최상단으로 이동함!
+        // 0으로 변경하여 위치값 일치시킴!
         pos = 0;
+
+        // 위치이동하기
+        window.scrollTo(0,0);
     }; /////////////// click ///////////////
 
 
