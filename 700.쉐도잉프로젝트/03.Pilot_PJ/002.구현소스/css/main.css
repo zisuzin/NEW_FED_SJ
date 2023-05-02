@@ -6,13 +6,24 @@
 @import url(core.css);
 @import url(common.css);
 
+html, body {
+    overflow: visible;
+}
 
-/* 2. 페이지영역 */
-/* 개별 페이지 셋팅 */
+.swiper-wrapper {
+    display: flex;
+}
+
+/* 스와이퍼 디자인설정 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
 
 /********** 2-1.배너영역 ************/
 #ban {
     position: relative;
+    height: 100vh;
     /* 부모자격 - .slide */
 }
 /* 슬라이드 박스 */
@@ -32,6 +43,7 @@
     flex: 1;
     /* 부모 flex박스 영역을 등분할 함!(height도 자동으로 100%) */
 }
+
 /* 각 슬라이드 셋팅 */
 .slide li.ban1{
     background: url(../images/ban01New.jpg) no-repeat center/cover;
