@@ -94,11 +94,6 @@ const comData = {
                 <li>
                     <a href="#style">SPORT STYLE</a>
                 </li>
-                
-
-
-
-
             </ul>
         </nav>
 
