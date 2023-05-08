@@ -13,6 +13,8 @@
         => 뷰 인스턴스에서 data와 유사
     2. mutations (돌연변이) : 변수의 데이터를 변경하는 메서드구역
         => 뷰 인스턴스에서 methods와 유사
+
+        => actions 와 mut
     3. actions (활동) : 비동기 처리 메서드 구역
 
     [ 뷰엑스 스토어 처리순서 ]
@@ -101,6 +103,13 @@ const store = new Vuex.Store({
             state.desc = param.txt;
 
         }, ////// initSet 메서드 /////
+
+        // (3) 백엔관련 코딩 비동기처리 메서드 구역 : 호출시 dispatch 사용
+        actions: {
+            myAct(헝,병){
+                console.log("나의액션:",헝,병);
+            }
+        }
     }
 }); /////////// 뷰엑스 인스턴스 ////////
 
