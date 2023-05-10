@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>큰 이미지 마우스무브 이동뷰어</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        /*부모박스*/
+        #wrap{
+            position: relative;
+            /*부모자격*/
+            width: 100%;
+            height: 100%;
+        }
+        
+        /*이미지박스*/
+        #imgbox{
+            position: absolute;
+            width: 3000px;
+            height: 1999px;
+            background: url(images/city.jpg) no-repeat;
+            /*트랜지션*/
+            transition: all 2s ease-out;
+        }
+        
+        /*마우스무브 처리용 커버박스*/
+        #cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+    <script src="js/jquery-1.8.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.min.js"></script>
+    <script>
+        $(()=>{////////////////// jQB ////////////////////
+
+            // 1. 대상선정
+            // (1) 이미지박스
+            const imbx = $("#imgbox");
+            // (2) 커버박스
+            const cover = $("#cover");
+
+            // 2. 처음에 정중앙 위치하기
+            // (1) 중앙위치 top값 : (윈도화면높이 - 이미지박스높이)/2
+            let cTop = ($(window).height() - imbx.height()) / 2;
+            // (2) 중앙위치 left값 : (윈도화면가로폭 - 이미지박스가로폭)/2
+            let cLeft = ($(window).width() - imbx.width()) / 2;
+
+            // 3. 이미지박스 중앙위치하기
+            imbx.css({
+                top: cTop+"px",
+                left: cLeft+"px"
+            }); /////// css //////
+
+            // 4. 이미지박스 움직일 값을 위한 비례식만들기
+            // 마우스최대값 : 마우스이동값 = 이미지이동최대값 : 이미지이동값
+            // 마최 : 마이 = 이최 : 이이
+            // 이이 = 마이 * 이최 / 마최
+
+            // 이미이동최대값(이최) top,left
+            let iTopMax = $(window).height() - imbx.height();
+            let iLeftMax = $(window).width() - imbx.width();
+
+            // 마우스최대이동값(마최) top,left
+            let mTopMax = $(window).height();
+            let mLeftMax = $(window).width();
+
+            // 마우스이동값(마이) 
+            // -> 대상에서 pageX, pageY 이벤트 마우스 포인터 위치값으로 구함!
+            // 이벤트 대상: #cover -> cover변수
+            let mPosX, mPosY;
+
+            // 5. 위의 비례식에 맞게 실제 이동값으로 적용하기
+            // 이벤트 대상: #cover -> cover변수
+            cover.mousemove(function(e){
+                // 1. 마우스 위치값 구하기
+                mPosX = e.pageX;
+                mPosY = e.pageY;
+
+                console.log(`x:${mPosX}\ny:${mPosY}`);
+
+                // 2. 비례식 계산적용하기
+                // 이이 = 마이 * 이최 / 마최
+                // 마이 -> mPosX, mPosY
+                // 마최 -> mTopMax, mLeftMax
+                // 이최 -> iTopMax, iLeftMax
+
+                // 이미지 y축이동값 : 마이 * 이최 / 마최
+                let iPosY = mPosY * iTopMax / mTopMax;
+
+                // 이미지 x축이동값 : 마이 * 이최 / 마최
+                let iPosX = mPosX * iLeftMax / mLeftMax;
+
+                // 3. 실제 이미지 위치이동 적용하기
+                imbx.css({
+                    top: iPosY + "px",
+                    left: iPosX + "px"
+                }); /////////// css /////////////
+
+            }); /////////// mousemove //////////////////
+
+
+
+
+
+
+
+
+        }); //////////////////// jQB ////////////////////
+    </script>
+    
+</head>
+<body>
+   <!--전체부모박스-->
+    <div id="wrap">
+        <div id="imgbox"></div>
+        <div id="cover"></div>
+    </div>
+    
+</body>
+</html>
