@@ -1,5 +1,4 @@
 // 서브 data 객체 셋팅 JS - data-sub.js
-
 const subData = {
     // 배너영역
     banner:`
@@ -7,9 +6,7 @@ const subData = {
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" 
-                    v-for="v in $store.state.cnt"
-                    v-bind:key="v">
+                    <div class="swiper-slide" v-for="v in $store.state.cnt" v-bind:key="v">
                         <img 
                         v-bind:src="
                         './images/sub/'+
@@ -17,7 +14,7 @@ const subData = {
                         '/banner/ban'+
                         v+
                         '.png'
-                        " alt="서브배너이미지" />
+                        " alt="서브배너이미지"/>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>

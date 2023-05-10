@@ -8,8 +8,10 @@ import comData from "./tempData/data-common.js";
 import subData from "./tempData/data-sub.js";
 // 신상정보
 import sinsang from "./gdsData/sinsang.js";
+
 // 뷰엑스 스토어 JS 가져오기
 // 중요! 반드시 메인JS파일 한군데서 불러와 써야 상태관리됨!
+// -> 이 JS파일에 Vue 인스턴스 생성코드가 같이 있어야한다!
 import store from "./store.js";
 
 // 스와이퍼 변수
@@ -28,10 +30,6 @@ new Vue({
     store, // 뷰엑스 스토어 등록필수!!!
 }); ////////// 상단영역 Vue component //////////
 
-
-
-
-
 //###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp", {
@@ -47,6 +45,7 @@ Vue.component("foot-comp", {
 // new Vue({옵션})
 new Vue({
     el: "#top",
+    store, // 뷰엑스 스토어 사용하려면 등록필수!
     data: {},
     // mounted 실행구역: DOM연결후
     mounted: function () {
@@ -72,7 +71,14 @@ new Vue({
 
         // 스크롤리빌 플러그인 적용호출!
         $.fn.scrollReveal();  
-         
+
+        // 전체메뉴클릭시 전체메뉴창 닫기
+        $(".mlist a").click(
+            ()=>$(".ham").trigger("click"));
+            // $선택요소.trigger(이벤트명)
+            // -> 선택요소의 이벤트 강제발생함!
+            // 참고) JS 클릭이벤트 강제발생
+            // document.querySelector().click()
     },
     // created 실행구역 : DOM연결전
     created: function () {
