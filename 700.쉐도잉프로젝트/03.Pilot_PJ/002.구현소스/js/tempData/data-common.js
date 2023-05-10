@@ -80,11 +80,7 @@ const comData = {
         <!-- 1-2.GNB메뉴 : 3개(배너,하단제외) -->
         <nav class="gnb">
             <ul>
-                <li class="bld">배너순번 li 숨기기</li>
-                <li
-                v-for="(v,i) in $store.state.menu">
-                    <a v-bind:href="'#c'+(i+1)">{{v}}</a>
-                </li>
+                <li class="bld">배너순번 li 숨기기</li>+
             </ul>
         </nav>
 
