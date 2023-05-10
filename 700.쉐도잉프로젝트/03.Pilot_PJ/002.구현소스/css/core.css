@@ -122,20 +122,58 @@
     font: bold 4.6rem UB;
     letter-spacing: 3px;/* 자간 */
 }
-
 .txtc a{
     color: #222;
 }
 
-
 /* 등장액션 플러그인용 클래스 */
 .js-reveal {
     opacity: 1;
-    transition: opacity .7s ease-in, margin-top .7s ease-out;
-}
-
-.js-reveal--hidden {
+    transform: translateY(0px);
+    transition: opacity .7s ease-in, transform .7s ease-out;
+  }
+  
+  .js-reveal--hidden {
     opacity: 0;
-    transform: translateY(100px);
-}
+    transform: translateY(200px);
+  }
+  /* a요소는 트랜스폼이 적용되도록 display:inline-block으로 변경 */
+  a.js-reveal{
+    display: inline-block;
+  }
 
+  .jr1.js-reveal {
+    opacity: 1;
+    transform: none;
+    overflow: hidden;
+    height: 100vh;
+    transition: .7s ease-out 1s;
+  }
+  
+  .jr1.js-reveal--hidden {
+    height: 0;
+  }
+
+
+  .jr2.js-reveal {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    overflow: hidden;
+    
+  }
+  .jr2.js-reveal::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    background-color: darkblue;
+
+    
+    transition: .7s ease-out 1.2s;
+  }
+  
+  .jr2.js-reveal--hidden::after {
+    height: 100%;
+  }

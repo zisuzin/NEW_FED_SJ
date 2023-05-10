@@ -49,7 +49,7 @@ new Vue({
         // 속도는 0.1~0.9
 
         // 스크롤리빌 플러그인 적용호출!
-        $.fn.scrollReveal();
+        $.fn.scrollReveal();  
          
     },
     // created 실행구역 : DOM연결전
