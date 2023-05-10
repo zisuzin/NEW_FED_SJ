@@ -11,5 +11,5 @@ let sinsang = {
     "m9": "[남성]남성 루즈핏 슬리브리스^DMSL6C731-MG ^59,000원"
   };
 
-// 내보내기 //   
-export default sinsang;
+  // 내보내기 //////////
+  export default sinsang;
