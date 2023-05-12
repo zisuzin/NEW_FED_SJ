@@ -15,6 +15,13 @@ Vue.component("tit-comp", {
 // 뷰인스턴스 생성하기 : 반드시 컴포넌트 아래에서 함!
 makeVue(".tit");
 
+// new Vue({
+//     el:".tit"
+// })
+// new Vue({
+//     el:".tit2"
+// })
+
 // 숫자증감 변수
 let num = 0;
 
