@@ -1,0 +1,30 @@
+[
+    {
+        "idx":1,
+        "gname":"나는야옷이야1",
+        "category": "men",
+        "gprice": "23000"
+
+    },
+    {
+        "idx":2,
+        "gname":"나는야옷이야2",
+        "category": "men",
+        "gprice": "33000"
+
+    },
+    {
+        "idx":3,
+        "gname":"나는야옷이야2",
+        "category": "women",
+        "gprice": "33000"
+
+    },
+    {
+        "idx":4,
+        "gname":"나는야옷이야2",
+        "category": "women",
+        "gprice": "33000"
+
+    }
+]
