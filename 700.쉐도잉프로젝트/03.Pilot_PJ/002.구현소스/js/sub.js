@@ -246,8 +246,6 @@ function sinsangFn() {
         // 2. gBCR 값 구하기
         let gBCR = tgpos - scTop;
 
-        // console.log("gBCR:", gBCR);
-
         // 3. 신상품 리스트 이동/멈춤 분기하기
         // (1) 이동기준 gBCR값이 화면높이보다 작고 0보다 클때 이동
         if (gBCR < winH && gBCR > -300 && sc_sts===0) {
