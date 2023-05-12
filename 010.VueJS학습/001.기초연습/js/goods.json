@@ -1,8 +1,4 @@
 [
-{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"mydb"},
-{"type":"table","name":"goods","database":"mydb","data":
-[
 {"idx":"1","gname":"product_name1","category":"women\/dress","gprice":"330000"},
 {"idx":"2","gname":"product_name2","category":"women\/dress","gprice":"330000"},
 {"idx":"3","gname":"product_name3","category":"women\/dress","gprice":"330000"},
@@ -203,6 +199,4 @@
 {"idx":"198","gname":"product_name198","category":"women\/dress","gprice":"330000"},
 {"idx":"199","gname":"product_name199","category":"women\/dress","gprice":"330000"},
 {"idx":"200","gname":"product_name200","category":"women\/dress","gprice":"330000"}
-]
-}
 ]
