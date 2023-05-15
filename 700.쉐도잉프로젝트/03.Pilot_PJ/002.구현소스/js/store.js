@@ -5,7 +5,7 @@ const store = new Vuex.Store({
         subData: {
             남성: {
                 // 남성메뉴
-                menu: ["NEW ARRIVAL", "WINDBREAKER", "BEACH STYLE", "SPORT STYLE"],
+                menu: ["NEW MEN'S ARRIVAL", "NEW ARRIVAL", "WINDBREAKER", "BEACH STYLE", "SPORT STYLE"],
                 // 배너개수
                 cnt: 3,
                 // 카테고리명
@@ -13,7 +13,7 @@ const store = new Vuex.Store({
             },
             여성: {
                 // 여성메뉴
-                menu: ["NEW ARRIVAL", "SPORTY FASHION", "FREE STYLE", "COMFORTABLE STYLE"],
+                menu: ["NEW WOMEN'S ARRIVAL", "NEW ARRIVAL", "SPORTY FASHION", "FREE STYLE", "COMFORTABLE STYLE"],
                 // 배너개수
                 cnt: 3,
                 // 카테고리명
@@ -21,7 +21,7 @@ const store = new Vuex.Store({
             },
             스타일: {
                 // 스타일메뉴
-                menu: ["NEW ARRIVAL", "GOLF LIFE", "CAMPING STYLE", "SPORT STYLE"],
+                menu: ["SPECIAL SUMMER STYLE", "NEW ARRIVAL", "GOLF LIFE", "CAMPING STYLE", "SPORT STYLE"],
                 // 배너개수
                 cnt: 5,
                 // 카테고리명
