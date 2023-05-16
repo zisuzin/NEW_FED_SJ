@@ -75,6 +75,11 @@ Vue.component("cont4-comp", {
     template: subData.cont4,
 }); ////////// 상단영역 Vue component //////////
 
+// 6. 상세보기 영역 컴포넌트
+Vue.component("detail-comp", {
+    template: subData.detail,
+}); ////////// 상단영역 Vue component //////////
+
 //###### 서브영역 뷰 인스턴스 셋팅하기 #######
 new Vue({
     el: "#cont",
@@ -125,11 +130,14 @@ new Vue({
         $.fn.scrollReveal();
 
         // 전체메뉴클릭시 ///////////
-        $(".mlist a").click(() => {
+        $(".mlist a").click((e) => {
+            // 1. 기본이동막기
+            e.preventDefault();
             // 1. 전체메뉴창 닫기
             $(".ham").trigger("click");
-            // 2. 부드러운 스크롤 위치값 업데이트
+            // 2. 부드러운 스크롤 위치값 업데이트 + 맨위이동
             sc_pos = 0;
+            $('html,body').animate({scrollTop:"0"},1);
             // 3. 스와이퍼 첫번째 슬라이드로 이동!
             swiper.slideTo(0);
             // 첫슬라이드는 0번: 스와이퍼 API이용!
@@ -169,6 +177,24 @@ new Vue({
 
             // 5. 부드러운 스크롤 변수에 현재위치값 업데이트!
             sc_pos = newpos;
+
+            /***************************************************** 
+            [ history.phshState() 메서드 ]
+
+            1. 브라우저 세션 기록 스택항목 추가메서드
+            2. 비동기식으로 작동함(주소이동없이 주소만 업데이트됨!)
+            3. 전달값 :
+                history.phshState(상태,사용안됨,URL)
+
+                (1) 상태 : 새로운 페이지 이동시 popstate가 됨
+                (2) 사용안됨 : 전부터 사용되던 전달값.지금사용안됨
+                    보통 (1),(2)는 null로 셋팅함
+                (3) URL : 이 주소는 현재 페이지가 포함된
+                    주소 카테고리(폴더)를 기준으로 작성됨
+
+            4. 사용기본폼 : 
+                history.phshState(null,null,"my.html?hi=bye") 
+            *****************************************************/
         }); //////////// click /////////
 
         // 로고 클릭시 첫페이지로 이동!!!
