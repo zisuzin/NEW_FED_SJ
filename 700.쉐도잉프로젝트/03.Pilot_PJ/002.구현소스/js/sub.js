@@ -165,6 +165,9 @@ new Vue({
                 history.pushState(null,null,"my.html?hi=bye") 
             *****************************************************/
 
+            // 6. 상세보기 박스가 열려있을 경우 닫기
+            $("#bgbx").hide();
+
 
         });
         // $(선택요소).trigger(이벤트명)
@@ -225,8 +228,15 @@ new Vue({
             store.state.gcode = ginfo[1];
             store.state.gprice = ginfo[2];
 
+            // 4. 슬라이드 애니메이션 하여 나타나기!
+            $("#bgbx").slideDown(400);
 
         }); /////////////// click ///////////
+
+        // 상세보기 박스 담기
+        $(".cbtn").click(e=>{
+            e.preventDefault();
+        })
 
     }, ///////////// mounted ///////////////
     // created 실행구역 : DOM연결전
