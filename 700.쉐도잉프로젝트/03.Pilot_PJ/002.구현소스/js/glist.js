@@ -30,4 +30,8 @@ new Vue({
     el:".wrap",
     store,// 스토어등록!
     router,// 라우터등록!
+    mounted(){
+        // 첫번째 라우터 강제실행!
+        this.$router.push('/glist');
+    }
 })
