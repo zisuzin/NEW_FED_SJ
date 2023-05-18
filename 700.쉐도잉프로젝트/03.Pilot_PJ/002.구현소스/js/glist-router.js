@@ -113,36 +113,40 @@ let Paging = {
 let More = {
     template: `
     <section>
-    <!-- 상품리스트박스 -->
-    <div class="grid">
-        <div 
-        v-for="
-            (v,i) in $store.state.gdata
-        "
-        v-if="
-            v.idx >= 1 + $store.state.pnum && 
-            v.idx <= 10 + $store.state.pnum
-        ">
-            [{{v.idx}}]<img 
-                v-bind:src="
-                './images/goods/'+
-                v.cat +
-                '/'+v.ginfo[0]+'.png'  
-                " alt="dress" />
-            <aside>
-                <h2>{{v.ginfo[1]}}</h2>
-                <h3>{{v.ginfo[3]}}</h3>
-            </aside>
+        <!-- 상품리스트박스 -->
+        <div class="grid">
+            <div 
+            v-for="
+                (v,i) in $store.state.gdata
+            "
+            v-if="
+                v.idx >= 1 && 
+                v.idx <= 5 + $store.state.mnum
+            ">
+                [{{v.idx}}]<img 
+                    v-bind:src="
+                    './images/goods/'+
+                    v.cat +
+                    '/'+v.ginfo[0]+'.png'  
+                    " alt="dress" />
+                <aside>
+                    <h2>{{v.ginfo[1]}}</h2>
+                    <h3>{{v.ginfo[3]}}</h3>
+                </aside>
+            </div>
         </div>
-    </div>
 
-    <!-- 모어버튼 표시구역 -->
-    <div id="paging">
-        <button class="more" @click.prevent="">
-        </button>
-    </div>
-</section>
-    `,
+        <!-- 모어버튼 표시구역 -->
+        <div id="more" v-if="$store.state.mbtn">
+            <button class="more" 
+            @click.prevent="
+            $store.commit('updateMore',5)"
+            >
+                MORE
+            </button>
+        </div>
+    </section>
+`,
 };
 
 
