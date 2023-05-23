@@ -71,7 +71,7 @@
     /* 그라데이션 배경색을 글자영역에만 보이게 하기
     -webkit-접두어를 사용한다!
     이는 아직 공식속성에 포함되지 않음! */
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

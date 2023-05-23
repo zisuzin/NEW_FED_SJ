@@ -44,7 +44,7 @@ new Vue({
         // 메뉴기능실행
         menuFn();
 
-        // 로고이동기능
+        // 로고 클릭시 첫페이지로 이동!
         $("#logo").click(() => 
         (location.href = "index.html"));
     }, ////////// mounted구역 /////////
