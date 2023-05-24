@@ -41,7 +41,7 @@ const store = new Vuex.Store({
                 }
             });
 
-        }, /////// resCheck ///////////
+        }, /////// resCheck navtnwls97@///////////
 
         // 페이징 변수 업데이트 메서드
         updatePaging(dt,pm){ // pm - 업데이트할 전달숫자
@@ -57,6 +57,18 @@ const store = new Vuex.Store({
             if(dt.mnum>=25)
                 dt.mbtn = false;
         }, ///////// updateMore /////////
+
+        // [ 장바구니 데이터 업데이트 메서드 ] //
+        setData(dt,pm){ // pm - 배열데이터 순번
+            console.log("구니셋:",pm);
+            console.log("선택gdata:",dt.gdata[pm]);
+            console.log(localStorage.getItem("cart"));
+        }, // setData 메서드 //
+
+        // 장바구니 애니메이션 버튼 생성하기 // 
+        cartAni(dt,pm){
+            
+        }, // cartAni 메서드 // 
     },
 });
 
