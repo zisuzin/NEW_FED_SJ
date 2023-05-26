@@ -138,6 +138,8 @@ const store = new Vuex.Store({
             $("#mycart")
             .css({
                 position:"fixed",
+
+                // 변경셋(top,left,width)
                 top:"50%",
                 left:"50%",
                 transform:"translate(-50%,-50%)",
@@ -162,7 +164,7 @@ const store = new Vuex.Store({
                 } ////////// if ///////////////
 
                 // 2. 로컬스 데이터로 테이블 레코드 태그 구성하기
-                // 카트가 보이지 않는 상태임(right:"-60vw")
+                // 카트가 보이지 않는 상태임!(right:"-60vw")
                 store.commit('bindData',"-60vw");
                 
 
@@ -192,17 +194,21 @@ const store = new Vuex.Store({
             localStorage.setItem("cart", JSON.stringify(org));
             console.log("삭제후 로칼쓰:", localStorage.getItem("cart"));
     
-            // 5. 리스트 갱신하기 : 카트가 보이는 상태임!
+            // 5. 리스트 갱신하기 : 카트가 보이는 상태임!(right:"0")
             store.commit('bindData',"0");
 
             // 6. 카트버튼 툴팁 문구 업데이트하기
-            if(org.length==0){
+            if(org.length==0){ // 데이터가 없으면 지우기
                 $("#mycart").remove();
                 $("#cartlist").remove();
-            }
-            else {
-                $("#mycart").attr("title",org.length+"개의 상품이 카트에 있습니다");
-            }
+            } ////////// if //////////
+            else{ // 데이터 개수 업데이트하기
+                $("#mycart")
+                .attr("title",
+                org.length+"개의 상품이 카트에 있습니다!");
+            } /////////// else ////////
+        
+
         }, //////////////// delRec 메서드 ///////////////
 
         /////////// 리스트 바인딩 메서드 ////////////////
@@ -272,11 +278,20 @@ const store = new Vuex.Store({
                 `
             ); ////////// map //////////////
 
+            // console.log("생성코드:",rec.join(""));
+            // 배열.join(구분자)
+            // -> 배열을 구분자로 한문자열로 만들어준다!
+            // 구분자를 빈문자열로 넣으면 사이구분자 없이 합쳐진다!
+            // 구분자를 생략하면 콤마(,)가 사이에 들어감
+
             // 3. 생성된 카트리스트에 테이블 넣기
             $("#cartlist")
             // (1) html 테이블 태그 넣기
             .html(`
-                <a href="#" class="cbtn cbtn2">×</a>
+                <a href="#" class="cbtn cbtn2">
+                    <span style="display:none">닫기버튼</span>
+                </a>
+                
                 <table>
                     <caption>
                         <h1> 카트 리스트</h1> 
@@ -298,7 +313,7 @@ const store = new Vuex.Store({
             .css({
                 position: "fixed",
                 top:"0",
-                right: pm/* "-60vw" */,
+                right: pm,//"-60vw",
                 width:"60vw",
                 height:"100vh",
                 backgroundColor:"rgba(255,255,255,.8)",
