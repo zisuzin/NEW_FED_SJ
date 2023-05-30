@@ -126,4 +126,4 @@ function WishList(props){ // wlist 속성에 담아 보내준다!
 }
 
 // 컴포넌트 출력하기
-ReactDOM.render(<WishList wishlist="" />,document.querySelector("#root2"));
+ReactDOM.render(<WishList wishlist="x" />,document.querySelector("#root2"));
