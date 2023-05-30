@@ -4,20 +4,31 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>01. 전체로딩중</title>
+        <title>02. 부분로딩중</title>
         <style>
             /* 로딩중 이미지 */
             .loading {
-                position: fixed;
+                position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 15vw;
+                width: 15%;
             }
 
             /* 화면에 넣을 이미지 */
             .timg {
                 width: 100%;
+            }
+
+            /* 개별박스 */
+            .mybx {
+                position: relative;
+                width: 50vw;
+                height: 20vh;
+                border: 4px double darkblue;
+                overflow: auto;
+                /* 컨텐츠 오버시 세로스크롤바 자동생성 */
+                margin: 0 auto;
             }
         </style>
         <script>
@@ -140,5 +151,7 @@
             console.log("JS시작");
         </script>
     </head>
-    <body></body>
+    <body>
+        <div class="mybx"></div>
+    </body>
 </html>
