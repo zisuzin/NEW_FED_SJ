@@ -22,7 +22,11 @@ function LostDev(){
 
 // 3번 컴포넌트
 function MakeImg(props){
-    return <img src={props.isrc} alt={props.ialt} />;
+    return <img 
+        src={props.isrc} 
+        alt={props.ialt} 
+        title={props.ialt} 
+    />;
 }
 
 // 출력 메인 컴포넌트 //////
@@ -33,6 +37,7 @@ function Developer(props){ // 호출시 전달되는 속성 props
     if(isNow){
         return( 
             <React.Fragment>
+                {/* MakeDev 컴포넌트 선택출력 */}
                 <MakeDev />
                 <MakeImg 
                     isrc={props.isrc} 
@@ -45,6 +50,7 @@ function Developer(props){ // 호출시 전달되는 속성 props
     // return 때문에 컴포넌트를 나감!
     return( 
         <React.Fragment>
+            {/* LostDev 컴포넌트 선택출력 */}
             <LostDev />
             <MakeImg 
                 isrc={props.isrc} 
@@ -122,6 +128,11 @@ function WishList(props){ // wlist속성에 담아 보내준다!
                     </ul>
                 </div>
             }
+            {/* 다른 경우출력은 별도의 JSX출력 중괄호구역에 코딩 */}
+            {
+                myfood.length == 0 &&
+                <h2>아직 개발자음식 리스트가 업데이트 되지 않았습니다!</h2>
+            }
         </React.Fragment>
     );
 } /////////// WishList 컴포넌트 //////////////////
@@ -129,33 +140,153 @@ function WishList(props){ // wlist속성에 담아 보내준다!
 
 // 컴포넌트 출력하기
 ReactDOM.render(<WishList wlist={foods} />,
-document.querySelector("#root3"))
+document.querySelector("#root3"));
 
-// 좀 더 복잡한 리스트를 출력하는 컴포넌트 //
 
-// 3. 전달할 배열변수
+///////// 좀 더 복잡한 리스트를 출력하는 컴포넌트 /////////
+
+// 전달할 배열변수 ///
 const movs = [
-    {year:"2021",mtit:"범죄도시3"},
-    {year:"2022",mtit:"인어공주"},
-    {year:"2023",mtit:"상견니"},
+    {year:"2021",mtit:"모가디슈"},
+    {year:"2022",mtit:"범죄도시2"},
+    {year:"2023",mtit:"가디언즈 오브 갤럭시3"},
 ];
 
-// 3-1. 반복리스트를 위한 컴포넌트 /////
-function MovieList(props){// 음식명을 fname담아서 보내준다!
-    return <li>개발자는 {props.year}년도 {props.mtit} 좋아해!</li>
-} //////////// FoodList 컴포넌트 ////////////////
-
-
+// 개발자가 좋아하는 영화 - 찍기!
+// 컴포넌트 구성하여 찍기
 
 /* 
     [ 출력형태 ]
-    개발자가 좋아하는 영화
-    개발자가 좋아하는 영화는 모두3가지 입니다!
+    👨‍🔧개발자👩‍🔧가 좋아하는 영화
+    개발자가 좋아하는 영화는 최근 3년간 아래와 같습니다!
     2021년도 영화1
     2022년도 영화2
     2023년도 영화3
 */
 
+// 2-2. 반복리스트를 위한 컴포넌트 /////
+function MovieList(props){// year - 영화개봉년도 / mname - 영화명
+    return <li>{props.year}년도 {props.mname}</li>
+} //////////// MovieList 컴포넌트 ////////////////
+
+// 2-3. 개발자 선호 영화 리스트 출력 컴포넌트 ////
+function WishList2(props){ // wlist속성에 담아 보내준다!
+    // 위시리스트 담기
+    const mymv = props.wlist;
+    // 코드리턴
+    return(
+        <React.Fragment>
+            <Title tit="영화" />
+            {/* 영화 위시리스트의 길이가 0보다 클때만 출력 */}
+            {
+                mymv.length > 0 &&
+                <div>
+                    <h2>
+                        개발자가 좋아하는 영화는 
+                        최근 {mymv.length}년간 아래와 같습니다!
+                    </h2>
+                    <ul>
+                        {
+                            // 배열변수.map() 메서드사용!
+                            // map(변수=>{표현식})
+                            // 변수는 화살표함수 안으로 배열값전달
+                            // 배열값으로 객체가 들어가 있으므로
+                            // 각 배열값은 객체의 속성으로 지정함!
+                            // x.year / x.mtit
+                            mymv.map(x=> 
+                            <MovieList year={x.year} mname={x.mtit} /> )
+                        }
+                    </ul>
+                </div>
+            }
+            {/* 다른 경우출력은 별도의 JSX출력 중괄호구역에 코딩 */}
+            {
+                mymv.length == 0 &&
+                <h2>아직 개발자영화 리스트가 업데이트 되지 않았습니다!</h2>
+            }
+        </React.Fragment>
+    );
+} /////////// WishList2 컴포넌트 //////////////////
+
 // 컴포넌트 출력하기
-ReactDOM.render(<WishList wlist={movs} />,
-document.querySelector("#root4"))
+ReactDOM.render(<WishList2 wlist={movs} />,
+document.querySelector("#root4"));
+
+/********************************************************** 
+    3. 조건 연산자(삼항연산자)를 사용하여 조건부 랜더링하기 
+**********************************************************/
+
+// 명화 데이터
+const worksrc = {
+    "피카소":"https://m.theartin.net/web/product/big/201907/30c5a0fdd153bfdfdc8f19b2f4166fa8.jpg",
+    "모네":"https://dimg.donga.com/wps/NEWS/IMAGE/2015/12/11/75316598.3.jpg"
+};
+
+// 개발자가 좋아하는 그림(명화) 찍기
+
+// 3-1. 타이틀과 그림찍기 컴포넌트
+// 구성: 작가이름 + 작품이미지
+// 데이터: 작가이름(painter), 이미지경로(작가이름의 객체worsrc이용)
+//          작품명(wname)
+function MakeWork(props){
+    return(
+        <div>
+            <h2>{props.painter}</h2>
+            <img 
+                src={worksrc[props.painter]}
+                alt={props.wname}
+                style={{width:"400px"}}
+                title={props.wname}
+            />
+        </div>
+    );
+
+} ///////////// MakeWork ///////////////////////
+
+// 3-2. 전체 출력 컴포넌트 
+// 구성 : 전체타이틀(Title컴포넌트) + 변경버튼
+//  + 작가와 그림출력(MakeWork컴포넌트)
+// 특이사항 : 변경버튼 클릭시 MakeWork 컴포넌트의 데이터를 
+// 변경하여 다시 출력하도록 한다!
+function ExpComp(props){ // isChg 는 true/false값 받는 속성
+    let result = props.isChg;
+    // isChg속성은 true/false 데이터를 전달하여
+    // MakeWork 컴포넌트의 변경여부를 결정함
+
+    // result 에 담긴 true/false값을 반대로 전환함!
+    const again = () => {
+        result = !result;
+        console.log(result)
+    }; // again 함수 // 
+
+    return(
+        <React.Fragment>
+            {/* 1. 큰제목 */}
+            <Title tit="명화" />
+            {/* 2. 변경버튼 : 클릭시 again 함수를 호출함 */}
+            <button onClick={again}>작가변경!!</button>
+            {/* 3. 작품 출력 : 3항연산자로 작품변경하기 */}
+            {
+                result ?
+                <MakeWork painter="피카소" wname="우는여인" /> :
+                <MakeWork painter="모네" wname="양산을 쓴 여인" /> 
+            }
+        </React.Fragment>
+    );
+
+} // ExpComp // 
+
+// 컴포넌트 출력하기
+ReactDOM.render(<ExpComp isChg={false} />,
+document.querySelector("#root5"));
+
+/*************************************************** 
+    [ 리액트 훅스 : React Hook ] -> 낚아채다 는 의미 !
+    - 일반적으로 리액트에 사용되는 변수는 처음에
+    컴포넌트에 전달되어 초기 셋팅에 활용된다.
+    그런데 이 변수가 변경될 경우 컴포넌트의 변경이
+    자동적으로 이뤄지지 않는다!
+    이런 종류의 변수 업데이트가 가상돔과 실제돔에 
+    바로 반영되도록 실시간 감시 역할을 하는
+    리액트의 기술내용을 담고 있는 것이 후크다!
+***************************************************/
