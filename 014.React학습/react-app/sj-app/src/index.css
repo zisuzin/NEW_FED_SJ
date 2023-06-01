@@ -7,3 +7,7 @@ html,body {
 body{
   background-color: #e5e5e5;
 }
+#root h1 {
+  text-align: center;
+  color: hotpink;
+}
