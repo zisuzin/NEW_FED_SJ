@@ -1,11 +1,10 @@
 
-
 function Ban() {
     return (
         <div className="banner">
             <ul className="slider">
                 <li>
-                    <img src="../src/images/dcm21.jpg" alt="배너" />
+                    <img src="./images/dcm21.jpg" alt="배너" />
                     <section className="bantit">
                         <h3>GOTHAM GAZETTE</h3>
                         <h2>WORLDS TRAVELER</h2>
