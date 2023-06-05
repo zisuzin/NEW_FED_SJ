@@ -53,7 +53,6 @@ const Layout = () => {
             <main className="cont">
                 {/* 출력파트 : 각 페이지의 컴포넌트가 출력됨 */}
                 <Outlet />
-                <MenuBtn/>
             </main>
             {/* 3.하단영역 */}
             <footer className="info">

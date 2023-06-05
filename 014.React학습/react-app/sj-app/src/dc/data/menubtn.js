@@ -4,14 +4,14 @@ const menubtn = [
     {
         "isrc": "./images/menu/menubtn1.jpg",
         "tit1": "WORLDS COLLIDE",
-        "tit2": "THE FLASH IS ONLY IN <br/> THEATERS JUNE 16",
+        "tit2": "THE FLASH IS ONLY IN THEATERS JUNE 16",
         "btn": "TICKETS ON SALE NOW",
-        "link": "",
+        "link": "/co",
     },
     {
         "isrc": "./images/menu/menubtn2.jfif",
         "tit1": "DC SHOP",
-        "tit2": "GET NUTS WITH THE 1/6 <br/> SCALE BATMAN FIGURE",
+        "tit2": "GET NUTS WITH THE 1/6 SCALE BATMAN FIGURE",
         "btn": "SHOP NEW ARRIVALS",
         "link": "",
     },
@@ -31,4 +31,4 @@ const menubtn = [
     },
 ]
 
-// export default menubtn;
+export default menubtn;
