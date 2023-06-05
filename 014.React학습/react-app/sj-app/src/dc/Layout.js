@@ -2,6 +2,7 @@
 import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
+import MenuBtn from "./MenuBtn";
 
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -52,6 +53,7 @@ const Layout = () => {
             <main className="cont">
                 {/* 출력파트 : 각 페이지의 컴포넌트가 출력됨 */}
                 <Outlet />
+                <MenuBtn/>
             </main>
             {/* 3.하단영역 */}
             <footer className="info">

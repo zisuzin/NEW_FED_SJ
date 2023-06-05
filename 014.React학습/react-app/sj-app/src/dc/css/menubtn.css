@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+    --m-font: 'Anton', sans-serif;
+}
+
+/* MenuBtn 모듈용 */
+.menubtn_wrap {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.menubtn_wrap > section {
+    width: 306px;
+    box-shadow: 0px 6px 10px 0 rgba(0,0,0,0.1);
+    background: #fff;
+    margin-left: 20px;
+}
+
+.titbx > h3 {
+    font-size: 13px;
+    color: #777;
+}
+
+.titbx > h2 {
+    font-size: 28px;
+    padding: 20px 0;
+    line-height: 30px;
+    word-spacing: 1px;
+    font-weight: normal;
+    height: 90px;
+    font-family: var(--m-font);
+    
+    /* -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; */
+}
+
+.btnbx > button {
+    background: transparent!important;
+    border: 1px solid #000!important;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.btnbx {
+    margin-top: 10px;
+}
+
+.tx_wrap {
+    min-height: 230px;
+}
+
+.imbx > img {
+    clip-path: polygon(0 0,100% 0,100% 88%,0 99%);
+}

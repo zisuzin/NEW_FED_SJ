@@ -25,6 +25,7 @@
 .slider > li {
     position: relative;
     flex-shrink: 0;
+    width: 100%;
     /* 강제축소옵션 해제 */
 }
 
