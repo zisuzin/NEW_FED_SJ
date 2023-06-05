@@ -3,31 +3,27 @@
 const menubtn = [
     {
         "isrc": "./images/menu/menubtn1.jpg",
-        "tit1": "WORLDS COLLIDE",
-        "tit2": "THE FLASH IS ONLY IN THEATERS JUNE 16",
+        "tit": "WORLDS COLLIDE^THE FLASH IS ONLY IN THEATERS JUNE 16",
         "btn": "TICKETS ON SALE NOW",
         "link": "/co",
     },
     {
         "isrc": "./images/menu/menubtn2.jfif",
-        "tit1": "DC SHOP",
-        "tit2": "GET NUTS WITH THE 1/6 SCALE BATMAN FIGURE",
+        "tit": "DC SHOP^GET NUTS WITH THE 1/6 SCALE BATMAN FIGURE",
         "btn": "SHOP NEW ARRIVALS",
-        "link": "",
+        "link": "/mv",
     },
     {
         "isrc": "./images/menu/menubtn3.jpg",
-        "tit1": "DC PRIDE",
-        "tit2": "CELEBRATE WITH LGBTQ CREATORS, CHARACTERS, & STORIES",
+        "tit": "DC PRIDE^CELEBRATE WITH LGBTQ CREATORS, CHARACTERS, & STORIES",
         "btn": "VISIT OUR PRIDE HUB",
-        "link": "",
+        "link": "/gm",
     },
     {
         "isrc": "./images/menu/menubtn4.jpg",
-        "tit1": "DC COMMUNITY",
-        "tit2": "SHARE YOUR DC PRIDE FANWORKS",
+        "tit": "DC COMMUNITY^SHARE YOUR DC PRIDE FANWORKS",
         "btn": "SUBMIT YOUR ART",
-        "link": "",
+        "link": "/nw",
     },
 ]
 

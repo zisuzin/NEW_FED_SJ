@@ -1,59 +1,96 @@
+@charset "utf-8";
+/* MenuBtn 모듈용 CSS - menubtn.css  */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
-:root {
-    --m-font: 'Anton', sans-serif;
-}
-
-/* MenuBtn 모듈용 */
-
-.menubtn_wrap > section {
+.menubtn{
+    position: relative;
+    max-width: 1320px;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+    margin-top: 5vh;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom: 30px;
     flex-wrap: wrap;
+    gap: 0 20px;
 }
 
-.wrap {
-    background: #fff;
-    width: 302px;
-    margin-left: 20px;
+.menubtn>div{
+    flex-basis: 20%;
+    aspect-ratio: 1/1.7;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.701);
+    background-color: #fff;
 }
 
-.titbx > h3 {
-    font-size: 13px;
-    color: #777;
+.imbx img{
+    clip-path: polygon(0% 0%,100% 0%, 100% 80%,0% 100%);
 }
 
-.titbx > h2 {
-    font-size: 28px;
-    padding: 20px 0;
-    line-height: 30px;
-    word-spacing: 1px;
-    font-weight: normal;
+.titbx h3{
+    padding: 6px 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.titbx h2{
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
     height: 90px;
-    font-family: var(--m-font);
-}
-
-.menubtn_wrap {
-    margin-top: 30px;
-}
-
-.btnbx button {
-    background: transparent!important;
-    border: 1px solid #000!important;
-    border-radius: 20px;
-    padding: 10px;
-    font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    padding: 0 5px;
+    -webkit-box-orient: vertical;
 }
 
 .btnbx {
-    margin-top: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 15px;
 }
 
-.tx_wrap {
-    min-height: 230px;
+.btnbx button{
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: transparent;
+    transition: .4s;
 }
 
-.imbx > img {
-    clip-path: polygon(0 0,100% 0,100% 88%,0 99%);
+.btnbx button:hover{
+    background-color: #0074eb;
+    color: #fff;
+}
+
+@media screen and (max-width: 1025px) {
+    .menubtn > div {
+        aspect-ratio: 1/1.6;
+        flex-basis: 40%;
+    }
+
+    .menubtn {
+        gap: 18px 20px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .menubtn > div {
+        aspect-ratio: 1/1.2;
+        flex-basis: 45%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .menubtn > div {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .titbx h2 {
+        font-size: 4vw;
+    }
 }
