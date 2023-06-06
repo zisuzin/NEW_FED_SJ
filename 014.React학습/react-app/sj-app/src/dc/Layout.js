@@ -20,8 +20,10 @@ const Layout = () => {
 
     const burgerClick = ()=>{
         const burger = $(".icon-wrap");
-        const burger1 = burger.find("span")[2];
+        const mbgbx = $(".overlay");
+        mbgbx.toggleClass("active");
         setIsRotated(!isRotated); // 햄버거버튼 클릭시에 true!
+        burger.css("position", "fixed");
     }
     
     return (
@@ -32,11 +34,9 @@ const Layout = () => {
                 <nav className="gnb">
                     <ul>
                         <li>
-                            <Logo />
-                        </li>
-
-                        <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/">
+                                <Logo />
+                            </Link>
                         </li>
                         <li>
                             <Link to="/ct">CHARACTERS</Link>
@@ -64,6 +64,28 @@ const Layout = () => {
                     <span className="icon bottom_bar" style={isRotated? {transform: "rotate(45deg)", top: "50%"} : {}}></span>
                 </button>
             </header>
+            <div className="overlay">
+                <ul className="menu">
+                    <li>
+                        <a href="#">CHARACTERS</a>
+                    </li>
+                    <li>
+                        <a href="#">COMICS</a>
+                    </li>
+                    <li>
+                        <a href="#">MOVIES & TV</a>
+                    </li>
+                    <li>
+                        <a href="#">GAMES</a>
+                    </li>
+                    <li>
+                        <a href="#">NEWS</a>
+                    </li>
+                    <li>
+                        <a href="#">VIDEO</a>
+                    </li>
+                </ul>
+            </div>
             {/* 2. 메인영역 */}
             <main className="cont">
                 {/* 출력파트 : 각 페이지의 컴포넌트가 출력됨 */}
