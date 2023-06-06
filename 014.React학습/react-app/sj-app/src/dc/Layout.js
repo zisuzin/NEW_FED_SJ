@@ -21,11 +21,16 @@ const Layout = () => {
     const burgerClick = ()=>{
         const burger = $(".icon-wrap");
         const mbgbx = $(".overlay");
-        mbgbx.toggleClass("active");
+        const menuLi = mbgbx.find("li")
+        mbgbx.toggleClass("active"); // 모바일메뉴창 보이기
         setIsRotated(!isRotated); // 햄버거버튼 클릭시에 true!
-        burger.css("position", "fixed");
+        burger.css("position", "fixed"); // 햄버거버튼 상단위치 고정
+
+        menuLi.hover(function(e){
+            $(this).toggleClass("active");
+        })
     }
-    
+
     return (
         <>
             {/* 1.상단영역 */}

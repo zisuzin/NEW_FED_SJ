@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 .top {
   background-image: linear-gradient(to bottom, #ccc, #111);
   border: 4px double #000;
@@ -33,7 +34,31 @@
 
 .menu > li > a {
   text-decoration: none;
-  color: #000;
+  letter-spacing: -2px;
+  color: #333;
+  letter-spacing: -2px;
+  font-weight: 600;
+  position: relative;
+}
+
+.menu > li > a::after {
+    min-width: 433px;
+    min-height: 36px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.menu > li.active > a::after {
+    content: '';
+    position: absolute;
+    background: url(../images/check.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .overlay {
@@ -101,6 +126,7 @@ h1 {
     white-space: nowrap;
     line-height: 1.5;
     font-family: 'Roboto Condensed', sans-serif;
+    padding: 0 20px;
 }
 
 /* 메인영역 */
