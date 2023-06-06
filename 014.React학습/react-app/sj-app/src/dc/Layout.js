@@ -1,8 +1,10 @@
 // 메인 레이아웃 컴포넌트
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import Logo from "./Logo";
 import "./css/layout.css";
-import { Link, Outlet } from "react-router-dom";
 import MenuBtn from "./MenuBtn";
+import $ from "jquery";
 
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -14,6 +16,14 @@ import MenuBtn from "./MenuBtn";
 *******************************************************/
 
 const Layout = () => {
+    const [isRotated, setIsRotated] = useState(false);
+
+    const burgerClick = ()=>{
+        const burger = $(".icon-wrap");
+        const burger1 = burger.find("span")[2];
+        setIsRotated(!isRotated); // 햄버거버튼 클릭시에 true!
+    }
+    
     return (
         <>
             {/* 1.상단영역 */}
@@ -48,10 +58,10 @@ const Layout = () => {
                         </li>
                     </ul>
                 </nav>
-                <button className="icon-wrap">
-                    <span className="icon top_bar"></span>
-                    <span className="icon middle_bar"></span>
-                    <span className="icon bottom_bar"></span>
+                <button className="icon-wrap" onClick={burgerClick}>
+                    <span className="icon top_bar" style={isRotated? {transform: "rotate(-45deg)", top: "50%"} : {}}></span>
+                    <span className="icon middle_bar" style={isRotated? {background : "transparent", transition: "none"} : {}}></span>
+                    <span className="icon bottom_bar" style={isRotated? {transform: "rotate(45deg)", top: "50%"} : {}}></span>
                 </button>
             </header>
             {/* 2. 메인영역 */}
