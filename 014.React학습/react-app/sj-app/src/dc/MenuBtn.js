@@ -20,6 +20,7 @@ const Cont = (props) => {
             <h2>{menubtn[props.num].tit.split('^')[1]}</h2>
         </div>
         <div className="btnbx">
+            {/* 라우터를 이용한 이동은 반드시 Link를 사용하자! */}
             <Link to={menubtn[props.num].link}>
                 <button>{menubtn[props.num].btn}</button>
             </Link>
