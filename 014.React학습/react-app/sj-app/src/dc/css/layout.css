@@ -29,6 +29,33 @@ h1{
     text-align: center;
 }
 
+.icon-wrap {
+    position: absolute;
+    right: 30px;
+    top: 2.5rem;
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.icon {
+    background: #000;
+    width: 22px;
+    height: 2px;
+    display: block;
+    border-radius: 20px;
+}
+
+.top_bar {
+    position: absolute;
+    bottom: 0.5rem;
+}
+
+.bottom_bar {
+    position: absolute;
+    top: 0.5rem;
+}
 
 /* 메인영역 */
 .cont{
@@ -49,4 +76,14 @@ iframe{
     padding: 30px;
     background-image: linear-gradient(to bottom, #CCC, #777);
     color: #fff;
+}
+
+@media screen and (max-width: 730px) {
+    .gnb > ul > li~li {
+        display: none;
+    }
+
+    .icon-wrap {
+        display: block;
+    }
 }

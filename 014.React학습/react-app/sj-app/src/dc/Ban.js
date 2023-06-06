@@ -88,7 +88,8 @@ function MakeList(props) {
             <section className="bantit">
                 <h3>{props.rec["tit1"]}</h3>
                 <h2>{props.rec["tit2"]}</h2>
-                <p>{props.rec["cont"]}</p>
+                <p>{props.rec["cont"].split('^')[0]}</p>
+                <p>{props.rec["cont"].split('^')[1]}</p>
                 <button>{props.rec["btn"]}</button>
             </section>
         </li>

@@ -5,7 +5,6 @@
     overflow: hidden;
     /* 넘치는 배너 숨기기 */
 }
-
 .bantit{
     position: absolute;
     bottom: 0;
@@ -13,22 +12,21 @@
     padding: 25px;
     color: #fff;
     text-shadow: 0 0 3px #000;
+    text-align: left;
 }
-
 /* 배너슬라이드 */
 .slider{
     position: relative;
     left: 0;
     display: flex;
 }
-
-.slider > li {
+.slider li{
     position: relative;
-    flex-shrink: 0;
+    /* 부모자격 */
     width: 100%;
+    flex-shrink: 0;
     /* 강제축소옵션 해제 */
 }
-
 /* 배너 컨텐츠버튼 */
 .banner button{
     border-radius: 20px;
@@ -36,12 +34,11 @@
     background-color: transparent;
     color: #fff;
     border: 1px solid #fff;
+    cursor: pointer;
 }
-
 .banner button:hover{
     background-color: #0074e8;
 }
-
 .banimg{
     width: 100%;
 }
@@ -85,4 +82,16 @@
 }
 .indic li.on{
     background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width: 1080px) {
+    .bantit {
+        padding: 0 0 15px 25px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .bantit {
+        display: none;
+    }
 }

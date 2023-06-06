@@ -58,6 +58,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     background-color: transparent;
     transition: .4s;
+    cursor: pointer;
 }
 
 .btnbx button:hover{

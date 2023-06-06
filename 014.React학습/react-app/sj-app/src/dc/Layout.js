@@ -48,6 +48,11 @@ const Layout = () => {
                         </li>
                     </ul>
                 </nav>
+                <button className="icon-wrap">
+                    <span className="icon top_bar"></span>
+                    <span className="icon middle_bar"></span>
+                    <span className="icon bottom_bar"></span>
+                </button>
             </header>
             {/* 2. 메인영역 */}
             <main className="cont">
