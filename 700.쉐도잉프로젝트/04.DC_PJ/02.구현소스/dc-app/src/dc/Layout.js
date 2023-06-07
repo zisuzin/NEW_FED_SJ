@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Logo from "./Logo";
 import "./css/layout.css";
-import MenuBtn from "./MenuBtn";
 import $ from "jquery";
 
 /******************************************************* 

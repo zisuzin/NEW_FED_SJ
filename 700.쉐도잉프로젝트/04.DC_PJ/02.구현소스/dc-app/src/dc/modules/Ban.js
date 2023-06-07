@@ -1,8 +1,8 @@
 // 배너 컴포넌트 - Ban.js
 // 배너CSS
-import "./css/ban.css";
+import "../css/ban.css";
 // 배너 데이터
-import ban_data from "./data/banner";
+import ban_data from "../data/banner";
 // 제이쿼리
 import $ from "jquery";
 
@@ -88,8 +88,7 @@ function MakeList(props) {
             <section className="bantit">
                 <h3>{props.rec["tit1"]}</h3>
                 <h2>{props.rec["tit2"]}</h2>
-                <p>{props.rec["cont"].split('^')[0]}</p>
-                <p>{props.rec["cont"].split('^')[1]}</p>
+                <p>{props.rec["cont"]}</p>
                 <button>{props.rec["btn"]}</button>
             </section>
         </li>
