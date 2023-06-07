@@ -45,7 +45,7 @@ function VidIntro(props){
                 <h3>{sdt.stit}</h3>
                 <h2>{sdt.btit}</h2>
                 <p>
-                    {/* 특수문자(*)여부에 따라 처리
+                    {/* 특수문자(*)여부에 따라 처리 - 문자열에 '*' 문자가 포함되어 있는지 확인
                     indexOf(문자열) -> 없으면 -1리턴 */}
                     {
                         sdt.sum.indexOf('*') == -1 ?
@@ -59,11 +59,6 @@ function VidIntro(props){
                         sdt.desc.indexOf('*') == -1 ?
                         sdt.desc : lcode(sdt.desc)
                     }
-
-
-                    
-                    
-
                 </p>
                 {/* 링크있을경우 표시 */}
             </div>
