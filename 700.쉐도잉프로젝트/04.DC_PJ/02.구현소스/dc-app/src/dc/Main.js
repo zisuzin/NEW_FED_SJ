@@ -20,8 +20,9 @@ const Main = () => {
             tit="LATEST TRAILERS, CLIPS & MORE" />
             {/* 5. 메뉴스와이프모듈 */}
             {/* 6. 배너모듈(캐릭터) */}
-            <Ban cat="CHARACTER" />
-            {/* 6. 배너모듈(캐릭터) */}
+            <Ban cat="CHARACTERS" />
+            {/* 7. 메뉴스와이프모듈 */}
+            {/* 8. 메인하단모듈 */}
         </>
     );
 }; /////////// Main //////////////

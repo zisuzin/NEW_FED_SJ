@@ -193,6 +193,24 @@ iframe {
     display: block;
 }
 
+.bmenu {
+  display: flex;
+  justify-content: center;
+}
+
+.bmenu > li > a ::before {
+  content: '|';
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background: #fff;
+}
+
+.bmenu > li > a {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* 하단영역 */
 .info {
   text-align: center;

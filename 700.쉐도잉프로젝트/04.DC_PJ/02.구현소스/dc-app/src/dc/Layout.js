@@ -6,9 +6,7 @@ import "./css/layout.css";
 import $ from "jquery";
 
 /* 폰트어썸 임포트 */
-import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faCamera,faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -86,6 +84,29 @@ const Layout = () => {
         },
     ]
 
+    const bmenu= [
+        {
+            txt:"Privacy Policy",
+            link:"https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
+        },
+        {
+            txt:"Terms",
+            link:"https://www.dcuniverseinfinite.com/terms?_gl=1*5nxhg2*_gcl_au*MTk3OTgxNzUwMi4xNjgzMTc3NDg3",
+        },
+        {
+            txt:"Ad Choices",
+            link:"https://www.warnermediaprivacy.com/policycenter/b2c/wm/",
+        },
+        {
+            txt:"Accessibility",
+            link:"https://policies.warnerbros.com/terms/en-us/#accessibility",
+        },
+        {
+            txt:"Cookie Settings",
+            link:"https://www.dc.com/#compliance-link",
+        },
+    ]
+
     const [isRotated, setIsRotated] = useState(false);
 
     const burgerClick = ()=>{
@@ -144,20 +165,19 @@ const Layout = () => {
                                     </li>
                                 )
                             }
-                            <li style={{marginLeft:"auto"}}>
-                                
-                                <FontAwesomeIcon icon={faSearch}/>
-                            </li>
-                            <li>
-                                <Link to="/signup">
-                                    SIGN UP
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/signup">
-                                    SIGN UP
-                                </Link>
-                            </li>
+                        <li style={{marginLeft:"auto"}}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </li>
+                        <li>
+                            <Link to="/signup">
+                                SIGN UP
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/login">
+                                LOG IN
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
                 <button className="icon-wrap" onClick={burgerClick}>
@@ -195,9 +215,44 @@ const Layout = () => {
             </main>
             {/* 3.하단영역 */}
             <footer className="info">
-                All Site Content © &amp; TM DC, unless otherwise noted here.
-                <br />
-                All rights reserved.
+                <ul>
+                    <li>
+                <Logo />
+
+                    </li>
+                    <li>
+                        <ol className="bmenu">
+                            <li>
+                                <a href="">
+                                Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Terms
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Ad Choices
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Accessibility
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Cookie Settings
+                                </a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                    © & ™ DC. ALL RIGHTS RESERVED
+                    </li>
+                    </ul>
             </footer>
         </>
     );
