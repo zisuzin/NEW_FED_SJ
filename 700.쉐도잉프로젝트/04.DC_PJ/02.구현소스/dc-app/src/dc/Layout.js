@@ -1,12 +1,10 @@
 // 메인 레이아웃 컴포넌트
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
 import Logo from "./Logo";
 import "./css/layout.css";
-import $ from "jquery";
+import { Link, Outlet } from "react-router-dom";
 
 /* 폰트어썸 임포트 */
-import { faCamera,faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -17,19 +15,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
     -> 라우터 연결 컴포넌트 출력자리 컴포넌트
 *******************************************************/
 
+const tit_data = [
+    "LATEST COMICS & GRAPHIC NOVELS  ",
+    "DC UNIVERSE INFINITE",
+    "ALL COMICS SERIES",
+];
+
 const Layout = () => {
     /* GNB메뉴 데이터구성하기 */
-    // const gnb_data = [
-    //     {
-    //         txt: "",
-    //         link: "",
-    //         sub: [{
-    //             txt: "",
-    //             link: "",
-    //         }]
-    //     }
-    // ];
     const gnb_data = [
+        //    {
+        //        txt:"Home",
+        //        link:"/",
+        //     },
         {
             txt: "CHARACTERS",
             link: "/ct",
@@ -40,33 +38,33 @@ const Layout = () => {
             sub: [
                 {
                     txt: "LATEST COMICS",
-                    link: "",
+                    link: "/lc",
                 },
                 {
                     txt: "DC UNIVERSE INFINITE",
-                    link: "",
+                    link: "/dui",
                 },
                 {
                     txt: "ALL COMICS SERIES",
-                    link: "",
+                    link: "/acs",
                 },
-            ]
+            ],
         },
         {
             txt: "MOVIES & TV",
             link: "/mv",
-            sub:[
+            sub: [
                 {
-                    txt:"DC MOVIES",
-                    link:"/dm",
+                    txt: "DC MOVIES",
+                    link: "/dm",
                 },
                 {
-                    txt:"DC SERIES",
-                    link:"/ds",
+                    txt: "DC SERIES",
+                    link: "/ds",
                 },
                 {
-                    txt:"DC ON HBO MAX",
-                    link:"/hbo",
+                    txt: "DC ON HBO MAX",
+                    link: "/hbo",
                 },
             ],
         },
@@ -82,45 +80,30 @@ const Layout = () => {
             txt: "VIDEO",
             link: "/vd",
         },
-    ]
+    ];
 
-    const bmenu= [
+    const bmenu = [
         {
-            txt:"Privacy Policy",
-            link:"https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
+            txt: "Privacy Policy",
+            link: "https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
         },
         {
-            txt:"Terms",
-            link:"https://www.dcuniverseinfinite.com/terms?_gl=1*5nxhg2*_gcl_au*MTk3OTgxNzUwMi4xNjgzMTc3NDg3",
+            txt: "Terms",
+            link: "https://www.dcuniverseinfinite.com/terms?_gl=1*5nxhg2*_gcl_au*MTk3OTgxNzUwMi4xNjgzMTc3NDg3",
         },
         {
-            txt:"Ad Choices",
-            link:"https://www.warnermediaprivacy.com/policycenter/b2c/wm/",
+            txt: "Ad Choices",
+            link: "https://www.warnermediaprivacy.com/policycenter/b2c/wm/",
         },
         {
-            txt:"Accessibility",
-            link:"https://policies.warnerbros.com/terms/en-us/#accessibility",
+            txt: "Accessibility",
+            link: "https://policies.warnerbros.com/terms/en-us/#accessibility",
         },
         {
-            txt:"Cookie Settings",
-            link:"https://www.dc.com/#compliance-link",
+            txt: "Cookie Settings",
+            link: "https://www.dc.com/#compliance-link",
         },
-    ]
-
-    const [isRotated, setIsRotated] = useState(false);
-
-    const burgerClick = ()=>{
-        const burger = $(".icon-wrap");
-        const mbgbx = $(".overlay");
-        const menuLi = mbgbx.find("li")
-        mbgbx.toggleClass("active"); // 모바일메뉴창 보이기
-        setIsRotated(!isRotated); // 햄버거버튼 클릭시에 true!
-        burger.css("position", "fixed"); // 햄버거버튼 상단위치 고정
-
-        menuLi.hover(function(e){
-            $(this).toggleClass("active");
-        })
-    }
+    ];
 
     return (
         <>
@@ -131,83 +114,47 @@ const Layout = () => {
                     <ul>
                         <li>
                             <Link to="/">
-                                <Logo />
+                                <Logo gb="top" />
                             </Link>
                         </li>
-                            {
-                                gnb_data.map((v,i)=>
-                                    <li key={i}>
-                                        <Link to={v.link}>{v.txt}</Link>
-                                        {/* {console.log(v.sub)} */}
-                                        {/* v.sub가 없으면 undefined */}
-                                        {
-                                            // 조건식 && 출력코드
-                                            // 조건: sub데이터가 없지 않으면 -> 즉, 존재할때 !
-                                            // undefined - 정의되지 않은 값
-                                            // null - 빈값
-                                            // 위의 두가지는 데이터가 없다는 값임! 처리할땐 의미가 대동소이함
-                                            v.sub != undefined &&
-                                            <div className="smenu">
-                                                <ol>
-                                                    {
-                                                        v.sub.map(
-                                                        (v,i)=>
-                                                            <li key={i}>
-                                                                <Link to={v.link}>
-                                                                    {v.txt}
-                                                                </Link>
-                                                            </li>
-                                                        )
-                                                    }
-                                                </ol>
-                                            </div>
-                                        }
-                                    </li>
-                                )
-                            }
-                        <li style={{marginLeft:"auto"}}>
+                        {gnb_data.map((v, i) => (
+                            <li key={i}>
+                                <Link to={v.link}>{v.txt}</Link>
+                                {/* {console.log(v.sub)} */}
+                                {/* v.sub가 없으면 undefined */}
+                                {
+                                    // 조건식 && 출력코드
+                                    // 조건: sub데이터가 없지 않으면
+                                    // undefined - 정의되지 않은값
+                                    // null - 빈값
+                                    // 위의 두가지는 데이터가 없다는 값임!
+                                    v.sub != undefined && (
+                                        <div className="smenu">
+                                            <ol>
+                                                {v.sub.map((v, i) => (
+                                                    <li key={i}>
+                                                        <Link to={v.link}>{v.txt}</Link>
+                                                    </li>
+                                                ))}
+                                            </ol>
+                                        </div>
+                                    )
+                                }
+                            </li>
+                        ))}
+
+                        <li style={{ marginLeft: "auto" }}>
                             <FontAwesomeIcon icon={faSearch} />
                         </li>
                         <li>
-                            <Link to="/signup">
-                                SIGN UP
-                            </Link>
+                            <Link to="/signup">SIGN UP</Link>
                         </li>
                         <li>
-                            <Link to="/login">
-                                LOG IN
-                            </Link>
+                            <Link to="/login">LOG IN</Link>
                         </li>
                     </ul>
                 </nav>
-                <button className="icon-wrap" onClick={burgerClick}>
-                    <span className="icon top_bar" style={isRotated? {transform: "rotate(-45deg)", top: "50%"} : {}}></span>
-                    <span className="icon middle_bar" style={isRotated? {background : "transparent", transition: "none"} : {}}></span>
-                    <span className="icon bottom_bar" style={isRotated? {transform: "rotate(45deg)", top: "50%"} : {}}></span>
-                </button>
             </header>
-            <div className="overlay">
-                <ul className="menu">
-                    <li>
-                        <a href="#">CHARACTERS</a>
-                    </li>
-                    <li>
-                        <a href="#">COMICS</a>
-                    </li>
-                    <li>
-                        <a href="#">MOVIES & TV</a>
-                    </li>
-                    <li>
-                        <a href="#">GAMES</a>
-                    </li>
-                    <li>
-                        <a href="#">NEWS</a>
-                    </li>
-                    <li>
-                        <a href="#">VIDEO</a>
-                    </li>
-                </ul>
-            </div>
             {/* 2. 메인영역 */}
             <main className="cont">
                 {/* 출력파트 : 각 페이지의 컴포넌트가 출력됨 */}
@@ -217,42 +164,21 @@ const Layout = () => {
             <footer className="info">
                 <ul>
                     <li>
-                <Logo />
-
+                        <Logo gb="bottom" />
                     </li>
                     <li>
                         <ol className="bmenu">
-                            <li>
-                                <a href="">
-                                Privacy Policy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                Terms
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                Ad Choices
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                Accessibility
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Cookie Settings
-                                </a>
-                            </li>
+                            {bmenu.map((v, i) => (
+                                <li key={i}>
+                                    <a href={v.link} target="_blank">
+                                        {v.txt.toUpperCase()}
+                                    </a>
+                                </li>
+                            ))}
                         </ol>
                     </li>
-                    <li>
-                    © & ™ DC. ALL RIGHTS RESERVED
-                    </li>
-                    </ul>
+                    <li>© & ™ DC. ALL RIGHTS RESERVED</li>
+                </ul>
             </footer>
         </>
     );

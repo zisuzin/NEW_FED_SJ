@@ -12,7 +12,6 @@
     padding: 25px;
     color: #fff;
     text-shadow: 0 0 3px #000;
-    text-align: left;
 }
 /* 배너슬라이드 */
 .slider{
@@ -34,7 +33,6 @@
     background-color: transparent;
     color: #fff;
     border: 1px solid #fff;
-    cursor: pointer;
 }
 .banner button:hover{
     background-color: #0074e8;
@@ -82,16 +80,4 @@
 }
 .indic li.on{
     background-color: rgba(255, 255, 255, 0.9);
-}
-
-@media screen and (max-width: 1080px) {
-    .bantit {
-        padding: 0 0 15px 25px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .bantit {
-        display: none;
-    }
 }
