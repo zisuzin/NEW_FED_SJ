@@ -3,6 +3,10 @@
 .top {
   background-image: linear-gradient(to bottom, #ccc, #111);
   border: 4px double #000;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: #fff;
 }
 
 .gnb {
@@ -14,15 +18,19 @@
   display: flex;
   align-items: center;
   list-style: none;
+  gap: 0 20px
 }
 
 .gnb li {
-  margin: 0 10px;
+  /* 상위메뉴 부모자격 */
+  position: relative;
 }
 
 .gnb a {
-  color: #fff;
+  color: #111;
   text-decoration: none;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .gnb a:hover {
@@ -61,6 +69,45 @@
     transform: translateX(-50%);
 }
 
+/* 서브메뉴 */
+.smenu{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.503);
+  white-space: nowrap;
+  line-height: 2.5;
+}
+
+.smenu::before{
+  content: '';
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid rgba(0, 0, 0, 0.291);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.smenu::after{
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid #fff;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
 .overlay {
     background: #f9f9f9;
     position: fixed;
@@ -81,7 +128,6 @@ h1 {
   right: 30px;
   top: 1.8rem;
   height: 32px;
-  display: none;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -132,7 +178,6 @@ h1 {
 /* 메인영역 */
 .cont {
   text-align: center;
-  padding: 30px;
 }
 
 .cont img {

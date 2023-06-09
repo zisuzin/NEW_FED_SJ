@@ -5,6 +5,11 @@ import Logo from "./Logo";
 import "./css/layout.css";
 import $ from "jquery";
 
+/* 폰트어썸 임포트 */
+import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
     1. <Link to="/경로명"></Link>
@@ -15,6 +20,72 @@ import $ from "jquery";
 *******************************************************/
 
 const Layout = () => {
+    /* GNB메뉴 데이터구성하기 */
+    // const gnb_data = [
+    //     {
+    //         txt: "",
+    //         link: "",
+    //         sub: [{
+    //             txt: "",
+    //             link: "",
+    //         }]
+    //     }
+    // ];
+    const gnb_data = [
+        {
+            txt: "CHARACTERS",
+            link: "/ct",
+        },
+        {
+            txt: "COMICS",
+            link: "/co",
+            sub: [
+                {
+                    txt: "LATEST COMICS",
+                    link: "",
+                },
+                {
+                    txt: "DC UNIVERSE INFINITE",
+                    link: "",
+                },
+                {
+                    txt: "ALL COMICS SERIES",
+                    link: "",
+                },
+            ]
+        },
+        {
+            txt: "MOVIES & TV",
+            link: "/mv",
+            sub:[
+                {
+                    txt:"DC MOVIES",
+                    link:"/dm",
+                },
+                {
+                    txt:"DC SERIES",
+                    link:"/ds",
+                },
+                {
+                    txt:"DC ON HBO MAX",
+                    link:"/hbo",
+                },
+            ],
+        },
+        {
+            txt: "GAMES",
+            link: "/gm",
+        },
+        {
+            txt: "NEWS",
+            link: "/nw",
+        },
+        {
+            txt: "VIDEO",
+            link: "/vd",
+        },
+    ]
+
     const [isRotated, setIsRotated] = useState(false);
 
     const burgerClick = ()=>{
@@ -42,24 +113,51 @@ const Layout = () => {
                                 <Logo />
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/ct">CHARACTERS</Link>
-                        </li>
-                        <li>
-                            <Link to="/co">COMICS</Link>
-                        </li>
-                        <li>
-                            <Link to="/mv">MOVIES & TV</Link>
-                        </li>
-                        <li>
-                            <Link to="/gm">GAMES</Link>
-                        </li>
-                        <li>
-                            <Link to="/nw">NEWS</Link>
-                        </li>
-                        <li>
-                            <Link to="/vd">VIDEO</Link>
-                        </li>
+                            {
+                                gnb_data.map((v,i)=>
+                                    <li key={i}>
+                                        <Link to={v.link}>{v.txt}</Link>
+                                        {/* {console.log(v.sub)} */}
+                                        {/* v.sub가 없으면 undefined */}
+                                        {
+                                            // 조건식 && 출력코드
+                                            // 조건: sub데이터가 없지 않으면 -> 즉, 존재할때 !
+                                            // undefined - 정의되지 않은 값
+                                            // null - 빈값
+                                            // 위의 두가지는 데이터가 없다는 값임! 처리할땐 의미가 대동소이함
+                                            v.sub != undefined &&
+                                            <div className="smenu">
+                                                <ol>
+                                                    {
+                                                        v.sub.map(
+                                                        (v,i)=>
+                                                            <li key={i}>
+                                                                <Link to={v.link}>
+                                                                    {v.txt}
+                                                                </Link>
+                                                            </li>
+                                                        )
+                                                    }
+                                                </ol>
+                                            </div>
+                                        }
+                                    </li>
+                                )
+                            }
+                            <li style={{marginLeft:"auto"}}>
+                                
+                                <FontAwesomeIcon icon={faSearch}/>
+                            </li>
+                            <li>
+                                <Link to="/signup">
+                                    SIGN UP
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/signup">
+                                    SIGN UP
+                                </Link>
+                            </li>
                     </ul>
                 </nav>
                 <button className="icon-wrap" onClick={burgerClick}>
