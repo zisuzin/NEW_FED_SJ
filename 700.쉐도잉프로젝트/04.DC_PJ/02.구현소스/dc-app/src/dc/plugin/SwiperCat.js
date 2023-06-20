@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 export default function SwiperCat(props) {
     // 데이터 셋팅
     const sdt = cat_data;  
-    console.log(sdt);  
+    // console.log(sdt);  
 
     return (
         <>
