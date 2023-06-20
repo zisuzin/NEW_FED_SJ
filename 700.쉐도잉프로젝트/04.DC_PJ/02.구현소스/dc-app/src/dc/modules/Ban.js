@@ -28,56 +28,8 @@ import $ from "jquery";
         }
 */
 // 로드구역 함수화하기!!! ///////////
-function jqFn() {
-    $(() => {
-        ////////// jQB ////////////////
-
-        // 광클금지변수
-        let prot = 0;
-
-        // 1. 버튼 클릭시 이동기능구현
-        $(".abtn").click(function () {
-            // 0.광클금지
-            if (prot) return;
-            prot = 1;
-            setTimeout(() => (prot = 0), 400);
-
-            // 1. 버튼구분하기
-            let isB = $(this).is(".rb");
-            // console.log("오른쪽?", isB);
-
-            // 슬라이드 타겟설정 : 클릭된 버튼의 형제요소 슬라이더
-            const tg = $(this).siblings(".slider");
-
-            // 2. 분기하여 기능구현하기
-            // (1) 오른쪽버튼 클릭시 : 오른쪽에서 들어옴(left:0->-100%)
-            if (isB) {
-                tg.animate({ left: "-100%" }, 400, function () {
-                    // this는 타겟!
-                    // 첫번째 li 맨뒤로 보내기! 동시에 left:0
-                    $(this).append($(this).find("li").first()).css({ left: "0" });
-                }); /////// animate ///////
-            } ///////// if ////////////////
-
-            // (2) 왼쪽버튼 클릭시 : 왼쪽에서 들어옴(left:-100%->0)
-            else {
-                // 마지막 li 맨앞이동+동시에 left:-100% 후 left:0 애니
-                tg.prepend(tg.find("li").last()).css({ left: "-100%" }).animate({ left: "0" }, 400);
-            } //////////// else ////////////////
-
-            // 3. 배너와 일치하는 블릿에 클래스 "on"넣기(나머지는 "on"제거)
-            // 대상: .indic li
-            // eq(순번) -> 오른쪽이동시 1, 왼쪽이동시 0
-            // isB값으로 오른쪽은 true->1, 왼쪽은 false->0
-            // 순서가 바뀌는 슬라이드에 고유 순번속성 data-seq값을 읽어옴!
-            $(".indic li")
-                .eq(tg.find("li").eq(isB).attr("data-seq"))
-                .addClass("on")
-                .siblings()
-                .removeClass("on");
-        }); ////////// click ////////////
-    }); ///////////// jQB ////////////////
-} ///////////// jqFn 함수 /////////////////
+// function jqFn() {} 
+///////////// jqFn 함수 /////////////////
 
 // 반복리스트 코드 생성용 컴포넌트 ///////
 function MakeList(props) {
@@ -86,10 +38,22 @@ function MakeList(props) {
         <li data-seq={props.idx}>
             <img className="banimg" src={props.rec["src"]} alt="배너" />
             <section className="bantit">
-                <h3>{props.rec["tit1"]}</h3>
-                <h2>{props.rec["tit2"]}</h2>
-                <p>{props.rec["cont"]}</p>
-                <button>{props.rec["btn"]}</button>
+                {
+                    props.rec["tit1"] !== "" &&
+                    <h3>{props.rec["tit1"]}</h3>
+                }
+                {
+                    props.rec["tit2"] !== "" &&
+                    <h2>{props.rec["tit2"]}</h2>
+                }
+                {
+                    props.rec["cont"] !== "" &&
+                    <p>{props.rec["cont"]}</p>
+                }
+                {
+                    props.rec["btn"] !== "" &&
+                    <button>{props.rec["btn"].toUpperCase()}</button>
+                }
             </section>
         </li>
     );
@@ -104,56 +68,51 @@ function Ban(props) {
     // 광클금지변수
     let prot = 0;
 
-    // 이동슬라이드 함수 
+    // 이동슬라이드 함수 ////////
     const goSlide = (e) => {
         // 1. 이벤트가 발생한 버튼 요소
         let ele = e.target;
-        console.log(e.target)
+        // console.log(ele);
 
-        // 1. 버튼 클릭시 이동기능구현
-        $(".abtn").click(function () {
-            // 0.광클금지
-            if (prot) return;
-            prot = 1;
-            setTimeout(() => (prot = 0), 400);
+        // 0.광클금지
+        if (prot) return;
+        prot = 1;
+        setTimeout(() => (prot = 0), 400);
 
-            // 1. 버튼구분하기
-            let isB = $(ele).is(".rb");
-            // console.log("오른쪽?", isB);
+        // 1. 버튼구분하기
+        let isB = $(ele).is(".rb");
+        // console.log("오른쪽?", isB);
 
-            // 슬라이드 타겟설정 : 클릭된 버튼의 형제요소 슬라이더
-            const tg = $(ele).siblings(".slider");
+        // 슬라이드 타겟설정 : 클릭된 버튼의 형제요소 슬라이더
+        const tg = $(ele).siblings(".slider");
 
-            // 2. 분기하여 기능구현하기
-            // (1) 오른쪽버튼 클릭시 : 오른쪽에서 들어옴(left:0->-100%)
-            if (isB) {
-                tg.animate({ left: "-100%" }, 400, function () {
-                    // this는 타겟!
-                    // 첫번째 li 맨뒤로 보내기! 동시에 left:0
-                    $(this).append($(this).find("li").first()).css({ left: "0" });
-                }); /////// animate ///////
-            } ///////// if ////////////////
+        // 2. 분기하여 기능구현하기
+        // (1) 오른쪽버튼 클릭시 : 오른쪽에서 들어옴(left:0->-100%)
+        if (isB) {
+            tg.animate({ left: "-100%" }, 400, function () {
+                // this는 타겟!
+                // 첫번째 li 맨뒤로 보내기! 동시에 left:0
+                $(this).append($(this).find("li").first()).css({ left: "0" });
+            }); /////// animate ///////
+        } ///////// if ////////////////
 
-            // (2) 왼쪽버튼 클릭시 : 왼쪽에서 들어옴(left:-100%->0)
-            else {
-                // 마지막 li 맨앞이동+동시에 left:-100% 후 left:0 애니
-                tg.prepend(tg.find("li").last()).css({ left: "-100%" }).animate({ left: "0" }, 400);
-            } //////////// else ////////////////
+        // (2) 왼쪽버튼 클릭시 : 왼쪽에서 들어옴(left:-100%->0)
+        else {
+            // 마지막 li 맨앞이동+동시에 left:-100% 후 left:0 애니
+            tg.prepend(tg.find("li").last()).css({ left: "-100%" }).animate({ left: "0" }, 400);
+        } //////////// else ////////////////
 
-             // 3. 배너와 일치하는 블릿에 클래스 "on"넣기(나머지는 "on"제거)
-            // 대상: .indic li
-            // eq(순번) -> 오른쪽이동시 1, 왼쪽이동시 0
-            // isB값으로 오른쪽은 true->1, 왼쪽은 false->0
-            // 순서가 바뀌는 슬라이드에 고유 순번속성 data-seq값을 읽어옴!
-            $(ele)
-                .eq(tg.find("li").eq(isB).attr("data-seq"))
-                .addClass("on")
-                .siblings()
-                .removeClass("on");
-            
-        }
-        )
-    }; // goSlide 함수
+        // 3. 배너와 일치하는 블릿에 클래스 "on"넣기(나머지는 "on"제거)
+        // 대상: .indic li
+        // eq(순번) -> 오른쪽이동시 1, 왼쪽이동시 0
+        // isB값으로 오른쪽은 true->1, 왼쪽은 false->0
+        // 순서가 바뀌는 슬라이드에 고유 순번속성 data-seq값을 읽어옴!
+        $(ele).siblings(".indic").find("li")
+            .eq(tg.find("li").eq(isB).attr("data-seq"))
+            .addClass("on")
+            .siblings()
+            .removeClass("on");
+    }; //////////// goSlide 함수 /////////////////
 
     return (
         <div className="banner">
@@ -169,8 +128,12 @@ function Ban(props) {
                 sel_data.length > 1 && (
                     <>
                         {/* 양쪽이동버튼 */}
-                        <button className="abtn lb" onClick={goSlide}>＜</button>
-                        <button className="abtn rb" onClick={goSlide}>＞</button>
+                        <button className="abtn lb" onClick={goSlide}>
+                            ＜
+                        </button>
+                        <button className="abtn rb" onClick={goSlide}>
+                            ＞
+                        </button>
                         {/* 블릿 인디케이터 */}
                         <ol className="indic">
                             {sel_data.map((x, i) => (

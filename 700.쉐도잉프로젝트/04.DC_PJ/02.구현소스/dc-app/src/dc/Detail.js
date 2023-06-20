@@ -1,6 +1,7 @@
 // 상세페이지 컴포넌트 - Detail.js
 import { useLocation } from "react-router-dom";
-import "../../src/dc/css/detail.css";
+import Ban from "./modules/Ban";
+import "./css/detail.css";
 
 // 라우터 파라미터값 받아서 데이터 처리!
 
@@ -13,11 +14,15 @@ function Detail(props) {
     // 2. 캐릭터설명
     let cdesc = loc.state.cdesc;
     cdesc = cdesc.split("^");
-    // 3. 캐릭터명세
-    const facts = loc.state.facts;
+    // 3. 캐릭터명세 - '^'문자로 잘라 배열로 데이터 변경!
+    let facts = loc.state.facts;
+    facts = facts.split('^')
+    console.log(facts)
 
     return (
         <>
+        {/* 배너컴포넌트 */}
+        <Ban cat={cname} />
             <div className="detail">
                 <div className="descbx">
                     <h2>{cname}</h2>
@@ -30,7 +35,18 @@ function Detail(props) {
                 <div className="facts">
                     <div>
                         <h3>CHARACTER FACTS</h3>
-                        {facts}
+                        <table>
+                            <tbody>
+                        {
+                            facts.map((v,i)=>(
+                                <tr key={i}>
+                                    <td>{v.split(':')[0]}:</td>
+                                    <td>{v.split(':')[1]}</td>
+                                </tr>
+                            ))
+                        }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
