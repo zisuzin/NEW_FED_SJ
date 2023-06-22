@@ -52,7 +52,9 @@ function MakeList(props) {
                 }
                 {
                     props.rec["btn"] !== "" &&
-                    <button>{props.rec["btn"].toUpperCase()}</button>
+                    <button>
+                        {props.rec["btn"].toUpperCase()}
+                    </button>
                 }
             </section>
         </li>

@@ -14,7 +14,7 @@ const Main = () => {
             {/* 2. 메뉴버튼모듈 */}
             <MenuBtn />
             {/* 3. 비디오소개모듈 */}
-            <VidIntro pg="main" mm="on" />
+            <VidIntro pg="main" mm="" />
             {/* 4. 비디오스와이프모듈 */}
             <VidSwipe 
             pg="main" 
