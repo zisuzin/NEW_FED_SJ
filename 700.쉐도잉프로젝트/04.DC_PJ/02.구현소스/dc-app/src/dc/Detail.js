@@ -27,8 +27,8 @@ function Detail(props) {
                 <div className="descbx">
                     <h2>{cname}</h2>
                     <div className="cdesc">
-                        {cdesc.map((v) => (
-                            <p>{v}</p>
+                        {cdesc.map((v,i) => (
+                            <p key={i}>{v}</p>
                         ))}
                     </div>
                 </div>

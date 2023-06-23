@@ -18,8 +18,8 @@ export default function ScrollTop(props){ // props.sfn - 로그인셋팅함수
         // 윈도우 객체 스크롤 최상위이동 코드
         window.scrollTo(0,0);
         // 로그인 상태를 확인! : "minfo"
-        console.log("useEffect:",
-        localStorage.getItem("minfo"));
+        // console.log("useEffect:",
+        // localStorage.getItem("minfo"));
         // 부모컴포넌트(Layout) 로그인 셋팅함수 호출하기!
         props.sfn();
         // 만약 로컬쓰 "minfo"가 null이 아닌 셋팅값이 있다면

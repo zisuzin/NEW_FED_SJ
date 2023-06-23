@@ -1,2 +1,30 @@
 @charset "utf-8";
-/* 캐릭터리스트 모듈용 CSS - catlist.css  */
+/* 캐릭터 리스트 모듈용 CSS - catlist.css  */
+
+/* 리스트박스 */
+.clist{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 1.3%;
+}
+.clist li{
+    width: 24%;
+    aspect-ratio: 1/2;
+}
+/* 캐릭터 이미지 */
+.clist li img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 캐릭터 이름 */
+.clist li h3{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* 두 값 중에서 가장 작은 글꼴 크기 선택하여 적용됨!
+    -> 뷰포트 너비 큼? 1.7vw가 값이 더 작아서 선택됨
+    -> 뷰포트 너비 작음? 23px 값이 더 작아서 선택됨 */
+    font-size: min(23px,1.7vw);
+    white-space: nowrap;
+    padding: 15px;
+}
