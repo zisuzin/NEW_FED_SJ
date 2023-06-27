@@ -185,10 +185,11 @@ function Search() {
         setSdt([newList],2);
         setTot(newList.length);
 
-
-
     }; //////////// chkSearch 함수 ////////////
 
+    // 검색어가 있으면 검색함수 호출하기!
+    // 검색함수는 검색어 입력창으로 부터 검색어를 가져가므로
+    // 넘어온 검색어는 검색입력창에 넣은 후 검색함수를 호출한다!
 
     return (
         <>
@@ -197,17 +198,17 @@ function Search() {
                 {/* 1. 옵션선택박스 */}
                 <div className="schopt">
                     {/* 검색박스 */}
-                    <div className="searching">
+                    <div className="searchingGnb">
                         {/* 검색버튼 돋보기아이콘 */}
                         <FontAwesomeIcon
                             icon={faSearch}
-                            className="schbtn"
+                            className="schbtnGnb"
                             title="Open search"
                             onClick={schList}
                         />
                         {/* 입력창 */}
                         <input
-                            id="schin"
+                            id="schinGnb"
                             type="text"
                             placeholder="Filter by Keyword"
                             onKeyUp={enterKey}

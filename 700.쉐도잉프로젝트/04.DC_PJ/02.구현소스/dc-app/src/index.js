@@ -65,7 +65,7 @@ export default function App(){
                     <Route path="mem" element={<Member />} />
                     <Route path="login" element={<LogIn />} />
                     <Route path="det" element={<Detail />} />
-                    <Route path="sch" element={<Result />} />
+                    <Route path="res" element={<Result />} />
                </Route>
 
             </Routes>

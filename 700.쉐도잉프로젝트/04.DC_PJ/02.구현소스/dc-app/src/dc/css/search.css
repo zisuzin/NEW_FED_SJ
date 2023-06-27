@@ -2,13 +2,15 @@
 /* Search 모듈용 CSS - search.css  */
 
 /* 검색입력창 박스 */
-.searching{
+.searchingGnb {
     width: 250px;
     height: 40px;
     border-radius: 20px;
     background-color: #efefef;
     box-sizing: border-box;
     padding: 0 5px;
+    /* 처음에안보임 */
+    display: none;
 }
 .searching input{
     font-size: 15px;
