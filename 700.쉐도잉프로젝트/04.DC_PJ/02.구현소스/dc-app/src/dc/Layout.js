@@ -120,6 +120,8 @@ const Layout = () => {
                         ))}
 
                         <li style={{ marginLeft: "auto" }}>
+                            {/* 검색입력박스 */}
+                            {/* 검색기능링크 */}
                             <Link to="/sch">
                                 <FontAwesomeIcon icon={faSearch} />
                             </Link>
