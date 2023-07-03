@@ -10,6 +10,11 @@ import orgdata from "./data/data.json";
 // 반드시 바깥에서 담을것!
 let jsn = orgdata;
 
+// 제이슨 데이터 배열정렬하기 (내림차순: 최신등록순번이 1번)
+jsn.sort((x,y)=>{
+    return Number(x.idx) == Number(y.idx) ? 0 : -1;
+})
+
 // 제이쿼리 로드구역 함수 /////////
 function jqFn() {
     $(() => {}); //////// jQB ///////////
@@ -60,9 +65,9 @@ function Board() {
             if (i < totnum) {
                 blist += `
                 <tr>
-                    <td>${bdata[i]["idx"]}</td>
+                    <td>${i+1}</td>
                     <td>
-                        <a href="view.html?idx=${bdata[i]["idx"]}">
+                        <a href="view.html?idx=${i+1}">
                             ${bdata[i]["tit"]}
                         </a>
                     </td>
