@@ -65,6 +65,10 @@ const Layout = () => {
         console.log("로그아웃됨!", logSts);
     }; ////////////// logout ///////////
 
+    const rmCls = () => {
+        
+    }
+
     // 검색창 보이기 함수 ///////
     const showSearch = () => {
         // 1. a요소숨기기
@@ -93,13 +97,11 @@ const Layout = () => {
         goNav('/res',{state:{keyword:kw}})
     }; ///////////// goSearch ////////////////
 
-    // 상단메뉴 변경 함수
+    ///////// 상단메뉴 변경 함수 ///////////////
     // .top.on 이면 메뉴가 나타남!
-    const chgMenu = () => {
-        let topA = $(".top");
-        let isOn = topA.is(".on");
-        if(isOn) topA.removeClass("on");
-    }
+    const chgMenu = () => $(".top").toggleClass('on');
+
+    
 
     return (
         <>
@@ -189,7 +191,7 @@ const Layout = () => {
                         {
                             /* 로그아웃버튼은 로인인상태일때만 */
                             logSts !== null && (
-                                <li>
+                                <li onClick={rmCls}>
                                     <a href="#" onClick={logout}>
                                         LOGOUT
                                     </a>
@@ -197,6 +199,8 @@ const Layout = () => {
                             )
                         }
                     </ul>
+                    {/* 햄버거버튼 */}
+                    <button className="hambtn" onClick={chgMenu}></button>
                 </nav>
             </header>
             {/* 2. 메인영역 */}
