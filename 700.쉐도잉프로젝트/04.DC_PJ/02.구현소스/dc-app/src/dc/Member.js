@@ -1,481 +1,499 @@
-///  어떤 모듈 - 어떤.js
-import React, { useState } from "react";
+///  게시판 모듈 - Board.js
 import $ from "jquery";
-import "./css/member.css";
-import { Link, useNavigate } from "react-router-dom";
-import { clearData, initData } from "./fns/fnMem"; 
+import { useEffect, useState } from "react";
+import "./css/board.css";
+/* 제이슨 불러오기 */
+import orgdata from "./data/data.json";
 
+// 컴포넌트에서 제이슨 데이터를 담지말고
+// 반드시 바깥에서 담을것!
+// 초기데이터 처리는 로컬스 'bdata'가 있으면 로컬스를 가져오고
+// 없으면 제이슨 데이터를 사용하여 초기화한다!
+let org;
+if (localStorage.getItem("bdata")) org = JSON.parse(localStorage.getItem("bdata"));
+else org = orgdata;
 
-/* 
-    [ 후크 : Hook - 왜 필요한가? ]
-    1. 목적 - 어떤 특정 데이터가 변경될때
-        다른 것을 매칭하여 실시간으로 변경할 필요가 있을 경우
-        간단하고 효과적으로 이것을 구현해주는 방법이다!
-    2. 구현방법
-        1) 상단에 후크를 import 한다 -> useState
-        2) useState() 메서드를 사용한다
-        코드법: 
-            배열변수 = useState(초기값)
-        일반형:
-            const [변수명,set변수명] = useState(초기값)
-            -> set변수명 작성시 변수명 첫글자는 대문자로처리!
-            -> set변수명(값) : 메서드 형태로 값을 셋팅한다!(셋터와 비슷함)
-        3) 작동원리
-            - useState에 쓴 초기값이 배열변수 첫번째에 할당된다
-            - 코드에서 set변수명 에 값을 할당하면
-            useState가 이것을 체크하여 다른 변경을 
-            하도록 메서드를 실행한다!
-        4) 사용결과
-            - 별도의 메서드 호출없이 후크 상태변수를 사용한 곳이
-            자동으로 변경될때마다 다시 갱신되는 것을 확인할 수 있다!
-*/
+// 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
+org.sort((x, y) => {
+    return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
+});
 
 // 제이쿼리 로드구역 함수 /////////
 function jqFn() {
     $(() => {}); //////// jQB ///////////
 } ////////////// jQFn ///////////
 
-function Member() {
-    // 요구사항 : 각 입력항목에 맞는 유효성검사를 입력하는 순간!
-    //            실시간으로 체크하여 결과를 화면에 리턴한다!
+function Board() {
+    // Hook 변수 구역 ///////////////////////
+    // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
+    // 1. 변수에 제이슨 파일 문자화 하여 불러오기
+    // 상단에서 불러옴!
+    // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
+    const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
 
-    // [ 리액트 라우터 이동시 이동메서드 사용하기 : useNavigate ]
-    // 1. Link 를 사용한 셋팅으로 라우터를 이동하였다!
-    // -> 코드적으로 이동할때는? 바로 useNavigate
-    // 2. import 하기 : import {useNavigate} from "react-router-dom";
-    // 3. 사용법 : 
-    // 변수 = useNavigate()
-    // -> 변수(라우터경로)
+    // 현재로그인 사용자 정보
+    const [nowmem, setNowmem] = useState("");
 
-    // 라우터 이동 네비게이트 생성하기
-    const goRoute = useNavigate();
+    // 게시판 모드별 상태구분 Hook 변수만들기 ////
+    // 모드구분값 : CRUD (Create/Read/Update/Delete)
+    // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제(U에 포함!)
+    // 상태추가 : L - 글목록
+    const [bdmode, setBdmode] = useState("L");
 
-    // [ 후크 useState 메서드 셋팅하기 ]
-    // [ 1. 입력요소 후크변수 ]
-    // 1. 아이디변수
-    const [userId, setUserId] = useState("");
-    // 2. 비밀번호변수
-    const [pwd, setPwd] = useState("");
-    // 3. 비밀번호확인변수
-    const [chkPwd, setChkPwd] = useState("");
-    // 4. 사용자이름변수
-    const [userName, setUserName] = useState("");
-    // 5. 이메일변수
-    const [email, setEmail] = useState("");
+    // 로그인 상태 Hook 변수 만들기 ///
+    // 상태값 : false - 로그아웃상태 / true - 로그인상태
+    const [log, setLog] = useState(false);
 
-    // [ 2. 에러상태값 후크변수 ]
-    // -> 에러상태값변수 : 초기값은 에러 아님상태(false)
-    // 1. 아이디에러변수
-    const [userIdError, setUserIdError] = useState(false);
-    // 2. 비밀번호에러변수
-    const [pwdError, setPwdError] = useState(false);
-    // 3. 비밀번호확인에러변수
-    const [chkPwdError, setChkPwdError] = useState(false);
-    // 4. 사용자이름에러변수
-    const [userNameError, setUserNameError] = useState(false);
-    // 5. 이메일에러변수
-    const [emailError, setEmailError] = useState(false);
+    // Hook /////////////////////////////////////
 
-    // [ 아이디관련 메시지 프리셋 ]
-    const msgId = [
-        "User ID must contain a minimum of 5 characters",
-        "This ID is already in use!",
-        "That's a great ID!",
-    ];
-    // 후크변수 메시지
-    const [idMsg, setIdMsg] = useState(msgId[0]);
+    // 2. 로컬스토리지 변수를 설정하여 할당하기
+    localStorage.setItem("bdata", JSON.stringify(jsn));
+    // console.log("로컬스:", localStorage.getItem("bdata"));
 
-    // [ 로컬쓰 클리어 ] // -> fns/fnMem.js로 보냄
-    // const clearData = () => {
-    //     localStorage.clear();
-    //     console.log("로컬쓰 클리어!");
-    // }; /////////// clearData //////////////
+    // 3. 로컬스토리지 데이터를 파싱하여 게시판 리스트에 넣기
+    // 3-1. 로컬 스토리지 데이터 파싱하기
+    // let bdata = JSON.parse(localStorage.getItem("bdata"));
+    // jsn변수에 Hook 상태처리했으므로 중간 파싱에 불필요함!
 
-    // [ 로컬쓰 초기체크셋팅! ] /// -> fns/fnMem.js로 보냄
-    // const initData = () => {
+    // console.log("로컬스파싱:",bdata,
+    // "/개수:",bdata.length);
 
-    //     // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-    //     if (localStorage.getItem("mem-data") === null) {
-    //         localStorage.setItem(
-    //             "mem-data",
-    //             `
-    //                 [
-    //                     {
-    //                         "idx": "1",
-    //                         "uid":"tomtom",
-    //                         "pwd":"1111",
-    //                         "unm":"Tom",
-    //                         "eml":"tom@gmail.com"
-    //                     }
-    //                 ]
-    //             `
-    //         );
-    //     }
-    // }; ///////////// initData /////////////////
+    // 페이지번호 : 페이지단위별 순서번호
+    // let pgnum = 1; -> 함수내 전달변수로 처리!
 
-    // [ 3. 유효성 검사 메서드 ]
-    // 1. 아이디 유효성 검사
-    const changeUserId = (e) => {
-        // e - 이벤트전달변수
-        // 1. 아이디 유효성 검사식(따옴표싸지 말것!)
-        const valid = /^[A-Za-z0-9+]{5,}$/;
+    // 페이지단위수 : 한 페이지당 레코드수
+    const pgblock = 9;
 
-        // 2. 입력값 확인 : e.target -> 이벤트가 발생한 요소
-        console.log(e.target.value);
+    // 시작번호생성 : (페이지번호-1) * 페이지단위수
+    // -> (pgnum-1) * pgblock
+    // 끝번호생성 : 페이지번호 * 페이지단위수
+    // -> pgnum * pgblock
 
-        // 3. 에러아님 상태 if문
-        // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
-        // 정규식.test() -> 정규식 검사결과 리턴 메서드
-        // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)) {
-            // 로컬쓰 데이터 체크 함수호출
-            initData();
+    /******************************************* 
+        함수명: bindList
+        기능: 페이지별 리스트를 생성하여 바인딩함
+    *******************************************/
+    function bindList(pgnum) {
+        // pgnum - 페이지번호
+        // 0. 게시판 리스트 생성하기
+        let blist = "";
+        // 전체 레코드 개수
+        let totnum = jsn.length;
 
-            // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
-            let memData = localStorage.getItem("mem-data");
-            console.log("로컬쓰:", memData);
-            // 로컬쓰 null아닌경우
-            if (memData) {
-                // 로컬쓰에 기존 아이디중 있는지 확인하기
-                // 문자형데이터를 객체형 데이터로 변환(배열형!)
-                memData = JSON.parse(memData);
-                console.log("검사:", memData);
+        // 내림차순 정렬
+        jsn.sort((x, y) => {
+            return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
+        });
 
-                // 기존아이디가 있으면 상태값 false로 업데이트
-                let isOK = true;
+        // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
+        // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
+        for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
+            // 마지막 번호한계값 조건으로 마지막페이지 데이터
+            // 존재하는 데이터까지만 바인딩하기
+            // 순번은 리스트상 순서번호를 넣는다(idx아님!)
+            if (i < totnum) {
+                blist += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>
+                        <a href="#" data-idx="${jsn[i]["idx"]}">
+                            ${jsn[i]["tit"]}
+                        </a>
+                    </td>
+                    <td>${jsn[i]["writer"]}</td>
+                    <td>${jsn[i]["date"]}</td>
+                    <td>${jsn[i]["cnt"]}</td>
+                </tr>
+            `;
+            } //////////// if ////////////
+        } /////////// for 문 ///////////////
 
-                // 검사돌기!
-                memData.forEach((v) => {
-                    // 기존의 아이디와 같은 경우!
-                    if (v["uid"] === e.target.value) {
-                        console.log(v["uid"]);
-                        // 메시지변경
-                        setIdMsg(msgId[1]);
-                        // 아이디에러상태값 업데이트
-                        setUserIdError(true);
-                        // 존재여부 업데이트
-                        isOK = false;
-                    } ////// if /////
-                }); ///////// forEach //////////////
+        // console.log("코드:", blist);
 
-                // 기존아이디가 없으면 들어감!
-                if (isOK) {
-                    console.log("바깥");
-                    // 메시지변경(처음메시지로 변경)
-                    setIdMsg(msgId[0]);
-                    // 아이디에러상태값 업데이트
-                    setUserIdError(false);
-                } /////////// if : isOK /////////
-            } ///////// if ////////////////////
-            else {
-                console.log("DB가 없어욧!!!");
-            } ////////// else /////////////////
+        // 2. 리스트 코드 테이블에 넣기
+        $("#board tbody").html(blist);
 
-            // setUserIdError(false); // 에러아님상태!
-        } ////// if ///////////
-        else setUserIdError(true); // 에러상태임!
+        // 3. 페이징 블록 만들기
+        // 3-1.전체 페이지 번호수 계산하기
+        // 전체레코드수 / 페이지단위수 (나머지있으면+ 1 )
+        // 전체 레코드 수 : totnum 변수에 이미 할당
+        let pgtotal = Math.floor(totnum / pgblock);
+        let pgadd = totnum % pgblock;
+        // console.log("페이징 전체수:", pgtotal);
+        // console.log("페이징 나머지:", pgadd);
 
-        // 4. 실제 useerId 후크변수값이 업데이트 되어야 화면에 출력됨!
-        setUserId(e.target.value);
-    }; /////////////// changeUserId ////////////////
+        // 페이징코드변수
+        let pgcode = "";
 
-    // 2. 비밀번호 유효성 검사
-    const changePwd = (e) => {
-        // e - 이벤트전달변수
-        // 1. 유효성 검사식(따옴표싸지 말것!)
-        const valid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        // 3-2. 페이징코드 만들기
+        // 나머지가 있으면 1을 더함
+        if (pgadd != 0) pgtotal = pgtotal + 1;
 
-        // 2. 입력값 확인 : e.target -> 이벤트가 발생한 요소
-        console.log(e.target.value);
+        // 코드만들기 for문
+        for (let i = 1; i <= pgtotal; i++) {
+            pgcode +=
+                // 페이지번호와 i가 같으면 a링크를 만들지 않는다!
+                pgnum == i ? `<b>${i}</b>` : `<a href="#">${i}</a>`;
 
-        // 3. 에러아님 상태 if문
-        // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
-        // 정규식.test() -> 정규식 검사결과 리턴 메서드
-        // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)) setPwdError(false); // 에러아님상태!
-        else setPwdError(true); // 에러상태임!
+            // 사이구분자(마지막번호 뒤는 제외)
+            if (i != pgtotal) pgcode += " | ";
+        } /////////// for문 ///////////////
 
-        // 4. 실제 useerId 후크변수값이 업데이트 되어야 화면에 출력됨!
-        setPwd(e.target.value);
-    }; ///////////// changePwd ///////////////////
+        // console.log(pgcode);
 
-    // 3. 비밀번호 확인 유효성검사
-    const changeChkPwd = (e) => {
-        // 1. 위에 입력한 비밀번호와 일치여부
-        if (pwd === e.target.value) setChkPwdError(false); // 에러아님!
-        else setChkPwdError(true); // 에러임!
+        // 3-3. 페이징코드 넣기
+        $(".paging").html(pgcode);
 
-        // 2. 입력값 반영하기
-        setChkPwd(e.target.value);
-    }; ////////////// changeChkPwd /////////////////
+        // 3-5. 이벤트링크 생성하기
+        $(".paging a").click(function (e) {
+            // 기본이동막기
+            e.preventDefault();
+            // 바인딩함수 호출!(페이지번호 보냄)
+            bindList($(this).text());
+        }); /////////// click /////////////
 
-    // 4. 사용자이름 유효성검사
-    const changeUserName = (e) => {
-        // 1. 빈값 체크
-        if (e.target.value !== "") setUserNameError(false);
-        else setUserNameError(true);
+        // 3-6. 링크 페이지 보기 ///////////////////
+        $("#board tbody td a").click(function (e) {
+            e.preventDefault();
+            // 게시판 상태값 업데이트
+            setBdmode("R");
 
-        // 2. 입력값 반영하기
-        setUserName(e.target.value);
-    }; ////////////// changeUserName /////////////////
+            // 현재 글번호(고유값idx) 읽어오기
+            let selnum = $(this).attr("data-idx");
 
-    // 5. 이메일 유효성검사 ///////////////////////
-    const changeEmail = (e) => {
-        // 1.이메일 정규식 셋팅
-        const valid =
-            /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+            // 원본데이터에서 해당 idx데이터 찾기
+            let seldt = jsn.find((x) => {
+                if (x.idx == selnum) return true;
+            });
 
-        // 1. 이메일유효성 검사체크
-        if (valid.test(e.target.value)) setEmailError(false);
-        else setEmailError(true);
+            console.log(selnum, seldt);
 
-        // 2. 입력값 반영하기
-        setEmail(e.target.value);
-    }; ////////////// changeEmail /////////////////
+            if (seldt.writer === nowmem.uid) setWtmode(true);
+            else setWtmode(false);
 
-    // 6. 전체 유효성 검사 함수 /////////////
-    const totalValid = () => {
-        // 모든 입력창 검사(빈값일 경우 모두 에러를 후크변수에 전달!)
-        if (!userId) setUserIdError(true);
-        if (!pwd) setPwdError(true);
-        if (!chkPwd) setChkPwdError(true);
-        if (!userName) setUserNameError(true);
-        if (!email) setEmailError(true);
+            $(() => {
+                $(".readone .name").val(seldt.writer);
+                $(".readone .subject").val(seldt.tit);
+                $(".readone .content").val(seldt.cont);
+                console.log(nowmem.unm, seldt.tit);
 
-        // 통과조건:
-        // 1. 빈값이 아님
-        // 2. 에러 후크 변수가 모두 false
-        // 위의 2가지 만족시 treu값 리턴
-        if (
-            userId &&
-            pwd &&
-            chkPwd &&
-            userName &&
-            email &&
-            !userIdError &&
-            !pwdError &&
-            !chkPwdError &&
-            !userNameError &&
-            !emailError
-        )
-            return true;
-        else return false; // 하나라도 에러면  false값 리턴!
-    }; ////////////// totalValid ////////////////
+                setCurrItem([seldt.idx, seldt.writer, seldt.tit, seldt.cont]);
+            });
+        }); ///////////// click /////////////
+    } /////////////// bindList함수 ///////////////
 
-    // 7. 서브밋 기능함수 ///////////////
-    const onSubmit = (e) => {
-        // 기본 서브밋기능 막기!
+    /// 로그인 상태 체크 함수 //////////
+    const chkLogin = () => {
+        // 로컬스에 'minfo'가 있는지 체크
+        let chk = localStorage.getItem("minfo");
+        // console.log("요기:",chk);
+        // 로컬스에 셋팅했을 경우 상태Hook에 treu값 업데이트!
+        if (chk) setLog(true);
+        else setLog(false);
+
+        // 현재로그인한 맴버정보
+        if (chk) {
+            setNowmem(JSON.parse(chk));
+            console.log("현재너:", nowmem);
+        }
+    }; ////////// chkLogin /////////////
+
+    // 모드전환함수 //////////////////////
+    const chgMode = (e) => {
+        // 기본이동막기(하위a)
         e.preventDefault();
 
-        console.log("서브밋!");
+        // 하위 글자읽기
+        let txt = $(e.target).text();
+        // console.log("버튼:",txt);
 
-        // 유효성검사 전체 통과시 ////
-        if (totalValid()) {
-            // alert("처리페이지로 이동!");
+        // (1)글쓰기 버튼 클릭
+        if (txt == "Write") {
+            // 모드 상태값 업데이트
+            setBdmode("C");
 
-            // 로컬스 변수할당
-            let memData = localStorage.getItem("mem-data");
+            // console.log(nowmem.unm);
 
-            console.log(memData);
+            // 읽기전용 입력창에 기본정보 셋팅
+            $(() => {
+                $(".writeone .name").val(nowmem.unm);
+                $(".writeone .email").val(nowmem.eml);
+            });
+        }
+        // (2)리스트 버튼 클릭
+        else if (txt == "List") setBdmode("L");
+        // (3)글쓰기 모드(C)일때 실행(Submit)버튼클릭
+        else if (txt == "Submit" && bdmode == "C") {
+            // 타이틀
+            let tit = $(".writeone .subject").val();
+            // 내용
+            let cont = $(".writeone .content").val();
 
-            // 로컬스 객체로 변환하기
-            memData = JSON.parse(memData);
+            // 제목/내용 빈값 체크
+            if (tit.trim() == "" || cont.trim() == "") {
+                alert("Title and content are required");
+            }
+            // 통과시 실제 데이터 입력하기
+            else {
+                // 날짜데이터처리
+                let today = new Date();
+                let yy = today.getFullYear();
+                let mm = today.getMonth();
+                mm = mm < 10 ? "0" + mm : mm;
+                let dd = today.getDate();
+                dd = dd < 10 ? "0" + dd : dd;
 
-            console.log(memData);
+                // 1. 원본데이터 변수할당
+                let orgtemp = jsn;
 
-            // 새로운 데이터구성
-            let newObj = {
-                idx: memData.length + 1,
-                uid: userId,
-                pwd: pwd,
-                unm: userName,
-                eml: email,
-            };
+                // 2. 임시변수에 입력할 객체 데이터 생성하기
+                let temp = {
+                    idx: jsn.length + 1, // 현재개수+1
+                    tit: tit,
+                    cont: cont,
+                    att: "",
+                    date: `${yy}-${mm}-${dd}`,
+                    writer: nowmem.uid,
+                    pwd: nowmem.pwd,
+                    cnt: "1",
+                };
+                // 3. 원본임시변수에 데이터 push하기
+                orgtemp.push(temp);
 
-            // 데이터 추가하기 : 배열에 데이터 추가임 -> push()
-            memData.push(newObj);
+                // 4. Hook 관리변수에 최종 업데이트
+                setJsn(orgtemp);
 
-            // 추가후 확인
-            console.log(memData);
+                // 5. 로컬스 변수에 반영하기
+                localStorage.setItem("bdata", JSON.stringify(jsn));
 
-            // 로컬쓰에 반영하기
-            localStorage.setItem("mem-data", JSON.stringify(memData));
+                console.log(localStorage.getItem("bdata"));
 
-            // 로그인 페이지로 이동(라우터이동하기!)
-            // useNavigate 사용!
-            $(".sbtn").text("넌 이제 회원인거야~!!");
-            setTimeout(() => {
-                goRoute('/login');                
-            }, 1500);
+                // 6. 게시판 모드 업데이트('L')
+                setBdmode("L");
 
-        } /// if ////
-        // 불통과시 ////////////////
-        else {
-            // alert("입력을 수정하세요!");
-        } /// else /////
-    }; ///////////// onSubmit ////////////////
+                // 7. 리스트 바인딩호출
+                bindList(1);
+            }
+        } ////////////// 새로입력 ///////////
+
+        // 리스트 태그로딩구역에서 일괄호출!
+        // 리스트 태그가 출력되었을때 적용됨!
+        $(() => bindList(1));
+    }; ////////////// chgMode함수 ///////////////
+
+    // 로딩 체크함수 : useEffect에서 호출함! ///
+    const callFn = () => {
+        // 리스트 상태일때만 호출!
+        if (bdmode == "L") bindList(1);
+        // 로그인상태 체크함수 호출!
+        chkLogin();
+
+        // console.log("로그인:",log,"/모드:",bdmode);
+    }; ////////// callFn ///////////
+
+    // 로딩체크함수 호출!
+    useEffect(callFn, []);
 
     return (
-        <div className="outbx">
+        <>
             {/* 모듈코드 */}
-            <section className="membx">
-                <h2 onClick={clearData}>Join Us</h2>
-                <form method="post" action="process.php">
-                    <ul>
-                        <li>
-                            {/* 1.아이디 */}
-                            <label>ID : </label>
-                            <input
-                                type="text"
-                                maxLength="20"
-                                placeholder="Please enter your ID"
-                                value={userId}
-                                onChange={changeUserId}
-                            />
-                            {
-                                // 에러일 경우 메시지 보여주기
-                                // 조건문 && 요소 -> 조건이 true이면 요소출력
-                                // 훅크 데이터 idMsg로 변경출력!
-                                userIdError && (
-                                    <div className="msg">
-                                        <small style={{ color: "red", fontSize: "10px" }}>
-                                            {idMsg}
-                                        </small>
-                                    </div>
-                                )
-                            }
+            {/* 1. 게시판 리스트 : 게시판 모드 'L'일때 출력 */}
+            {bdmode == "L" && (
+                <table className="dtbl" id="board">
+                    <caption>OPINION</caption>
+                    {/* 상단 컬럼명 표시영역 */}
+                    <thead>
+                        <tr>
+                            <th>Number</th>
+                            <th>Title</th>
+                            <th>Writer</th>
+                            <th>Date</th>
+                            <th>Hits</th>
+                        </tr>
+                    </thead>
 
-                            {
-                                // "훌륭한 아이디네요"일 경우!
-                                // 아이디에러가 false일때 출력!
-                                // 고정데이터 배열 msgId 세번째값 출력
-                                // 조건추가 : userId가 입력전일때는 안보임
-                                // userId가 입력전엔 false를 리턴함!
-                                !userIdError && userId && (
-                                    <div className="msg">
-                                        <small style={{ color: "green", fontSize: "10px" }}>
-                                            {msgId[2]}
-                                        </small>
-                                    </div>
-                                )
+                    {/* 중앙 레코드 표시부분 */}
+                    <tbody>
+                        <tr>
+                            <td colSpan="5">There is no data.</td>
+                        </tr>
+                    </tbody>
 
-                                // value={userId} 값은 setUserId를 통해서만
-                                // 업데이트되어 실제화면에 반영된다!
+                    {/* 하단 페이징 표시부분 */}
+                    <tfoot>
+                        <tr>
+                            <td colSpan="5" className="paging">
+                                {/* 페이징번호 위치  */}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            )}
 
-                                // onChange={changeUserId}
-                                // -> change이벤트 발생시 changeUserId 함수호출!
-                            }
-                        </li>
-                        <li>
-                            {/* 2.비밀번호 */}
-                            <label>Password : </label>
-                            <input
-                                type="password"
-                                maxLength="20"
-                                placeholder="Please enter your Password"
-                                value={pwd}
-                                onChange={changePwd}
-                            />
-                            {
-                                // 에러일 경우 메시지 보여주기
-                                // 조건문 && 요소 -> 조건이 true이면 요소출력
-                                pwdError && (
-                                    <div className="msg">
-                                        <small style={{ color: "red", fontSize: "10px" }}>
-                                            Password must be at least 8 characters long and must
-                                            contain at least one letter and one number each.
-                                        </small>
-                                    </div>
-                                )
-                            }
-                        </li>
-                        <li>
-                            {/* 3.비밀번호확인 */}
-                            <label>Confirm password : </label>
-                            <input
-                                type="password"
-                                maxLength="20"
-                                placeholder="Please enter your Confirm Password"
-                                value={chkPwd}
-                                onChange={changeChkPwd}
-                            />
-                            {
-                                // 에러일 경우 메시지 보여주기
-                                // 조건문 && 요소 -> 조건이 true이면 요소출력
-                                chkPwdError && (
-                                    <div className="msg">
-                                        <small style={{ color: "red", fontSize: "10px" }}>
-                                            Password verification does not match
-                                        </small>
-                                    </div>
-                                )
-                            }
-                        </li>
-                        <li>
-                            {/* 4.이름 */}
-                            <label>User Name : </label>
-                            <input
-                                type="text"
-                                maxLength="20"
-                                placeholder="Please enter your Name"
-                                value={userName}
-                                onChange={changeUserName}
-                            />
-                            {
-                                // 에러일 경우 메시지 보여주기
-                                // 조건문 && 요소 -> 조건이 true이면 요소출력
-                                userNameError && (
-                                    <div className="msg">
-                                        <small style={{ color: "red", fontSize: "10px" }}>
-                                            This is a required entry
-                                        </small>
-                                    </div>
-                                )
-                            }
-                        </li>
-                        <li>
-                            {/* 5.이메일 */}
-                            <label>Email : </label>
-                            <input
-                                type="text"
-                                maxLength="50"
-                                placeholder="Please enter your Email"
-                                value={email}
-                                onChange={changeEmail}
-                            />
-                            {
-                                // 에러일 경우 메시지 보여주기
-                                // 조건문 && 요소 -> 조건이 true이면 요소출력
-                                emailError && (
-                                    <div className="msg">
-                                        <small style={{ color: "red", fontSize: "10px" }}>
-                                            Please enter a valid email format
-                                        </small>
-                                    </div>
-                                )
-                            }
-                        </li>
-                        <li style={{ overflow: "hidden" }}>
-                            {/* 6.버튼 */}
-                            <button className="sbtn" onClick={onSubmit}>
-                                Submit
-                            </button>
-                            {/* input submit버튼이 아니어도 form요소
-                            내부의 button은 submit기능이 있다! */}
-                        </li>
-                        <li>
-                            {/* 7.로그인페이지링크 */}
-                            Are you already a member?
-                            <Link to="/login"> Log In </Link>
-                        </li>
-                    </ul>
-                </form>
-            </section>
+            {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
+            {bdmode == "C" && (
+                <table className="dtblview writeone">
+                    <caption>OPINION : Write</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">Name</td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <input type="text" className="email" size="40" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
 
+            {/* 3. 읽기 테이블 : 게시판 모드 'R'일때만 출력 */}
+            {bdmode == "R" && (
+                <table className="dtblview readone">
+                    <caption>OPINION : Read</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">Name</td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <input type="text" className="subject" size="60" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea
+                                    className="content"
+                                    cols="60"
+                                    rows="10"
+                                    readOnly></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+            {/* 4. 수정(삭제) 테이블 : 게시판 모드 'U'일때만 출력 */}
+            {bdmode == "U" && (
+                <table className="dtblview updateone">
+                    <caption>OPINION : Modify</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">Name</td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+
+            <br />
+            {/* 버튼 그룹박스 */}
+            <table className="dtbl btngrp">
+                <tbody>
+                    <tr>
+                        <td>
+                            {
+                                // 리스트모드(L)
+                                bdmode == "L" && log && (
+                                    <>
+                                        <button onClick={chgMode}>
+                                            <a href="#">Write</a>
+                                        </button>
+                                    </>
+                                )
+                            }
+                            {
+                                // 글쓰기모드(C) : 서브밋 + 리스트버튼
+                                bdmode == "C" && (
+                                    <>
+                                        <button onClick={chgMode}>
+                                            <a href="#">Submit</a>
+                                        </button>
+                                        <button onClick={chgMode}>
+                                            <a href="#">List</a>
+                                        </button>
+                                    </>
+                                )
+                            }
+                            {
+                                // 읽기모드(R) : 리스트
+                                bdmode == "R" && (
+                                    <>
+                                        <button onClick={chgMode}>
+                                            <a href="#">List</a>
+                                        </button>
+                                    </>
+                                )
+                            }
+                            {
+                                // 읽기모드(R + wtmode가 true) : 
+                                // 수정모드버튼
+                                bdmode == "R" && wtmode && (
+                                    <>
+                                        <button onClick={chgMode}>
+                                            <a href="#">Modify</a>
+                                        </button>
+                                    </>
+                                )
+                            }
+                            {
+                                // 수정모드(U) : 서브밋 + 삭제 + 리스트버튼
+                                bdmode == "U" && (
+                                    <>
+                                        <button onClick={chgMode}>
+                                            <a href="#">Submit</a>
+                                        </button>
+                                        <button onClick={chgMode}>
+                                            <a href="#">Delete</a>
+                                        </button>
+                                        <button onClick={chgMode}>
+                                            <a href="#">List</a>
+                                        </button>
+                                    </>
+                                )
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             {/* 빈루트를 만들고 JS로드함수포함 */}
             {jqFn()}
-        </div>
+        </>
     );
 }
 
-export default Member;
+export default Board;
