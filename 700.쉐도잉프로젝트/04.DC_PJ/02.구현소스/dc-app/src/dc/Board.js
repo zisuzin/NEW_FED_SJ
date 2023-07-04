@@ -24,6 +24,22 @@ function jqFn() {
 } ////////////// jQFn ///////////
 
 function Board() {
+    // 쓰기버튼 출력여부상태 : 로그인사용자와 글작성자 일치시 true
+    const [wtmode,setWtmode] = useState(false);
+
+    // 수정모드에서 현재글 정보 셋팅하기
+    const [currItem,setCurrItem] = useState([]);
+
+    // Hook 변수 구역 ///////////////////////
+    // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
+    // 1. 변수에 제이슨 파일 문자화 하여 불러오기
+    // 상단에서 불러옴!
+    // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
+    const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
+
+    // 현재로그인 사용자 정보
+    const [nowmem, setNowmem] = useState(JSON.parse(localStorage.getItem("minfo")));
+
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
     // 모드구분값 : CRUD (Create/Read/Update/Delete)
     // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제(U에 포함!)
@@ -34,11 +50,7 @@ function Board() {
     // 상태값 : false - 로그아웃상태 / true - 로그인상태
     const [log, setLog] = useState(false);
 
-    // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
-    // 1. 변수에 제이슨 파일 문자화 하여 불러오기
-    // 상단에서 불러옴!
-    // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
-    const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
+    // Hook /////////////////////////////////////
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
     localStorage.setItem("bdata", JSON.stringify(jsn));
@@ -145,10 +157,38 @@ function Board() {
             // 바인딩함수 호출!(페이지번호 보냄)
             bindList($(this).text());
         }); /////////// click /////////////
-    } /////////////// bindList함수 ///////////////
 
-    // 현재로그인 사용자 정보
-    const [nowmem, setNowmem] = useState("");
+        // 3-6. 링크 페이지 보기 ///////////////////
+        $("#board tbody td a").click(function (e) {
+            e.preventDefault();
+            // 게시판 상태값 업데이트
+            setBdmode("R");
+
+            // 현재 글번호(고유값idx) 읽어오기
+            let selnum = $(this).attr("data-idx");
+
+            // 원본데이터에서 해당 idx데이터 찾기
+            let seldt = jsn.find((x) => {
+                if (x.idx == selnum) return true;
+            });
+
+            console.log(selnum, seldt);
+
+            // 글쓴이(seldt.writer)와 현재로그인한이(nowmen)
+
+            if (seldt.writer === nowmem.uid) setWtmode(true);
+            else setWtmode(false);
+
+            $(() => {
+                $(".readone .name").val(seldt.writer);
+                $(".readone .subject").val(seldt.tit);
+                $(".readone .content").val(seldt.cont);
+                console.log(nowmem.unm, seldt.tit);
+
+                setCurrItem([seldt.idx, seldt.writer, seldt.tit, seldt.cont]);
+            });
+        }); ///////////// click /////////////
+    } /////////////// bindList함수 ///////////////
 
     /// 로그인 상태 체크 함수 //////////
     const chkLogin = () => {
@@ -239,6 +279,8 @@ function Board() {
                 // 6. 게시판 모드 업데이트('L')
                 setBdmode("L");
 
+
+
                 // 7. 리스트 바인딩호출
                 bindList(1);
             }
@@ -253,6 +295,7 @@ function Board() {
     const callFn = () => {
         // 리스트 상태일때만 호출!
         if (bdmode == "L") bindList(1);
+        
         // 로그인상태 체크함수 호출!
         chkLogin();
 
@@ -331,6 +374,65 @@ function Board() {
                 </table>
             )}
 
+            {/* 3. 읽기 테이블 : 게시판 모드 'R'일때만 출력 */}
+            {bdmode == "R" && (
+                <table className="dtblview readone">
+                    <caption>OPINION : Read</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">Name</td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <input type="text" className="subject" size="60" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea
+                                    className="content"
+                                    cols="60"
+                                    rows="10"
+                                    readOnly></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+            {/* 4. 수정(삭제) 테이블 : 게시판 모드 'U'일때만 출력 */}
+            {bdmode == "U" && (
+                <table className="dtblview updateone">
+                    <caption>OPINION : Modify</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">Name</td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+
+            
+
             <br />
             {/* 버튼 그룹박스 */}
             <table className="dtbl btngrp">
@@ -361,12 +463,20 @@ function Board() {
                                 )
                             }
                             {
-                                // 읽기모드(R) : 리스트 + 수정모드버튼
+                                // 읽기모드(R) : 리스트
                                 bdmode == "R" && (
                                     <>
                                         <button onClick={chgMode}>
                                             <a href="#">List</a>
                                         </button>
+                                    </>
+                                )
+                            }
+                            {
+                                // 읽기모드(R + wtmode가 true) : 
+                                // 수정모드버튼
+                                bdmode == "R" && wtmode && (
+                                    <>
                                         <button onClick={chgMode}>
                                             <a href="#">Modify</a>
                                         </button>
